@@ -1,0 +1,14 @@
+{
+  "global": {
+    "parseVersion": "latest"
+  },
+  "applications": {
+    "WeHeartBeer": {
+      "applicationId": "lBmXbUgIiDm4hyZZIdhc2BKujcd1mo3PxAJRw7aH",
+      "masterKey": "V93Rwl7hQbkF7XQq8IyUenz2LBXFI4tQJMT1eT4m"
+    },
+    "_default": {
+      "link": "WeHeartBeer"
+    }
+  }
+}

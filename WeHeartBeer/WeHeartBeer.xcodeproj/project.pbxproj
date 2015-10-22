@@ -16,6 +16,7 @@
 		8518D1561BD7B7BD00499ACA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8518D1541BD7B7BD00499ACA /* LaunchScreen.storyboard */; };
 		8518D1611BD7B7BD00499ACA /* WeHeartBeerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8518D1601BD7B7BD00499ACA /* WeHeartBeerTests.swift */; };
 		8518D16C1BD7B7BD00499ACA /* WeHeartBeerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8518D16B1BD7B7BD00499ACA /* WeHeartBeerUITests.swift */; };
+		8519CBB11BD9104300DB6B67 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8519CBB01BD9104300DB6B67 /* Parse.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,7 @@
 		8518D1671BD7B7BD00499ACA /* WeHeartBeerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WeHeartBeerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8518D16B1BD7B7BD00499ACA /* WeHeartBeerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeHeartBeerUITests.swift; sourceTree = "<group>"; };
 		8518D16D1BD7B7BD00499ACA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8519CBB01BD9104300DB6B67 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +60,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8519CBB11BD9104300DB6B67 /* Parse.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -94,6 +97,7 @@
 				8518D15F1BD7B7BD00499ACA /* WeHeartBeerTests */,
 				8518D16A1BD7B7BD00499ACA /* WeHeartBeerUITests */,
 				8518D1461BD7B7BD00499ACA /* Products */,
+				8519CBB01BD9104300DB6B67 /* Parse.framework */,
 			);
 			sourceTree = "<group>";
 		};
@@ -415,6 +419,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = WeHeartBeer/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = bepid.WeHeartBeer;
@@ -426,6 +434,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = WeHeartBeer/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = bepid.WeHeartBeer;
