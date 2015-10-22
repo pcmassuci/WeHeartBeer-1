@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		63F668AC1BD9165800172050 /* ChallengeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63F668AB1BD9165800172050 /* ChallengeVC.swift */; settings = {ASSET_TAGS = (); }; };
 		8518D1491BD7B7BD00499ACA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8518D1481BD7B7BD00499ACA /* AppDelegate.swift */; };
 		8518D14B1BD7B7BD00499ACA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8518D14A1BD7B7BD00499ACA /* ViewController.swift */; };
 		8518D14E1BD7B7BD00499ACA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8518D14C1BD7B7BD00499ACA /* Main.storyboard */; };
@@ -35,6 +36,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		63F668AB1BD9165800172050 /* ChallengeVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ChallengeVC.swift; path = WeHeartBeer/ChallengeVC.swift; sourceTree = "<group>"; };
 		8518D1451BD7B7BD00499ACA /* WeHeartBeer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeHeartBeer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8518D1481BD7B7BD00499ACA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8518D14A1BD7B7BD00499ACA /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -76,6 +78,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		63F668AA1BD915F400172050 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				63F668AB1BD9165800172050 /* ChallengeVC.swift */,
+			);
+			name = Controllers;
+			path = ..;
+			sourceTree = "<group>";
+		};
 		8518D13C1BD7B7BC00499ACA = {
 			isa = PBXGroup;
 			children = (
@@ -99,6 +110,7 @@
 		8518D1471BD7B7BD00499ACA /* WeHeartBeer */ = {
 			isa = PBXGroup;
 			children = (
+				63F668AA1BD915F400172050 /* Controllers */,
 				8518D1481BD7B7BD00499ACA /* AppDelegate.swift */,
 				8518D14A1BD7B7BD00499ACA /* ViewController.swift */,
 				8518D14C1BD7B7BD00499ACA /* Main.storyboard */,
@@ -258,6 +270,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				63F668AC1BD9165800172050 /* ChallengeVC.swift in Sources */,
 				8518D1511BD7B7BD00499ACA /* WeHeartBeer.xcdatamodeld in Sources */,
 				8518D14B1BD7B7BD00499ACA /* ViewController.swift in Sources */,
 				8518D1491BD7B7BD00499ACA /* AppDelegate.swift in Sources */,

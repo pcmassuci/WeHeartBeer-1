@@ -10,6 +10,12 @@ import UIKit
 
 class ChallengeVC: UIViewController {
 
+    @IBOutlet weak var challengeImage: UIImageView!
+    @IBOutlet weak var challengeTitle: UILabel!
+    @IBOutlet weak var challengeDescription: UILabel!
+    @IBOutlet weak var challengeProfile: UIButton!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -20,6 +26,9 @@ class ChallengeVC: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    
+    
     
 
     /*
