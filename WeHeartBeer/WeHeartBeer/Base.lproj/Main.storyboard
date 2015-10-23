@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="7Kz-mP-eSq">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9059" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="7Kz-mP-eSq">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -50,7 +50,7 @@
         <!--Item 1-->
         <scene sceneID="mlu-hM-Dmy">
             <objects>
-                <viewController id="1ah-76-8S6" sceneMemberID="viewController">
+                <viewController id="1ah-76-8S6" customClass="Homepage" customModule="WeHeartBeer" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="KcG-9G-QfJ"/>
                         <viewControllerLayoutGuide type="bottom" id="sTq-MP-w4J"/>
@@ -59,11 +59,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5HM-Tq-RSG">
-                                <rect key="frame" x="-23" y="-20" width="443" height="791"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5HM-Tq-RSG">
+                                <rect key="frame" x="-23" y="-20" width="1212" height="283"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Logo" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KGs-Wa-bgV">
-                                        <rect key="frame" x="43" y="20" width="354" height="47"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Logo" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KGs-Wa-bgV">
+                                        <rect key="frame" x="0.0" y="0.0" width="87" height="283"/>
                                         <animations/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="87" id="5HX-h4-Oll"/>
@@ -82,8 +82,8 @@
                                             </mask>
                                         </variation>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Featured" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YYu-H8-ZGg">
-                                        <rect key="frame" x="49" y="75" width="354" height="47"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Featured" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YYu-H8-ZGg">
+                                        <rect key="frame" x="87" y="0.0" width="152" height="283"/>
                                         <animations/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="153" id="9xE-cu-Nzv"/>
@@ -102,8 +102,8 @@
                                             </mask>
                                         </variation>
                                     </label>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="fHt-cg-zjj">
-                                        <rect key="frame" x="23" y="138" width="400" height="275"/>
+                                    <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fHt-cg-zjj">
+                                        <rect key="frame" x="239" y="0.0" width="400" height="283"/>
                                         <animations/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="275" id="bKq-mc-Ohr"/>
@@ -119,8 +119,8 @@
                                             </mask>
                                         </variation>
                                     </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Challenge" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2jm-bd-Rq3">
-                                        <rect key="frame" x="43" y="427" width="354" height="47"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Challenge" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2jm-bd-Rq3">
+                                        <rect key="frame" x="639" y="0.0" width="174" height="283"/>
                                         <animations/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="174" id="wRE-73-lTi"/>
@@ -139,26 +139,52 @@
                                             </mask>
                                         </variation>
                                     </label>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="qNt-ch-jXF">
-                                        <rect key="frame" x="20" y="488" width="400" height="283"/>
+                                    <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qNt-ch-jXF">
+                                        <rect key="frame" x="812" y="0.0" width="400" height="283"/>
                                         <animations/>
+                                        <color key="backgroundColor" red="0.054651835980000001" green="0.6047190657" blue="0.60343686600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="283" id="ALp-hG-Mul"/>
+                                            <constraint firstAttribute="width" constant="402" id="eee-iv-OfT"/>
+                                        </constraints>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="ALp-hG-Mul"/>
+                                                <exclude reference="eee-iv-OfT"/>
+                                            </mask>
+                                        </variation>
+                                        <variation key="heightClass=regular-widthClass=compact">
+                                            <mask key="constraints">
+                                                <include reference="ALp-hG-Mul"/>
+                                                <include reference="eee-iv-OfT"/>
+                                            </mask>
+                                        </variation>
                                     </imageView>
                                 </subviews>
                                 <animations/>
                                 <constraints>
                                     <constraint firstItem="qNt-ch-jXF" firstAttribute="leading" secondItem="5HM-Tq-RSG" secondAttribute="leading" id="Ohg-Xj-u2W"/>
+                                    <constraint firstItem="qNt-ch-jXF" firstAttribute="leading" secondItem="5HM-Tq-RSG" secondAttribute="leading" id="bub-P4-yjk"/>
+                                    <constraint firstItem="qNt-ch-jXF" firstAttribute="top" secondItem="2jm-bd-Rq3" secondAttribute="bottom" id="dKN-1Z-ReB"/>
                                     <constraint firstItem="qNt-ch-jXF" firstAttribute="leading" secondItem="fHt-cg-zjj" secondAttribute="leading" id="hIm-Bm-4cQ"/>
+                                    <constraint firstAttribute="trailing" secondItem="qNt-ch-jXF" secondAttribute="trailing" id="qol-lh-td6"/>
                                 </constraints>
                                 <variation key="default">
                                     <mask key="constraints">
                                         <exclude reference="Ohg-Xj-u2W"/>
+                                        <exclude reference="bub-P4-yjk"/>
+                                        <exclude reference="dKN-1Z-ReB"/>
                                         <exclude reference="hIm-Bm-4cQ"/>
+                                        <exclude reference="qol-lh-td6"/>
                                     </mask>
                                 </variation>
                                 <variation key="heightClass=regular-widthClass=compact" alignment="center" axis="vertical">
                                     <mask key="constraints">
                                         <include reference="Ohg-Xj-u2W"/>
+                                        <include reference="bub-P4-yjk"/>
+                                        <include reference="dKN-1Z-ReB"/>
                                         <include reference="hIm-Bm-4cQ"/>
+                                        <include reference="qol-lh-td6"/>
                                     </mask>
                                 </variation>
                             </stackView>
@@ -190,7 +216,8 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Item 1" id="AN5-iw-E77"/>
                     <connections>
-                        <segue destination="MDe-Oa-RwL" kind="show" id="N2v-wG-3mq"/>
+                        <outlet property="challengeImage" destination="qNt-ch-jXF" id="Fjw-ID-QaA"/>
+                        <segue destination="MDe-Oa-RwL" kind="show" identifier="challengeSegue" id="N2v-wG-3mq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Fff-C1-tOW" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -215,6 +242,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oVW-v0-aDM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-2262" y="318.75"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="eAe-XH-HaZ">
+            <objects>
+                <viewController id="Y6z-p5-dK2" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="GOa-mz-T2x"/>
+                        <viewControllerLayoutGuide type="bottom" id="z7k-Oh-5A6"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="UNY-ej-GiB">
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="AxO-6R-iT0" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-76.5" y="-329.25"/>
         </scene>
         <!--ChallengeVC-->
         <scene sceneID="wVK-GP-nfL">
@@ -259,7 +304,7 @@
                                 <rect key="frame" x="-42" y="-21" width="42" height="21"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                                 <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
                                     <rect key="frame" x="19" y="435" width="363" height="265"/>
@@ -305,7 +350,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="X2X-h1-cFu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-514.5" y="-4.5"/>
+            <point key="canvasLocation" x="-76.5" y="373.5"/>
         </scene>
     </scenes>
 </document>
