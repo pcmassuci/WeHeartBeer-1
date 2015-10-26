@@ -1,4 +1,5 @@
-var user = Parse.Object.extend("user")
-var beer = Parse.Object.extend("beer")
+var user = Parse.Object.extend("User")
+var beer = Parse.Object.extend("Beer")
+var trophy = Parse.Object.extend("Trophy")
 
 ////////// USER ///////////////////
