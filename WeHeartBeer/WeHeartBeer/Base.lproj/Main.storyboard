@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9059" systemVersion="14F1021" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="7Kz-mP-eSq">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="7Kz-mP-eSq">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
     </dependencies>
     <scenes>
         <!--Item 2-->
@@ -49,7 +49,7 @@
         <!--Item 1-->
         <scene sceneID="mlu-hM-Dmy">
             <objects>
-                <viewController id="1ah-76-8S6" customClass="Homepage" customModule="WeHeartBeer" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="1ah-76-8S6" customClass="HomepageVC" customModule="WeHeartBeer" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="KcG-9G-QfJ"/>
                         <viewControllerLayoutGuide type="bottom" id="sTq-MP-w4J"/>
@@ -58,7 +58,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Featured" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YYu-H8-ZGg">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Featured" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YYu-H8-ZGg">
                                 <rect key="frame" x="87" y="0.0" width="152" height="283"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="39"/>
@@ -68,7 +68,7 @@
                                     <rect key="frame" x="124" y="59" width="152" height="47"/>
                                 </variation>
                             </label>
-                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fHt-cg-zjj">
+                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="fHt-cg-zjj">
                                 <rect key="frame" x="239" y="0.0" width="400" height="283"/>
                                 <animations/>
                                 <color key="backgroundColor" red="0.18823529410000001" green="0.72941176470000002" blue="0.68627450980000004" alpha="1" colorSpace="calibratedRGB"/>
@@ -76,7 +76,7 @@
                                     <rect key="frame" x="0.0" y="114" width="402" height="275"/>
                                 </variation>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Challenge" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2jm-bd-Rq3" userLabel="challengeLabel">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Challenge" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2jm-bd-Rq3" userLabel="challengeLabel">
                                 <rect key="frame" x="639" y="0.0" width="174" height="283"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="39"/>
@@ -86,15 +86,7 @@
                                     <rect key="frame" x="114" y="413" width="174" height="47"/>
                                 </variation>
                             </label>
-                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qNt-ch-jXF" userLabel="challengeImage">
-                                <rect key="frame" x="812" y="0.0" width="400" height="283"/>
-                                <animations/>
-                                <color key="backgroundColor" red="0.054651835980000001" green="0.6047190657" blue="0.60343686600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="2" y="468" width="400" height="283"/>
-                                </variation>
-                            </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Logo" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KGs-Wa-bgV">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Logo" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KGs-Wa-bgV">
                                 <rect key="frame" x="0.0" y="0.0" width="87" height="283"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="39"/>
@@ -104,6 +96,14 @@
                                     <rect key="frame" x="0.0" y="0.0" width="400" height="47"/>
                                 </variation>
                             </label>
+                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="qNt-ch-jXF" userLabel="challengeLink">
+                                <rect key="frame" x="812" y="0.0" width="400" height="283"/>
+                                <animations/>
+                                <color key="backgroundColor" red="0.054651835980000001" green="0.6047190657" blue="0.60343686600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="2" y="468" width="400" height="283"/>
+                                </variation>
+                            </imageView>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -112,8 +112,8 @@
                                 <exclude reference="YYu-H8-ZGg"/>
                                 <exclude reference="fHt-cg-zjj"/>
                                 <exclude reference="2jm-bd-Rq3"/>
-                                <exclude reference="qNt-ch-jXF"/>
                                 <exclude reference="KGs-Wa-bgV"/>
+                                <exclude reference="qNt-ch-jXF"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
@@ -121,14 +121,14 @@
                                 <include reference="YYu-H8-ZGg"/>
                                 <include reference="fHt-cg-zjj"/>
                                 <include reference="2jm-bd-Rq3"/>
-                                <include reference="qNt-ch-jXF"/>
                                 <include reference="KGs-Wa-bgV"/>
+                                <include reference="qNt-ch-jXF"/>
                             </mask>
                         </variation>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item 1" id="AN5-iw-E77"/>
                     <connections>
-                        <outlet property="challengeImage" destination="qNt-ch-jXF" id="Fjw-ID-QaA"/>
+                        <outlet property="challengeLink" destination="qNt-ch-jXF" id="EyH-dU-v24"/>
                         <segue destination="MDe-Oa-RwL" kind="show" identifier="challengeSegue" id="N2v-wG-3mq"/>
                     </connections>
                 </viewController>
@@ -196,7 +196,7 @@
                                     <rect key="frame" x="20" y="0.0" width="354" height="47"/>
                                 </variation>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="IYt-aL-hIQ">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="IYt-aL-hIQ" userLabel="challengeImage">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                 <animations/>
                                 <color key="backgroundColor" red="0.18823529410000001" green="0.72941176470000002" blue="0.68627450980000004" alpha="1" colorSpace="calibratedRGB"/>
@@ -204,7 +204,7 @@
                                     <rect key="frame" x="0.0" y="55" width="400" height="317"/>
                                 </variation>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Challenge" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xXC-A7-xzW">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Challenge" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xXC-A7-xzW" userLabel="challengeName">
                                 <rect key="frame" x="-42" y="-21" width="42" height="21"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="39"/>
@@ -214,7 +214,7 @@
                                     <rect key="frame" x="23" y="380" width="354" height="47"/>
                                 </variation>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DESCRIÇÃO" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bqT-N1-0WV">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DESCRIÇÃO" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bqT-N1-0WV" userLabel="challengeDescription">
                                 <rect key="frame" x="-42" y="-21" width="42" height="21"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -224,13 +224,16 @@
                                     <rect key="frame" x="19" y="435" width="363" height="265"/>
                                 </variation>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5no-rE-ZqS">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5no-rE-ZqS" userLabel="challengeFb">
                                 <rect key="frame" x="-23" y="-15" width="46" height="30"/>
                                 <animations/>
                                 <state key="normal" title="Button"/>
                                 <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
                                     <rect key="frame" x="135" y="590" width="130" height="51"/>
                                 </variation>
+                                <connections>
+                                    <action selector="challengeFb:" destination="MDe-Oa-RwL" eventType="touchUpInside" id="YXf-EB-wyC"/>
+                                </connections>
                             </button>
                         </subviews>
                         <animations/>
@@ -257,8 +260,8 @@
                     <navigationItem key="navigationItem" id="oqQ-fX-6wi"/>
                     <connections>
                         <outlet property="challengeDescription" destination="bqT-N1-0WV" id="JsC-3l-Iot"/>
+                        <outlet property="challengeFb" destination="5no-rE-ZqS" id="duA-S7-HK2"/>
                         <outlet property="challengeImage" destination="IYt-aL-hIQ" id="f9T-d1-tG9"/>
-                        <outlet property="challengeProfile" destination="5no-rE-ZqS" id="zg6-bQ-2pv"/>
                         <outlet property="challengeTitle" destination="xXC-A7-xzW" id="ltj-QJ-QpB"/>
                     </connections>
                 </viewController>

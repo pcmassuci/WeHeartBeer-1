@@ -8,17 +8,17 @@
 
 import UIKit
 
-class Homepage: UIViewController {
+class HomepageVC: UIViewController {
 
-    @IBOutlet var challengeImage: UIImageView!
+    @IBOutlet var challengeLink: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         
-        let gesture = UITapGestureRecognizer(target: self, action: "challengeImageClicked")
+        let gesture = UITapGestureRecognizer(target: self, action: "challengeLinkClicked")
         
-        self.challengeImage.addGestureRecognizer(gesture)
+        self.challengeLink.addGestureRecognizer(gesture)
         
         // Do any additional setup after loading the view.
     }
@@ -39,7 +39,7 @@ class Homepage: UIViewController {
     }
     */
     
-    func challengeImageClicked(){
+    func challengeLinkClicked(){
         performSegueWithIdentifier("challengeSegue", sender: nil)
     }
     

@@ -17,7 +17,7 @@
 		8518D1611BD7B7BD00499ACA /* WeHeartBeerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8518D1601BD7B7BD00499ACA /* WeHeartBeerTests.swift */; };
 		8518D16C1BD7B7BD00499ACA /* WeHeartBeerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8518D16B1BD7B7BD00499ACA /* WeHeartBeerUITests.swift */; };
 		8519CBB11BD9104300DB6B67 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8519CBB01BD9104300DB6B67 /* Parse.framework */; };
-		D2526D7B1BDA56C9003953F9 /* Homepage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2526D7A1BDA56C9003953F9 /* Homepage.swift */; };
+		D2526D7B1BDA56C9003953F9 /* HomepageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2526D7A1BDA56C9003953F9 /* HomepageVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,7 +54,7 @@
 		8518D16B1BD7B7BD00499ACA /* WeHeartBeerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeHeartBeerUITests.swift; sourceTree = "<group>"; };
 		8518D16D1BD7B7BD00499ACA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8519CBB01BD9104300DB6B67 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
-		D2526D7A1BDA56C9003953F9 /* Homepage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Homepage.swift; path = WeHeartBeer/Homepage.swift; sourceTree = "<group>"; };
+		D2526D7A1BDA56C9003953F9 /* HomepageVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HomepageVC.swift; path = WeHeartBeer/HomepageVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,7 +87,7 @@
 			isa = PBXGroup;
 			children = (
 				63F668AB1BD9165800172050 /* ChallengeVC.swift */,
-				D2526D7A1BDA56C9003953F9 /* Homepage.swift */,
+				D2526D7A1BDA56C9003953F9 /* HomepageVC.swift */,
 			);
 			name = Controllers;
 			path = ..;
@@ -280,7 +280,7 @@
 				63F668AC1BD9165800172050 /* ChallengeVC.swift in Sources */,
 				8518D1511BD7B7BD00499ACA /* WeHeartBeer.xcdatamodeld in Sources */,
 				8518D14B1BD7B7BD00499ACA /* ViewController.swift in Sources */,
-				D2526D7B1BDA56C9003953F9 /* Homepage.swift in Sources */,
+				D2526D7B1BDA56C9003953F9 /* HomepageVC.swift in Sources */,
 				8518D1491BD7B7BD00499ACA /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
