@@ -17,6 +17,8 @@
 		8518D1611BD7B7BD00499ACA /* WeHeartBeerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8518D1601BD7B7BD00499ACA /* WeHeartBeerTests.swift */; };
 		8518D16C1BD7B7BD00499ACA /* WeHeartBeerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8518D16B1BD7B7BD00499ACA /* WeHeartBeerUITests.swift */; };
 		8519CBB11BD9104300DB6B67 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8519CBB01BD9104300DB6B67 /* Parse.framework */; };
+		D20F7FAF1BE1D74A007D015D /* Interest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20F7FAE1BE1D74A007D015D /* Interest.swift */; };
+		D20F7FB31BE1DAE9007D015D /* InterestCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20F7FB21BE1DAE9007D015D /* InterestCollectionViewCell.swift */; };
 		D2526D7B1BDA56C9003953F9 /* HomepageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2526D7A1BDA56C9003953F9 /* HomepageVC.swift */; };
 /* End PBXBuildFile section */
 
@@ -53,7 +55,9 @@
 		8518D1671BD7B7BD00499ACA /* WeHeartBeerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WeHeartBeerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8518D16B1BD7B7BD00499ACA /* WeHeartBeerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeHeartBeerUITests.swift; sourceTree = "<group>"; };
 		8518D16D1BD7B7BD00499ACA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		8519CBB01BD9104300DB6B67 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
+		8519CBB01BD9104300DB6B67 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Parse.framework; path = ../Parse.framework; sourceTree = "<group>"; };
+		D20F7FAE1BE1D74A007D015D /* Interest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Interest.swift; sourceTree = "<group>"; };
+		D20F7FB21BE1DAE9007D015D /* InterestCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InterestCollectionViewCell.swift; sourceTree = "<group>"; };
 		D2526D7A1BDA56C9003953F9 /* HomepageVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HomepageVC.swift; path = WeHeartBeer/HomepageVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -88,6 +92,7 @@
 			children = (
 				63F668AB1BD9165800172050 /* ChallengeVC.swift */,
 				D2526D7A1BDA56C9003953F9 /* HomepageVC.swift */,
+				D20F7FB21BE1DAE9007D015D /* InterestCollectionViewCell.swift */,
 			);
 			name = Controllers;
 			path = ..;
@@ -100,7 +105,6 @@
 				8518D15F1BD7B7BD00499ACA /* WeHeartBeerTests */,
 				8518D16A1BD7B7BD00499ACA /* WeHeartBeerUITests */,
 				8518D1461BD7B7BD00499ACA /* Products */,
-				8519CBB01BD9104300DB6B67 /* Parse.framework */,
 			);
 			sourceTree = "<group>";
 		};
@@ -117,12 +121,13 @@
 		8518D1471BD7B7BD00499ACA /* WeHeartBeer */ = {
 			isa = PBXGroup;
 			children = (
+				D286638B1BE07D9B002CE6F2 /* Frameworks */,
+				D28663891BE07D31002CE6F2 /* Model */,
+				D286638A1BE07D3E002CE6F2 /* View */,
 				63F668AA1BD915F400172050 /* Controllers */,
 				8518D1481BD7B7BD00499ACA /* AppDelegate.swift */,
 				8518D14A1BD7B7BD00499ACA /* ViewController.swift */,
-				8518D14C1BD7B7BD00499ACA /* Main.storyboard */,
 				8518D1521BD7B7BD00499ACA /* Assets.xcassets */,
-				8518D1541BD7B7BD00499ACA /* LaunchScreen.storyboard */,
 				8518D1571BD7B7BD00499ACA /* Info.plist */,
 				8518D14F1BD7B7BD00499ACA /* WeHeartBeer.xcdatamodeld */,
 			);
@@ -145,6 +150,31 @@
 				8518D16D1BD7B7BD00499ACA /* Info.plist */,
 			);
 			path = WeHeartBeerUITests;
+			sourceTree = "<group>";
+		};
+		D28663891BE07D31002CE6F2 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				D20F7FAE1BE1D74A007D015D /* Interest.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		D286638A1BE07D3E002CE6F2 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				8518D14C1BD7B7BD00499ACA /* Main.storyboard */,
+				8518D1541BD7B7BD00499ACA /* LaunchScreen.storyboard */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		D286638B1BE07D9B002CE6F2 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8519CBB01BD9104300DB6B67 /* Parse.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -278,10 +308,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				63F668AC1BD9165800172050 /* ChallengeVC.swift in Sources */,
+				D20F7FB31BE1DAE9007D015D /* InterestCollectionViewCell.swift in Sources */,
 				8518D1511BD7B7BD00499ACA /* WeHeartBeer.xcdatamodeld in Sources */,
 				8518D14B1BD7B7BD00499ACA /* ViewController.swift in Sources */,
 				D2526D7B1BDA56C9003953F9 /* HomepageVC.swift in Sources */,
 				8518D1491BD7B7BD00499ACA /* AppDelegate.swift in Sources */,
+				D20F7FAF1BE1D74A007D015D /* Interest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

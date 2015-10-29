@@ -10,7 +10,16 @@ import UIKit
 
 class HomepageVC: UIViewController {
 
+    
+    // MARK: - IBOutlets
+    
     @IBOutlet var challengeLink: UIImageView!
+    @IBOutlet weak var collectionView: UICollectionView!
+    //@IBOutlet weak var backgroundImageview: UIImageView!
+    
+    // MARK: - UICollectionViewDataSource
+    
+    private var interests = Interest.createInterests()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,28 +31,40 @@ class HomepageVC: UIViewController {
         
         // Do any additional setup after loading the view.
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    // Mark: CellIdentifier
+    private struct Storyboard {
+        static let CellIdentifier = "Interest Cell"
     }
-    */
-    
+
+  
+    // MARK: - ChallengeLink
     func challengeLinkClicked(){
         performSegueWithIdentifier("challengeSegue", sender: nil)
     }
-    
-//OI
-    
+}
 
+
+    // Mark: - CollectionViewCell
+extension HomepageVC : UICollectionViewDataSource
+{
+    func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
+        return 1
+    }
+    
+    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int
+    {
+        return interests.count
+    }
+    
+    
+    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell
+    {
+        let cell = collectionView.dequeueReusableCellWithReuseIdentifier(Storyboard.CellIdentifier, forIndexPath: indexPath) as! InterestCollectionViewCell
+        
+        cell.interest = self.interests[indexPath.item]
+        
+        
+        return cell
+   }
 }
