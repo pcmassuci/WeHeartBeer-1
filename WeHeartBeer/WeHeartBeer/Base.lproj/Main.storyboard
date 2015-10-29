@@ -88,6 +88,7 @@
                         <viewControllerLayoutGuide type="bottom" id="q4J-x3-Zq4"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Uc0-Q0-rKe">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -314,10 +315,10 @@
                     </view>
                     <navigationItem key="navigationItem" id="oqQ-fX-6wi"/>
                     <connections>
-                        <outlet property="challengeDescription" destination="bqT-N1-0WV" id="JsC-3l-Iot"/>
+                        <outlet property="challengeDescription" destination="bqT-N1-0WV" id="YfT-Yy-VLK"/>
                         <outlet property="challengeFb" destination="5no-rE-ZqS" id="duA-S7-HK2"/>
-                        <outlet property="challengeImage" destination="IYt-aL-hIQ" id="f9T-d1-tG9"/>
-                        <outlet property="challengeTitle" destination="xXC-A7-xzW" id="ltj-QJ-QpB"/>
+                        <outlet property="challengeImage" destination="IYt-aL-hIQ" id="BHs-Q8-oD7"/>
+                        <outlet property="challengeTitle" destination="xXC-A7-xzW" id="EZA-7K-Aro"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="X2X-h1-cFu" userLabel="First Responder" sceneMemberID="firstResponder"/>

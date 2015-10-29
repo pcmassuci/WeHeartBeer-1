@@ -20,6 +20,11 @@ class ChallengeVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        image: UIImage = UIImage(named: "afternoon")!
+        bgImage = UIImageView(image: image)
+        bgImage!.frame = CGRectMake(0,0,100,200)
+        self.view.addSubview(bgImage!)
+        
         // Do any additional setup after loading the view.
     }
     
