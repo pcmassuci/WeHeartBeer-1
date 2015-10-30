@@ -25,6 +25,7 @@ class ChallengeVC: UIViewController {
         
         challengeTitle.text = "Challenge 10"
         challengeDescription.text = "tomar uma cerveja no Mr. Beer e compartilhar."
+        challengeDescription.adjustsFontSizeToFitWidth = true
         
         // Do any additional setup after loading the view.
     }
