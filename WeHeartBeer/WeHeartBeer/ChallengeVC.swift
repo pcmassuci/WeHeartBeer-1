@@ -20,10 +20,11 @@ class ChallengeVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-  image: UIImage = UIImage(named: "afternoon")!
-        bgImage = UIImageView(image: image)
-        bgImage!.frame = CGRectMake(0,0,100,200)
-        self.view.addSubview(bgImage!)
+        self.challengeImage.image = UIImage(named:"beer1")
+        self.view.addSubview(challengeImage)
+        
+        challengeTitle.text = "Challenge 10"
+        challengeDescription.text = "tomar uma cerveja no Mr. Beer e compartilhar."
         
         // Do any additional setup after loading the view.
     }
@@ -48,6 +49,7 @@ class ChallengeVC: UIViewController {
 //            // FB is not installed, open in safari
 //            UIApplication.sharedApplication().openURL(fbURLWeb)
 //        }
+        
     }
 
 }
