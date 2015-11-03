@@ -484,21 +484,21 @@
                                 <exclude reference="5no-rE-ZqS"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="4OX-hk-Hiu"/>
-                                <exclude reference="JE5-VW-0Bv"/>
-                                <exclude reference="KjC-6N-2Ag"/>
-                                <exclude reference="CAI-up-IqB"/>
-                                <exclude reference="IW6-fR-X16"/>
-                                <exclude reference="ggK-pu-4XA"/>
-                                <exclude reference="T1I-jl-dMl"/>
-                                <exclude reference="g0b-i4-UkV"/>
-                                <exclude reference="qQA-db-uU3"/>
+                                <exclude reference="VdP-2s-X9Z"/>
+                                <exclude reference="Ep9-bu-m9K"/>
+                                <exclude reference="KMt-zO-J45"/>
                                 <exclude reference="7Zo-B9-Ti5"/>
                                 <exclude reference="Htm-Ap-Xzn"/>
                                 <exclude reference="Zhk-Lg-9kE"/>
-                                <exclude reference="Ep9-bu-m9K"/>
-                                <exclude reference="KMt-zO-J45"/>
-                                <exclude reference="VdP-2s-X9Z"/>
+                                <exclude reference="4OX-hk-Hiu"/>
+                                <exclude reference="JE5-VW-0Bv"/>
+                                <exclude reference="KjC-6N-2Ag"/>
+                                <exclude reference="T1I-jl-dMl"/>
+                                <exclude reference="g0b-i4-UkV"/>
+                                <exclude reference="qQA-db-uU3"/>
+                                <exclude reference="CAI-up-IqB"/>
+                                <exclude reference="IW6-fR-X16"/>
+                                <exclude reference="ggK-pu-4XA"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
