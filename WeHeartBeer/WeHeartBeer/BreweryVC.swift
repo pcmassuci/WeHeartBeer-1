@@ -19,6 +19,8 @@ class BreweryVC: UIViewController {
     @IBOutlet weak var linkBrewery: UILabel!
     
     @IBOutlet weak var listOfProducts: UITableView!
+    
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
