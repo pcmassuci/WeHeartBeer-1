@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9059" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="7Kz-mP-eSq">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9059" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="D0v-rr-m7t">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Item 2-->
@@ -426,10 +429,10 @@
             </objects>
             <point key="canvasLocation" x="-1336.5" y="1306.5"/>
         </scene>
-        <!--View Controller-->
+        <!--BreweryVC-->
         <scene sceneID="ijd-9h-OhZ">
             <objects>
-                <viewController id="D0v-rr-m7t" sceneMemberID="viewController">
+                <viewController id="D0v-rr-m7t" customClass="BreweryVC" customModule="WeHeartBeer" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="ksn-nb-SBh"/>
                         <viewControllerLayoutGuide type="bottom" id="M3M-bS-io7"/>
@@ -503,7 +506,7 @@
                                 <animations/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="gU5-OX-bOM">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="gU5-OX-bOM" customClass="BreweryVCCell" customModule="WeHeartBeer" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="gU5-OX-bOM" id="y54-Ux-zsE">
@@ -544,10 +547,17 @@
                             </mask>
                         </variation>
                     </view>
+                    <connections>
+                        <outlet property="linkBrewery" destination="uNX-KT-T2S" id="AWI-K9-D2T"/>
+                        <outlet property="listOfProducts" destination="wIp-DJ-9Je" id="fMB-x5-z48"/>
+                        <outlet property="logoBrewery" destination="mAn-BZ-fKt" id="7cP-ex-QH7"/>
+                        <outlet property="nameBrewery" destination="NNL-D8-7tW" id="rDf-gY-E5Q"/>
+                        <outlet property="placeBrewery" destination="r8q-Bo-dLO" id="Zm3-IL-gUm"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XLn-R4-ISN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-60" y="1179.75"/>
+            <point key="canvasLocation" x="-147" y="1272.75"/>
         </scene>
         <!--Item 1-->
         <scene sceneID="mlu-hM-Dmy">
