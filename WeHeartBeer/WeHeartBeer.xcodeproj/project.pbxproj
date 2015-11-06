@@ -42,6 +42,7 @@
 		854AAF471BECEE18002F405B /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 854AAF441BECEE18002F405B /* FBSDKCoreKit.framework */; };
 		854AAF481BECEE18002F405B /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 854AAF451BECEE18002F405B /* FBSDKLoginKit.framework */; };
 		854AAF491BECEE18002F405B /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 854AAF461BECEE18002F405B /* FBSDKShareKit.framework */; };
+		854AAF4B1BED1431002F405B /* Beer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 854AAF4A1BED1431002F405B /* Beer.swift */; };
 		D20F7FAF1BE1D74A007D015D /* Interest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20F7FAE1BE1D74A007D015D /* Interest.swift */; };
 		D20F7FB31BE1DAE9007D015D /* InterestCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20F7FB21BE1DAE9007D015D /* InterestCollectionViewCell.swift */; };
 		D246342D1BEBAFBF00CF605D /* FloatRatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D246342C1BEBAFBF00CF605D /* FloatRatingView.swift */; };
@@ -108,6 +109,7 @@
 		854AAF441BECEE18002F405B /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
 		854AAF451BECEE18002F405B /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
 		854AAF461BECEE18002F405B /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKShareKit.framework; sourceTree = "<group>"; };
+		854AAF4A1BED1431002F405B /* Beer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Beer.swift; sourceTree = "<group>"; };
 		D20F7FAE1BE1D74A007D015D /* Interest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Interest.swift; sourceTree = "<group>"; };
 		D20F7FB21BE1DAE9007D015D /* InterestCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InterestCollectionViewCell.swift; sourceTree = "<group>"; };
 		D246342C1BEBAFBF00CF605D /* FloatRatingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FloatRatingView.swift; sourceTree = "<group>"; };
@@ -248,6 +250,7 @@
 			isa = PBXGroup;
 			children = (
 				D20F7FAE1BE1D74A007D015D /* Interest.swift */,
+				854AAF4A1BED1431002F405B /* Beer.swift */,
 				854AAC8F1BEB8FAA002F405B /* ResultsTableViewCell.swift */,
 			);
 			name = Model;
@@ -422,6 +425,7 @@
 				8518D1511BD7B7BD00499ACA /* WeHeartBeer.xcdatamodeld in Sources */,
 				672C62F91BEA5E7200E667C8 /* BreweryVC.swift in Sources */,
 				854AAC901BEB8FAA002F405B /* ResultsTableViewCell.swift in Sources */,
+				854AAF4B1BED1431002F405B /* Beer.swift in Sources */,
 				8518D14B1BD7B7BD00499ACA /* ViewController.swift in Sources */,
 				D24634331BEBC93300CF605D /* BeerProfileVC.swift in Sources */,
 				D246342D1BEBAFBF00CF605D /* FloatRatingView.swift in Sources */,
