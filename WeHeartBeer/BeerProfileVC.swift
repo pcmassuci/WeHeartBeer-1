@@ -28,7 +28,7 @@ class BeerProfileVC: UIViewController, FloatRatingViewDelegate {
         self.floatRatingView.delegate = self
         self.floatRatingView.contentMode = UIViewContentMode.ScaleAspectFit
         self.floatRatingView.maxRating = 5
-        self.floatRatingView.minRating = 1
+        self.floatRatingView.minRating = 0
         self.floatRatingView.rating = 2.5
         self.floatRatingView.editable = true
         self.floatRatingView.halfRatings = true
