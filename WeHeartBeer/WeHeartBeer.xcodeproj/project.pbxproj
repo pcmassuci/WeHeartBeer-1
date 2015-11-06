@@ -39,6 +39,9 @@
 		8518D16C1BD7B7BD00499ACA /* WeHeartBeerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8518D16B1BD7B7BD00499ACA /* WeHeartBeerUITests.swift */; };
 		854AAC8E1BEB8CCE002F405B /* SearchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 854AAC8D1BEB8CCE002F405B /* SearchVC.swift */; };
 		854AAC901BEB8FAA002F405B /* ResultsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 854AAC8F1BEB8FAA002F405B /* ResultsTableViewCell.swift */; };
+		854AAF471BECEE18002F405B /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 854AAF441BECEE18002F405B /* FBSDKCoreKit.framework */; };
+		854AAF481BECEE18002F405B /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 854AAF451BECEE18002F405B /* FBSDKLoginKit.framework */; };
+		854AAF491BECEE18002F405B /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 854AAF461BECEE18002F405B /* FBSDKShareKit.framework */; };
 		D20F7FAF1BE1D74A007D015D /* Interest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20F7FAE1BE1D74A007D015D /* Interest.swift */; };
 		D20F7FB31BE1DAE9007D015D /* InterestCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20F7FB21BE1DAE9007D015D /* InterestCollectionViewCell.swift */; };
 		D246342D1BEBAFBF00CF605D /* FloatRatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D246342C1BEBAFBF00CF605D /* FloatRatingView.swift */; };
@@ -102,6 +105,10 @@
 		8518D16D1BD7B7BD00499ACA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		854AAC8D1BEB8CCE002F405B /* SearchVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchVC.swift; sourceTree = "<group>"; };
 		854AAC8F1BEB8FAA002F405B /* ResultsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultsTableViewCell.swift; sourceTree = "<group>"; };
+		854AAE3A1BECEA43002F405B /* FBHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FBHeader.h; sourceTree = "<group>"; };
+		854AAF441BECEE18002F405B /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
+		854AAF451BECEE18002F405B /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
+		854AAF461BECEE18002F405B /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKShareKit.framework; sourceTree = "<group>"; };
 		D20F7FAE1BE1D74A007D015D /* Interest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Interest.swift; sourceTree = "<group>"; };
 		D20F7FB21BE1DAE9007D015D /* InterestCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InterestCollectionViewCell.swift; sourceTree = "<group>"; };
 		D246342C1BEBAFBF00CF605D /* FloatRatingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FloatRatingView.swift; sourceTree = "<group>"; };
@@ -119,11 +126,14 @@
 				8502AE841BEA676400C54142 /* libsqlite3.tbd in Frameworks */,
 				8502AE821BEA675800C54142 /* libz.tbd in Frameworks */,
 				8502AE801BEA674C00C54142 /* SystemConfiguration.framework in Frameworks */,
+				854AAF471BECEE18002F405B /* FBSDKCoreKit.framework in Frameworks */,
+				854AAF491BECEE18002F405B /* FBSDKShareKit.framework in Frameworks */,
 				8502AE7E1BEA674300C54142 /* StoreKit.framework in Frameworks */,
 				8502AE7C1BEA673700C54142 /* Security.framework in Frameworks */,
 				8502AE7A1BEA673000C54142 /* QuartzCore.framework in Frameworks */,
 				8502AE781BEA672700C54142 /* CoreLocation.framework in Frameworks */,
 				8502AE761BEA671F00C54142 /* CoreGraphics.framework in Frameworks */,
+				854AAF481BECEE18002F405B /* FBSDKLoginKit.framework in Frameworks */,
 				8502AE741BEA670C00C54142 /* CFNetwork.framework in Frameworks */,
 				8502AE721BEA670200C54142 /* AudioToolbox.framework in Frameworks */,
 				8502AE6B1BEA66CC00C54142 /* Parse.framework in Frameworks */,
@@ -211,6 +221,7 @@
 				8518D1481BD7B7BD00499ACA /* AppDelegate.swift */,
 				8518D14A1BD7B7BD00499ACA /* ViewController.swift */,
 				8518D1521BD7B7BD00499ACA /* Assets.xcassets */,
+				854AAE3A1BECEA43002F405B /* FBHeader.h */,
 				8518D1571BD7B7BD00499ACA /* Info.plist */,
 				8518D14F1BD7B7BD00499ACA /* WeHeartBeer.xcdatamodeld */,
 			);
@@ -258,6 +269,9 @@
 		D286638B1BE07D9B002CE6F2 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				854AAF441BECEE18002F405B /* FBSDKCoreKit.framework */,
+				854AAF451BECEE18002F405B /* FBSDKLoginKit.framework */,
+				854AAF461BECEE18002F405B /* FBSDKShareKit.framework */,
 				8502AE871BEA677800C54142 /* Social.framework */,
 				8502AE851BEA676C00C54142 /* Accounts.framework */,
 				8502AE831BEA676400C54142 /* libsqlite3.tbd */,
@@ -563,11 +577,13 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 					"$(PROJECT_DIR)/WeHeartBeer/parse-library-1.9.1",
+					"$(PROJECT_DIR)/WeHeartBeer",
 				);
 				INFOPLIST_FILE = WeHeartBeer/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = bepid.WeHeartBeer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 			};
 			name = Debug;
 		};
@@ -579,11 +595,13 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 					"$(PROJECT_DIR)/WeHeartBeer/parse-library-1.9.1",
+					"$(PROJECT_DIR)/WeHeartBeer",
 				);
 				INFOPLIST_FILE = WeHeartBeer/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = bepid.WeHeartBeer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 			};
 			name = Release;
 		};
