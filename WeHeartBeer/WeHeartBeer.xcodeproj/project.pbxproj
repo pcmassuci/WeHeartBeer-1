@@ -42,7 +42,7 @@
 		D20F7FAF1BE1D74A007D015D /* Interest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20F7FAE1BE1D74A007D015D /* Interest.swift */; };
 		D20F7FB31BE1DAE9007D015D /* InterestCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20F7FB21BE1DAE9007D015D /* InterestCollectionViewCell.swift */; };
 		D246342D1BEBAFBF00CF605D /* FloatRatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D246342C1BEBAFBF00CF605D /* FloatRatingView.swift */; };
-		D246342F1BEBB09300CF605D /* BeerProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D246342E1BEBB09300CF605D /* BeerProfileVC.swift */; };
+		D24634331BEBC93300CF605D /* BeerProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D24634321BEBC93300CF605D /* BeerProfileVC.swift */; };
 		D2526D7B1BDA56C9003953F9 /* HomepageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2526D7A1BDA56C9003953F9 /* HomepageVC.swift */; };
 /* End PBXBuildFile section */
 
@@ -105,7 +105,7 @@
 		D20F7FAE1BE1D74A007D015D /* Interest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Interest.swift; sourceTree = "<group>"; };
 		D20F7FB21BE1DAE9007D015D /* InterestCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InterestCollectionViewCell.swift; sourceTree = "<group>"; };
 		D246342C1BEBAFBF00CF605D /* FloatRatingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FloatRatingView.swift; sourceTree = "<group>"; };
-		D246342E1BEBB09300CF605D /* BeerProfileVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeerProfileVC.swift; sourceTree = "<group>"; };
+		D24634321BEBC93300CF605D /* BeerProfileVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeerProfileVC.swift; sourceTree = "<group>"; };
 		D2526D7A1BDA56C9003953F9 /* HomepageVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HomepageVC.swift; path = WeHeartBeer/HomepageVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -161,7 +161,7 @@
 				63F668AB1BD9165800172050 /* ChallengeVC.swift */,
 				D2526D7A1BDA56C9003953F9 /* HomepageVC.swift */,
 				D20F7FB21BE1DAE9007D015D /* InterestCollectionViewCell.swift */,
-				D246342E1BEBB09300CF605D /* BeerProfileVC.swift */,
+				D24634321BEBC93300CF605D /* BeerProfileVC.swift */,
 			);
 			name = Controllers;
 			path = ..;
@@ -411,8 +411,8 @@
 				672C62F91BEA5E7200E667C8 /* BreweryVC.swift in Sources */,
 				854AAC901BEB8FAA002F405B /* ResultsTableViewCell.swift in Sources */,
 				8518D14B1BD7B7BD00499ACA /* ViewController.swift in Sources */,
+				D24634331BEBC93300CF605D /* BeerProfileVC.swift in Sources */,
 				D246342D1BEBAFBF00CF605D /* FloatRatingView.swift in Sources */,
-				D246342F1BEBB09300CF605D /* BeerProfileVC.swift in Sources */,
 				D2526D7B1BDA56C9003953F9 /* HomepageVC.swift in Sources */,
 				854AAC8E1BEB8CCE002F405B /* SearchVC.swift in Sources */,
 				8518D1491BD7B7BD00499ACA /* AppDelegate.swift in Sources */,
