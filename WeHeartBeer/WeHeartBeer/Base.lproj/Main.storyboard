@@ -567,7 +567,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XLn-R4-ISN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-147" y="1272.75"/>
+            <point key="canvasLocation" x="-147" y="1552"/>
         </scene>
         <!--HomepageVC-->
         <scene sceneID="mlu-hM-Dmy">
@@ -841,9 +841,6 @@
             </objects>
             <point key="canvasLocation" x="-1336.5" y="1994.25"/>
         </scene>
-<<<<<<< HEAD
-        <!--Item5-->
-=======
         <!--Beer ProfileVC-->
         <scene sceneID="Rrf-KJ-hOB">
             <objects>
@@ -1016,10 +1013,9 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="E3U-2n-Ddp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-159" y="1997.25"/>
+            <point key="canvasLocation" x="777" y="1557"/>
         </scene>
         <!--ChallengeVC-->
->>>>>>> 2c8f6053dbbb4af0a69119e1ae7872a1ba6bff91
         <scene sceneID="wVK-GP-nfL">
             <objects>
                 <viewController id="MDe-Oa-RwL" customClass="ChallengeVC" customModule="WeHeartBeer" sceneMemberID="viewController">
@@ -1163,7 +1159,6 @@
                             </mask>
                         </variation>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item5" id="ogP-QY-ulT"/>
                     <connections>
                         <outlet property="challengeDescription" destination="bqT-N1-0WV" id="YfT-Yy-VLK"/>
                         <outlet property="challengeFb" destination="5no-rE-ZqS" id="duA-S7-HK2"/>
