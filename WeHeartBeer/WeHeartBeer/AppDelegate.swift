@@ -11,6 +11,8 @@ import CoreData
 import Parse
 import Bolts
 import FBSDKCoreKit
+import FBSDKLoginKit
+
 
 //teste
 
