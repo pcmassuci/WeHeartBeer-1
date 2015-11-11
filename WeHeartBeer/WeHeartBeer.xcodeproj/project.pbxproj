@@ -13,10 +13,11 @@
 		672C62F91BEA5E7200E667C8 /* BreweryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 672C62F81BEA5E7200E667C8 /* BreweryVC.swift */; };
 		672C62FB1BEAD2F700E667C8 /* BreweryVCCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 672C62FA1BEAD2F700E667C8 /* BreweryVCCell.swift */; };
 		676250741BF1759300F3BB0D /* BreweryDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 676250731BF1759300F3BB0D /* BreweryDAO.swift */; };
+		676250771BF373AF00F3BB0D /* UserDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 676250761BF373AF00F3BB0D /* UserDAO.swift */; };
+		676250791BF3757300F3BB0D /* UserValidation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 676250781BF3757300F3BB0D /* UserValidation.swift */; };
 		8502AE6A1BEA66CC00C54142 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8502AE631BEA66CB00C54142 /* Bolts.framework */; };
 		8502AE6B1BEA66CC00C54142 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8502AE641BEA66CC00C54142 /* Parse.framework */; };
 		8502AE6C1BEA66CC00C54142 /* ParseCrashReporting.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8502AE651BEA66CC00C54142 /* ParseCrashReporting.framework */; };
-		8502AE6D1BEA66CC00C54142 /* ParseFacebookUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8502AE661BEA66CC00C54142 /* ParseFacebookUtils.framework */; };
 		8502AE6E1BEA66CC00C54142 /* ParseFacebookUtilsV4.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8502AE671BEA66CC00C54142 /* ParseFacebookUtilsV4.framework */; };
 		8502AE6F1BEA66CC00C54142 /* ParseTwitterUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8502AE681BEA66CC00C54142 /* ParseTwitterUtils.framework */; };
 		8502AE701BEA66CC00C54142 /* ParseUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8502AE691BEA66CC00C54142 /* ParseUI.framework */; };
@@ -81,6 +82,9 @@
 		672C62F81BEA5E7200E667C8 /* BreweryVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BreweryVC.swift; path = WeHeartBeer/BreweryVC.swift; sourceTree = "<group>"; };
 		672C62FA1BEAD2F700E667C8 /* BreweryVCCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BreweryVCCell.swift; path = ../BreweryVCCell.swift; sourceTree = "<group>"; };
 		676250731BF1759300F3BB0D /* BreweryDAO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BreweryDAO.swift; sourceTree = "<group>"; };
+		676250761BF373AF00F3BB0D /* UserDAO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDAO.swift; sourceTree = "<group>"; };
+		676250781BF3757300F3BB0D /* UserValidation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserValidation.swift; sourceTree = "<group>"; };
+		6762507A1BF3775500F3BB0D /* Header-WeHeartBeer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Header-WeHeartBeer.h"; sourceTree = "<group>"; };
 		8502AE631BEA66CB00C54142 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
 		8502AE641BEA66CC00C54142 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		8502AE651BEA66CC00C54142 /* ParseCrashReporting.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseCrashReporting.framework; sourceTree = "<group>"; };
@@ -154,7 +158,6 @@
 				8502AE6B1BEA66CC00C54142 /* Parse.framework in Frameworks */,
 				8502AE6C1BEA66CC00C54142 /* ParseCrashReporting.framework in Frameworks */,
 				8502AE701BEA66CC00C54142 /* ParseUI.framework in Frameworks */,
-				8502AE6D1BEA66CC00C54142 /* ParseFacebookUtils.framework in Frameworks */,
 				8502AE6A1BEA66CC00C54142 /* Bolts.framework in Frameworks */,
 				8502AE6F1BEA66CC00C54142 /* ParseTwitterUtils.framework in Frameworks */,
 				8502AE6E1BEA66CC00C54142 /* ParseFacebookUtilsV4.framework in Frameworks */,
@@ -191,6 +194,15 @@
 			);
 			name = Controllers;
 			path = ..;
+			sourceTree = "<group>";
+		};
+		676250751BF3737E00F3BB0D /* DAO */ = {
+			isa = PBXGroup;
+			children = (
+				676250731BF1759300F3BB0D /* BreweryDAO.swift */,
+				676250761BF373AF00F3BB0D /* UserDAO.swift */,
+			);
+			name = DAO;
 			sourceTree = "<group>";
 		};
 		8502AE621BEA66CB00C54142 /* parse-library-1.9.1 */ = {
@@ -239,6 +251,7 @@
 				8518D1521BD7B7BD00499ACA /* Assets.xcassets */,
 				8518D1571BD7B7BD00499ACA /* Info.plist */,
 				8518D14F1BD7B7BD00499ACA /* WeHeartBeer.xcdatamodeld */,
+				6762507A1BF3775500F3BB0D /* Header-WeHeartBeer.h */,
 			);
 			path = WeHeartBeer;
 			sourceTree = "<group>";
@@ -276,11 +289,12 @@
 		854AAF4D1BF0BE65002F405B /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				676250751BF3737E00F3BB0D /* DAO */,
 				D25499C21BF1769300D38C88 /* Parse Services */,
 				854AAF4E1BF0BE8F002F405B /* BeerServices.swift */,
-				676250731BF1759300F3BB0D /* BreweryDAO.swift */,
 				854AAF501BF0BEAE002F405B /* BreweryServices.swift */,
 				854AAF521BF0BECE002F405B /* UserServices.swift */,
+				676250781BF3757300F3BB0D /* UserValidation.swift */,
 			);
 			name = Services;
 			sourceTree = "<group>";
@@ -465,6 +479,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				676250791BF3757300F3BB0D /* UserValidation.swift in Sources */,
 				63F668AC1BD9165800172050 /* ChallengeVC.swift in Sources */,
 				D20F7FB31BE1DAE9007D015D /* InterestCollectionViewCell.swift in Sources */,
 				854AAF4F1BF0BE8F002F405B /* BeerServices.swift in Sources */,
@@ -484,6 +499,7 @@
 				8518D1491BD7B7BD00499ACA /* AppDelegate.swift in Sources */,
 				672C62FB1BEAD2F700E667C8 /* BreweryVCCell.swift in Sources */,
 				D20F7FAF1BE1D74A007D015D /* Interest.swift in Sources */,
+				676250771BF373AF00F3BB0D /* UserDAO.swift in Sources */,
 				676250741BF1759300F3BB0D /* BreweryDAO.swift in Sources */,
 				854AAF531BF0BECE002F405B /* UserServices.swift in Sources */,
 			);
@@ -637,7 +653,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = bepid.WeHeartBeer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "WeHeartBeer/Header-WeHeartBeer.h";
 			};
 			name = Debug;
 		};
@@ -655,7 +671,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = bepid.WeHeartBeer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "WeHeartBeer/Header-WeHeartBeer.h";
 			};
 			name = Release;
 		};

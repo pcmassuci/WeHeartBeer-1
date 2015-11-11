@@ -53,3 +53,78 @@ class ChallengeVC: UIViewController {
     }
 
 }
+
+// MARK: Fragão
+
+// frangao se der merda da uma olhada nesse link http://stackoverflow.com/questions/29504146/parsefacebook-sdk-issues-use-of-unresolved-identifier-pffacebookutils
+//
+//override func viewDidLoad() {
+//    super.viewDidLoad()
+//    view.backgroundColor = UIColor(red:0.07, green:0.07, blue:0.07, alpha:1.0)
+//    
+//    
+//    //        let query = User.query()
+//    ////        query.whereKey("objectId", equalTo: "3eWigsY0bZ")
+//    //        query?.whereKey("objectId", equalTo: "3eWigsY0bZ")
+//    //        let user = query?.getFirstObject() as! User
+//    //        println(user)
+//    //        UserServices.findBandsFromUser(user, completionHandler: { (bands, success) -> Void in
+//    //            if success{
+//    //                println(bands)
+//    //            }
+//    //        })
+//    
+//    
+//    if UserServices.loggedUser(){
+//        self.performSegueWithIdentifier("loginSegue", sender: self)
+//    }
+//    
+//    // Do any additional setup after loading the view.
+//}
+//override func viewDidAppear(animated: Bool) {
+//    super.viewDidAppear(animated)
+//    //navigationController?.setNavigationBarHidden(navigationController?.navigationBarHidden == false, animated: true) //or animated: false
+//    self.navigationController?.navigationBar.hidden = true
+//}
+//override func didReceiveMemoryWarning() {
+//    super.didReceiveMemoryWarning()
+//    
+//    // Dispose of any resources that can be recreated.
+//}
+//
+//
+//
+//@IBAction func loginNormalClicked(sender: AnyObject) {
+//    UserServices.loginNormalUser(self.emailField.text, password: self.passwordField.text) { (success) -> Void in
+//        if success{
+//            self.performSegueWithIdentifier("loginSegue", sender: self)
+//        }else{
+//            //TODO
+//        }
+//    }
+//}
+//
+//
+//@IBAction func loginFacebookClicked(sender: AnyObject) {
+//    
+//    UserServices.loginFaceUser { (success) -> Void in
+//        if success{
+//            self.performSegueWithIdentifier("loginSegue", sender: self)
+//        }else{
+//            //TODO
+//        }
+//    }
+//}
+//
+//
+///*
+//// MARK: - Navigation
+//
+//// In a storyboard-based application, you will often want to do a little preparation before navigation
+//override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+//// Get the new view controller using segue.destinationViewController.
+//// Pass the selected object to the new view controller.
+//}
+//*/
+//
+//}

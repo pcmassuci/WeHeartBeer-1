@@ -7,27 +7,24 @@
 //
 
 import Foundation
-//import FBSDKCoreKit
-//
-//class User: NSManagedObject {
-//    
-//    @NSManaged var name: String
-//    @NSManaged var email: String
-//    @NSManaged var photo: NSData
-//    @NSManaged var password: String
-//    
-//    
-//    /// The designated initializer
-//    convenience init() {
-//        // get context
-//        let context:NSManagedObjectContext = DatabaseManager.sharedInstance.managedObjectContext!
-//        
-//        // create entity description
-//        let entityDescription:NSEntityDescription? = NSEntityDescription.entityForName("User", inManagedObjectContext: context)
-//        
-//        // call super using
-//        self.init(entity: entityDescription!, insertIntoManagedObjectContext: context)
-//    }
-//}
+import Parse
+
+class User : PFUser {
+    //My variables
+    
+    @NSManaged var name: String
+    @NSManaged var birthDate: NSDate
+    @NSManaged var photo: PFFile
+    
+    
+    
+    override class func initialize() {
+        var onceToken : dispatch_once_t = 0;
+        dispatch_once(&onceToken) {
+            self.registerSubclass()
+        }
+    }
+    
+}
 
 
