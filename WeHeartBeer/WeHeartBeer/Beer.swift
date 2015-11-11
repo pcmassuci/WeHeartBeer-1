@@ -9,26 +9,32 @@
 import Foundation
 import UIKit
 import ParseUI
+import Parse
 
-class Beer: UIViewController {
+class Beer: PFObject, PFSubclassing {
     
-    @IBOutlet weak var name: UILabel!
-    @IBOutlet weak var brewery: UILabel!
-    @IBOutlet weak var Style: UILabel!
-    @IBOutlet weak var IBV: UILabel!
-    @IBOutlet weak var Photo: UIImage!
+    var name: UILabel!
+    var brewery: UILabel!
+    var Style: UILabel!
+    var IBV: UILabel!
+    var Photo: UIImage!
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    override class func initialize() {
+        struct Static {
+            static var onceToken: dispatch_once_t = 0
+            
+        }
+        dispatch_once(&Static.onceToken){
+            self.registerSubclass()
+        }
+    }
+    
+    static func parseClassName() -> String{
+        return "Beer"
+    }
         
         // Unwrap the current object
-        //let object = NSObject()
         
-//            name.text = object["name"] as! String
-//            brewery.text = object["brewery"] as! String
-//            Style.text = object["Style"] as! String
-//            IBV.text = object["IBV"] as! String
-//            Photo.images = object["Photo"] as! UIImageView
         
         
 //        // The three special values are provided as properties:
@@ -39,6 +45,5 @@ class Beer: UIViewController {
 //        object.fetch()
         
         
-    }
 
 }
