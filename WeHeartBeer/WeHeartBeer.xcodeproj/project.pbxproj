@@ -54,6 +54,7 @@
 		D246342D1BEBAFBF00CF605D /* FloatRatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D246342C1BEBAFBF00CF605D /* FloatRatingView.swift */; };
 		D24634331BEBC93300CF605D /* BeerProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D24634321BEBC93300CF605D /* BeerProfileVC.swift */; };
 		D2526D7B1BDA56C9003953F9 /* HomepageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2526D7A1BDA56C9003953F9 /* HomepageVC.swift */; };
+		D25499C11BF1760400D38C88 /* ParseUserServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = D25499C01BF1760400D38C88 /* ParseUserServices.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -127,6 +128,7 @@
 		D246342C1BEBAFBF00CF605D /* FloatRatingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FloatRatingView.swift; sourceTree = "<group>"; };
 		D24634321BEBC93300CF605D /* BeerProfileVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeerProfileVC.swift; sourceTree = "<group>"; };
 		D2526D7A1BDA56C9003953F9 /* HomepageVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HomepageVC.swift; path = WeHeartBeer/HomepageVC.swift; sourceTree = "<group>"; };
+		D25499C01BF1760400D38C88 /* ParseUserServices.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ParseUserServices.swift; path = "../../../Desktop/Projetos iOS/Challenge II/challengeiii/challengeiii/ParseUserServices.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -274,11 +276,20 @@
 		854AAF4D1BF0BE65002F405B /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				D25499C21BF1769300D38C88 /* Parse Services */,
 				854AAF4E1BF0BE8F002F405B /* BeerServices.swift */,
 				854AAF501BF0BEAE002F405B /* BreweryServices.swift */,
 				854AAF521BF0BECE002F405B /* UserServices.swift */,
 			);
 			name = Services;
+			sourceTree = "<group>";
+		};
+		D25499C21BF1769300D38C88 /* Parse Services */ = {
+			isa = PBXGroup;
+			children = (
+				D25499C01BF1760400D38C88 /* ParseUserServices.swift */,
+			);
+			name = "Parse Services";
 			sourceTree = "<group>";
 		};
 		D28663891BE07D31002CE6F2 /* Model */ = {
@@ -455,6 +466,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				63F668AC1BD9165800172050 /* ChallengeVC.swift in Sources */,
+				D25499C11BF1760400D38C88 /* ParseUserServices.swift in Sources */,
 				D20F7FB31BE1DAE9007D015D /* InterestCollectionViewCell.swift in Sources */,
 				854AAF4F1BF0BE8F002F405B /* BeerServices.swift in Sources */,
 				8518D1511BD7B7BD00499ACA /* WeHeartBeer.xcdatamodeld in Sources */,
