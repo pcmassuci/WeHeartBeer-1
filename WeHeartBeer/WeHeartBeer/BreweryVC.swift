@@ -21,36 +21,65 @@ class BreweryVC: UIViewController {
     
     @IBOutlet weak var listOfProducts: UITableView!
     
- 
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    var brewery : [Brewery]! = [Brewery]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+    
         // Do any additional setup after loading the view.
     }
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        var pointerReceive = "4blpTUoLIz"
         
-        var brewery = PFObject(className:"Brewery")
-        let query = PFQuery(className:"Brewery")
-        query.getObjectInBackgroundWithId(pointerReceive) {
-            (brewery: PFObject?, error: NSError?) -> Void in
-            if error == nil && brewery != nil {
-                print(brewery)
+    print("aqui")
+        
+    var pointerReceive = "Cervejaralho"
+        
+        self.activityIndicator.startAnimating()
+        
+        BreweryServices.findBreweryName(pointerReceive) { (brewery, success) -> Void in
+            self.activityIndicator.stopAnimating()
+            if success {
                 
-                let name = brewery!["name"] as! String
-                let place = brewery!["local"] as! String
-                let link = brewery!["contact"] as! String
-                self.updateData(name, place: place, link: link)
-            } else {
-                print(error)
-                //lembrar de colocar alerta, e ação caso nao seja encontrado a cervejaria
+                self.brewery = brewery
+                print(self.brewery)
                 
             }
         }
         
-      
+        
+        
+        var object:NSObject!
+        
+        
+     
+        var teste = Brewery()
+        
+        nameBrewery.text = teste.name   
+        
+      //  nameBrewery.text = object.name
+//        
+        
+//        var brewery = PFObject(className:"Brewery")
+//        let query = PFQuery(className:"Brewery")
+//        query.getObjectInBackgroundWithId(pointerReceive) {
+//            (brewery: PFObject?, error: NSError?) -> Void in
+//            if error == nil && brewery != nil {
+//                print(brewery)
+//                
+//                let name = brewery!["name"] as! String
+//                let place = brewery!["local"] as! String
+//                let link = brewery!["contact"] as! String
+//                self.updateData(name, place: place, link: link)
+//            } else {
+//                print(error)
+//                //lembrar de colocar alerta, e ação caso nao seja encontrado a cervejaria
+//                
+//            }
+//        }
+//        
+        
 
     }
     
