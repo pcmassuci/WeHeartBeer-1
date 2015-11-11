@@ -30,7 +30,7 @@ class BreweryVC: UIViewController {
     }
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        var pointerReceive = "4blpTUoLIz"
+        let pointerReceive = "4blpTUoLIz"
         
         var brewery = PFObject(className:"Brewery")
         let query = PFQuery(className:"Brewery")
