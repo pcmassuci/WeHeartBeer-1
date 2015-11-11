@@ -112,6 +112,33 @@ class SearchVC: UIViewController, UISearchResultsUpdating, UISearchBarDelegate, 
     func updateSearchResultsForSearchController(searchController: UISearchController) {
     }
     
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        
+        let cell = self.resultsTable.cellForRowAtIndexPath(indexPath)
+        
+        
+        performSegueWithIdentifier("segueSearch", sender: indexPath)
+        
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "segueSearch"{
+            
+            
+            if let destination = segue.destinationViewController  as? BeerProfileVC{
+                if let indexPath = resultsTable.indexPathForSelectedRow?.row{
+                    
+                    
+                    
+                    
+                        
+                                        }
+                }
+            }
+        }
+    
+
+
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
