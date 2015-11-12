@@ -11,6 +11,8 @@ import Parse
 
 class BreweryVC: UIViewController {
     
+    
+    //Outlets
     @IBOutlet weak var logoBrewery: UIImageView!
     
     @IBOutlet weak var nameBrewery: UILabel!
@@ -22,19 +24,23 @@ class BreweryVC: UIViewController {
     @IBOutlet weak var listOfProducts: UITableView!
     
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    
+
     var brewery : [Brewery]! = [Brewery]()
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
     
         // Do any additional setup after loading the view.
     }
+    
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
-    print("aqui")
+
         
-    var pointerReceive = "Cervejaralho"
+     var pointerReceive = "Cervejaralho"
         
         self.activityIndicator.startAnimating()
         
@@ -42,58 +48,35 @@ class BreweryVC: UIViewController {
             self.activityIndicator.stopAnimating()
             if success {
                 
-                self.brewery = brewery
-                print(self.brewery)
+               self.brewery = brewery
                 
+                
+                print(self.brewery[0].objectForKey("local") )
+                self.updateData(self.brewery[0])
+                
+                
+            }else{
+                //colocar aviso de erro para o usuário
             }
         }
         
         
-        
-        var object:NSObject!
-        
-        
-     
-        var teste = Brewery()
-        
-        nameBrewery.text = teste.name   
-        
-      //  nameBrewery.text = object.name
-//        
-        
-//        var brewery = PFObject(className:"Brewery")
-//        let query = PFQuery(className:"Brewery")
-//        query.getObjectInBackgroundWithId(pointerReceive) {
-//            (brewery: PFObject?, error: NSError?) -> Void in
-//            if error == nil && brewery != nil {
-//                print(brewery)
-//                
-//                let name = brewery!["name"] as! String
-//                let place = brewery!["local"] as! String
-//                let link = brewery!["contact"] as! String
-//                self.updateData(name, place: place, link: link)
-//            } else {
-//                print(error)
-//                //lembrar de colocar alerta, e ação caso nao seja encontrado a cervejaria
-//                
-//            }
-//        }
-//        
-        
-
     }
     
+     
+    // update labels
     
-    func updateData(name:String!, place:String!, link:String!){
+    
+    
+    func updateData(brewery: Brewery){
         
-    
-    nameBrewery.text = name
-    placeBrewery.text = place
-    linkBrewery.text = link
-    
- 
-    
-    
+        
+        nameBrewery.text = brewery.objectForKey("name") as? String
+        
+        placeBrewery.text = brewery.objectForKey("local") as? String
+        
+        linkBrewery.text = brewery.objectForKey("contact") as? String
+        logoBrewery.image = brewery.objectForKey("photo") as? UIImage
     }
     
 
