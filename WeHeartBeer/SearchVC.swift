@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import Parse
+import ParseUI
 
 class SearchVC: UIViewController, UISearchResultsUpdating, UISearchBarDelegate, UITableViewDelegate, UITableViewDataSource, UISearchControllerDelegate {
     
@@ -15,6 +17,8 @@ class SearchVC: UIViewController, UISearchResultsUpdating, UISearchBarDelegate, 
 
 
     let controller = UISearchController(searchResultsController: nil)
+    
+    var searchResults = [String]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -61,7 +65,10 @@ class SearchVC: UIViewController, UISearchResultsUpdating, UISearchBarDelegate, 
        // searchTypeText.hidden = true //hides default message
         controller.searchBar.showsCancelButton = true //enable cancel button
         controller.searchBar.hidden = false //keep search up
+        
         resultsTable.reloadData() //reload data
+        
+        
     }
     
     func searchBarTextDidEndEditing(searchBar: UISearchBar) {
@@ -77,6 +84,40 @@ class SearchVC: UIViewController, UISearchResultsUpdating, UISearchBarDelegate, 
         
         // Dismiss the keyboard
         controller.searchBar.resignFirstResponder()
+        
+        var beerNameQuery = PFQuery(className: "Beer")
+        beerNameQuery.whereKey("name", containsString: self.controller.searchBar.text)
+        
+        beerNameQuery.findObjectsInBackgroundWithBlock{ (results:[PFObject]?, error: NSError?) -> Void in
+            if error != nil {
+            
+                var errorAlert = UIAlertController (title: "Alert", message: "error?", preferredStyle: UIAlertControllerStyle.Alert)
+                let okAction = UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: nil)
+                errorAlert.addAction(okAction)
+                self.presentViewController(errorAlert, animated: true, completion: nil)
+                return
+                
+            }
+            
+            if let objects = results as [PFObject]?{
+            
+                self.searchResults.removeAll(keepCapacity: false)
+                
+                for object in objects{
+                    let beerName = object.objectForKey("name") as! String
+                    
+                    self.searchResults.append(beerName)
+                }
+                
+                dispatch_async(dispatch_get_main_queue()) {
+                    self.resultsTable.reloadData()
+                    self.controller.searchBar.resignFirstResponder()
+                    
+                }
+                
+            }
+            
+        }
     }
     
     func searchBarCancelButtonClicked(searchBar: UISearchBar) {
@@ -95,7 +136,7 @@ class SearchVC: UIViewController, UISearchResultsUpdating, UISearchBarDelegate, 
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return searchResults.count
     }
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -105,6 +146,8 @@ class SearchVC: UIViewController, UISearchResultsUpdating, UISearchBarDelegate, 
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         let cell =  resultsTable.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as! ResultsTableViewCell
+        
+        cell.textLabel?.text = searchResults[indexPath.row]
         
         return cell
     }
