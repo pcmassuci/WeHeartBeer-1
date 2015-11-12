@@ -65,7 +65,10 @@ class SearchVC: UIViewController, UISearchResultsUpdating, UISearchBarDelegate, 
        // searchTypeText.hidden = true //hides default message
         controller.searchBar.showsCancelButton = true //enable cancel button
         controller.searchBar.hidden = false //keep search up
+        
         resultsTable.reloadData() //reload data
+        
+        
     }
     
     func searchBarTextDidEndEditing(searchBar: UISearchBar) {
