@@ -40,7 +40,7 @@ class BreweryVC: UIViewController {
         
 
         
-     var pointerReceive = "Cervejaralho"
+     let pointerReceive = "Cervejaralho"
         
         self.activityIndicator.startAnimating()
         
