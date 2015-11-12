@@ -13,10 +13,10 @@ import Parse
 
 class Beer: PFObject, PFSubclassing {
     
-    var name: UILabel!
-    var brewery: UILabel!
-    var Style: UILabel!
-    var IBV: UILabel!
+    var name: String!
+    var brewery: String!
+    var Style: String!
+    var IBU: String!
     var Photo: UIImage!
     
     override class func initialize() {
