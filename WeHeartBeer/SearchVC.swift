@@ -30,8 +30,8 @@ class SearchVC: UIViewController, UISearchResultsUpdating, UISearchBarDelegate, 
         super.viewDidLoad()
         
         
-      //  searchTypeText.hidden = false
-
+        //  searchTypeText.hidden = false
+        
         
         //setting delegates
         self.controller.searchResultsUpdater = self
@@ -58,8 +58,8 @@ class SearchVC: UIViewController, UISearchResultsUpdating, UISearchBarDelegate, 
         self.resultsTable.reloadData()
         resultsTable.tableFooterView = UIView()
         
-
-
+        
+        
         
         // Do any additional setup after loading the view.
     }
@@ -123,7 +123,7 @@ class SearchVC: UIViewController, UISearchResultsUpdating, UISearchBarDelegate, 
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if (self.controller.active) {
-            return self.searchResults.count
+            return self.resultsList.count
         } else {
             return 0
         }
@@ -138,7 +138,9 @@ class SearchVC: UIViewController, UISearchResultsUpdating, UISearchBarDelegate, 
         let cell =  resultsTable.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as! ResultsTableViewCell
         //var objectRtn: PFObject = self.resultsList.objectAtIndex(indexPath.row) as! PFObject
         print(self.resultsList.objectAtIndex(indexPath.row).name)
-        cell.resutLabel?.text = self.resultsList.objectAtIndex(indexPath.row).name
+        print(resultsList)
+        
+        cell.resutLabel?.text = self.resultsList.objectAtIndex(indexPath.row).objectForKey("name") as? String
         
         
         return cell
@@ -149,12 +151,13 @@ class SearchVC: UIViewController, UISearchResultsUpdating, UISearchBarDelegate, 
         query.findObjectsInBackgroundWithBlock { (results: [PFObject]?,error: NSError?) -> Void in
             
             if (error == nil) {
-                self.searchResults.removeAll(keepCapacity: false)
+                //self.searchResults.removeAll(keepCapacity: false)
                 
-                self.searchResults += results as! [Brewery]
+                //self.searchResults += results as! [Brewery]
                 //print(self.searchResults)
                 //                print(self.brewery[0].objectForKey("local") )
                 self.resultsList = results
+                
                 self.resultsTable.reloadData()
                 
             } else {
@@ -172,12 +175,12 @@ class SearchVC: UIViewController, UISearchResultsUpdating, UISearchBarDelegate, 
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "segueSearch"{
             if let destination = segue.destinationViewController  as? BeerProfileVC{
-                if let indexPath = resultsTable.indexPathForSelectedRow?.row{  
+                if let indexPath = resultsTable.indexPathForSelectedRow?.row{
                 }
             }
         }
     }
-    //
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
