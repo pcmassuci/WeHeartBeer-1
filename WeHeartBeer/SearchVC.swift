@@ -10,6 +10,9 @@ import UIKit
 import Parse
 import ParseUI
 
+//var brewery = [PFObject]()
+
+
 class SearchVC: UIViewController, UISearchResultsUpdating, UISearchBarDelegate, UITableViewDelegate, UITableViewDataSource, UISearchControllerDelegate {
     
     @IBOutlet weak var resultsTable: UITableView!
@@ -18,13 +21,17 @@ class SearchVC: UIViewController, UISearchResultsUpdating, UISearchBarDelegate, 
 
     let controller = UISearchController(searchResultsController: nil)
     
-    var searchResults = [String]()
+    var searchResults: [Brewery] = [Brewery]()
+    var searchActive: Bool = false
+    var resultsList: NSArray!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-      //  searchTypeText.hidden = false
-
+        
+        //  searchTypeText.hidden = false
+        
         
         //setting delegates
         self.controller.searchResultsUpdater = self
@@ -50,10 +57,21 @@ class SearchVC: UIViewController, UISearchResultsUpdating, UISearchBarDelegate, 
         resultsTable.hidden = false
         self.resultsTable.reloadData()
         resultsTable.tableFooterView = UIView()
-
+        
+        
+        
         
         // Do any additional setup after loading the view.
     }
+    
+    func loadSearchResults(searchString: String){
+        
+        // let searchPredicate = NSPredicate(format: "SELF.name CONTAINS[c] %@", self.controller.searchBar.text!)
+        
+    }
+    
+    
+    
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
@@ -62,7 +80,7 @@ class SearchVC: UIViewController, UISearchResultsUpdating, UISearchBarDelegate, 
     
     func searchBarTextDidBeginEditing(searchBar: UISearchBar) {
         
-       // searchTypeText.hidden = true //hides default message
+        // searchTypeText.hidden = true //hides default message
         controller.searchBar.showsCancelButton = true //enable cancel button
         controller.searchBar.hidden = false //keep search up
         
@@ -85,45 +103,13 @@ class SearchVC: UIViewController, UISearchResultsUpdating, UISearchBarDelegate, 
         // Dismiss the keyboard
         controller.searchBar.resignFirstResponder()
         
-        var beerNameQuery = PFQuery(className: "Beer")
-        beerNameQuery.whereKey("name", containsString: self.controller.searchBar.text)
         
-        beerNameQuery.findObjectsInBackgroundWithBlock{ (results:[PFObject]?, error: NSError?) -> Void in
-            if error != nil {
-            
-                var errorAlert = UIAlertController (title: "Alert", message: "error?", preferredStyle: UIAlertControllerStyle.Alert)
-                let okAction = UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: nil)
-                errorAlert.addAction(okAction)
-                self.presentViewController(errorAlert, animated: true, completion: nil)
-                return
-                
-            }
-            
-            if let objects = results as [PFObject]?{
-            
-                self.searchResults.removeAll(keepCapacity: false)
-                
-                for object in objects{
-                    let beerName = object.objectForKey("name") as! String
-                    
-                    self.searchResults.append(beerName)
-                }
-                
-                dispatch_async(dispatch_get_main_queue()) {
-                    self.resultsTable.reloadData()
-                    self.controller.searchBar.resignFirstResponder()
-                    
-                }
-                
-            }
-            
-        }
     }
     
     func searchBarCancelButtonClicked(searchBar: UISearchBar) {
         
         resultsTable.reloadData()
-       //  searchTypeText.hidden = false //shows default text
+        //  searchTypeText.hidden = false //shows default text
         
         // Clear any search criteria
         controller.searchBar.text = ""
@@ -136,7 +122,11 @@ class SearchVC: UIViewController, UISearchResultsUpdating, UISearchBarDelegate, 
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return searchResults.count
+        if (self.controller.active) {
+            return self.resultsList.count
+        } else {
+            return 0
+        }
     }
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -146,47 +136,54 @@ class SearchVC: UIViewController, UISearchResultsUpdating, UISearchBarDelegate, 
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         let cell =  resultsTable.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as! ResultsTableViewCell
+        //var objectRtn: PFObject = self.resultsList.objectAtIndex(indexPath.row) as! PFObject
+        print(self.resultsList.objectAtIndex(indexPath.row).name)
+        print(resultsList)
         
-        cell.textLabel?.text = searchResults[indexPath.row]
+        cell.resutLabel?.text = self.resultsList.objectAtIndex(indexPath.row).objectForKey("name") as? String
+        
         
         return cell
     }
     
     func updateSearchResultsForSearchController(searchController: UISearchController) {
+        var query = PFQuery(className: "Brewery").whereKey("name", containsString: controller.searchBar.text!.lowercaseString)
+        query.findObjectsInBackgroundWithBlock { (results: [PFObject]?,error: NSError?) -> Void in
+            
+            if (error == nil) {
+                //self.searchResults.removeAll(keepCapacity: false)
+                
+                //self.searchResults += results as! [Brewery]
+                //print(self.searchResults)
+                //                print(self.brewery[0].objectForKey("local") )
+                self.resultsList = results
+                
+                self.resultsTable.reloadData()
+                
+            } else {
+                // Log details of the failure
+                print("search query error: \(error) \(error!.userInfo)")
+            }
+        }
     }
-    
+    //
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        
         let cell = self.resultsTable.cellForRowAtIndexPath(indexPath)
-        
-        
         performSegueWithIdentifier("segueSearch", sender: indexPath)
-        
     }
-    
+    //
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "segueSearch"{
-            
-            
             if let destination = segue.destinationViewController  as? BeerProfileVC{
                 if let indexPath = resultsTable.indexPathForSelectedRow?.row{
-                    
-                    
-                    
-                    
-                        
-                                        }
                 }
             }
         }
-    
-
-
+    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-
+    //
 }
