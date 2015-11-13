@@ -19,7 +19,7 @@ class UserServices {
     
     static func createUser(email:String,password:String,confirmPassword:String,completionHandler:SignUpCompletionHandler){
         if UserValidation.signUpValidation(email, password: password, confirmPassword: confirmPassword){
-            var user = User()
+            let user = User()
             user.username = email
             user.email = email
             user.password = password
@@ -62,7 +62,7 @@ class UserServices {
     
     
     static func updateUser(name:String!,birthDate:NSDate!,height:Float!,weight:Float!,motivation:String!,completionHandler:SignUpCompletionHandler){
-        var user = User.currentUser()
+        let user = User.currentUser()
         
         if name != nil{
             user?.name = name
@@ -79,7 +79,7 @@ class UserServices {
     
     
     static func updateNameUser(name:String,completionHandler:SignUpCompletionHandler){
-        var user = User.currentUser()
+        let user = User.currentUser()
         
         user?.name = name
         UserDAO.update(user!, completionHandler: { (success) -> Void in
@@ -88,7 +88,7 @@ class UserServices {
     }
     
     static func updateBirthDateUser(birthDate:NSDate,completionHandler:SignUpCompletionHandler){
-        var user = User.currentUser()
+        let user = User.currentUser()
         
         user?.birthDate = birthDate
         UserDAO.update(user!, completionHandler: { (success) -> Void in
@@ -98,7 +98,7 @@ class UserServices {
     
     
     static func updateEmailUser(email:String,completionHandler:SignUpCompletionHandler){
-        var user = User.currentUser()
+        let user = User.currentUser()
         
         user?.email = email
         UserDAO.update(user!, completionHandler: { (success) -> Void in
@@ -109,7 +109,7 @@ class UserServices {
     
     
     static func updateProfileImageUser(image:UIImage,completionHandler:SignUpCompletionHandler){
-        var user = User.currentUser()
+        let user = User.currentUser()
         
         let imageData = UIImageJPEGRepresentation(image, 0)
         let imageFile = PFFile(name:"profile.png", data:imageData!)

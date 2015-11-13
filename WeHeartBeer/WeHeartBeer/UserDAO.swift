@@ -22,7 +22,7 @@ class UserDAO {
         
         user.signUpInBackgroundWithBlock { (success, error:NSError?) -> Void in
             if let error = error {
-                let errorString = error.userInfo["error"] as? NSString
+                let errorString = error.userInfo["error"] as! NSString
                 completionHandler(success: false)
             } else {
                 completionHandler(success: true)
@@ -68,7 +68,7 @@ class UserDAO {
             if let user = user {
                 
                 if user.isNew {
-                    var userNew = user as! User
+                    let userNew = user as! User
                     UserDAO.saveNewFBUser(userNew, completionHandler: { (success) -> Void in
                         completionHandler(success: success)
                     })
@@ -105,13 +105,13 @@ class UserDAO {
         
         graphRequest.startWithCompletionHandler { (connection, result, error) -> Void in
             
-            var dict  = result as! NSDictionary
+            let dict  = result as! NSDictionary
             let name = (dict.valueForKey("first_name") as? String)!
             let lastName = (dict.valueForKey("last_name") as? String)!
             let imageURL = dict.objectForKey("picture")?.objectForKey("data")?.objectForKey("url") as! String
             
-            var data = NSData(contentsOfURL: NSURL(string: imageURL)!)
-            var image = UIImage(data: data!)
+            let data = NSData(contentsOfURL: NSURL(string: imageURL)!)
+            let image = UIImage(data: data!)
             let imageData = UIImageJPEGRepresentation(image!, 0)
             let imageFile = PFFile(name:"profile.png", data:imageData!)
             user.name = name

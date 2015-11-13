@@ -15,7 +15,6 @@ class ChallengeVC: UIViewController {
     @IBOutlet weak var challengeDescription: UILabel!
     @IBOutlet weak var challengeFb: UIButton!
 
-   
 
     override func viewDidLoad() {
         super.viewDidLoad()
