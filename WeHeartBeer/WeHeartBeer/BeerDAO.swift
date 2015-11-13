@@ -46,6 +46,35 @@ class BeerDAO {
         }
         
     }
+    
+    
+    
+    
+    static func findBeerfromBrewry(Brewery:String,completionHandler:FindObjectsCompletionHandler){
+        
+        let query = PFQuery(className: "Beer")
+        
+        query.whereKey("name", equalTo: beer)
+        
+        query.findObjectsInBackgroundWithBlock { (result:[PFObject]?, error:NSError?) -> Void in
+            if error == nil {
+                if let result = result as? [Beer] {
+                    completionHandler(beer: result, success: true)
+                }else{
+                    print("erro dao")
+                    completionHandler(beer:nil,success: false)
+                }
+            }else{
+                print("erro dao 2")
+                completionHandler(beer:nil,success: false)
+            }
+            
+            
+        }
+        
+    }
+
+    
 }
 
 

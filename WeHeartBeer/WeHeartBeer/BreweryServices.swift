@@ -19,7 +19,7 @@ typealias FindObjectsCompletionHandler = (brewerys:[Brewery]?,success:Bool) -> V
 typealias CreateCompletionHaldler = (brewery:Brewery?,success:Bool) -> Void
 typealias FindBreweryCompletionHandler = (brewery:[Brewery]?,success:Bool) -> Void
 
-
+//find Brewery using name and completion Handler
 static func findBreweryName(brewery:String,completionHandler:FindBreweryCompletionHandler){
     
     BreweryDAO.findBrewery(brewery) { (breweryCH, success) -> Void in
@@ -30,6 +30,7 @@ static func findBreweryName(brewery:String,completionHandler:FindBreweryCompleti
             
         } else {
             
+            //criar alert para o usuário
             print("erooo serivice")
             completionHandler(brewery: nil,success: false)
             

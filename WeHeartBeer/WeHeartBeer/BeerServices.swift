@@ -19,7 +19,7 @@ class BeerServices {
     typealias CreateCompletionHaldler = (beer:Beer?,success:Bool) -> Void
     typealias FindBeerCompletionHandler = (beer:[Beer]?,success:Bool) -> Void
     
-    
+    //find beer using name and completionHandler
     static func findBeerName(beer:String,completionHandler:FindBeerCompletionHandler){
         
         BeerDAO.findBeer(beer) { (beerCH, success) -> Void in
@@ -29,7 +29,7 @@ class BeerServices {
                 completionHandler(beer: beerCH,success: true)
                 
             } else {
-                
+                // alertar o usuario
                 print("erooo serivice")
                 completionHandler(beer: nil,success: false)
                 
@@ -43,7 +43,11 @@ class BeerServices {
         
     }
     
-    
+    static func findBeerFromBrewery(breweryPointer: String!, completionHandler:FindBeerCompletionHandler){
+        
+        
+        
+    }
     
     
     
