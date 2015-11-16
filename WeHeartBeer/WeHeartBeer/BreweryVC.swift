@@ -65,9 +65,6 @@ class BreweryVC: UIViewController {
     
      
     // update labels
-    
-    
-    
     func updateData(brewery: Brewery){
         
         
