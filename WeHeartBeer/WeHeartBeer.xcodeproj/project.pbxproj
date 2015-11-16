@@ -15,6 +15,7 @@
 		676250741BF1759300F3BB0D /* BreweryDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 676250731BF1759300F3BB0D /* BreweryDAO.swift */; };
 		676250771BF373AF00F3BB0D /* UserDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 676250761BF373AF00F3BB0D /* UserDAO.swift */; };
 		676250791BF3757300F3BB0D /* UserValidation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 676250781BF3757300F3BB0D /* UserValidation.swift */; };
+		677924B01BF6B9F700B8092B /* SearchVCCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 677924AF1BF6B9F700B8092B /* SearchVCCellTableViewCell.swift */; };
 		8502AE6A1BEA66CC00C54142 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8502AE631BEA66CB00C54142 /* Bolts.framework */; };
 		8502AE6B1BEA66CC00C54142 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8502AE641BEA66CC00C54142 /* Parse.framework */; };
 		8502AE6C1BEA66CC00C54142 /* ParseCrashReporting.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8502AE651BEA66CC00C54142 /* ParseCrashReporting.framework */; };
@@ -86,6 +87,7 @@
 		676250761BF373AF00F3BB0D /* UserDAO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDAO.swift; sourceTree = "<group>"; };
 		676250781BF3757300F3BB0D /* UserValidation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserValidation.swift; sourceTree = "<group>"; };
 		6762507A1BF3775500F3BB0D /* Header-WeHeartBeer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Header-WeHeartBeer.h"; sourceTree = "<group>"; };
+		677924AF1BF6B9F700B8092B /* SearchVCCellTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SearchVCCellTableViewCell.swift; path = ../SearchVCCellTableViewCell.swift; sourceTree = "<group>"; };
 		8502AE631BEA66CB00C54142 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
 		8502AE641BEA66CC00C54142 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		8502AE651BEA66CC00C54142 /* ParseCrashReporting.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseCrashReporting.framework; sourceTree = "<group>"; };
@@ -323,6 +325,7 @@
 			children = (
 				8518D14C1BD7B7BD00499ACA /* Main.storyboard */,
 				8518D1541BD7B7BD00499ACA /* LaunchScreen.storyboard */,
+				677924AF1BF6B9F700B8092B /* SearchVCCellTableViewCell.swift */,
 				672C62FA1BEAD2F700E667C8 /* BreweryVCCell.swift */,
 				D246342C1BEBAFBF00CF605D /* FloatRatingView.swift */,
 			);
@@ -498,6 +501,7 @@
 				6333567F1BED154C00A71155 /* UserProfileVC.swift in Sources */,
 				D246342D1BEBAFBF00CF605D /* FloatRatingView.swift in Sources */,
 				D2526D7B1BDA56C9003953F9 /* HomepageVC.swift in Sources */,
+				677924B01BF6B9F700B8092B /* SearchVCCellTableViewCell.swift in Sources */,
 				854AAC8E1BEB8CCE002F405B /* SearchVC.swift in Sources */,
 				854AAF511BF0BEAE002F405B /* BreweryServices.swift in Sources */,
 				8518D1491BD7B7BD00499ACA /* AppDelegate.swift in Sources */,

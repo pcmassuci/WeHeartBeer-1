@@ -50,7 +50,7 @@ class BeerDAO {
     
     
     
-    static func findBeerfromBrewry(Brewery:String,completionHandler:FindObjectsCompletionHandler){
+    static func findBeerfromBrewry(beer:String,completionHandler:FindObjectsCompletionHandler){
         
         let query = PFQuery(className: "Beer")
         
