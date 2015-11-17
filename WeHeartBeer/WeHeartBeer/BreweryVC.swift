@@ -27,7 +27,7 @@ class BreweryVC: UIViewController {
     
 
     var brewery : [Brewery]! = [Brewery]()
-    
+     var currentObject: String?
 
     override func viewDidLoad() {
         super.viewDidLoad()

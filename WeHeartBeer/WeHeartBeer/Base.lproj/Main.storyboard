@@ -743,7 +743,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XLn-R4-ISN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-147" y="1552"/>
+            <point key="canvasLocation" x="1881" y="1049.25"/>
         </scene>
         <!--HomepageVC-->
         <scene sceneID="mlu-hM-Dmy">
@@ -1147,6 +1147,17 @@
                                     <rect key="frame" x="141" y="405" width="106" height="21"/>
                                 </variation>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1SG-YO-REY">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <animations/>
+                                <state key="normal" title="Button"/>
+                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="229" y="204" width="46" height="30"/>
+                                </variation>
+                                <connections>
+                                    <segue destination="D0v-rr-m7t" kind="show" identifier="segueBeer" id="dZj-fN-WRD"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -1163,6 +1174,7 @@
                                 <exclude reference="tCD-oo-Ve2"/>
                                 <exclude reference="Arj-bW-Ogn"/>
                                 <exclude reference="HEe-Rj-kOg"/>
+                                <exclude reference="1SG-YO-REY"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
@@ -1178,6 +1190,7 @@
                                 <include reference="tCD-oo-Ve2"/>
                                 <include reference="Arj-bW-Ogn"/>
                                 <include reference="HEe-Rj-kOg"/>
+                                <include reference="1SG-YO-REY"/>
                             </mask>
                         </variation>
                     </view>

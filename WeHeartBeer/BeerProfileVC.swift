@@ -92,7 +92,10 @@ class BeerProfileVC: UIViewController, FloatRatingViewDelegate {
     // update informations
     func updateData(beer: PFObject?){
         
-        print(beer?.objectForKey("brewery"))
+        print(beer?.objectForKey("brewery")?.objectId)
+                
+        
+        
         //print(beer)
         
         self.name.text = beer!.objectForKey("name") as! String
@@ -148,6 +151,18 @@ class BeerProfileVC: UIViewController, FloatRatingViewDelegate {
     }
     
     
+    
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "segueBeer"{
+            if let destination = segue.destinationViewController  as? BreweryVC{
+                
+                    destination.currentObject = (sender) as? String
+                    
+            
+            }
+        }
+    }
 
     
     
