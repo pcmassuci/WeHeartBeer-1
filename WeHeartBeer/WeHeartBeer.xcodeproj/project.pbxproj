@@ -194,11 +194,11 @@
 			children = (
 				677924B11BFA064600B8092B /* RegisterBeerVC.swift */,
 				672C62F81BEA5E7200E667C8 /* BreweryVC.swift */,
-				854AAC8D1BEB8CCE002F405B /* SearchVC.swift */,
+				D24634321BEBC93300CF605D /* BeerProfileVC.swift */,
 				63F668AB1BD9165800172050 /* ChallengeVC.swift */,
 				D2526D7A1BDA56C9003953F9 /* HomepageVC.swift */,
 				D20F7FB21BE1DAE9007D015D /* InterestCollectionViewCell.swift */,
-				D24634321BEBC93300CF605D /* BeerProfileVC.swift */,
+				854AAC8D1BEB8CCE002F405B /* SearchVC.swift */,
 				6333567E1BED154C00A71155 /* UserProfileVC.swift */,
 			);
 			name = Controllers;
