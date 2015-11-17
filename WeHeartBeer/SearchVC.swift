@@ -16,6 +16,8 @@ class SearchVC: UIViewController, UISearchResultsUpdating, UISearchBarDelegate, 
     @IBOutlet weak var resultsTable: UITableView!
     @IBOutlet weak var searchTypeText: UILabel!
 
+    @IBOutlet weak var beerStyle: UILabel!
+    @IBOutlet weak var beerABV: UILabel!
 
     let controller = UISearchController(searchResultsController: nil)
     
@@ -151,6 +153,10 @@ class SearchVC: UIViewController, UISearchResultsUpdating, UISearchBarDelegate, 
         //print(resultsList)
         
         cell.resutLabel?.text = self.resultsList.objectAtIndex(indexPath.row).objectForKey("name") as? String
+        
+        cell.beerABV?.text = self.resultsList.objectAtIndex(indexPath.row).objectForKey("ABV") as? String
+        
+        cell.beerStyle?.text = self.resultsList.objectAtIndex(indexPath.row).objectForKey("Style") as? String
         
         return cell
     }
