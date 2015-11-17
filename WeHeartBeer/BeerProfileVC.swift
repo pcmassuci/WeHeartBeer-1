@@ -83,11 +83,13 @@ class BeerProfileVC: UIViewController, FloatRatingViewDelegate {
     // update informations
     func updateData(beer: Beer){
         
-        self.name.text! = beer.objectForKey("name") as! String!
+        print(beer)
+        
+        self.name.text = beer.objectForKey("name") as? String
         //self.brewery.text! = beer.objectForKey("brewery") as! String
-        self.style.text! = beer.objectForKey("Style") as! String!
+        self.style.text = beer.objectForKey("Style") as? String
         //self.ibv.text! = beer.objectForKey("IBV") as! String!
-        self.photo.image! = beer.objectForKey("Photo") as! UIImage!
+        self.photo.image = beer.objectForKey("Photo") as? UIImage
     }
 
     
@@ -111,4 +113,14 @@ class BeerProfileVC: UIViewController, FloatRatingViewDelegate {
         self.updatedLabel.text = NSString(format: "%.2f", self.floatRatingView.rating) as String
     }
     
+    
+    func pffileToUIImage(beer:Beer)->UIImage{
+        let userPicture = beer.objectForKey("Photo")
+        
+        return userPicture as! UIImage
+    }
+    
+    
 }
+
+
