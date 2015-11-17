@@ -20,7 +20,7 @@ class SearchVC: UIViewController, UISearchResultsUpdating, UISearchBarDelegate, 
     let controller = UISearchController(searchResultsController: nil)
     
     //Creates class object and aux array for
-    var searchResults: [Brewery] = [Brewery]()
+    var searchResults: [Beer] = [Beer]()
     var resultsList: NSArray!
     
     
@@ -163,7 +163,7 @@ class SearchVC: UIViewController, UISearchResultsUpdating, UISearchBarDelegate, 
         if(controller.searchBar.text?.characters.count > 2){
             
             // Query objects matching their names with text imput - regex for case insensitivity
-            var query = PFQuery(className: "Brewery").whereKey("name", matchesRegex: controller.searchBar.text!, modifiers: "i")
+            var query = PFQuery(className: "Beer").whereKey("name", matchesRegex: controller.searchBar.text!, modifiers: "i")
         
             // Alphabetical order
             query.orderByAscending("name")
