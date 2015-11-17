@@ -18,10 +18,11 @@ class BeerDAO {
     
     
     typealias FindObjectsCompletionHandler = (beer:[Beer]?,success:Bool) -> Void
+    typealias RegisterBeerCH = (successs:Bool)->Void
     
     
     
-    
+    //find beer for name in parse using completionHandler, send a string with name of beer
     
     static func findBeer(beer:String,completionHandler:FindObjectsCompletionHandler){
         
@@ -49,8 +50,8 @@ class BeerDAO {
     
     
     
-    
-    static func findBeerfromBrewry(beer:String,completionHandler:FindObjectsCompletionHandler){
+   // find beer from brewery,using CH, send a brewery name from parse return objects Beer
+    static func findBeerfromBrewery(beer:String,completionHandler:FindObjectsCompletionHandler){
         
         let query = PFQuery(className: "Beer")
         
@@ -73,7 +74,52 @@ class BeerDAO {
         }
         
     }
+    
+    
+    // under implemention, all under this command is under implemation
+    
+   
+        func searchBeers(search: String!, completionHandler: FindObjectsCompletionHandler){
+       
+            let query = PFQuery(className: "Beer").whereKey("name", containsString: search)
+        query.findObjectsInBackgroundWithBlock { (results: [PFObject]?,error: NSError?) -> Void in
+            
+            if (error == nil) {
+                //self.searchResults.removeAll(keepCapacity: false)
+                
+                //self.searchResults += results as! [Brewery]
+                //print(self.searchResults)
+                //                print(self.brewery[0].objectForKey("local") )
+//                self.resultsList = results
+//                
+//                self.resultsTable.reloadData()
+//                
+            } else {
+                // Log details of the failure
+                print("search query error: \(error) \(error!.userInfo)")
+            }
+        }
+    }
 
+    func registerBeer(beer:Beer, completionHandler: RegisterBeerCH){
+    
+        
+    let registerBeer = PFObject(className:"Beer")
+    registerBeer["name"] = beer.objectForKey("name")
+
+    registerBeer.saveInBackgroundWithBlock {
+    (success: Bool, error: NSError?) -> Void in
+    if (success) {
+        completionHandler(successs: true)
+    // The object has been saved.
+    } else {
+        completionHandler(successs: false)
+        
+    // There was a problem, check error.description
+    }
+    }
+
+    }
     
 }
 

@@ -12,10 +12,12 @@
 		63F668AC1BD9165800172050 /* ChallengeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63F668AB1BD9165800172050 /* ChallengeVC.swift */; };
 		672C62F91BEA5E7200E667C8 /* BreweryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 672C62F81BEA5E7200E667C8 /* BreweryVC.swift */; };
 		672C62FB1BEAD2F700E667C8 /* BreweryVCCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 672C62FA1BEAD2F700E667C8 /* BreweryVCCell.swift */; };
+		674C246C1BFA98330043849B /* ConverterImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 674C246B1BFA98330043849B /* ConverterImage.swift */; };
 		676250741BF1759300F3BB0D /* BreweryDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 676250731BF1759300F3BB0D /* BreweryDAO.swift */; };
 		676250771BF373AF00F3BB0D /* UserDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 676250761BF373AF00F3BB0D /* UserDAO.swift */; };
 		676250791BF3757300F3BB0D /* UserValidation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 676250781BF3757300F3BB0D /* UserValidation.swift */; };
 		677924B01BF6B9F700B8092B /* SearchVCCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 677924AF1BF6B9F700B8092B /* SearchVCCellTableViewCell.swift */; };
+		677924B21BFA064600B8092B /* RegisterBeerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 677924B11BFA064600B8092B /* RegisterBeerVC.swift */; };
 		8502AE6A1BEA66CC00C54142 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8502AE631BEA66CB00C54142 /* Bolts.framework */; };
 		8502AE6B1BEA66CC00C54142 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8502AE641BEA66CC00C54142 /* Parse.framework */; };
 		8502AE6C1BEA66CC00C54142 /* ParseCrashReporting.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8502AE651BEA66CC00C54142 /* ParseCrashReporting.framework */; };
@@ -83,11 +85,13 @@
 		63F668AB1BD9165800172050 /* ChallengeVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ChallengeVC.swift; path = WeHeartBeer/ChallengeVC.swift; sourceTree = "<group>"; };
 		672C62F81BEA5E7200E667C8 /* BreweryVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BreweryVC.swift; path = WeHeartBeer/BreweryVC.swift; sourceTree = "<group>"; };
 		672C62FA1BEAD2F700E667C8 /* BreweryVCCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BreweryVCCell.swift; path = ../BreweryVCCell.swift; sourceTree = "<group>"; };
+		674C246B1BFA98330043849B /* ConverterImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConverterImage.swift; sourceTree = "<group>"; };
 		676250731BF1759300F3BB0D /* BreweryDAO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BreweryDAO.swift; sourceTree = "<group>"; };
 		676250761BF373AF00F3BB0D /* UserDAO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDAO.swift; sourceTree = "<group>"; };
 		676250781BF3757300F3BB0D /* UserValidation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserValidation.swift; sourceTree = "<group>"; };
 		6762507A1BF3775500F3BB0D /* Header-WeHeartBeer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Header-WeHeartBeer.h"; sourceTree = "<group>"; };
 		677924AF1BF6B9F700B8092B /* SearchVCCellTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SearchVCCellTableViewCell.swift; path = ../SearchVCCellTableViewCell.swift; sourceTree = "<group>"; };
+		677924B11BFA064600B8092B /* RegisterBeerVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterBeerVC.swift; sourceTree = "<group>"; };
 		8502AE631BEA66CB00C54142 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
 		8502AE641BEA66CC00C54142 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		8502AE651BEA66CC00C54142 /* ParseCrashReporting.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseCrashReporting.framework; sourceTree = "<group>"; };
@@ -188,6 +192,7 @@
 		63F668AA1BD915F400172050 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				677924B11BFA064600B8092B /* RegisterBeerVC.swift */,
 				672C62F81BEA5E7200E667C8 /* BreweryVC.swift */,
 				854AAC8D1BEB8CCE002F405B /* SearchVC.swift */,
 				63F668AB1BD9165800172050 /* ChallengeVC.swift */,
@@ -294,6 +299,7 @@
 		854AAF4D1BF0BE65002F405B /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				674C246B1BFA98330043849B /* ConverterImage.swift */,
 				676250751BF3737E00F3BB0D /* DAO */,
 				D25499C21BF1769300D38C88 /* Parse Services */,
 				854AAF4E1BF0BE8F002F405B /* BeerServices.swift */,
@@ -488,6 +494,7 @@
 				676250791BF3757300F3BB0D /* UserValidation.swift in Sources */,
 				63F668AC1BD9165800172050 /* ChallengeVC.swift in Sources */,
 				858A7E211BF4AD050070E844 /* BeerDAO.swift in Sources */,
+				677924B21BFA064600B8092B /* RegisterBeerVC.swift in Sources */,
 				D20F7FB31BE1DAE9007D015D /* InterestCollectionViewCell.swift in Sources */,
 				854AAF4F1BF0BE8F002F405B /* BeerServices.swift in Sources */,
 				8518D1511BD7B7BD00499ACA /* WeHeartBeer.xcdatamodeld in Sources */,
@@ -504,6 +511,7 @@
 				677924B01BF6B9F700B8092B /* SearchVCCellTableViewCell.swift in Sources */,
 				854AAC8E1BEB8CCE002F405B /* SearchVC.swift in Sources */,
 				854AAF511BF0BEAE002F405B /* BreweryServices.swift in Sources */,
+				674C246C1BFA98330043849B /* ConverterImage.swift in Sources */,
 				8518D1491BD7B7BD00499ACA /* AppDelegate.swift in Sources */,
 				672C62FB1BEAD2F700E667C8 /* BreweryVCCell.swift in Sources */,
 				D20F7FAF1BE1D74A007D015D /* Interest.swift in Sources */,

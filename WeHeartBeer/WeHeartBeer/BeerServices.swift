@@ -22,6 +22,8 @@ class BeerServices {
     //find beer using name and completionHandler
     static func findBeerName(beer:String,completionHandler:FindBeerCompletionHandler){
         
+        // call BeerDAO
+        
         BeerDAO.findBeer(beer) { (beerCH, success) -> Void in
             
             if success {

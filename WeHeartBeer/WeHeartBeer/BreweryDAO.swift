@@ -22,6 +22,7 @@ class BreweryDAO {
     
    
     
+    //find Brewery, send a String Name from Parse
     
     static func findBrewery(brewery:String,completionHandler:FindObjectsCompletionHandler){
         
