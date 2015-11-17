@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9060" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="VcN-tL-zUt">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9060" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="7Kz-mP-eSq">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
@@ -7,7 +7,7 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--Item 2-->
+        <!--SearchVC-->
         <scene sceneID="h0a-yZ-Mg3">
             <objects>
                 <viewController id="JRx-eG-YJZ" customClass="SearchVC" customModule="WeHeartBeer" customModuleProvider="target" sceneMemberID="viewController">
@@ -118,7 +118,7 @@
                             </mask>
                         </variation>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item 2" id="lbU-1q-5nu"/>
+                    <navigationItem key="navigationItem" id="5AD-ZA-skJ"/>
                     <connections>
                         <outlet property="resultsTable" destination="Lzg-zN-ZBo" id="Lz2-v5-zIm"/>
                         <outlet property="searchDisplayController" destination="mG7-oI-67U" id="rqT-wS-ASm"/>
@@ -134,7 +134,7 @@
                     </connections>
                 </searchDisplayController>
             </objects>
-            <point key="canvasLocation" x="-1332" y="641.25"/>
+            <point key="canvasLocation" x="-414" y="641.25"/>
         </scene>
         <!--Item3-->
         <scene sceneID="xL3-zI-QcZ">
@@ -988,7 +988,7 @@
                     </tabBar>
                     <connections>
                         <segue destination="tNC-DG-bDG" kind="relationship" relationship="viewControllers" id="gbK-5S-Aje"/>
-                        <segue destination="JRx-eG-YJZ" kind="relationship" relationship="viewControllers" id="knH-NW-BTs"/>
+                        <segue destination="e0J-vN-RW9" kind="relationship" relationship="viewControllers" id="knH-NW-BTs"/>
                         <segue destination="Y6z-p5-dK2" kind="relationship" relationship="viewControllers" id="tcq-Oh-VEL"/>
                         <segue destination="sgA-Wm-f0P" kind="relationship" relationship="viewControllers" id="Eai-F5-gi4"/>
                     </connections>
@@ -1193,7 +1193,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="E3U-2n-Ddp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="777" y="1557"/>
+            <point key="canvasLocation" x="816" y="641.25"/>
         </scene>
         <!--ChallengeVC-->
         <scene sceneID="wVK-GP-nfL">
@@ -1348,7 +1348,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="X2X-h1-cFu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="841.5" y="373.5"/>
+            <point key="canvasLocation" x="1759.5" y="373.5"/>
         </scene>
         <!--Item-->
         <scene sceneID="6xu-zt-6Ab">
@@ -1369,6 +1369,26 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pZS-2B-JHT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1332" y="-4.5"/>
+        </scene>
+        <!--Item 2-->
+        <scene sceneID="zWu-Xl-NhH">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="e0J-vN-RW9" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item 2" id="lbU-1q-5nu"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="qww-q6-9iR">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <animations/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="JRx-eG-YJZ" kind="relationship" relationship="rootViewController" id="vbD-yU-590"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="U2U-jh-awQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1332" y="641.25"/>
         </scene>
     </scenes>
     <resources>

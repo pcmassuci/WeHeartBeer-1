@@ -30,6 +30,7 @@ class SearchVC: UIViewController, UISearchResultsUpdating, UISearchBarDelegate, 
         super.viewDidLoad()
         
         
+        
         //  searchTypeText.hidden = false
         
         
@@ -66,6 +67,8 @@ class SearchVC: UIViewController, UISearchResultsUpdating, UISearchBarDelegate, 
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
+        //Hide NavigationController
+         self.navigationController?.navigationBar.hidden = true
     }
     
     
@@ -197,11 +200,11 @@ class SearchVC: UIViewController, UISearchResultsUpdating, UISearchBarDelegate, 
         }
     }
     
-    // Perform segue - WIP
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        let cell = self.resultsTable.cellForRowAtIndexPath(indexPath)
-        performSegueWithIdentifier("segueSearch", sender: indexPath)
-    }
+    // Perform segue - WIP (redundancia com o prepareForSegue
+//    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+//        let cell = self.resultsTable.cellForRowAtIndexPath(indexPath)
+//        performSegueWithIdentifier("segueSearch", sender: indexPath)
+//    }
     
     // Prepare segue - WIP
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {

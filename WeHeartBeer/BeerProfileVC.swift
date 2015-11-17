@@ -10,6 +10,7 @@ import UIKit
 
 class BeerProfileVC: UIViewController, FloatRatingViewDelegate {
     
+    
     @IBOutlet var ratingSegmentedControl: UISegmentedControl!
     @IBOutlet var floatRatingView: FloatRatingView!
     @IBOutlet var liveLabel: UILabel!
@@ -29,7 +30,12 @@ class BeerProfileVC: UIViewController, FloatRatingViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        print("oi tudo bem?")
         print(currentObject)
+        self.updateData(currentObject)
+        
+        self.navigationController?.navigationBar.hidden = false
+        
 
         /** Note: With the exception of contentMode, all of these
         properties can be set directly in Interface builder **/
@@ -63,32 +69,33 @@ class BeerProfileVC: UIViewController, FloatRatingViewDelegate {
     
         
         //Pointer for view beer name
-        let pointerReceive = "cervejum"
+       // let pointerReceive = "cervejum"
 
-        BeerServices.findBeerName(pointerReceive) { (beer, success) -> Void in
+        //BeerServices.findBeerName(pointerReceive) { (beer, success) -> Void in
 
-            if success {
-                self.beer = beer
+           // if success {
+             //   self.beer = beer
                 
                 //Printing beer name
-                print(self.beer[0])
+                //print(self.beer[0])
                 
                 //Self name for view
                 //self.name.text! = self.beer[0].objectForKey("name") as! String!
-                self.updateData(self.beer[0])
-            }else{
+                //self.updateData(self.beer[0])
+           // }else{
                 //Warning error
-                print("Erro, cerveja não encontrada!")
-            }
-        }
+               // print("Erro, cerveja não encontrada!")
+            //}
+      //  }
     }
     
     // update informations
-    func updateData(beer: Beer){
+    func updateData(beer: PFObject?){
         
-        print(beer)
+        print(beer?.objectForKey("brewery"))
+        //print(beer)
         
-        self.name.text = beer.objectForKey("name") as? String
+        self.name.text = beer!.objectForKey("name") as! String
 //        //self.brewery.text! = beer.objectForKey("brewery") as! String
 //        self.style.text = beer.objectForKey("Style") as? String
 //        //self.ibv.text! = beer.objectForKey("IBV") as! String!
@@ -96,15 +103,24 @@ class BeerProfileVC: UIViewController, FloatRatingViewDelegate {
 //        self.pffileToUIImage(beer)
    
    //pegando a foto do parse
-        let userImageFile = beer.objectForKey("Photo") as! PFFile
+        
+        if beer!.objectForKey("Photo") != nil{
+        let userImageFile = beer!.objectForKey("Photo") as! PFFile
+    
         userImageFile.getDataInBackgroundWithBlock {
             (imageData: NSData?, error: NSError?) -> Void in
             if error == nil {
                 if let imageData = imageData {
                     let image = UIImage(data:imageData)
                     self.photo.image = image 
+                }else{
+                    print("sem imagem")
                 }
             }
+        
+        }
+        }else{
+            print("erro na imagem")
         }
         
         //self.photo.image = beer.objectForKey("Photo") as? UIImage
@@ -132,11 +148,7 @@ class BeerProfileVC: UIViewController, FloatRatingViewDelegate {
     }
     
     
-    func pffileToUIImage(beer:Beer)->UIImage{
-        let userPicture = beer.objectForKey("Photo")
-        
-        return userPicture as! UIImage
-    }
+
     
     
 }
