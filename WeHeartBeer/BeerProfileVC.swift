@@ -16,9 +16,10 @@ class BeerProfileVC: UIViewController, FloatRatingViewDelegate {
     @IBOutlet var updatedLabel: UILabel!
     
     @IBOutlet var name: UILabel!
-    @IBOutlet var brewery: FloatRatingView!
-    @IBOutlet var IBU: UILabel!
-    @IBOutlet var Photo: UIImageView!
+    @IBOutlet var brewery: UILabel!
+    @IBOutlet var style: UILabel!
+    @IBOutlet var ibv: UILabel!
+    @IBOutlet var photo: UIImageView!
     
     
     
@@ -47,56 +48,48 @@ class BeerProfileVC: UIViewController, FloatRatingViewDelegate {
         //self.ratingSegmentedControl.selectedSegmentIndex = 1
         
         // Labels init
-        self.liveLabel.text = NSString(format: "%.2f", self.floatRatingView.rating) as String
-        self.updatedLabel.text = NSString(format: "%.2f", self.floatRatingView.rating) as String
+        //        self.liveLabel.text = NSString(format: "%.2f", self.floatRatingView.rating) as String
+        //self.updatedLabel.text = NSString(format: "%.2f", self.floatRatingView.rating) as String
     }
+    
+    
+    
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        
-        
-        
-        
-        
-        var pointerReceive = "cervejum"
-        
-      
-        BeerServices.findBeerName(pointerReceive) { (beer, success) -> Void in
     
-       
-            if success {
-                
-                self.beer = beer
+        
+        //Pointer for view beer name
+        let pointerReceive = "cervejum"
 
+        BeerServices.findBeerName(pointerReceive) { (beer, success) -> Void in
+
+            if success {
+                self.beer = beer
                 
-                
+                //Printing beer name
                 print(self.beer[0])
-                //self.updateData(self.brewery[0])
                 
-                
+                //Self name for view
+                //self.name.text! = self.beer[0].objectForKey("name") as! String!
+                self.updateData(self.beer[0])
             }else{
-                //colocar aviso de erro para o usuário
+                //Warning error
+                print("Erro, cerveja não encontrada!")
             }
         }
-
-    
-        // update informations
-        func updateData(beer: Beer){
-            
-            
-            name.text = beer.objectForKey("name") as? String
-            //Brewery.text = beer.objectForKey("Brewery") as? String
-           // .text = beer.objectForKey("Style") as? String
-            IBU.text = beer.objectForKey("IBU") as? String
-            Photo.image = beer.objectForKey("Photo") as? UIImage
-        }
-        
-        
-        
-        
-        
-        
     }
+    
+    // update informations
+    func updateData(beer: Beer){
+        
+        self.name.text! = beer.objectForKey("name") as! String!
+        //self.brewery.text! = beer.objectForKey("brewery") as! String
+        self.style.text! = beer.objectForKey("Style") as! String!
+        //self.ibv.text! = beer.objectForKey("IBV") as! String!
+        self.photo.image! = beer.objectForKey("Photo") as! UIImage!
+    }
+
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
