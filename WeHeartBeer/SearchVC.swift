@@ -208,6 +208,10 @@ class SearchVC: UIViewController, UISearchResultsUpdating, UISearchBarDelegate, 
         if segue.identifier == "segueSearch"{
             if let destination = segue.destinationViewController  as? BeerProfileVC{
                 if let indexPath = resultsTable.indexPathForSelectedRow?.row{
+                    
+                    let row = Int(indexPath)
+                    destination.currentObject = (self.resultsList[row]) as? PFObject
+                    
                 }
             }
         }

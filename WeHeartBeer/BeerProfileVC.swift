@@ -24,10 +24,13 @@ class BeerProfileVC: UIViewController, FloatRatingViewDelegate {
     
     
     var beer : [Beer]! = [Beer]()
+    var currentObject: PFObject?
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        print(currentObject)
+
         /** Note: With the exception of contentMode, all of these
         properties can be set directly in Interface builder **/
         

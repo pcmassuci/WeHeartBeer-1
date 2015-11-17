@@ -94,6 +94,7 @@
                                             <outlet property="beerABV" destination="lyW-NK-LRe" id="3VH-Se-ao0"/>
                                             <outlet property="beerStyle" destination="4kl-E5-1Nd" id="XNN-Ik-kzI"/>
                                             <outlet property="resutLabel" destination="kVs-O3-SSO" id="8a1-vh-c5O"/>
+                                            <segue destination="VcN-tL-zUt" kind="show" identifier="segueSearch" id="2TU-YI-v0e"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
