@@ -86,10 +86,25 @@ class BeerProfileVC: UIViewController, FloatRatingViewDelegate {
         print(beer)
         
         self.name.text = beer.objectForKey("name") as? String
-        //self.brewery.text! = beer.objectForKey("brewery") as! String
-        self.style.text = beer.objectForKey("Style") as? String
-        //self.ibv.text! = beer.objectForKey("IBV") as! String!
-        self.photo.image = beer.objectForKey("Photo") as? UIImage
+//        //self.brewery.text! = beer.objectForKey("brewery") as! String
+//        self.style.text = beer.objectForKey("Style") as? String
+//        //self.ibv.text! = beer.objectForKey("IBV") as! String!
+        
+//        self.pffileToUIImage(beer)
+   
+   //pegando a foto do parse
+        let userImageFile = beer.objectForKey("Photo") as! PFFile
+        userImageFile.getDataInBackgroundWithBlock {
+            (imageData: NSData?, error: NSError?) -> Void in
+            if error == nil {
+                if let imageData = imageData {
+                    let image = UIImage(data:imageData)
+                    self.photo.image = image 
+                }
+            }
+        }
+        
+        //self.photo.image = beer.objectForKey("Photo") as? UIImage
     }
 
     

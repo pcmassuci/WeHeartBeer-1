@@ -38,7 +38,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="8Tc-79-bMU" id="dut-LB-pQ3">
-                                            <rect key="frame" x="0.0" y="0.0" width="240" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="240" height="135.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="searchTypeText" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kVs-O3-SSO">
@@ -1181,8 +1181,12 @@
                         </variation>
                     </view>
                     <connections>
+                        <outlet property="brewery" destination="ZPN-Wg-hIg" id="wRT-Dn-ijX"/>
                         <outlet property="floatRatingView" destination="Arj-bW-Ogn" id="kWW-ED-jcg"/>
+                        <outlet property="ibv" destination="tCD-oo-Ve2" id="ggh-Rg-YBF"/>
                         <outlet property="liveLabel" destination="yti-tU-kzy" id="A0V-Tf-o6g"/>
+                        <outlet property="name" destination="oaD-DN-gur" id="mR1-Jp-ura"/>
+                        <outlet property="photo" destination="yZN-cf-htQ" id="LXT-Ud-Zwq"/>
                         <outlet property="updatedLabel" destination="g5Y-vf-Ow4" id="v6Y-69-7nc"/>
                     </connections>
                 </viewController>
