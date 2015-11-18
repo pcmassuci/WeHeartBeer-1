@@ -49,7 +49,6 @@ class BreweryVC: UIViewController {
         print(pointer)
         self.activityIndicator.startAnimating()
         BreweryServices.findBreweryObjectID(pointer) { (brewery, success) -> Void in
-      print("passo1")
         //BreweryServices.findBreweryName(pointerReceive) { (brewery, success) -> Void in
             self.activityIndicator.stopAnimating()
             if success {
@@ -79,7 +78,26 @@ class BreweryVC: UIViewController {
         placeBrewery.text = brewery.objectForKey("local") as? String
         
         linkBrewery.text = brewery.objectForKey("contact") as? String
-        logoBrewery.image = brewery.objectForKey("photo") as? UIImage
+        //logoBrewery.image = brewery.objectForKey("photo") as? UIImage
+        if brewery.objectForKey("photo") != nil{
+            let userImageFile = brewery.objectForKey("photo") as! PFFile
+            
+            userImageFile.getDataInBackgroundWithBlock {
+                (imageData: NSData?, error: NSError?) -> Void in
+                if error == nil {
+                    if let imageData = imageData {
+                        let image = UIImage(data:imageData)
+                        self.logoBrewery.image = image
+                    }else{
+                        print("sem imagem")
+                    }
+                }
+                
+            }
+        }else{
+            print("erro na imagem")
+        }
+
     }
     
 

@@ -61,7 +61,6 @@
 		D24DC4171BFD1EDF00392B7B /* Fastasma.swift in Sources */ = {isa = PBXBuildFile; fileRef = D24DC4161BFD1EDF00392B7B /* Fastasma.swift */; };
 		D2526D7B1BDA56C9003953F9 /* HomepageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2526D7A1BDA56C9003953F9 /* HomepageVC.swift */; };
 		D2D88DA11BFB95B6002C8EF5 /* UserFBUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D88DA01BFB95B6002C8EF5 /* UserFBUtil.swift */; };
-		D2F65E5E1BFC9A44009D4704 /* ParseUserServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2F65E5D1BFC9A44009D4704 /* ParseUserServices.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -144,7 +143,6 @@
 		D24DC4161BFD1EDF00392B7B /* Fastasma.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Fastasma.swift; sourceTree = "<group>"; };
 		D2526D7A1BDA56C9003953F9 /* HomepageVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HomepageVC.swift; path = WeHeartBeer/HomepageVC.swift; sourceTree = "<group>"; };
 		D2D88DA01BFB95B6002C8EF5 /* UserFBUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserFBUtil.swift; sourceTree = "<group>"; };
-		D2F65E5D1BFC9A44009D4704 /* ParseUserServices.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ParseUserServices.swift; path = ../../../challengeiii/challengeiii/ParseUserServices.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -317,7 +315,6 @@
 		D25499C21BF1769300D38C88 /* Parse Services */ = {
 			isa = PBXGroup;
 			children = (
-				D2F65E5D1BFC9A44009D4704 /* ParseUserServices.swift */,
 			);
 			name = "Parse Services";
 			sourceTree = "<group>";
@@ -521,7 +518,6 @@
 				854AAF4F1BF0BE8F002F405B /* BeerServices.swift in Sources */,
 				8518D1511BD7B7BD00499ACA /* WeHeartBeer.xcdatamodeld in Sources */,
 				672C62F91BEA5E7200E667C8 /* BreweryVC.swift in Sources */,
-				D2F65E5E1BFC9A44009D4704 /* ParseUserServices.swift in Sources */,
 				D24DC4171BFD1EDF00392B7B /* Fastasma.swift in Sources */,
 				854AAC901BEB8FAA002F405B /* ResultsTableViewCell.swift in Sources */,
 				854AAF4B1BED1431002F405B /* Beer.swift in Sources */,
