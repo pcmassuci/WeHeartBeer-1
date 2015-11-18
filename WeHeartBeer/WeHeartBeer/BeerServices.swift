@@ -45,6 +45,7 @@ class BeerServices {
         
     }
     
+    
     static func findBeerFromBrewery(breweryPointer: String!, completionHandler:FindBeerCompletionHandler){
         
         

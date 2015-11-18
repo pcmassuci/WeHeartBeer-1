@@ -93,6 +93,7 @@ class BeerProfileVC: UIViewController, FloatRatingViewDelegate {
     func updateData(beer: PFObject?){
         
         print(beer?.objectForKey("brewery")?.objectId)
+        
                 
         
         
@@ -127,6 +128,7 @@ class BeerProfileVC: UIViewController, FloatRatingViewDelegate {
         }
         
         //self.photo.image = beer.objectForKey("Photo") as? UIImage
+
     }
 
     
@@ -152,14 +154,21 @@ class BeerProfileVC: UIViewController, FloatRatingViewDelegate {
     
     
     
+    @IBAction func breweryButton(sender: AnyObject) {
+        //não serve para nada
+    }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        
+        //print(currentObject?.objectForKey("brewery")?.objectId)
+
         if segue.identifier == "segueBeer"{
             if let destination = segue.destinationViewController  as? BreweryVC{
                 
-                    destination.currentObject = (sender) as? String
-                    
-            
+                let breweryID = self.currentObject?.objectForKey("brewery")?.objectID
+                print(self.currentObject?.objectForKey("brewery"))
+                
+                destination.currentBrewery = self.currentObject?.objectForKey("brewery") as! PFObject
             }
         }
     }
