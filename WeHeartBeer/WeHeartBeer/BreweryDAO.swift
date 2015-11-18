@@ -18,6 +18,7 @@ class BreweryDAO {
    
     
     typealias FindObjectsCompletionHandler = (brewery:[Brewery]?,success:Bool) -> Void
+    typealias FindObjIDCompletionHandler = (brewery:Brewery?,success:Bool) -> Void
     
     
    
@@ -47,25 +48,36 @@ class BreweryDAO {
         }
         
     }
-    static func findBreweryObjectID(objectID:String, completionHandler:FindObjectsCompletionHandler){
+    static func findBreweryObjectID(objectID:String, completionHandler:FindObjIDCompletionHandler){
         print("PASSO 3")
-        var query = PFQuery(className:"Brewery")
+        let query = PFQuery(className:"Brewery")
         query.getObjectInBackgroundWithId(objectID) {(result:PFObject?, error:NSError?) -> Void in
             
-            if error == nil {
-                if let result = result as? [Brewery] {
+            print(result)
+            if let result = result{
+                if let result = result as? Brewery {
+                    //let result = result as? Brewery
+                    print("fer")
+                    print(result)
                     completionHandler(brewery: result, success: true)
-                }else{
-                    print("erro dao")
+                    //
+                }
+                else{
+                    print("nando")
+                    print(result)
                     completionHandler(brewery:nil,success: false)
                 }
             }else{
-                print("erro dao 2")
                 completionHandler(brewery:nil,success: false)
             }
+
+            
+                
+           
             
             
-        }    }
+        }
+    }
 }
         
 

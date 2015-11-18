@@ -16,8 +16,8 @@ class BreweryServices {
     
 typealias BooleanCompletionHandler = (success:Bool) -> Void
 typealias FindObjectsCompletionHandler = (brewerys:[Brewery]?,success:Bool) -> Void
-typealias CreateCompletionHaldler = (brewery:Brewery?,success:Bool) -> Void
 typealias FindBreweryCompletionHandler = (brewery:[Brewery]?,success:Bool) -> Void
+typealias FindObjIDCompletionHandler = (brewery:Brewery?,success:Bool) -> Void
 
 //find Brewery using name and completion Handler
 static func findBreweryName(brewery:String,completionHandler:FindBreweryCompletionHandler){
@@ -44,7 +44,7 @@ static func findBreweryName(brewery:String,completionHandler:FindBreweryCompleti
 
 }
 
-    static func findBreweryObjectID(objectID:String,completionHandler:FindBreweryCompletionHandler){
+    static func findBreweryObjectID(objectID:String,completionHandler:FindObjIDCompletionHandler){
         print("passo2")
         BreweryDAO.findBreweryObjectID(objectID) { (breweryCH, success) -> Void in
       

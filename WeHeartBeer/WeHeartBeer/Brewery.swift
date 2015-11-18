@@ -14,10 +14,10 @@ import UIKit
 class Brewery: PFObject, PFSubclassing
 {
     var name: String!
-    var beers:PFObject!
+   // var beers:PFObject!
     var photo:UIImage!
-    var contact: NSDate!
-    var local:String!
+    var contact: String!
+    var local: String!
     var objectID:String!
     
     override class func initialize() {
@@ -32,4 +32,7 @@ class Brewery: PFObject, PFSubclassing
     static func parseClassName() -> String {
         return "Brewery"
     }
+    
+    
+    
 }

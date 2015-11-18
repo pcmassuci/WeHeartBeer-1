@@ -26,7 +26,7 @@ class BreweryVC: UIViewController {
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
 
-    var brewery : [Brewery]! = [Brewery]()
+    var brewery :Brewery!
      var currentBrewery: PFObject?
     
     
@@ -57,8 +57,8 @@ class BreweryVC: UIViewController {
                self.brewery = brewery
                 
                 
-                print(self.brewery[0].objectForKey("local") )
-                self.updateData(self.brewery[0])
+                print(self.brewery.objectForKey("local") )
+                self.updateData(self.brewery)
                 
                 
             }else{

@@ -35,17 +35,7 @@ class Beer: PFObject, PFSubclassing {
         return "Beer"
     }
         
-        // Unwrap the current object
-        
-        
-        
-//        // The three special values are provided as properties:
-//        let objectId  = object.objectId
-//        let updatedAt = object.updatedAt
-//        let createdAt = object.createdAt
-//        
-//        object.fetch()
-        
+ 
         
 
 }

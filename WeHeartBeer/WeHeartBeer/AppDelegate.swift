@@ -37,7 +37,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // [Optional] Track statistics around application opens.
         PFAnalytics.trackAppOpenedWithLaunchOptions(launchOptions)
         
+        
+        Brewery.registerSubclass()
+        Beer.registerSubclass()
+        
         return FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
+        
+        
 
         // Override point for customization after application launch.
         //return true
