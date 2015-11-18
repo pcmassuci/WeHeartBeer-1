@@ -27,10 +27,15 @@ class BreweryVC: UIViewController {
     
 
     var brewery : [Brewery]! = [Brewery]()
-     var currentObject: String?
+     var currentBrewery: PFObject?
+    
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        print(currentBrewery)
+        print(currentBrewery?.objectId)
     
         // Do any additional setup after loading the view.
     }
@@ -40,11 +45,12 @@ class BreweryVC: UIViewController {
         
 
         
-     let pointerReceive = "Cervejaralho"
-        
+        let pointer :String = (currentBrewery?.objectId)! as String
+        print(pointer)
         self.activityIndicator.startAnimating()
-        
-        BreweryServices.findBreweryName(pointerReceive) { (brewery, success) -> Void in
+        BreweryServices.findBreweryObjectID(pointer) { (brewery, success) -> Void in
+      print("passo1")
+        //BreweryServices.findBreweryName(pointerReceive) { (brewery, success) -> Void in
             self.activityIndicator.stopAnimating()
             if success {
                 

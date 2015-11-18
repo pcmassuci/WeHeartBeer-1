@@ -44,7 +44,29 @@ static func findBreweryName(brewery:String,completionHandler:FindBreweryCompleti
 
 }
 
-
+    static func findBreweryObjectID(objectID:String,completionHandler:FindBreweryCompletionHandler){
+        print("passo2")
+        BreweryDAO.findBreweryObjectID(objectID) { (breweryCH, success) -> Void in
+      
+            if success {
+                
+                completionHandler(brewery: breweryCH,success: true)
+                
+            } else {
+                
+                //criar alert para o usuário
+                print("erooo serivice")
+                completionHandler(brewery: nil,success: false)
+                
+            }
+            
+            
+            
+        }
+        
+        
+        
+    }
 
 
 

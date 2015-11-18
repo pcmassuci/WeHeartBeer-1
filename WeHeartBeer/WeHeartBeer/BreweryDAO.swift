@@ -47,6 +47,25 @@ class BreweryDAO {
         }
         
     }
+    static func findBreweryObjectID(objectID:String, completionHandler:FindObjectsCompletionHandler){
+        print("PASSO 3")
+        var query = PFQuery(className:"Brewery")
+        query.getObjectInBackgroundWithId(objectID) {(result:PFObject?, error:NSError?) -> Void in
+            
+            if error == nil {
+                if let result = result as? [Brewery] {
+                    completionHandler(brewery: result, success: true)
+                }else{
+                    print("erro dao")
+                    completionHandler(brewery:nil,success: false)
+                }
+            }else{
+                print("erro dao 2")
+                completionHandler(brewery:nil,success: false)
+            }
+            
+            
+        }    }
 }
         
 
