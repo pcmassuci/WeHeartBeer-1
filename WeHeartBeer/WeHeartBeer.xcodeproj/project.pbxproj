@@ -60,6 +60,8 @@
 		D24634331BEBC93300CF605D /* BeerProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D24634321BEBC93300CF605D /* BeerProfileVC.swift */; };
 		D2526D7B1BDA56C9003953F9 /* HomepageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2526D7A1BDA56C9003953F9 /* HomepageVC.swift */; };
 		D2D88DA11BFB95B6002C8EF5 /* UserFBUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D88DA01BFB95B6002C8EF5 /* UserFBUtil.swift */; };
+		D2F65E5E1BFC9A44009D4704 /* ParseUserServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2F65E5D1BFC9A44009D4704 /* ParseUserServices.swift */; };
+		D2F65E621BFC9E2B009D4704 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2F65E611BFC9E2B009D4704 /* LoginViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -141,6 +143,8 @@
 		D24634321BEBC93300CF605D /* BeerProfileVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeerProfileVC.swift; sourceTree = "<group>"; };
 		D2526D7A1BDA56C9003953F9 /* HomepageVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HomepageVC.swift; path = WeHeartBeer/HomepageVC.swift; sourceTree = "<group>"; };
 		D2D88DA01BFB95B6002C8EF5 /* UserFBUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserFBUtil.swift; sourceTree = "<group>"; };
+		D2F65E5D1BFC9A44009D4704 /* ParseUserServices.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ParseUserServices.swift; path = ../../../challengeiii/challengeiii/ParseUserServices.swift; sourceTree = "<group>"; };
+		D2F65E611BFC9E2B009D4704 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginViewController.swift; path = ../../challengeiii/challengeiii/LoginViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -192,6 +196,7 @@
 		63F668AA1BD915F400172050 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				D2F65E631BFC9E62009D4704 /* GettingStartViewController */,
 				677924B11BFA064600B8092B /* RegisterBeerVC.swift */,
 				672C62F81BEA5E7200E667C8 /* BreweryVC.swift */,
 				D24634321BEBC93300CF605D /* BeerProfileVC.swift */,
@@ -199,7 +204,6 @@
 				D2526D7A1BDA56C9003953F9 /* HomepageVC.swift */,
 				D20F7FB21BE1DAE9007D015D /* InterestCollectionViewCell.swift */,
 				854AAC8D1BEB8CCE002F405B /* SearchVC.swift */,
-				6333567E1BED154C00A71155 /* UserProfileVC.swift */,
 			);
 			name = Controllers;
 			path = ..;
@@ -313,6 +317,7 @@
 		D25499C21BF1769300D38C88 /* Parse Services */ = {
 			isa = PBXGroup;
 			children = (
+				D2F65E5D1BFC9A44009D4704 /* ParseUserServices.swift */,
 			);
 			name = "Parse Services";
 			sourceTree = "<group>";
@@ -367,6 +372,15 @@
 				D2D88DA01BFB95B6002C8EF5 /* UserFBUtil.swift */,
 			);
 			name = Util;
+			sourceTree = "<group>";
+		};
+		D2F65E631BFC9E62009D4704 /* GettingStartViewController */ = {
+			isa = PBXGroup;
+			children = (
+				D2F65E611BFC9E2B009D4704 /* LoginViewController.swift */,
+				6333567E1BED154C00A71155 /* UserProfileVC.swift */,
+			);
+			name = GettingStartViewController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -507,6 +521,7 @@
 				854AAF4F1BF0BE8F002F405B /* BeerServices.swift in Sources */,
 				8518D1511BD7B7BD00499ACA /* WeHeartBeer.xcdatamodeld in Sources */,
 				672C62F91BEA5E7200E667C8 /* BreweryVC.swift in Sources */,
+				D2F65E5E1BFC9A44009D4704 /* ParseUserServices.swift in Sources */,
 				854AAC901BEB8FAA002F405B /* ResultsTableViewCell.swift in Sources */,
 				854AAF4B1BED1431002F405B /* Beer.swift in Sources */,
 				8518D14B1BD7B7BD00499ACA /* ViewController.swift in Sources */,
@@ -516,6 +531,7 @@
 				6333567F1BED154C00A71155 /* UserProfileVC.swift in Sources */,
 				D246342D1BEBAFBF00CF605D /* FloatRatingView.swift in Sources */,
 				D2D88DA11BFB95B6002C8EF5 /* UserFBUtil.swift in Sources */,
+				D2F65E621BFC9E2B009D4704 /* LoginViewController.swift in Sources */,
 				D2526D7B1BDA56C9003953F9 /* HomepageVC.swift in Sources */,
 				677924B01BF6B9F700B8092B /* SearchVCCellTableViewCell.swift in Sources */,
 				854AAC8E1BEB8CCE002F405B /* SearchVC.swift in Sources */,
