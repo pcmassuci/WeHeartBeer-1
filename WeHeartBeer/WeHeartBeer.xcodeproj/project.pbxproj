@@ -62,7 +62,6 @@
 		D2526D7B1BDA56C9003953F9 /* HomepageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2526D7A1BDA56C9003953F9 /* HomepageVC.swift */; };
 		D2D88DA11BFB95B6002C8EF5 /* UserFBUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D88DA01BFB95B6002C8EF5 /* UserFBUtil.swift */; };
 		D2F65E5E1BFC9A44009D4704 /* ParseUserServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2F65E5D1BFC9A44009D4704 /* ParseUserServices.swift */; };
-		D2F65E621BFC9E2B009D4704 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2F65E611BFC9E2B009D4704 /* LoginViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -146,7 +145,6 @@
 		D2526D7A1BDA56C9003953F9 /* HomepageVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HomepageVC.swift; path = WeHeartBeer/HomepageVC.swift; sourceTree = "<group>"; };
 		D2D88DA01BFB95B6002C8EF5 /* UserFBUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserFBUtil.swift; sourceTree = "<group>"; };
 		D2F65E5D1BFC9A44009D4704 /* ParseUserServices.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ParseUserServices.swift; path = ../../../challengeiii/challengeiii/ParseUserServices.swift; sourceTree = "<group>"; };
-		D2F65E611BFC9E2B009D4704 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginViewController.swift; path = ../../challengeiii/challengeiii/LoginViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -379,7 +377,6 @@
 		D2F65E631BFC9E62009D4704 /* GettingStartViewController */ = {
 			isa = PBXGroup;
 			children = (
-				D2F65E611BFC9E2B009D4704 /* LoginViewController.swift */,
 				6333567E1BED154C00A71155 /* UserProfileVC.swift */,
 				D24DC4161BFD1EDF00392B7B /* Fastasma.swift */,
 			);
@@ -535,7 +532,6 @@
 				6333567F1BED154C00A71155 /* UserProfileVC.swift in Sources */,
 				D246342D1BEBAFBF00CF605D /* FloatRatingView.swift in Sources */,
 				D2D88DA11BFB95B6002C8EF5 /* UserFBUtil.swift in Sources */,
-				D2F65E621BFC9E2B009D4704 /* LoginViewController.swift in Sources */,
 				D2526D7B1BDA56C9003953F9 /* HomepageVC.swift in Sources */,
 				677924B01BF6B9F700B8092B /* SearchVCCellTableViewCell.swift in Sources */,
 				854AAC8E1BEB8CCE002F405B /* SearchVC.swift in Sources */,
