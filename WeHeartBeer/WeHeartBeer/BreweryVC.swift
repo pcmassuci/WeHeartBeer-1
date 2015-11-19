@@ -9,7 +9,7 @@
 import UIKit
 import Parse
 
-class BreweryVC: UIViewController {
+class BreweryVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     
     //Outlets
@@ -28,7 +28,7 @@ class BreweryVC: UIViewController {
 
     var brewery :Brewery!
      var currentBrewery: PFObject?
-    
+    var beers:[Beer]! = [Beer]()
     
 
     override func viewDidLoad() {
@@ -36,6 +36,8 @@ class BreweryVC: UIViewController {
         
         print(currentBrewery)
         print(currentBrewery?.objectId)
+        listOfProducts.delegate = self
+        listOfProducts.dataSource = self
     
         // Do any additional setup after loading the view.
     }
@@ -97,8 +99,21 @@ class BreweryVC: UIViewController {
         }else{
             print("erro na imagem")
         }
+        print(self.currentBrewery?.objectId)
+        BeerServices.findBeerFromBrewery(self.currentBrewery?.objectId) { (beer, success) -> Void in
+            if success{
+                self.beers = beer
+                print(self.beers)
+                self.listOfProducts.reloadData()
+                
+            }else{
+                print("deu Merda")
+            }
+        }
 
     }
+    
+    
     
 
     override func didReceiveMemoryWarning() {
@@ -106,6 +121,43 @@ class BreweryVC: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    
+    // Sets number of rows in tableview
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
+        var count = self.beers.count
+        count += 1
+        
+      
+        
+            return count
+        //}
+    }
+    
+    // Number of sections in tableview - not used
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    //Sets the tableview cell and change its info to the correspondent object
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        
+        let cell =  listOfProducts.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as! BreweryVCCell
+        
+        let count = self.beers.count
+        if indexPath.row < count{
+        cell.beersFromBrew?.text = self.beers[indexPath.row].objectForKey("name") as? String
+//        cell.resutLabel?.text = self.resultsList.objectAtIndex(indexPath.row).objectForKey("name") as? String
+        }else{
+             cell.beersFromBrew?.text = "ADICIONAR CARVEJA"
+            
+        }
+        
+      
+        return cell
+    }
+    
+
 
     /*
     // MARK: - Navigation

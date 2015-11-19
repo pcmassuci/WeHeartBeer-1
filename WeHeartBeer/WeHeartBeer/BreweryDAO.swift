@@ -49,7 +49,6 @@ class BreweryDAO {
         
     }
     static func findBreweryObjectID(objectID:String, completionHandler:FindObjIDCompletionHandler){
-        print("PASSO 3")
         let query = PFQuery(className:"Brewery")
         query.getObjectInBackgroundWithId(objectID) {(result:PFObject?, error:NSError?) -> Void in
             

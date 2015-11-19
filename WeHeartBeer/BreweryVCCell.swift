@@ -9,7 +9,8 @@
 import UIKit
 
 class BreweryVCCell: UITableViewCell {
-
+    
+    @IBOutlet weak var beersFromBrew: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

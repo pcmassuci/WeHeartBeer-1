@@ -51,11 +51,12 @@ class BeerDAO {
     
     
    // find beer from brewery,using CH, send a brewery name from parse return objects Beer
-    static func findBeerfromBrewery(beer:String,completionHandler:FindObjectsCompletionHandler){
+    static func findBeerfromBrewery(brewery:String,completionHandler:FindObjectsCompletionHandler){
         
         let query = PFQuery(className: "Beer")
-        
-        query.whereKey("name", equalTo: beer)
+        let pointer = PFObject(withoutDataWithClassName:"Brewery", objectId:brewery)
+
+        query.whereKey("brewery", equalTo: pointer)
         
         query.findObjectsInBackgroundWithBlock { (result:[PFObject]?, error:NSError?) -> Void in
             if error == nil {

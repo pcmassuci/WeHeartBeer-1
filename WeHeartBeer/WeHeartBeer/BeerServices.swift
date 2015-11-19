@@ -46,8 +46,19 @@ class BeerServices {
     }
     
     
-    static func findBeerFromBrewery(breweryPointer: String!, completionHandler:FindBeerCompletionHandler){
-        
+    static func findBeerFromBrewery(breweryID: String!, completionHandler:FindBeerCompletionHandler){
+        BeerDAO.findBeerfromBrewery(breweryID) { (beer, success) -> Void in
+     
+            if success{
+                completionHandler(beer: beer, success: true)
+                
+            }else{
+                // alertar o usuario
+                print("erooo serivice")
+                completionHandler(beer: nil,success: false)
+                
+            }
+        }
         
         
     }
