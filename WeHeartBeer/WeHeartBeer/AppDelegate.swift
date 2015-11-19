@@ -12,6 +12,7 @@ import Parse
 import Bolts
 import FBSDKCoreKit
 import FBSDKLoginKit
+import ParseFacebookUtilsV4
 
 
 //teste
@@ -33,6 +34,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Initialize Parse.
         Parse.setApplicationId("lBmXbUgIiDm4hyZZIdhc2BKujcd1mo3PxAJRw7aH",
             clientKey: "wcwSOAi35Tf5kXRo3opt3ifWpsZcf2ZRshK1sahU")
+        
+        PFFacebookUtils.initializeFacebookWithApplicationLaunchOptions(launchOptions)
+        
         
         // [Optional] Track statistics around application opens.
         PFAnalytics.trackAppOpenedWithLaunchOptions(launchOptions)
