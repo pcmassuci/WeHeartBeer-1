@@ -131,8 +131,14 @@ class SearchVC: UIViewController, UISearchResultsUpdating, UISearchBarDelegate, 
         
         // Must ensure the controler is active and the array of results is not nil
         if (self.controller.active && self.resultsList != nil) {
+            var count = self.resultsList.count
+            count += 1
             
-            return self.resultsList.count
+            
+            
+            return count
+
+            
         }
         
         else {
@@ -151,17 +157,27 @@ class SearchVC: UIViewController, UISearchResultsUpdating, UISearchBarDelegate, 
         
         let cell =  resultsTable.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as! ResultsTableViewCell
         
-        //Debug
-        //print(self.resultsList.objectAtIndex(indexPath.row).name)
-        //print(resultsList)
+        let count = self.resultsList.count
+        if indexPath.row < count{
+
+            //Debug
+            //print(self.resultsList.objectAtIndex(indexPath.row).name)
+            //print(resultsList)
+            
+            cell.resutLabel?.text = self.resultsList.objectAtIndex(indexPath.row).objectForKey("name") as? String
+            
+            cell.beerABV?.text = self.resultsList.objectAtIndex(indexPath.row).objectForKey("ABV") as? String
+            
+            cell.beerStyle?.text = self.resultsList.objectAtIndex(indexPath.row).objectForKey("Style") as? String
+            
+        }
         
-        cell.resutLabel?.text = self.resultsList.objectAtIndex(indexPath.row).objectForKey("name") as? String
+        else{
+            
+            cell.resutLabel?.text = "Adcione cerveja"
+        }
         
-        cell.beerABV?.text = self.resultsList.objectAtIndex(indexPath.row).objectForKey("ABV") as? String
-        
-        cell.beerStyle?.text = self.resultsList.objectAtIndex(indexPath.row).objectForKey("Style") as? String
-        
-        return cell
+    return cell
     }
     
     

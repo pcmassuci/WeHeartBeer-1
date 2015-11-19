@@ -1047,6 +1047,24 @@
             </objects>
             <point key="canvasLocation" x="-1336.5" y="1994.25"/>
         </scene>
+        <!--Add Beer-->
+        <scene sceneID="BKk-lk-QeP">
+            <objects>
+                <viewController id="2Fh-ah-yXo" customClass="AddBeer" customModule="WeHeartBeer" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="di3-kT-CoM"/>
+                        <viewControllerLayoutGuide type="bottom" id="bqB-j3-ryU"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="5vy-sl-A6O">
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sgf-lE-t09" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-378" y="1994.25"/>
+        </scene>
         <!--Beer ProfileVC-->
         <scene sceneID="Rrf-KJ-hOB">
             <objects>
@@ -1433,6 +1451,26 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="U2U-jh-awQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1332" y="641.25"/>
+        </scene>
+        <!--Item4-->
+        <scene sceneID="ztq-Qy-fDA">
+            <objects>
+                <viewController id="yRS-pf-69G" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="q0M-jY-90u"/>
+                        <viewControllerLayoutGuide type="bottom" id="rSa-eX-vjq"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="05g-aE-i9h">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Item4" id="Nsi-IT-gGN"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ewu-vh-cfJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1336.5" y="1994.25"/>
         </scene>
     </scenes>
     <resources>

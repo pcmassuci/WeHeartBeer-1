@@ -54,6 +54,7 @@
 		854AAF531BF0BECE002F405B /* UserServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 854AAF521BF0BECE002F405B /* UserServices.swift */; };
 		854AAF551BF0BEDF002F405B /* Brewery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 854AAF541BF0BEDF002F405B /* Brewery.swift */; };
 		858A7E211BF4AD050070E844 /* BeerDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858A7E201BF4AD050070E844 /* BeerDAO.swift */; };
+		858A7E231BFDF6190070E844 /* AddBeer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858A7E221BFDF6190070E844 /* AddBeer.swift */; };
 		D20F7FAF1BE1D74A007D015D /* Interest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20F7FAE1BE1D74A007D015D /* Interest.swift */; };
 		D20F7FB31BE1DAE9007D015D /* InterestCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20F7FB21BE1DAE9007D015D /* InterestCollectionViewCell.swift */; };
 		D246342D1BEBAFBF00CF605D /* FloatRatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D246342C1BEBAFBF00CF605D /* FloatRatingView.swift */; };
@@ -136,6 +137,7 @@
 		854AAF521BF0BECE002F405B /* UserServices.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserServices.swift; sourceTree = "<group>"; };
 		854AAF541BF0BEDF002F405B /* Brewery.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Brewery.swift; sourceTree = "<group>"; };
 		858A7E201BF4AD050070E844 /* BeerDAO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeerDAO.swift; sourceTree = "<group>"; };
+		858A7E221BFDF6190070E844 /* AddBeer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddBeer.swift; sourceTree = "<group>"; };
 		D20F7FAE1BE1D74A007D015D /* Interest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Interest.swift; sourceTree = "<group>"; };
 		D20F7FB21BE1DAE9007D015D /* InterestCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InterestCollectionViewCell.swift; sourceTree = "<group>"; };
 		D246342C1BEBAFBF00CF605D /* FloatRatingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FloatRatingView.swift; sourceTree = "<group>"; };
@@ -202,6 +204,7 @@
 				D2526D7A1BDA56C9003953F9 /* HomepageVC.swift */,
 				D20F7FB21BE1DAE9007D015D /* InterestCollectionViewCell.swift */,
 				854AAC8D1BEB8CCE002F405B /* SearchVC.swift */,
+				858A7E221BFDF6190070E844 /* AddBeer.swift */,
 			);
 			name = Controllers;
 			path = ..;
@@ -535,6 +538,7 @@
 				8518D1491BD7B7BD00499ACA /* AppDelegate.swift in Sources */,
 				672C62FB1BEAD2F700E667C8 /* BreweryVCCell.swift in Sources */,
 				D20F7FAF1BE1D74A007D015D /* Interest.swift in Sources */,
+				858A7E231BFDF6190070E844 /* AddBeer.swift in Sources */,
 				676250771BF373AF00F3BB0D /* UserDAO.swift in Sources */,
 				676250741BF1759300F3BB0D /* BreweryDAO.swift in Sources */,
 				854AAF531BF0BECE002F405B /* UserServices.swift in Sources */,
