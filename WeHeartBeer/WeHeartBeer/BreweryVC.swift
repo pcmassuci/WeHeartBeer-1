@@ -12,6 +12,9 @@ import Parse
 class BreweryVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     
+  
+    
+    
     //Outlets
     @IBOutlet weak var logoBrewery: UIImageView!
     
