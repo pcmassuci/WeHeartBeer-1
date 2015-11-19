@@ -34,48 +34,49 @@
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
 	</array>
-    <key>CFBundleURLTypes</key>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>fb165202103830790</string>
+			</array>
+		</dict>
+	</array>
+	<key>FacebookAppID</key>
+	<string>165202103830790</string>
+	<key>FacebookDisplayName</key>
+	<string>LoveBeer</string>
+	<key>NSAppTransportSecurity</key>
+	<dict>
+		<key>NSExceptionDomains</key>
+		<dict>
+			<key>facebook.com</key>
+			<dict>
+				<key>NSIncludesSubdomains</key>
+				<true/>
+				<key>NSExceptionRequiresForwardSecrecy</key>
+				<false/>
+			</dict>
+			<key>fbcdn.net</key>
+			<dict>
+				<key>NSIncludesSubdomains</key>
+				<true/>
+				<key>NSExceptionRequiresForwardSecrecy</key>
+				<false/>
+			</dict>
+			<key>akamaihd.net</key>
+			<dict>
+				<key>NSIncludesSubdomains</key>
+				<true/>
+				<key>NSExceptionRequiresForwardSecrecy</key>
+				<false/>
+			</dict>
+		</dict>
+	</dict>
+    <key>LSApplicationQueriesSchemes</key>
     <array>
-        <dict>
-            <key>CFBundleURLSchemes</key>
-            <array>
-                <string>fb165202103830790</string>
-            </array>
-        </dict>
+        <string>fbauth2</string>
     </array>
-    <key>FacebookAppID</key>
-    <string>165202103830790</string>
-    <key>FacebookDisplayName</key>
-    <string>LoveBeer</string>
-    
-    <key>NSAppTransportSecurity</key>
-    <dict>
-        <key>NSExceptionDomains</key>
-        <dict>
-            <key>facebook.com</key>
-            <dict>
-                <key>NSIncludesSubdomains</key>
-                <true/>
-                <key>NSExceptionRequiresForwardSecrecy</key>
-                <false/>
-            </dict>
-            <key>fbcdn.net</key>
-            <dict>
-                <key>NSIncludesSubdomains</key>
-                <true/>
-                <key>NSExceptionRequiresForwardSecrecy</key>
-                <false/>
-            </dict>
-            <key>akamaihd.net</key>
-            <dict>
-                <key>NSIncludesSubdomains</key>
-                <true/>
-                <key>NSExceptionRequiresForwardSecrecy</key>
-                <false/>
-            </dict>
-        </dict>
-    </dict>
-    
 </dict>
-
 </plist>
