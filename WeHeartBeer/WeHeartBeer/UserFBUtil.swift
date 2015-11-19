@@ -82,7 +82,7 @@ class FBUtils: NSObject {
                             
                         } else {
                             // Some error checking here
-                            print("erro pra salvar: \(error?.userInfo)")
+                            print("erro pra salvar image: \(error?.userInfo)")
                         }
                         
                     })

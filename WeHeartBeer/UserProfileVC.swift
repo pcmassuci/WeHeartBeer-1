@@ -7,68 +7,112 @@
 //
 
 import UIKit
+import Foundation
+import Parse
+import ParseFacebookUtilsV4
+
 
 class UserProfileVC: UIViewController {
-    @IBOutlet weak var emailField: UITextField!
-    @IBOutlet weak var passwordField: UITextField!
+    
+
+    
+    //butons
+    //@IBOutlet weak var facebookLoginButton: UIButton!
+    @IBOutlet weak var loginButton: UIButton!
+    
+    var activityIndicator: UIActivityIndicatorView = UIActivityIndicatorView(frame: CGRectMake(0, 0, 150, 150))
+    
+    //layer
+    let layer:CGFloat = 7
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-    
         
+        //Activity Indicator setup
+        self.activityIndicator.center = self.view.center
+        self.activityIndicator.hidesWhenStopped = true
+        self.activityIndicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.Gray
+        view.addSubview(self.activityIndicator)
         
-        if UserServices.loggedUser(){
-            //self.performSegueWithIdentifier("loginSegue", sender: self)
-            print("User logged")
-        }
-        
-        // Do any additional setup after loading the view.
-    }
-    override func viewDidAppear(animated: Bool) {
-        super.viewDidAppear(animated)
-        //navigationController?.setNavigationBarHidden(navigationController?.navigationBarHidden == false, animated: true) //or animated: false
-        self.navigationController?.navigationBar.hidden = true
-    }
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        
-        // Dispose of any resources that can be recreated.
-    }
-    
-    
-    
-    @IBAction func loginNormalClicked(sender: AnyObject) {
-        UserServices.loginNormalUser(self.emailField.text!, password: self.passwordField.text!) { (success) -> Void in
-            if success{
-                self.performSegueWithIdentifier("loginSegue", sender: self)
-            }else{
-                //TODO
+        //facebookLoginButton.layer.cornerRadius = self.layer
+        //loginButton.layer.cornerRadius = self.layer
             }
-        }
-    }
     
     
-    @IBAction func loginFacebookClicked(sender: AnyObject) {
+    
+    @IBAction func loginButton(sender: UIButton) {
         
-        UserServices.loginFaceUser { (success) -> Void in
-            if success{
-                self.performSegueWithIdentifier("loginSegue", sender: self)
-            }else{
-                //TODO
+        let permissions = ["public_profile", "email", "user_friends"]
+        
+        
+        
+        
+        // Log In with Read Permissions
+        PFFacebookUtils.logInInBackgroundWithReadPermissions(permissions, block: {
+            (user: PFUser?, error: NSError?) -> Void in
+            if let user = user {
+                if user.isNew {
+                    FBUtils.updateFacebookProfile()
+                    FBUtils.updateFacebookPicture()
+                    print("User signed up and logged in through Facebook!")
+                    self.navigationController?.dismissViewControllerAnimated(true, completion: nil)
+                } else {
+                    FBUtils.updateFacebookProfile()
+                    print("User logged in through Facebook!")
+                }
+            } else {
+                print("Uh oh. The user cancelled the Facebook login.")
             }
-        }
-    }
-    
-    
-    /*
-    // MARK: - Navigation
-    
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-    // Get the new view controller using segue.destinationViewController.
-    // Pass the selected object to the new view controller.
-    }
-    */
+        })
+        
+        
 
+    
+    }
+    
+    // MARK: Actions
+    
+
+    
+    
+//    func logInAction(sender: AnyObject) {
+//        
+//        let username = "matheus.thc@gmail.com"
+//        let password = "97630089"
+//        
+//        //Log In attempt
+//        self.activityIndicator.startAnimating()
+//        
+//        PFUser.logInWithUsernameInBackground(username, password: password, block: { (user, error) -> Void in
+//            
+//            
+//            self.activityIndicator.stopAnimating()
+//            
+//            var alert = UIAlertController()
+//            var okButtom = UIAlertAction()
+//            
+//            if (user != nil) {
+//                
+//                alert = UIAlertController(title: "Success", message: "Logged In", preferredStyle: .Alert)
+//                
+//                okButtom = UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: { (okAction:UIAlertAction!) -> Void in
+//                    
+//                    self.performSegueWithIdentifier("profileSegue", sender: nil)
+//                    
+//                })
+//                
+//            } else {
+//                
+//                alert = UIAlertController(title: "Oops..", message: "\(error?.userInfo)", preferredStyle: .Alert)
+//                okButtom = UIAlertAction(title: "Ok", style: .Default, handler: nil)
+//                
+//            }
+//            
+//            
+//            alert.addAction(okButtom)
+//            self.presentViewController(alert, animated: true, completion: nil)
+//        })
+//    }
 }
 
