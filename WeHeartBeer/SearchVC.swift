@@ -11,17 +11,12 @@ import Parse
 import ParseUI
 
 
-class SearchVC: UIViewController, UISearchResultsUpdating, UISearchBarDelegate, UITableViewDelegate, UITableViewDataSource, UISearchControllerDelegate, BeerProfileVCDelegate {
+class SearchVC: UIViewController, UISearchResultsUpdating, UISearchBarDelegate, UITableViewDelegate, UITableViewDataSource, UISearchControllerDelegate {
     
     //tentativa de delegate 
-    var delegate:BeerProfileVCDelegate! = nil
     
     
     
-    
-    func daUmOi(){
-        delegate!.myVCDidFinish(self, text: "Oi")
-    }
     
     @IBOutlet weak var resultsTable: UITableView!
     @IBOutlet weak var searchTypeText: UILabel!

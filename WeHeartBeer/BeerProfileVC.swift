@@ -8,18 +8,9 @@
 
 import UIKit
 
-class BeerProfileVC: UIViewController, FloatRatingViewDelegate, BeerProfileVCDelegate{
+class BeerProfileVC: UIViewController, FloatRatingViewDelegate{
     
-    
-    //tentando criar um delegate para receber a função, entre VC
-    protocol BeerProfileVCDelegate{
-        func myVCDidFinish(controller:BeerProfileVCDelegate,text:String)
-    }
-    
-    func myVCDidFinish(controller: BeerProfileVC, text: String) {
-        print(text)
-    }
- 
+  
     
     @IBOutlet var ratingSegmentedControl: UISegmentedControl!
     @IBOutlet var floatRatingView: FloatRatingView!
