@@ -342,8 +342,7 @@
                                         <exclude reference="21O-g0-fDL"/>
                                     </mask>
                                 </variation>
-                                <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="183" y="333" width="46" height="30"/>
+                                <variation key="heightClass=regular-widthClass=compact">
                                     <mask key="constraints">
                                         <exclude reference="21O-g0-fDL"/>
                                     </mask>
@@ -467,6 +466,7 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Item3" id="o9E-sx-Eff"/>
                     <connections>
+                        <outlet property="displayName" destination="RQe-Yo-kqs" id="N2m-TR-O4E"/>
                         <outlet property="loginPicture" destination="KVW-xv-NYP" id="sbY-KW-ML8"/>
                     </connections>
                 </viewController>

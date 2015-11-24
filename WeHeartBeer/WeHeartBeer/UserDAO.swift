@@ -102,8 +102,11 @@ class UserDAO {
     
     
     static func saveNewFBUser(user:User,completionHandler:SignUpCompletionHandler){
+        
+        
+        
         let params = ["fields": "email,first_name,last_name,gender,picture.width(480).height(480)"]
-        let graphRequest : FBSDKGraphRequest = FBSDKGraphRequest(graphPath: "/me", parameters: params)
+        let graphRequest : FBSDKGraphRequest = FBSDKGraphRequest(graphPath: "me", parameters: params)
         print("asdas")
         
         graphRequest.startWithCompletionHandler { (connection, result, error) -> Void in
@@ -112,13 +115,19 @@ class UserDAO {
             let name = (dict.valueForKey("first_name") as? String)!
             let lastName = (dict.valueForKey("last_name") as? String)!
             let imageURL = dict.objectForKey("picture")?.objectForKey("data")?.objectForKey("url") as! String
+            if dict.valueForKey("email") != nil {
+              let email = (dict["email"] as! String)
+                user.mail = email
+            
+            }
             
             let data = NSData(contentsOfURL: NSURL(string: imageURL)!)
             let image = UIImage(data: data!)
             let imageData = UIImageJPEGRepresentation(image!, 0)
             let imageFile = PFFile(name:"profile.png", data:imageData!)
-            user.name = name
+            user.name = name + " " + lastName
             user.photo = imageFile!
+           
             
             
             UserDAO.update(user, completionHandler: { (success) -> Void in
