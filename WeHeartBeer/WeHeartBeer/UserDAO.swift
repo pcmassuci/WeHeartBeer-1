@@ -68,17 +68,20 @@ class UserDAO {
             if let user = user {
                 
                 if user.isNew {
+                    print("passou como usario novo")
                     let userNew = user as! User
                     UserDAO.saveNewFBUser(userNew, completionHandler: { (success) -> Void in
                         completionHandler(success: success)
                     })
                 }else{
+                    print("rolou")
                     
                     completionHandler(success: true)
                 }
                 
                 
             } else {
+                print("deu erro")
                 completionHandler(success: false)
             }
         }
