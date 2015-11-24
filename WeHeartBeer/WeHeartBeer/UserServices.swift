@@ -56,6 +56,7 @@ class UserServices {
     
     static func loginFaceUser(completionHandler:SignUpCompletionHandler){
         UserDAO.loginFacebook { (success) -> Void in
+            print("loginFaceUser")
             completionHandler(success:success)
         }
     }

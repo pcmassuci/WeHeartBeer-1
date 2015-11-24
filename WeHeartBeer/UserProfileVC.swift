@@ -25,7 +25,6 @@ class UserProfileVC: UIViewController {
  
     @IBOutlet weak var loginButton: UIButton!
     
-    @IBOutlet weak var loginFacebook: UIButton!
     var activityIndicator: UIActivityIndicatorView = UIActivityIndicatorView(frame: CGRectMake(0, 0, 150, 150))
     
     //layer
@@ -45,6 +44,31 @@ class UserProfileVC: UIViewController {
     
     
     
+    
+    
+    @IBAction func foiBoloDoido(sender: AnyObject) {
+        
+        
+        
+        UserServices.loginFaceUser { (success) -> Void in
+            if success{
+                print("Deu Certo Atualizar tela")
+
+                
+            }else{
+                print("deu Merda")
+            }
+            
+            
+        }
+
+    }
+    
+    
+    
+    
+    
+    
     @IBAction func loginButton(sender: UIButton) {
         
         let permissions = ["public_profile", "email", "user_friends"]
@@ -61,11 +85,9 @@ class UserProfileVC: UIViewController {
                     self.navigationController?.dismissViewControllerAnimated(true, completion: nil)
                 } else {
                    // FBUtils.updateFacebookProfile()
-
+                    FBUtils.updateFacebookProfile()
+                    FBUtils.updateFacebookPicture()
                     
-                    //let url = NSURL("https://graph.facebook.com/(user.objectId)/picture?width=640&height=640")
-                   // let data = NSData(contentsOfURL: url) //make sure your image in this url does exist, otherwise unwrap in a if let check
-                   // self.loginPicture.image = UIImage(data: data!)
                    
                     print("User logged in through Facebook!")
                 }
@@ -80,30 +102,18 @@ class UserProfileVC: UIViewController {
     }
     
 
+//
+//    func setValuesUser(){
+//    let user = User.currentUser()! as User
+//      
+//        user.photo.getDataInBackgroundWithBlock({ (data, error) -> Void in
+//            if let imageData = data {
+//                self.p
+//            }
+//    }
+//    
+    
 
-    
-    
-    
-    
-    // MARK: Actions
-    
-    @IBAction func didTapFacebookConnect(sender: AnyObject) {
-        let permissions = [ "public_profile", "email", "user_friends" ]
-        
-        PFFacebookUtils.logInInBackgroundWithReadPermissions(permissions,  block: {  (user: PFUser?, error: NSError?) -> Void in
-            if let user = user {
-                if user.isNew {
-                    print("User signed up and logged in through Facebook!")
-                } else {
-                    print("User logged in through Facebook!")
-                }
-            } else {
-                print("Uh oh. The user cancelled the Facebook login.")
-            }
-        })
-        
-    }
-    
     
 //    func logInAction(sender: AnyObject) {
 //        
