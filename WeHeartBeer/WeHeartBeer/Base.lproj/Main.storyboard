@@ -139,7 +139,7 @@
         <!--Item3-->
         <scene sceneID="xL3-zI-QcZ">
             <objects>
-                <viewController id="sgA-Wm-f0P" sceneMemberID="viewController">
+                <viewController id="sgA-Wm-f0P" customClass="UserProfileVC" customModule="WeHeartBeer" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="u85-R7-bAi"/>
                         <viewControllerLayoutGuide type="bottom" id="q4J-x3-Zq4"/>
@@ -348,7 +348,18 @@
                                     </mask>
                                 </variation>
                                 <connections>
-                                    <action selector="loginButton:" destination="sgA-Wm-f0P" eventType="touchUpInside" id="ooj-gO-n1D"/>
+                                    <action selector="loginButton:" destination="sgA-Wm-f0P" eventType="touchUpInside" id="w9d-p6-eOj"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N3W-H7-UjB">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <animations/>
+                                <state key="normal" title="Button"/>
+                                <variation key="heightClass=regular-widthClass=compact" ambiguous="YES" misplaced="YES">
+                                    <rect key="frame" x="194" y="504" width="46" height="30"/>
+                                </variation>
+                                <connections>
+                                    <action selector="loginButton:" destination="sgA-Wm-f0P" eventType="touchUpInside" id="1N1-6D-ncP"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -358,6 +369,7 @@
                             <constraint firstItem="RQe-Yo-kqs" firstAttribute="top" secondItem="KVW-xv-NYP" secondAttribute="bottom" constant="21" id="0gb-p2-gb9"/>
                             <constraint firstItem="431-k1-Kkn" firstAttribute="top" secondItem="wfr-cd-cp8" secondAttribute="bottom" constant="8" id="44J-c1-a0C"/>
                             <constraint firstItem="431-k1-Kkn" firstAttribute="centerX" secondItem="wfr-cd-cp8" secondAttribute="centerX" id="8uG-D7-yRc"/>
+                            <constraint firstItem="N3W-H7-UjB" firstAttribute="top" secondItem="u85-R7-bAi" secondAttribute="bottom" constant="484" id="C6N-mH-SoC"/>
                             <constraint firstItem="fYd-oY-xZI" firstAttribute="top" secondItem="nuy-RR-ucD" secondAttribute="bottom" constant="96" id="GH2-nc-fIG">
                                 <variation key="heightClass=regular-widthClass=compact" constant="75"/>
                             </constraint>
@@ -379,6 +391,7 @@
                             <constraint firstItem="UT6-OD-vxJ" firstAttribute="centerX" secondItem="Uc0-Q0-rKe" secondAttribute="centerX" id="miv-DS-liI"/>
                             <constraint firstItem="wfr-cd-cp8" firstAttribute="leading" secondItem="Uc0-Q0-rKe" secondAttribute="leadingMargin" constant="25" id="rkX-uN-b9s"/>
                             <constraint firstAttribute="trailingMargin" secondItem="fYd-oY-xZI" secondAttribute="trailing" constant="24" id="tX6-iT-2Uy"/>
+                            <constraint firstItem="N3W-H7-UjB" firstAttribute="centerY" secondItem="Uc0-Q0-rKe" secondAttribute="centerY" id="vC9-1V-seT"/>
                             <constraint firstItem="cG9-ea-dj5" firstAttribute="centerX" secondItem="W7e-Dk-X6d" secondAttribute="centerX" id="vHH-I2-bKu"/>
                             <constraint firstItem="RQe-Yo-kqs" firstAttribute="leading" secondItem="Uc0-Q0-rKe" secondAttribute="leadingMargin" constant="25" id="wPB-pp-h4a"/>
                             <constraint firstItem="qAR-Hi-war" firstAttribute="centerX" secondItem="nuy-RR-ucD" secondAttribute="centerX" id="y3n-Sg-GdQ"/>
@@ -396,10 +409,13 @@
                                 <exclude reference="431-k1-Kkn"/>
                                 <exclude reference="cG9-ea-dj5"/>
                                 <exclude reference="UT6-OD-vxJ"/>
+                                <exclude reference="N3W-H7-UjB"/>
                             </mask>
                             <mask key="constraints">
                                 <exclude reference="XPa-eh-IlI"/>
                                 <exclude reference="glE-U8-Sd2"/>
+                                <exclude reference="C6N-mH-SoC"/>
+                                <exclude reference="vC9-1V-seT"/>
                                 <exclude reference="lnh-OZ-7uc"/>
                                 <exclude reference="miv-DS-liI"/>
                                 <exclude reference="44J-c1-a0C"/>
@@ -436,10 +452,13 @@
                                 <include reference="431-k1-Kkn"/>
                                 <include reference="cG9-ea-dj5"/>
                                 <include reference="UT6-OD-vxJ"/>
+                                <include reference="N3W-H7-UjB"/>
                             </mask>
                             <mask key="constraints">
                                 <include reference="XPa-eh-IlI"/>
                                 <include reference="glE-U8-Sd2"/>
+                                <include reference="C6N-mH-SoC"/>
+                                <exclude reference="vC9-1V-seT"/>
                                 <include reference="lnh-OZ-7uc"/>
                                 <include reference="miv-DS-liI"/>
                                 <include reference="44J-c1-a0C"/>
@@ -466,7 +485,11 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Item3" id="o9E-sx-Eff"/>
                     <connections>
-                        <outlet property="loginButton" destination="UT6-OD-vxJ" id="EAN-TC-NfM"/>
+                        <outlet property="logStatusTxt" destination="cG9-ea-dj5" id="vxx-pf-JCZ"/>
+                        <outlet property="loginButton" destination="UT6-OD-vxJ" id="4he-Lx-4BT"/>
+                        <outlet property="loginFacebook" destination="N3W-H7-UjB" id="xZR-9Y-atN"/>
+                        <outlet property="loginPicture" destination="KVW-xv-NYP" id="fo9-l5-XKe"/>
+                        <outlet property="userNameTxt" destination="RQe-Yo-kqs" id="ly8-qg-qXS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="j0X-Vz-dwm" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1053,7 +1076,7 @@
                                 <rect key="frame" x="-42" y="-21" width="42" height="21"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                                 <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
                                     <rect key="frame" x="20" y="53" width="206" height="43"/>
@@ -1072,7 +1095,7 @@
                                 <rect key="frame" x="-42" y="-21" width="42" height="21"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                                 <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
                                     <rect key="frame" x="20" y="142" width="206" height="43"/>
@@ -1100,7 +1123,7 @@
                                 <rect key="frame" x="-42" y="-21" width="42" height="21"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                                 <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
                                     <rect key="frame" x="20" y="223" width="206" height="43"/>
@@ -1119,7 +1142,7 @@
                                 <rect key="frame" x="-42" y="-21" width="42" height="21"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                                 <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
                                     <rect key="frame" x="99" y="257" width="49" height="43"/>
@@ -1129,7 +1152,7 @@
                                 <rect key="frame" x="-42" y="-21" width="42" height="21"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                                 <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
                                     <rect key="frame" x="20" y="308" width="206" height="43"/>
@@ -1139,7 +1162,7 @@
                                 <rect key="frame" x="-42" y="-21" width="42" height="21"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                                 <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
                                     <rect key="frame" x="20" y="407" width="206" height="43"/>

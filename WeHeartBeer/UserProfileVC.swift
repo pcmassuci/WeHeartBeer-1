@@ -12,14 +12,20 @@ import Parse
 import ParseFacebookUtilsV4
 
 
+
 class UserProfileVC: UIViewController {
     
 
-    
+    //teste
+     var dict : NSDictionary!
     //butons
-    //@IBOutlet weak var facebookLoginButton: UIButton!
+    
+
+    @IBOutlet weak var loginPicture: UIImageView!
+ 
     @IBOutlet weak var loginButton: UIButton!
     
+    @IBOutlet weak var loginFacebook: UIButton!
     var activityIndicator: UIActivityIndicatorView = UIActivityIndicatorView(frame: CGRectMake(0, 0, 150, 150))
     
     //layer
@@ -34,9 +40,7 @@ class UserProfileVC: UIViewController {
         self.activityIndicator.hidesWhenStopped = true
         self.activityIndicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.Gray
         view.addSubview(self.activityIndicator)
-        
-        //facebookLoginButton.layer.cornerRadius = self.layer
-        //loginButton.layer.cornerRadius = self.layer
+
             }
     
     
@@ -44,9 +48,7 @@ class UserProfileVC: UIViewController {
     @IBAction func loginButton(sender: UIButton) {
         
         let permissions = ["public_profile", "email", "user_friends"]
-        
-        
-        
+
         
         // Log In with Read Permissions
         PFFacebookUtils.logInInBackgroundWithReadPermissions(permissions, block: {
@@ -58,7 +60,13 @@ class UserProfileVC: UIViewController {
                     print("User signed up and logged in through Facebook!")
                     self.navigationController?.dismissViewControllerAnimated(true, completion: nil)
                 } else {
-                    FBUtils.updateFacebookProfile()
+                   // FBUtils.updateFacebookProfile()
+
+                    
+                    //let url = NSURL("https://graph.facebook.com/(user.objectId)/picture?width=640&height=640")
+                   // let data = NSData(contentsOfURL: url) //make sure your image in this url does exist, otherwise unwrap in a if let check
+                   // self.loginPicture.image = UIImage(data: data!)
+                   
                     print("User logged in through Facebook!")
                 }
             } else {
@@ -71,9 +79,30 @@ class UserProfileVC: UIViewController {
     
     }
     
+
+
+    
+    
+    
+    
     // MARK: Actions
     
-
+    @IBAction func didTapFacebookConnect(sender: AnyObject) {
+        let permissions = [ "public_profile", "email", "user_friends" ]
+        
+        PFFacebookUtils.logInInBackgroundWithReadPermissions(permissions,  block: {  (user: PFUser?, error: NSError?) -> Void in
+            if let user = user {
+                if user.isNew {
+                    print("User signed up and logged in through Facebook!")
+                } else {
+                    print("User logged in through Facebook!")
+                }
+            } else {
+                print("Uh oh. The user cancelled the Facebook login.")
+            }
+        })
+        
+    }
     
     
 //    func logInAction(sender: AnyObject) {

@@ -57,8 +57,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         openURL url: NSURL,
         sourceApplication: String?,
         annotation: AnyObject) -> Bool {
-            return FBSDKApplicationDelegate.sharedInstance().application(
-                application,
+            return FBSDKApplicationDelegate.sharedInstance().application(application,
                 openURL: url,
                 sourceApplication: sourceApplication,
                 annotation: annotation)
