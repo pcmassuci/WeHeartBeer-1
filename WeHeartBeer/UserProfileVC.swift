@@ -34,6 +34,9 @@ class UserProfileVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        if UserServices.loggedUser(){
+            self.updateData()
+        }
         //
         //        //Activity Indicator setup
         //        self.activityIndicator.center = self.view.center
@@ -67,6 +70,7 @@ class UserProfileVC: UIViewController {
     
     
     func updateData(){
+        
         
         let user = User.currentUser()
         displayName.text = user!.objectForKey("name") as? String

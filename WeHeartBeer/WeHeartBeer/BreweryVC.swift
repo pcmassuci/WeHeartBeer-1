@@ -9,7 +9,14 @@
 import UIKit
 import Parse
 
-class BreweryVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
+protocol BreweryVCDelegate{
+    func newBeer(objIDbeer:PFObject?)
+}
+
+
+class BreweryVC: UIViewController{
+    var delegate: BreweryVCDelegate?
+    
     
     
     
@@ -125,6 +132,39 @@ class BreweryVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     }
     
     
+    
+  
+    
+}
+    // MARK: - TableView
+//protocol tableView
+extension BreweryVC: UITableViewDataSource, UITableViewDelegate {
+
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        print("valor do obejto")
+        print(self.beers[indexPath.row])
+        delegate?.newBeer(self.beers[indexPath.row])
+        if let navController = self.navigationController {
+            navController.popViewControllerAnimated(true)
+        }else{
+            
+            print("optional value")
+            
+            
+        }
+        
+//        if let del = delegate{
+//           
+//            del.newBeer(self.beers[indexPath.row])
+//            
+//        }else{
+//            print("erro no delegate")
+//        }
+    }
+    
+    
+    
     // Sets number of rows in tableview
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
@@ -160,16 +200,9 @@ class BreweryVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         return cell
     }
     
+
     
     
-    /*
-    // MARK: - Navigation
     
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-    // Get the new view controller using segue.destinationViewController.
-    // Pass the selected object to the new view controller.
-    }
-    */
     
 }
