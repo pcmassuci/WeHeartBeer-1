@@ -49,17 +49,17 @@ class BeerProfileVC: UIViewController, FloatRatingViewDelegate{
         self.floatRatingView.contentMode = UIViewContentMode.ScaleAspectFit
         self.floatRatingView.maxRating = 5
         self.floatRatingView.minRating = 0
-        self.floatRatingView.rating = 2.5
+        self.floatRatingView.rating = 0
         self.floatRatingView.editable = true
         self.floatRatingView.halfRatings = true
         self.floatRatingView.floatRatings = false
         
         // Segmented control init
-        //self.ratingSegmentedControl.selectedSegmentIndex = 1
+        // self.ratingSegmentedControl.selectedSegmentIndex = 1
         
         // Labels init
-        //        self.liveLabel.text = NSString(format: "%.2f", self.floatRatingView.rating) as String
-        //self.updatedLabel.text = NSString(format: "%.2f", self.floatRatingView.rating) as String
+        // self.liveLabel.text = NSString(format: "%.2f", self.floatRatingView.rating) as String
+        // self.updatedLabel.text = NSString(format: "%.2f", self.floatRatingView.rating) as String
     }
     
     
@@ -69,13 +69,13 @@ class BeerProfileVC: UIViewController, FloatRatingViewDelegate{
         super.viewWillAppear(animated)
         
         
-        //Pointer for view beer name
+        // Pointer for view beer name
         // let pointerReceive = "cervejum"
         
-        //BeerServices.findBeerName(pointerReceive) { (beer, success) -> Void in
+        // BeerServices.findBeerName(pointerReceive) { (beer, success) -> Void in
         
         // if success {
-        //   self.beer = beer
+        //    self.beer = beer
         
         //Printing beer name
         //print(self.beer[0])
@@ -98,16 +98,16 @@ class BeerProfileVC: UIViewController, FloatRatingViewDelegate{
         
         
         
-        //print(beer)
+        // print(beer)
         
-        self.name.text = beer!.objectForKey("name") as! String
-        //        //self.brewery.text! = beer.objectForKey("brewery") as! String
-        //        self.style.text = beer.objectForKey("Style") as? String
-        //        //self.ibv.text! = beer.objectForKey("IBV") as! String!
+           self.name.text = beer!.objectForKey("name") as? String
+        // self.brewery.text! = beer.objectForKey("brewery") as! String
+        // self.style.text = beer.objectForKey("Style") as? String
+        // self.ibv.text! = beer.objectForKey("IBV") as! String!
         
-        //        self.pffileToUIImage(beer)
+        // self.pffileToUIImage(beer)
         
-        //pegando a foto do parse
+        // pegando a foto do parse
         
         if beer!.objectForKey("Photo") != nil{
             let userImageFile = beer!.objectForKey("Photo") as! PFFile
@@ -167,15 +167,13 @@ class BeerProfileVC: UIViewController, FloatRatingViewDelegate{
             if let destination = segue.destinationViewController  as? BreweryVC{
                 
                 let breweryID = self.currentObject?.objectForKey("brewery")?.objectID
+                
                 print(self.currentObject?.objectForKey("brewery"))
                 
-                destination.currentBrewery = self.currentObject?.objectForKey("brewery") as! PFObject
+                destination.currentBrewery = self.currentObject?.objectForKey("brewery") as? PFObject
             }
         }
     }
-    
-    
-    
 }
 
 

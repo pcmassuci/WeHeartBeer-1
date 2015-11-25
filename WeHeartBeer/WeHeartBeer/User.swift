@@ -10,8 +10,9 @@ import Foundation
 import Parse
 
 class User : PFUser {
-    //My variables
     
+    //My variables
+
     @NSManaged var name: String
     @NSManaged var birthDate: NSDate
     @NSManaged var photo: PFFile
@@ -22,8 +23,6 @@ class User : PFUser {
         var onceToken : dispatch_once_t = 0;
         dispatch_once(&onceToken) {
             self.registerSubclass()
-            
-            
             
         }
     }
