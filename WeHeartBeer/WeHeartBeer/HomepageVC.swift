@@ -9,7 +9,7 @@
 import UIKit
 
 class HomepageVC: UIViewController {
-
+    
     
     // MARK: - IBOutlets
     
@@ -36,8 +36,8 @@ class HomepageVC: UIViewController {
     private struct Storyboard {
         static let CellIdentifier = "Interest Cell"
     }
-
-  
+    
+    
     // MARK: - ChallengeLink
     func challengeLinkClicked(){
         performSegueWithIdentifier("challengeSegue", sender: nil)
@@ -45,7 +45,7 @@ class HomepageVC: UIViewController {
 }
 
 
-    // Mark: - CollectionViewCell
+// Mark: - CollectionViewCell
 extension HomepageVC : UICollectionViewDataSource
 {
     func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
@@ -66,5 +66,5 @@ extension HomepageVC : UICollectionViewDataSource
         
         
         return cell
-   }
+    }
 }

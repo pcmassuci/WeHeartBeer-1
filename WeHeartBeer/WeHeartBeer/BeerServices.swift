@@ -48,7 +48,7 @@ class BeerServices {
     
     static func findBeerFromBrewery(breweryID: String!, completionHandler:FindBeerCompletionHandler){
         BeerDAO.findBeerfromBrewery(breweryID) { (beer, success) -> Void in
-     
+            
             if success{
                 completionHandler(beer: beer, success: true)
                 

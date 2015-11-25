@@ -19,7 +19,7 @@ class Beer: PFObject, PFSubclassing {
     var IBU: String!
     var Photo: PFFile!
     var ABV: String!
-   // var Photo: UIImage!
+    // var Photo: UIImage!
     
     override class func initialize() {
         struct Static {
@@ -34,8 +34,8 @@ class Beer: PFObject, PFSubclassing {
     static func parseClassName() -> String{
         return "Beer"
     }
-        
- 
-        
-
+    
+    
+    
+    
 }
