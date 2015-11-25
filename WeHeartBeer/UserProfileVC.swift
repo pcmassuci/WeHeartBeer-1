@@ -53,11 +53,11 @@ class UserProfileVC: UIViewController {
         
         UserServices.loginFaceUser { (success) -> Void in
             if success{
-                print("Deu Certo Atualizar tela")
+                print("Deu Certo Atualizar tela!")
                 self.updateData()
                 
             }else{
-                print("deu Merda")
+                print("Deu Merge!")
             }
             
             
@@ -89,13 +89,7 @@ class UserProfileVC: UIViewController {
         }
     }
     
-    
-    
-    
-    
-    
-    
-    
+
     //    @IBAction func loginButton(sender: UIButton) {
     //
     //        let permissions = ["public_profile", "email", "user_friends"]
