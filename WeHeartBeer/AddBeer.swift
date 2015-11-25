@@ -5,11 +5,11 @@
     //  Created by Fernando H M Bastos on 11/19/15.
     //  Copyright © 2015 Fernando H M Bastos. All rights reserved.
     //
-
+    
     import UIKit
     import Parse
     import ParseUI
-
+    
     class AddBeer: UIViewController {
         
         @IBOutlet weak var nameBeer: UITextField!
@@ -23,7 +23,7 @@
         override func viewDidLoad() {
             super.viewDidLoad()
             
-
+            
             
         }
         
@@ -32,7 +32,7 @@
             if self.nameBeer.text != ""{
                 if self.nameBrewery.text != ""{
                     if self.abv.text != ""{
-                       if self.style.text != ""{
+                        if self.style.text != ""{
                             print("salvar")
                             
                         }else{

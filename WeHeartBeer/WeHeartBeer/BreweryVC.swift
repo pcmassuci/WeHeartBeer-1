@@ -12,7 +12,7 @@ import Parse
 class BreweryVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     
-  
+    
     
     
     //Outlets
@@ -28,12 +28,12 @@ class BreweryVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
-
+    
     var brewery :Brewery!
-     var currentBrewery: PFObject?
+    var currentBrewery: PFObject?
     var beers:[Beer]! = [Beer]()
     
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -41,24 +41,24 @@ class BreweryVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         print(currentBrewery?.objectId)
         listOfProducts.delegate = self
         listOfProducts.dataSource = self
-    
+        
         // Do any additional setup after loading the view.
     }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
-
+        
         
         let pointer :String = (currentBrewery?.objectId)! as String
         print(pointer)
         self.activityIndicator.startAnimating()
         BreweryServices.findBreweryObjectID(pointer) { (brewery, success) -> Void in
-        //BreweryServices.findBreweryName(pointerReceive) { (brewery, success) -> Void in
+            //BreweryServices.findBreweryName(pointerReceive) { (brewery, success) -> Void in
             self.activityIndicator.stopAnimating()
             if success {
                 
-               self.brewery = brewery
+                self.brewery = brewery
                 
                 
                 print(self.brewery.objectForKey("local") )
@@ -73,7 +73,7 @@ class BreweryVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         
     }
     
-     
+    
     // update labels
     func updateData(brewery: Brewery){
         
@@ -113,12 +113,12 @@ class BreweryVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
                 print("deu Merda")
             }
         }
-
+        
     }
     
     
     
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -131,9 +131,9 @@ class BreweryVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         var count = self.beers.count
         count += 1
         
-      
         
-            return count
+        
+        return count
         //}
     }
     
@@ -149,27 +149,27 @@ class BreweryVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         
         let count = self.beers.count
         if indexPath.row < count{
-        cell.beersFromBrew?.text = self.beers[indexPath.row].objectForKey("name") as? String
-//        cell.resutLabel?.text = self.resultsList.objectAtIndex(indexPath.row).objectForKey("name") as? String
+            cell.beersFromBrew?.text = self.beers[indexPath.row].objectForKey("name") as? String
+            //        cell.resutLabel?.text = self.resultsList.objectAtIndex(indexPath.row).objectForKey("name") as? String
         }else{
-             cell.beersFromBrew?.text = "ADICIONAR CARVEJA"
+            cell.beersFromBrew?.text = "ADICIONAR CARVEJA"
             
         }
         
-      
+        
         return cell
     }
     
-
-
+    
+    
     /*
     // MARK: - Navigation
-
+    
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    // Get the new view controller using segue.destinationViewController.
+    // Pass the selected object to the new view controller.
     }
     */
-
+    
 }

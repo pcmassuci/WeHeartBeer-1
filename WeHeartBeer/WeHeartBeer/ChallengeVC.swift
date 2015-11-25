@@ -9,13 +9,13 @@
 import UIKit
 
 class ChallengeVC: UIViewController {
-
+    
     @IBOutlet weak var challengeImage: UIImageView!
     @IBOutlet weak var challengeTitle: UILabel!
     @IBOutlet weak var challengeDescription: UILabel!
     @IBOutlet weak var challengeFb: UIButton!
-
-
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -38,19 +38,19 @@ class ChallengeVC: UIViewController {
         
         let fbURLWeb: NSURL = NSURL(string: "https://www.facebook.com/Matheusfccfaj")!
         //let fbURLID: NSURL = NSURL(string: "fb://profile/719245588122387")!
-   
+        
         UIApplication.sharedApplication().openURL(fbURLWeb)
-//
-//        if(UIApplication.sharedApplication().canOpenURL(fbURLID)){
-//            // FB installed
-//            UIApplication.sharedApplication().openURL(fbURLID)
-//        } else {
-//            // FB is not installed, open in safari
-//            UIApplication.sharedApplication().openURL(fbURLWeb)
-//        }
+        //
+        //        if(UIApplication.sharedApplication().canOpenURL(fbURLID)){
+        //            // FB installed
+        //            UIApplication.sharedApplication().openURL(fbURLID)
+        //        } else {
+        //            // FB is not installed, open in safari
+        //            UIApplication.sharedApplication().openURL(fbURLWeb)
+        //        }
         
     }
-
+    
 }
 
 // MARK: Fragão
@@ -60,8 +60,8 @@ class ChallengeVC: UIViewController {
 //override func viewDidLoad() {
 //    super.viewDidLoad()
 //    view.backgroundColor = UIColor(red:0.07, green:0.07, blue:0.07, alpha:1.0)
-//    
-//    
+//
+//
 //    //        let query = User.query()
 //    ////        query.whereKey("objectId", equalTo: "3eWigsY0bZ")
 //    //        query?.whereKey("objectId", equalTo: "3eWigsY0bZ")
@@ -72,12 +72,12 @@ class ChallengeVC: UIViewController {
 //    //                println(bands)
 //    //            }
 //    //        })
-//    
-//    
+//
+//
 //    if UserServices.loggedUser(){
 //        self.performSegueWithIdentifier("loginSegue", sender: self)
 //    }
-//    
+//
 //    // Do any additional setup after loading the view.
 //}
 //override func viewDidAppear(animated: Bool) {
@@ -87,7 +87,7 @@ class ChallengeVC: UIViewController {
 //}
 //override func didReceiveMemoryWarning() {
 //    super.didReceiveMemoryWarning()
-//    
+//
 //    // Dispose of any resources that can be recreated.
 //}
 //
@@ -105,7 +105,7 @@ class ChallengeVC: UIViewController {
 //
 //
 //@IBAction func loginFacebookClicked(sender: AnyObject) {
-//    
+//
 //    UserServices.loginFaceUser { (success) -> Void in
 //        if success{
 //            self.performSegueWithIdentifier("loginSegue", sender: self)

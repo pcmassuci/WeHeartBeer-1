@@ -10,7 +10,7 @@ import UIKit
 
 class BeerProfileVC: UIViewController, FloatRatingViewDelegate{
     
-  
+    
     
     @IBOutlet var ratingSegmentedControl: UISegmentedControl!
     @IBOutlet var floatRatingView: FloatRatingView!
@@ -37,7 +37,7 @@ class BeerProfileVC: UIViewController, FloatRatingViewDelegate{
         
         self.navigationController?.navigationBar.hidden = false
         
-
+        
         /** Note: With the exception of contentMode, all of these
         properties can be set directly in Interface builder **/
         
@@ -67,27 +67,27 @@ class BeerProfileVC: UIViewController, FloatRatingViewDelegate{
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-    
+        
         
         //Pointer for view beer name
-       // let pointerReceive = "cervejum"
-
+        // let pointerReceive = "cervejum"
+        
         //BeerServices.findBeerName(pointerReceive) { (beer, success) -> Void in
-
-           // if success {
-             //   self.beer = beer
-                
-                //Printing beer name
-                //print(self.beer[0])
-                
-                //Self name for view
-                //self.name.text! = self.beer[0].objectForKey("name") as! String!
-                //self.updateData(self.beer[0])
-           // }else{
-                //Warning error
-               // print("Erro, cerveja não encontrada!")
-            //}
-      //  }
+        
+        // if success {
+        //   self.beer = beer
+        
+        //Printing beer name
+        //print(self.beer[0])
+        
+        //Self name for view
+        //self.name.text! = self.beer[0].objectForKey("name") as! String!
+        //self.updateData(self.beer[0])
+        // }else{
+        //Warning error
+        // print("Erro, cerveja não encontrada!")
+        //}
+        //  }
     }
     
     // update informations
@@ -95,43 +95,43 @@ class BeerProfileVC: UIViewController, FloatRatingViewDelegate{
         
         print(beer?.objectForKey("brewery")?.objectId)
         
-                
+        
         
         
         //print(beer)
         
         self.name.text = beer!.objectForKey("name") as! String
-//        //self.brewery.text! = beer.objectForKey("brewery") as! String
-//        self.style.text = beer.objectForKey("Style") as? String
-//        //self.ibv.text! = beer.objectForKey("IBV") as! String!
+        //        //self.brewery.text! = beer.objectForKey("brewery") as! String
+        //        self.style.text = beer.objectForKey("Style") as? String
+        //        //self.ibv.text! = beer.objectForKey("IBV") as! String!
         
-//        self.pffileToUIImage(beer)
-   
-   //pegando a foto do parse
+        //        self.pffileToUIImage(beer)
+        
+        //pegando a foto do parse
         
         if beer!.objectForKey("Photo") != nil{
-        let userImageFile = beer!.objectForKey("Photo") as! PFFile
-    
-        userImageFile.getDataInBackgroundWithBlock {
-            (imageData: NSData?, error: NSError?) -> Void in
-            if error == nil {
-                if let imageData = imageData {
-                    let image = UIImage(data:imageData)
-                    self.photo.image = image 
-                }else{
-                    print("sem imagem")
+            let userImageFile = beer!.objectForKey("Photo") as! PFFile
+            
+            userImageFile.getDataInBackgroundWithBlock {
+                (imageData: NSData?, error: NSError?) -> Void in
+                if error == nil {
+                    if let imageData = imageData {
+                        let image = UIImage(data:imageData)
+                        self.photo.image = image
+                    }else{
+                        print("sem imagem")
+                    }
                 }
+                
             }
-        
-        }
         }else{
             print("erro na imagem")
         }
         
         //self.photo.image = beer.objectForKey("Photo") as? UIImage
-
+        
     }
-
+    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -162,7 +162,7 @@ class BeerProfileVC: UIViewController, FloatRatingViewDelegate{
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         
         //print(currentObject?.objectForKey("brewery")?.objectId)
-
+        
         if segue.identifier == "segueBeer"{
             if let destination = segue.destinationViewController  as? BreweryVC{
                 
@@ -173,7 +173,7 @@ class BeerProfileVC: UIViewController, FloatRatingViewDelegate{
             }
         }
     }
-
+    
     
     
 }

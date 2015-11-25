@@ -13,17 +13,17 @@ import ParseUI
 
 class SearchVC: UIViewController, UISearchResultsUpdating, UISearchBarDelegate, UITableViewDelegate, UITableViewDataSource, UISearchControllerDelegate {
     
-    //tentativa de delegate 
+    //tentativa de delegate
     
     
     
     
     @IBOutlet weak var resultsTable: UITableView!
     @IBOutlet weak var searchTypeText: UILabel!
-
+    
     @IBOutlet weak var beerStyle: UILabel!
     @IBOutlet weak var beerABV: UILabel!
-
+    
     let controller = UISearchController(searchResultsController: nil)
     
     //Creates class object and aux array for
@@ -73,7 +73,7 @@ class SearchVC: UIViewController, UISearchResultsUpdating, UISearchBarDelegate, 
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         //Hide NavigationController
-         self.navigationController?.navigationBar.hidden = true
+        self.navigationController?.navigationBar.hidden = true
     }
     
     
@@ -106,7 +106,7 @@ class SearchVC: UIViewController, UISearchResultsUpdating, UISearchBarDelegate, 
         controller.searchBar.resignFirstResponder()
         
         self.resultsTable.reloadData()
-
+        
         
         
     }
@@ -142,10 +142,10 @@ class SearchVC: UIViewController, UISearchResultsUpdating, UISearchBarDelegate, 
             
             
             return count
-
+            
             
         }
-        
+            
         else {
             
             return 0
@@ -164,7 +164,7 @@ class SearchVC: UIViewController, UISearchResultsUpdating, UISearchBarDelegate, 
         
         let count = self.resultsList.count
         if indexPath.row < count{
-
+            
             //Debug
             //print(self.resultsList.objectAtIndex(indexPath.row).name)
             //print(resultsList)
@@ -176,13 +176,13 @@ class SearchVC: UIViewController, UISearchResultsUpdating, UISearchBarDelegate, 
             cell.beerStyle?.text = self.resultsList.objectAtIndex(indexPath.row).objectForKey("Style") as? String
             
         }
-        
+            
         else{
             
             cell.resutLabel?.text = "Adcione cerveja"
         }
         
-    return cell
+        return cell
     }
     
     
@@ -194,18 +194,18 @@ class SearchVC: UIViewController, UISearchResultsUpdating, UISearchBarDelegate, 
             
             // Query objects matching their names with text imput - regex for case insensitivity
             var query = PFQuery(className: "Beer").whereKey("name", matchesRegex: controller.searchBar.text!, modifiers: "i")
-        
+            
             // Alphabetical order
             query.orderByAscending("name")
             
             // Get query objects and save them in resultsList array
             query.findObjectsInBackgroundWithBlock { (results: [PFObject]?,error: NSError?) -> Void in
-            
-                if (error == nil) {
                 
+                if (error == nil) {
+                    
                     self.resultsList = results
                     self.resultsTable.reloadData()
-                
+                    
                 } else {
                     // Log details of the failure
                     print("search query error: \(error) \(error!.userInfo)")
@@ -217,15 +217,15 @@ class SearchVC: UIViewController, UISearchResultsUpdating, UISearchBarDelegate, 
             
             self.resultsList = nil // Clean Query
             self.resultsTable.reloadData()
-
+            
         }
     }
     
     // Perform segue - WIP (redundancia com o prepareForSegue
-//    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-//        let cell = self.resultsTable.cellForRowAtIndexPath(indexPath)
-//        performSegueWithIdentifier("segueSearch", sender: indexPath)
-//    }
+    //    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    //        let cell = self.resultsTable.cellForRowAtIndexPath(indexPath)
+    //        performSegueWithIdentifier("segueSearch", sender: indexPath)
+    //    }
     
     // Prepare segue - WIP
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -246,5 +246,5 @@ class SearchVC: UIViewController, UISearchResultsUpdating, UISearchBarDelegate, 
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
+    
 }

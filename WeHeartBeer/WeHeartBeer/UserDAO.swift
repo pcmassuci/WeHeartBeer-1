@@ -12,7 +12,7 @@ import ParseFacebookUtilsV4
 
 
 class UserDAO {
-   typealias SignUpCompletionHandler = (success:Bool) -> Void
+    typealias SignUpCompletionHandler = (success:Bool) -> Void
     
     //vamo ver se vai
     
@@ -116,9 +116,9 @@ class UserDAO {
             let lastName = (dict.valueForKey("last_name") as? String)!
             let imageURL = dict.objectForKey("picture")?.objectForKey("data")?.objectForKey("url") as! String
             if dict.valueForKey("email") != nil {
-              let email = (dict["email"] as! String)
+                let email = (dict["email"] as! String)
                 user.mail = email
-            
+                
             }
             
             let data = NSData(contentsOfURL: NSURL(string: imageURL)!)
@@ -127,7 +127,7 @@ class UserDAO {
             let imageFile = PFFile(name:"profile.png", data:imageData!)
             user.name = name + " " + lastName
             user.photo = imageFile!
-           
+            
             
             
             UserDAO.update(user, completionHandler: { (success) -> Void in

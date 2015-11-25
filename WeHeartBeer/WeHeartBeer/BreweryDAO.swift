@@ -14,14 +14,14 @@ import Parse
 class BreweryDAO {
     
     
-
-   
+    
+    
     
     typealias FindObjectsCompletionHandler = (brewery:[Brewery]?,success:Bool) -> Void
     typealias FindObjIDCompletionHandler = (brewery:Brewery?,success:Bool) -> Void
     
     
-   
+    
     
     //find Brewery, send a String Name from Parse
     
@@ -69,14 +69,14 @@ class BreweryDAO {
             }else{
                 completionHandler(brewery:nil,success: false)
             }
-
             
-                
-           
+            
+            
+            
             
             
         }
     }
 }
-        
+
 

@@ -14,7 +14,7 @@ import ParseFacebookUtilsV4
 
 class UserServices {
     typealias SignUpCompletionHandler = (success:Bool) -> Void
-  //  typealias FindBandsCompletionHandler = (bands:[Band]?,success:Bool) -> Void
+    //  typealias FindBandsCompletionHandler = (bands:[Band]?,success:Bool) -> Void
     
     
     static func createUser(email:String,password:String,confirmPassword:String,completionHandler:SignUpCompletionHandler){
@@ -124,7 +124,7 @@ class UserServices {
     
     
     
- 
+    
     
     
 }
