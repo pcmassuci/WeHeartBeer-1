@@ -466,10 +466,8 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Item3" id="o9E-sx-Eff"/>
                     <connections>
-                        <outlet property="loginButton" destination="UT6-OD-vxJ" id="4he-Lx-4BT"/>
-                        <outlet property="loginFacebook" destination="N3W-H7-UjB" id="xZR-9Y-atN"/>
-                        <outlet property="loginPicture" destination="KVW-xv-NYP" id="fo9-l5-XKe"/>
                         <outlet property="displayName" destination="RQe-Yo-kqs" id="N2m-TR-O4E"/>
+                        <outlet property="loginButton" destination="UT6-OD-vxJ" id="4he-Lx-4BT"/>
                         <outlet property="loginPicture" destination="KVW-xv-NYP" id="sbY-KW-ML8"/>
                     </connections>
                 </viewController>
@@ -1039,7 +1037,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AxO-6R-iT0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1336.5" y="1994.25"/>
+            <point key="canvasLocation" x="-1336.5" y="2059.5"/>
         </scene>
         <!--Add Beer-->
         <scene sceneID="BKk-lk-QeP">
@@ -1080,6 +1078,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="W5s-8r-khH" id="IVI-Og-3LC">
+                                            <rect key="frame" x="0.0" y="0.0" width="240" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <animations/>
                                         </tableViewCellContentView>
