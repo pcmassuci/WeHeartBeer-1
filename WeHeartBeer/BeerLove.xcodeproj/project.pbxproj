@@ -111,7 +111,7 @@
 		8502AE831BEA676400C54142 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		8502AE851BEA676C00C54142 /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
 		8502AE871BEA677800C54142 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
-		8518D1451BD7B7BD00499ACA /* LoveBeer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LoveBeer.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		8518D1451BD7B7BD00499ACA /* BeerLove.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BeerLove.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8518D1481BD7B7BD00499ACA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8518D14A1BD7B7BD00499ACA /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		8518D14D1BD7B7BD00499ACA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -119,10 +119,10 @@
 		8518D1521BD7B7BD00499ACA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8518D1551BD7B7BD00499ACA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8518D1571BD7B7BD00499ACA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		8518D15C1BD7B7BD00499ACA /* LoveBeer.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LoveBeer.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		8518D15C1BD7B7BD00499ACA /* BeerLove.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BeerLove.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8518D1601BD7B7BD00499ACA /* WeHeartBeerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeHeartBeerTests.swift; sourceTree = "<group>"; };
 		8518D1621BD7B7BD00499ACA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		8518D1671BD7B7BD00499ACA /* LoveBeer.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LoveBeer.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		8518D1671BD7B7BD00499ACA /* BeerLove.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BeerLove.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8518D16B1BD7B7BD00499ACA /* WeHeartBeerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeHeartBeerUITests.swift; sourceTree = "<group>"; };
 		8518D16D1BD7B7BD00499ACA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		854AAC8D1BEB8CCE002F405B /* SearchVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchVC.swift; sourceTree = "<group>"; };
@@ -245,9 +245,9 @@
 		8518D1461BD7B7BD00499ACA /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				8518D1451BD7B7BD00499ACA /* LoveBeer.app */,
-				8518D15C1BD7B7BD00499ACA /* LoveBeer.xctest */,
-				8518D1671BD7B7BD00499ACA /* LoveBeer.xctest */,
+				8518D1451BD7B7BD00499ACA /* BeerLove.app */,
+				8518D15C1BD7B7BD00499ACA /* BeerLove.xctest */,
+				8518D1671BD7B7BD00499ACA /* BeerLove.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -375,9 +375,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		8518D1441BD7B7BD00499ACA /* LoveBeer */ = {
+		8518D1441BD7B7BD00499ACA /* BeerLove */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 8518D1701BD7B7BD00499ACA /* Build configuration list for PBXNativeTarget "LoveBeer" */;
+			buildConfigurationList = 8518D1701BD7B7BD00499ACA /* Build configuration list for PBXNativeTarget "BeerLove" */;
 			buildPhases = (
 				8518D1411BD7B7BD00499ACA /* Sources */,
 				8518D1421BD7B7BD00499ACA /* Frameworks */,
@@ -387,14 +387,14 @@
 			);
 			dependencies = (
 			);
-			name = LoveBeer;
+			name = BeerLove;
 			productName = WeHeartBeer;
-			productReference = 8518D1451BD7B7BD00499ACA /* LoveBeer.app */;
+			productReference = 8518D1451BD7B7BD00499ACA /* BeerLove.app */;
 			productType = "com.apple.product-type.application";
 		};
-		8518D15B1BD7B7BD00499ACA /* LoveBeerTests */ = {
+		8518D15B1BD7B7BD00499ACA /* BeerLoveTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 8518D1731BD7B7BD00499ACA /* Build configuration list for PBXNativeTarget "LoveBeerTests" */;
+			buildConfigurationList = 8518D1731BD7B7BD00499ACA /* Build configuration list for PBXNativeTarget "BeerLoveTests" */;
 			buildPhases = (
 				8518D1581BD7B7BD00499ACA /* Sources */,
 				8518D1591BD7B7BD00499ACA /* Frameworks */,
@@ -405,14 +405,14 @@
 			dependencies = (
 				8518D15E1BD7B7BD00499ACA /* PBXTargetDependency */,
 			);
-			name = LoveBeerTests;
+			name = BeerLoveTests;
 			productName = WeHeartBeerTests;
-			productReference = 8518D15C1BD7B7BD00499ACA /* LoveBeer.xctest */;
+			productReference = 8518D15C1BD7B7BD00499ACA /* BeerLove.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		8518D1661BD7B7BD00499ACA /* LoveBeerUITests */ = {
+		8518D1661BD7B7BD00499ACA /* BeerLoveUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 8518D1761BD7B7BD00499ACA /* Build configuration list for PBXNativeTarget "LoveBeerUITests" */;
+			buildConfigurationList = 8518D1761BD7B7BD00499ACA /* Build configuration list for PBXNativeTarget "BeerLoveUITests" */;
 			buildPhases = (
 				8518D1631BD7B7BD00499ACA /* Sources */,
 				8518D1641BD7B7BD00499ACA /* Frameworks */,
@@ -423,9 +423,9 @@
 			dependencies = (
 				8518D1691BD7B7BD00499ACA /* PBXTargetDependency */,
 			);
-			name = LoveBeerUITests;
+			name = BeerLoveUITests;
 			productName = WeHeartBeerUITests;
-			productReference = 8518D1671BD7B7BD00499ACA /* LoveBeer.xctest */;
+			productReference = 8518D1671BD7B7BD00499ACA /* BeerLove.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
@@ -450,7 +450,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 8518D1401BD7B7BC00499ACA /* Build configuration list for PBXProject "LoveBeer" */;
+			buildConfigurationList = 8518D1401BD7B7BC00499ACA /* Build configuration list for PBXProject "BeerLove" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -463,9 +463,9 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				8518D1441BD7B7BD00499ACA /* LoveBeer */,
-				8518D15B1BD7B7BD00499ACA /* LoveBeerTests */,
-				8518D1661BD7B7BD00499ACA /* LoveBeerUITests */,
+				8518D1441BD7B7BD00499ACA /* BeerLove */,
+				8518D15B1BD7B7BD00499ACA /* BeerLoveTests */,
+				8518D1661BD7B7BD00499ACA /* BeerLoveUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -554,12 +554,12 @@
 /* Begin PBXTargetDependency section */
 		8518D15E1BD7B7BD00499ACA /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 8518D1441BD7B7BD00499ACA /* LoveBeer */;
+			target = 8518D1441BD7B7BD00499ACA /* BeerLove */;
 			targetProxy = 8518D15D1BD7B7BD00499ACA /* PBXContainerItemProxy */;
 		};
 		8518D1691BD7B7BD00499ACA /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 8518D1441BD7B7BD00499ACA /* LoveBeer */;
+			target = 8518D1441BD7B7BD00499ACA /* BeerLove */;
 			targetProxy = 8518D1681BD7B7BD00499ACA /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -680,7 +680,7 @@
 				INFOPLIST_FILE = WeHeartBeer/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = bepid.WeHeartBeer;
-				PRODUCT_NAME = LoveBeer;
+				PRODUCT_NAME = BeerLove;
 				SWIFT_OBJC_BRIDGING_HEADER = "WeHeartBeer/Header-WeHeartBeer.h";
 			};
 			name = Debug;
@@ -698,7 +698,7 @@
 				INFOPLIST_FILE = WeHeartBeer/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = bepid.WeHeartBeer;
-				PRODUCT_NAME = LoveBeer;
+				PRODUCT_NAME = BeerLove;
 				SWIFT_OBJC_BRIDGING_HEADER = "WeHeartBeer/Header-WeHeartBeer.h";
 			};
 			name = Release;
@@ -710,8 +710,8 @@
 				INFOPLIST_FILE = WeHeartBeerTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = bepid.WeHeartBeerTests;
-				PRODUCT_NAME = LoveBeer;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/LoveBeer.app/LoveBeer";
+				PRODUCT_NAME = BeerLove;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BeerLove.app/BeerLove";
 			};
 			name = Debug;
 		};
@@ -722,8 +722,8 @@
 				INFOPLIST_FILE = WeHeartBeerTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = bepid.WeHeartBeerTests;
-				PRODUCT_NAME = LoveBeer;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/LoveBeer.app/LoveBeer";
+				PRODUCT_NAME = BeerLove;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BeerLove.app/BeerLove";
 			};
 			name = Release;
 		};
@@ -733,7 +733,7 @@
 				INFOPLIST_FILE = WeHeartBeerUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = bepid.WeHeartBeerUITests;
-				PRODUCT_NAME = LoveBeer;
+				PRODUCT_NAME = BeerLove;
 				TEST_TARGET_NAME = WeHeartBeer;
 				USES_XCTRUNNER = YES;
 			};
@@ -745,7 +745,7 @@
 				INFOPLIST_FILE = WeHeartBeerUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = bepid.WeHeartBeerUITests;
-				PRODUCT_NAME = LoveBeer;
+				PRODUCT_NAME = BeerLove;
 				TEST_TARGET_NAME = WeHeartBeer;
 				USES_XCTRUNNER = YES;
 			};
@@ -754,7 +754,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		8518D1401BD7B7BC00499ACA /* Build configuration list for PBXProject "LoveBeer" */ = {
+		8518D1401BD7B7BC00499ACA /* Build configuration list for PBXProject "BeerLove" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				8518D16E1BD7B7BD00499ACA /* Debug */,
@@ -763,7 +763,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		8518D1701BD7B7BD00499ACA /* Build configuration list for PBXNativeTarget "LoveBeer" */ = {
+		8518D1701BD7B7BD00499ACA /* Build configuration list for PBXNativeTarget "BeerLove" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				8518D1711BD7B7BD00499ACA /* Debug */,
@@ -772,7 +772,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		8518D1731BD7B7BD00499ACA /* Build configuration list for PBXNativeTarget "LoveBeerTests" */ = {
+		8518D1731BD7B7BD00499ACA /* Build configuration list for PBXNativeTarget "BeerLoveTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				8518D1741BD7B7BD00499ACA /* Debug */,
@@ -781,7 +781,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		8518D1761BD7B7BD00499ACA /* Build configuration list for PBXNativeTarget "LoveBeerUITests" */ = {
+		8518D1761BD7B7BD00499ACA /* Build configuration list for PBXNativeTarget "BeerLoveUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				8518D1771BD7B7BD00499ACA /* Debug */,
