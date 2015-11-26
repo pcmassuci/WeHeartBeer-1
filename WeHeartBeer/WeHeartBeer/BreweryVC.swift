@@ -9,7 +9,14 @@
 import UIKit
 import Parse
 
-class BreweryVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
+protocol BreweryVCDelegate{
+    func newBeer(objIDbeer:PFObject?)
+}
+
+
+class BreweryVC: UIViewController{
+    var delegate: BreweryVCDelegate?
+    
     
     
     
@@ -125,51 +132,72 @@ class BreweryVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     }
     
     
-    // Sets number of rows in tableview
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
-        var count = self.beers.count
-        count += 1
-        
-        
-        
-        return count
-        //}
-    }
+   }
     
-    // Number of sections in tableview - not used
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return 1
-    }
+    // MARK: - TableView
     
-    //Sets the tableview cell and change its info to the correspondent object
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        
-        let cell =  listOfProducts.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as! BreweryVCCell
-        
-        let count = self.beers.count
-        if indexPath.row < count{
-            cell.beersFromBrew?.text = self.beers[indexPath.row].objectForKey("name") as? String
-            //        cell.resutLabel?.text = self.resultsList.objectAtIndex(indexPath.row).objectForKey("name") as? String
-        }else{
-            cell.beersFromBrew?.text = "ADICIONAR CARVEJA"
+
+    extension BreweryVC: UITableViewDataSource, UITableViewDelegate {
+        // Sets number of rows in tableview
+        func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
             
+            var count = self.beers.count
+            count += 1
+            
+            
+            
+            return count
+            //}
+        }
+        
+        // Number of sections in tableview - not used
+        func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+            return 1
+        }
+        
+        //Sets the tableview cell and change its info to the correspondent object
+        func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+            
+            let cell =  listOfProducts.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as! BreweryVCCell
+            
+            let count = self.beers.count
+            if indexPath.row < count{
+                cell.beersFromBrew?.text = self.beers[indexPath.row].objectForKey("name") as? String
+                //        cell.resutLabel?.text = self.resultsList.objectAtIndex(indexPath.row).objectForKey("name") as? String
+            }else{
+                cell.beersFromBrew?.text = "ADICIONAR CARVEJA"
+                
+            }
+            
+            
+            return cell
+        }
+        
+
+        
+        
+        func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+            print("valor do obejto")
+            print(self.beers[indexPath.row])
+            delegate?.newBeer(self.beers[indexPath.row])
+            if let navController = self.navigationController {
+                navController.popViewControllerAnimated(true)
+            }else{
+                
+                print("optional value")
+                
+                
+            }
+            
+            //        if let del = delegate{
+            //
+            //            del.newBeer(self.beers[indexPath.row])
+            //            
+            //        }else{
+            //            print("erro no delegate")
+            //        }
         }
         
         
-        return cell
-    }
-    
-    
-    
-    /*
-    // MARK: - Navigation
-    
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-    // Get the new view controller using segue.destinationViewController.
-    // Pass the selected object to the new view controller.
-    }
-    */
     
 }

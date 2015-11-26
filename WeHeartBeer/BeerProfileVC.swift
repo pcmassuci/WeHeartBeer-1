@@ -165,7 +165,9 @@ class BeerProfileVC: UIViewController, FloatRatingViewDelegate{
         
         if segue.identifier == "segueBeer"{
             if let destination = segue.destinationViewController  as? BreweryVC{
-                
+               
+                destination.delegate = self
+
                 let breweryID = self.currentObject?.objectForKey("brewery")?.objectID
                 
                 print(self.currentObject?.objectForKey("brewery"))
@@ -174,6 +176,17 @@ class BeerProfileVC: UIViewController, FloatRatingViewDelegate{
             }
         }
     }
+}
+
+extension BeerProfileVC: BreweryVCDelegate{
+    func newBeer(objIDbeer:PFObject?) {
+        self.currentObject = objIDbeer
+        print("passou o dado")
+        print(self.currentObject)
+        self.updateData(objIDbeer)
+    }
+    
+    
 }
 
 
