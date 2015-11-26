@@ -34,7 +34,7 @@
                                 <animations/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" rowHeight="136" id="8Tc-79-bMU" customClass="ResultsTableViewCell" customModule="LoveBeer" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" rowHeight="136" id="8Tc-79-bMU" customClass="ResultsTableViewCell" customModule="WeHeartBeer" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="8Tc-79-bMU" id="dut-LB-pQ3">
@@ -139,7 +139,7 @@
         <!--Item3-->
         <scene sceneID="xL3-zI-QcZ">
             <objects>
-                <viewController id="sgA-Wm-f0P" customClass="UserProfileVC" customModule="LoveBeer" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="sgA-Wm-f0P" customClass="UserProfileVC" customModule="WeHeartBeer" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="u85-R7-bAi"/>
                         <viewControllerLayoutGuide type="bottom" id="q4J-x3-Zq4"/>
@@ -467,7 +467,6 @@
                     <tabBarItem key="tabBarItem" title="Item3" id="o9E-sx-Eff"/>
                     <connections>
                         <outlet property="displayName" destination="RQe-Yo-kqs" id="N2m-TR-O4E"/>
-                        <outlet property="loginButton" destination="UT6-OD-vxJ" id="4he-Lx-4BT"/>
                         <outlet property="loginButton" destination="UT6-OD-vxJ" id="dEg-Fj-o7x"/>
                         <outlet property="loginPicture" destination="KVW-xv-NYP" id="sbY-KW-ML8"/>
                     </connections>
@@ -479,7 +478,7 @@
         <!--BreweryVC-->
         <scene sceneID="ijd-9h-OhZ">
             <objects>
-                <viewController id="D0v-rr-m7t" customClass="BreweryVC" customModule="LoveBeer" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="D0v-rr-m7t" customClass="BreweryVC" customModule="WeHeartBeer" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="ksn-nb-SBh"/>
                         <viewControllerLayoutGuide type="bottom" id="M3M-bS-io7"/>
@@ -603,7 +602,7 @@
                                 <animations/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="gU5-OX-bOM" customClass="BreweryVCCell" customModule="LoveBeer" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="gU5-OX-bOM" customClass="BreweryVCCell" customModule="WeHeartBeer" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="gU5-OX-bOM" id="y54-Ux-zsE">
@@ -771,7 +770,7 @@
         <!--HomepageVC-->
         <scene sceneID="mlu-hM-Dmy">
             <objects>
-                <viewController id="1ah-76-8S6" customClass="HomepageVC" customModule="LoveBeer" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="1ah-76-8S6" customClass="HomepageVC" customModule="WeHeartBeer" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="KcG-9G-QfJ"/>
                         <viewControllerLayoutGuide type="bottom" id="sTq-MP-w4J"/>
@@ -813,7 +812,7 @@
                                     <inset key="sectionInset" minX="10" minY="0.0" maxX="10" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Interest Cell" id="pvs-SG-S63" customClass="InterestCollectionViewCell" customModule="LoveBeer" customModuleProvider="target">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Interest Cell" id="pvs-SG-S63" customClass="InterestCollectionViewCell" customModule="WeHeartBeer" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -1020,7 +1019,6 @@
             </objects>
             <point key="canvasLocation" x="-3318" y="363.75"/>
         </scene>
-<<<<<<< HEAD
         <!--Item4-->
         <scene sceneID="eAe-XH-HaZ">
             <objects>
@@ -1041,12 +1039,10 @@
             </objects>
             <point key="canvasLocation" x="-1336.5" y="2059.5"/>
         </scene>
-=======
->>>>>>> 501cacd297bef4167964773a3a59bfb1b51a9090
         <!--Add Beer-->
         <scene sceneID="BKk-lk-QeP">
             <objects>
-                <viewController id="2Fh-ah-yXo" customClass="AddBeer" customModule="LoveBeer" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="2Fh-ah-yXo" customClass="AddBeer" customModule="WeHeartBeer" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="di3-kT-CoM"/>
                         <viewControllerLayoutGuide type="bottom" id="bqB-j3-ryU"/>
@@ -1119,7 +1115,7 @@
         <!--Beer ProfileVC-->
         <scene sceneID="Rrf-KJ-hOB">
             <objects>
-                <viewController id="VcN-tL-zUt" customClass="BeerProfileVC" customModule="LoveBeer" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="VcN-tL-zUt" customClass="BeerProfileVC" customModule="WeHeartBeer" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="NRE-F8-T1v"/>
                         <viewControllerLayoutGuide type="bottom" id="4TI-aS-gJI"/>
@@ -1215,7 +1211,7 @@
                                     <rect key="frame" x="205" y="354" width="24" height="21"/>
                                 </variation>
                             </label>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Arj-bW-Ogn" customClass="FloatRatingView" customModule="LoveBeer" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Arj-bW-Ogn" customClass="FloatRatingView" customModule="WeHeartBeer" customModuleProvider="target">
                                 <rect key="frame" x="20" y="178" width="560" height="44"/>
                                 <animations/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
