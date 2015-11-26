@@ -34,8 +34,4 @@ class Beer: PFObject, PFSubclassing {
     static func parseClassName() -> String{
         return "Beer"
     }
-    
-    
-    
-    
 }

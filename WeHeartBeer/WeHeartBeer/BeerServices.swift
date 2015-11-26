@@ -36,12 +36,8 @@ class BeerServices {
                 completionHandler(beer: nil,success: false)
                 
             }
-            
-            
-            
+  
         }
-        
-        
         
     }
     
@@ -59,13 +55,8 @@ class BeerServices {
                 
             }
         }
-        
-        
+
     }
-    
-    
-    
-    
     
 }
 

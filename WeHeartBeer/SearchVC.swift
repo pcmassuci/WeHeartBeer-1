@@ -63,9 +63,7 @@ class SearchVC: UIViewController, UISearchResultsUpdating, UISearchBarDelegate, 
         resultsTable.hidden = false
         self.resultsTable.reloadData()
         resultsTable.tableFooterView = UIView()
-        
-        
-        
+         
         
         // Do any additional setup after loading the view.
     }

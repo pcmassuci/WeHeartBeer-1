@@ -21,10 +21,7 @@
         
         
         override func viewDidLoad() {
-            super.viewDidLoad()
-            
-            
-            
+            super.viewDidLoad()          
         }
         
         
@@ -33,32 +30,35 @@
                 if self.nameBrewery.text != ""{
                     if self.abv.text != ""{
                         if self.style.text != ""{
-                            print("salvar")
+                            print("Salvar")
                             
                         }else{
-                            print("digitar o estilo")
+                            print("Digite o estilo!")
                         }
                         
                         
                     }else{
-                        print("digitar ABV")
+                        print("Digite o ABV!")
                     }
                     
                 }else{
-                    print("digitar o nome da cervejaria")
+                    print("Digite o nome da cervejaria!")
                 }
                 
             }else{
-                self.alertForUser("digitar o nome da cerveja")
+                self.alertForUser("Digite o nome da cerveja!")
             }
             
         }
         
         
         func alertForUser(message:String){
-            let alert = UIAlertController(title: "Atenção", message:message, preferredStyle: UIAlertControllerStyle.Alert)
+            let alert = UIAlertController(title: "Atenção", message:message, preferredStyle:UIAlertControllerStyle.Alert)
             alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
             self.presentViewController(alert, animated: true, completion: nil)
             
         }
     }
+    
+    
+   // extension AddBeer:
