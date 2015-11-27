@@ -21,10 +21,10 @@ class UserProfileVC: UIViewController {
     //butons
     
     
-    @IBOutlet weak var loginPicture: UIImageView!
+    @IBOutlet weak var displayPicture: UIImageView!
     @IBOutlet weak var displayName: UILabel!
     
-    @IBOutlet weak var loginButton: UIButton!
+
     
 
     let layer:CGFloat = 7
@@ -33,9 +33,26 @@ class UserProfileVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         if UserServices.loggedUser(){
-        self.updateData()
-        self.loginButton.hidden = true
-        }
+        //self.updateData()
+        //self.loginButton.hidden = true
+        
+        
+            //UserServices.loginFaceUser { (success) -> Void in
+             //   if success{
+              print("deu certo userprofile")
+                    
+                        self.updateData()
+                    //self.loginButton.hidden = true
+                    
+                    
+                }else{
+              
+                    print("deu errado userprofile")
+                    self.tabBarController?.selectedIndex = 0
+                }
+        
+        
+        //}
        
     }
     
@@ -43,31 +60,31 @@ class UserProfileVC: UIViewController {
     
     
     
-    @IBAction func loginButton(sender: AnyObject) {
-        
-        
-        
-        UserServices.loginFaceUser { (success) -> Void in
-            if success{
-                print("Deu Certo Atualizar tela!")
-                self.updateData()
-                self.loginButton.hidden = true
-                
-                
-            }else{
-                print("Usuário não encontrado")
-            }
-            
-            
-        }
-        
-    }
+//    @IBAction func loginButton(sender: AnyObject) {
+//        
+//        
+//        
+//        UserServices.loginFaceUser { (success) -> Void in
+//            if success{
+//                print("Deu Certo Atualizar tela!")
+//                self.updateData()
+//                self.loginButton.hidden = true
+//                
+//                
+//            }else{
+//                print("Usuário não encontrado")
+//            }
+//            
+//            
+//        }
+//        
+//    }
     
     
     func updateData(){
         
         let user = User.currentUser()
-        displayName.text = user!.objectForKey("name") as? String
+        self.displayName.text = user!.objectForKey("name") as? String
         if user!.objectForKey("photo") != nil{
             let userImageFile = user!.objectForKey("photo") as! PFFile
             userImageFile.getDataInBackgroundWithBlock {
@@ -75,7 +92,7 @@ class UserProfileVC: UIViewController {
                 if error == nil {
                     if let imageData = imageData {
                         let image = UIImage(data:imageData)
-                        self.loginPicture.image = image
+                        self.displayPicture.image = image
                     }else{
                         print("sem imagem")
                     }
