@@ -31,7 +31,7 @@ class FacebookCheckinVC: UIViewController {
     
             UserServices.loginFaceUser { (success) -> Void in
                 if success{
-                    print("Deu Certo facechekin")
+                    print("Deu Certo facecheckin")
                    
                   self.performSegueWithIdentifier("userProfileSegue", sender: nil)
     
