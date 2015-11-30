@@ -48,7 +48,7 @@ class UserProfileVC: UIViewController {
                 }else{
               
                     print("deu errado userprofile")
-                    self.tabBarController?.selectedIndex = 0
+//                    self.tabBarController?.selectedIndex = 0
                 }
         
         
