@@ -7,6 +7,9 @@
 //
 
 import UIKit
+import Foundation
+import Parse
+import ParseFacebookUtilsV4
 
 class BeerProfileVC: UIViewController, FloatRatingViewDelegate{
     
@@ -67,6 +70,15 @@ class BeerProfileVC: UIViewController, FloatRatingViewDelegate{
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
+        
+        
+        
+        // Check if user is logged in
+        if UserServices.loggedUser() {
+            self.floatRatingView.hidden = false
+        }else{
+            self.floatRatingView.hidden = true
+        }
         
         
         // Pointer for view beer name
