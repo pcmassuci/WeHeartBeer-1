@@ -14,12 +14,10 @@ class HomepageVC: UIViewController {
     // MARK: - IBOutlets
     
     @IBOutlet var challengeLink: UIImageView!
-    @IBOutlet weak var collectionView: UICollectionView!
     //@IBOutlet weak var backgroundImageview: UIImageView!
     
     // MARK: - UICollectionViewDataSource
     
-    private var interests = Interest.createInterests()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,11 +30,6 @@ class HomepageVC: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-    // Mark: CellIdentifier
-    private struct Storyboard {
-        static let CellIdentifier = "Interest Cell"
-    }
-    
     
     // MARK: - ChallengeLink
     func challengeLinkClicked(){
@@ -45,26 +38,3 @@ class HomepageVC: UIViewController {
 }
 
 
-// Mark: - CollectionViewCell
-extension HomepageVC : UICollectionViewDataSource
-{
-    func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
-        return 1
-    }
-    
-    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int
-    {
-        return interests.count
-    }
-    
-    
-    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell
-    {
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier(Storyboard.CellIdentifier, forIndexPath: indexPath) as! InterestCollectionViewCell
-        
-        cell.interest = self.interests[indexPath.item]
-        
-        
-        return cell
-    }
-}
