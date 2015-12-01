@@ -187,7 +187,8 @@ class BreweryVC: UIViewController{
             print(indexPath.row)
             if (indexPath.row == cellControl) {
                 print("verificação 1")
-                self.sendToAddBeer()
+                //chamar push
+                
                 
             }else{
             delegate?.newBeer(self.beers[indexPath.row])
@@ -210,17 +211,20 @@ class BreweryVC: UIViewController{
         }
         
           // MARK: - Send to ADDBeer
-        // call view controller without a segue in storyBoard
-        func sendToAddBeer(){
-            print("verificação 2")
-            let storyboardIdB = "AddBeer"
-            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            let viewControllerB = storyboard.instantiateViewControllerWithIdentifier(storyboardIdB) as! AddBeer
-            //viewControllerB.delegate = self
-            navigationController?.pushViewController(viewControllerB, animated: true)
-
-            
+        // Prepare segue - WIP
+        override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+            if segue.identifier == "segueSearch"{
+                if let destination = segue.destinationViewController  as? AddBeer  {
+                    if let indexPath = self.listOfProducts.indexPathForSelectedRow?.row{
+                        
+                        let row = Int(indexPath)
+                        //destination.currentObject = (self.resultsList[row]) as? PFObject
+                        
+                    }
+                }
+            }
         }
-    
+
+        
     
 }
