@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		63072E4F1C0C78DB00A96DCF /* TabBarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63072E4E1C0C78DB00A96DCF /* TabBarVC.swift */; };
 		6333567D1BED151000A71155 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6333567C1BED151000A71155 /* User.swift */; };
 		6333567F1BED154C00A71155 /* UserProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6333567E1BED154C00A71155 /* UserProfileVC.swift */; };
 		63710E251C07D6F000E0794A /* FacebookChekinVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63710E241C07D6F000E0794A /* FacebookChekinVC.swift */; };
@@ -80,6 +81,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		63072E4E1C0C78DB00A96DCF /* TabBarVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarVC.swift; sourceTree = "<group>"; };
 		6333567C1BED151000A71155 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		6333567E1BED154C00A71155 /* UserProfileVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserProfileVC.swift; sourceTree = "<group>"; };
 		63710E241C07D6F000E0794A /* FacebookChekinVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FacebookChekinVC.swift; sourceTree = "<group>"; };
@@ -201,6 +203,7 @@
 				854AAC8D1BEB8CCE002F405B /* SearchVC.swift */,
 				858A7E221BFDF6190070E844 /* AddBeer.swift */,
 				63710E241C07D6F000E0794A /* FacebookChekinVC.swift */,
+				63072E4E1C0C78DB00A96DCF /* TabBarVC.swift */,
 			);
 			name = Controllers;
 			path = ..;
@@ -520,6 +523,7 @@
 				677924B01BF6B9F700B8092B /* SearchVCCellTableViewCell.swift in Sources */,
 				854AAC8E1BEB8CCE002F405B /* SearchVC.swift in Sources */,
 				854AAF511BF0BEAE002F405B /* BreweryServices.swift in Sources */,
+				63072E4F1C0C78DB00A96DCF /* TabBarVC.swift in Sources */,
 				8518D1491BD7B7BD00499ACA /* AppDelegate.swift in Sources */,
 				672C62FB1BEAD2F700E667C8 /* BreweryVCCell.swift in Sources */,
 				858A7E231BFDF6190070E844 /* AddBeer.swift in Sources */,

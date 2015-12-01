@@ -16,37 +16,34 @@ import ParseFacebookUtilsV4
 
 class FacebookCheckinVC: UIViewController {
     
-    
-
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
         
-         }
+        // Check if user is logged in
+        if UserServices.loggedUser() {
+            self.performSegueWithIdentifier("userProfileSegue", sender: nil)
+        }
+    }
     
-        @IBAction func loginButton(sender: AnyObject) {
+    @IBAction func loginButton(sender: AnyObject) {
+        performLogin()
+    }
     
-    
-    
-            UserServices.loginFaceUser { (success) -> Void in
-                if success{
-                    print("Deu Certo facecheckin")
-                   
-                  self.performSegueWithIdentifier("userProfileSegue", sender: nil)
-    
-    
-                }else{
-                    print("cancelar facechekin")
-                    
-                }
-    
+    private func performLogin() {
+        UserServices.loginFaceUser { (success) -> Void in
+            if success {
+                print("Deu Certo facecheckin")
+                self.performSegueWithIdentifier("userProfileSegue", sender: nil)
+            } else {
+                print("cancelar facechekin")
                 
             }
-            
         }
-    
-    
+    }
 }
 
 
