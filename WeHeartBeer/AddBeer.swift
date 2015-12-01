@@ -94,9 +94,6 @@
         }
     }
     
-    
-    
-    
    extension AddBeer:UIPickerViewDataSource, UIPickerViewDelegate {
     
    //Set number of components in picker view

@@ -39,6 +39,7 @@ class BreweryVC: UIViewController{
     var brewery :Brewery!
     var currentBrewery: PFObject?
     var beers:[Beer]! = [Beer]()
+    var cellControl: Int = 0
     
     
     override func viewDidLoad() {
@@ -117,7 +118,7 @@ class BreweryVC: UIViewController{
                 self.listOfProducts.reloadData()
                 
             }else{
-                print("deu Merda")
+                print("não conseguiu conectar")
             }
         }
         
@@ -161,6 +162,8 @@ class BreweryVC: UIViewController{
             let cell =  listOfProducts.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as! BreweryVCCell
             
             let count = self.beers.count
+            self.cellControl = count
+            
             if indexPath.row < count{
                 cell.beersFromBrew?.text = self.beers[indexPath.row].objectForKey("name") as? String
                 //        cell.resutLabel?.text = self.resultsList.objectAtIndex(indexPath.row).objectForKey("name") as? String
@@ -177,8 +180,16 @@ class BreweryVC: UIViewController{
         
         
         func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-            print("valor do obejto")
-            print(self.beers[indexPath.row])
+//            print("valor do obejto")
+//            print(self.beers[indexPath.row])
+           
+             print(self.cellControl)
+            print(indexPath.row)
+            if (indexPath.row == cellControl) {
+                print("verificação 1")
+                self.sendToAddBeer()
+                
+            }else{
             delegate?.newBeer(self.beers[indexPath.row])
             if let navController = self.navigationController {
                 navController.popViewControllerAnimated(true)
@@ -188,7 +199,7 @@ class BreweryVC: UIViewController{
                 
                 
             }
-            
+            }
             //        if let del = delegate{
             //
             //            del.newBeer(self.beers[indexPath.row])
@@ -198,6 +209,18 @@ class BreweryVC: UIViewController{
             //        }
         }
         
-        
+          // MARK: - Send to ADDBeer
+        // call view controller without a segue in storyBoard
+        func sendToAddBeer(){
+            print("verificação 2")
+            let storyboardIdB = "AddBeer"
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let viewControllerB = storyboard.instantiateViewControllerWithIdentifier(storyboardIdB) as! AddBeer
+            //viewControllerB.delegate = self
+            navigationController?.pushViewController(viewControllerB, animated: true)
+
+            
+        }
+    
     
 }
