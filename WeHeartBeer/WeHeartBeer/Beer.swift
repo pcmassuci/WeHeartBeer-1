@@ -15,7 +15,7 @@ class Beer: PFObject, PFSubclassing {
     
     var name: String!
     var brewery: String!
-    var Style: PFRelation!
+    var Style: String!
     var IBU: String!
     var Photo: PFFile!
     var ABV: String!

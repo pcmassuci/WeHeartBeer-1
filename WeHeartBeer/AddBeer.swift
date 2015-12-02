@@ -18,13 +18,14 @@
         
         @IBOutlet weak var ibu: UITextField!
         
+        var brewery:Brewery!
         var pickOptionParse:[PFObject]? = [PFObject]()
         var newBeer:Beer!
         var i:Int = 0
         
         override func viewDidLoad() {
             super.viewDidLoad()
-            var pickerView = UIPickerView()
+            let pickerView = UIPickerView()
             self.queryParse()
             pickerView.delegate = self
             

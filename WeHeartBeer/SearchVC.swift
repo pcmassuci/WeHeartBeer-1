@@ -11,9 +11,7 @@ import Parse
 import ParseUI
 
 
-class SearchVC: UIViewController, UISearchResultsUpdating, UISearchBarDelegate, UITableViewDelegate, UITableViewDataSource, UISearchControllerDelegate {
-    
-    //tentativa de delegate
+class SearchVC: UIViewController {
     
     
     
@@ -75,6 +73,115 @@ class SearchVC: UIViewController, UISearchResultsUpdating, UISearchBarDelegate, 
     }
     
     
+    
+    // Prepare segue - WIP
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "segueSearch"{
+            if let destination = segue.destinationViewController  as? BeerProfileVC{
+                if let indexPath = resultsTable.indexPathForSelectedRow?.row{
+                    
+                    let row = Int(indexPath)
+                    destination.currentObject = (self.resultsList[row]) as? PFObject
+                    
+                }
+            }
+        }
+        else if segue.identifier == "segueFoundBrewery" {
+            
+            performSegueWithIdentifier("segueFoundBrewery", sender: self)
+        }
+    }
+  
+
+    // MARK: - Memory Warning
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+    
+}
+
+// MARK: - TableView Methods
+
+extension SearchVC: UITableViewDelegate, UITableViewDataSource{
+    
+    
+    
+    
+    //        Perform segue - WIP (redundancia com o prepareForSegue
+        func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+            //let cell = self.resultsTable.cellForRowAtIndexPath(indexPath)
+            if indexPath.row < self.resultsList.count {
+                performSegueWithIdentifier("segueSearch", sender: indexPath)}
+            else if indexPath.row == self.resultsList.count {
+                performSegueWithIdentifier("segueFoundBrewery", sender: indexPath)
+            }
+        }
+    
+    // Sets number of rows in tableview
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
+        // Must ensure the controler is active and the array of results is not nil
+        if (self.controller.active && self.resultsList != nil) {
+            var count = self.resultsList.count
+            count += 1
+            
+            
+            
+            return count
+            
+            
+        }
+            
+        else {
+            
+            return 0
+        }
+    }
+    
+    // Number of sections in tableview - not used
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    //Sets the tableview cell and change its info to the correspondent object
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        
+        let cell =  resultsTable.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as! ResultsTableViewCell
+        
+        let count = self.resultsList.count
+        if indexPath.row < count{
+            
+            //Debug
+            //print(self.resultsList.objectAtIndex(indexPath.row).name)
+            //print(resultsList)
+            
+            cell.resutLabel?.text = self.resultsList.objectAtIndex(indexPath.row).objectForKey("name") as? String
+            
+            cell.beerABV?.text = self.resultsList.objectAtIndex(indexPath.row).objectForKey("ABV") as? String
+            
+            cell.beerStyle?.text = self.resultsList.objectAtIndex(indexPath.row).objectForKey("Style") as? String
+            cell.addBeerLabel.hidden = true
+            
+        }
+            
+        else{
+            cell.resutLabel.hidden = true
+            
+            cell.beerABV.hidden = true
+            
+            cell.beerStyle.hidden = true
+            cell.addBeerLabel?.text = "Adcione cerveja"
+        }
+        
+        return cell
+    }
+    
+}
+
+// MARK: - Seach Methods 
+
+extension SearchVC:  UISearchResultsUpdating, UISearchBarDelegate, UISearchControllerDelegate{
     //behaviour when search starts
     func searchBarTextDidBeginEditing(searchBar: UISearchBar) {
         
@@ -129,59 +236,6 @@ class SearchVC: UIViewController, UISearchResultsUpdating, UISearchBarDelegate, 
         self.resultsTable.reloadData()
     }
     
-    // Sets number of rows in tableview
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
-        // Must ensure the controler is active and the array of results is not nil
-        if (self.controller.active && self.resultsList != nil) {
-            var count = self.resultsList.count
-            count += 1
-            
-            
-            
-            return count
-            
-            
-        }
-            
-        else {
-            
-            return 0
-        }
-    }
-    
-    // Number of sections in tableview - not used
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return 1
-    }
-    
-    //Sets the tableview cell and change its info to the correspondent object
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        
-        let cell =  resultsTable.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as! ResultsTableViewCell
-        
-        let count = self.resultsList.count
-        if indexPath.row < count{
-            
-            //Debug
-            //print(self.resultsList.objectAtIndex(indexPath.row).name)
-            //print(resultsList)
-            
-            cell.resutLabel?.text = self.resultsList.objectAtIndex(indexPath.row).objectForKey("name") as? String
-            
-            cell.beerABV?.text = self.resultsList.objectAtIndex(indexPath.row).objectForKey("ABV") as? String
-            
-            cell.beerStyle?.text = self.resultsList.objectAtIndex(indexPath.row).objectForKey("Style") as? String
-            
-        }
-            
-        else{
-            
-            cell.resutLabel?.text = "Adcione cerveja"
-        }
-        
-        return cell
-    }
     
     
     //Update controller as it changes
@@ -191,7 +245,7 @@ class SearchVC: UIViewController, UISearchResultsUpdating, UISearchBarDelegate, 
         if(controller.searchBar.text?.characters.count > 2){
             
             // Query objects matching their names with text imput - regex for case insensitivity
-            var query = PFQuery(className: "Beer").whereKey("name", matchesRegex: controller.searchBar.text!, modifiers: "i")
+            let query = PFQuery(className: "Beer").whereKey("name", matchesRegex: controller.searchBar.text!, modifiers: "i")
             
             // Alphabetical order
             query.orderByAscending("name")
@@ -218,31 +272,9 @@ class SearchVC: UIViewController, UISearchResultsUpdating, UISearchBarDelegate, 
             
         }
     }
-    
-    // Perform segue - WIP (redundancia com o prepareForSegue
-    //    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-    //        let cell = self.resultsTable.cellForRowAtIndexPath(indexPath)
-    //        performSegueWithIdentifier("segueSearch", sender: indexPath)
-    //    }
-    
-    // Prepare segue - WIP
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == "segueSearch"{
-            if let destination = segue.destinationViewController  as? BeerProfileVC{
-                if let indexPath = resultsTable.indexPathForSelectedRow?.row{
-                    
-                    let row = Int(indexPath)
-                    destination.currentObject = (self.resultsList[row]) as? PFObject
-                    
-                }
-            }
-        }
-    }
-    
-    // Memory Warning
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
+
     
 }
+
+
+
