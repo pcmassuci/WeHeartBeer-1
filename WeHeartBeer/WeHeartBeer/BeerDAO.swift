@@ -19,8 +19,26 @@ class BeerDAO {
     
     typealias FindObjectsCompletionHandler = (beer:[Beer]?,success:Bool) -> Void
     typealias RegisterBeerCH = (successs:Bool)->Void
+    typealias CreateCompletionHaldler = (beer:Beer?,success:Bool) -> Void
     
     
+    static func createBeer(beer:Beer,completionHandler:CreateCompletionHaldler){
+        beer.saveInBackgroundWithBlock { (success, error:NSError?) -> Void in
+            if success{
+                var newBeer = Beer()
+                
+                newBeer.Style = beer.Style
+                newBeer = beer
+                
+                
+                newBeer.saveInBackgroundWithBlock({ (success, error:NSError?) -> Void in
+                    completionHandler(beer: beer, success: success)
+                })
+            }
+            
+        }
+        
+    }
     
     //find beer for name in parse using completionHandler, send a string with name of beer
     

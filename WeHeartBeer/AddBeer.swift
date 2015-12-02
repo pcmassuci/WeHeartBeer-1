@@ -19,7 +19,8 @@
         @IBOutlet weak var ibu: UITextField!
         
         var pickOptionParse:[PFObject]? = [PFObject]()
-        
+        var newBeer:Beer!
+        var i:Int = 0
         
         override func viewDidLoad() {
             super.viewDidLoad()
@@ -36,6 +37,11 @@
                     if self.abv.text != ""{
                         if self.style.text != ""{
                             print("Salvar")
+                        newBeer.name = self.nameBeer.text
+                        newBeer.ABV = self.abv.text
+                        newBeer.IBU = self.ibu.text
+                     //   newBeer.Style = pickOptionParse![i]
+                            
                             
                         }else{
                             self.alertForUser("Digite o estilo!")
@@ -51,6 +57,13 @@
             }
             
         }
+        
+        
+        
+        
+        
+        
+        
         
         
         func alertForUser(message:String){
@@ -110,6 +123,7 @@
     func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         //cell.beersFromBrew?.text = self.beers[indexPath.row].objectForKey("name") as? String
         print(self.pickOptionParse![row].objectForKey("name"))
+        self.i = row
         return self.pickOptionParse![row].objectForKey("name") as? String
 //        return pickOption[row]
     }
