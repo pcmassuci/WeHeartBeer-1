@@ -61,6 +61,16 @@
                                                         <rect key="frame" x="8" y="78" width="119" height="38"/>
                                                     </variation>
                                                 </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="apR-Nj-IzZ">
+                                                    <rect key="frame" x="-42" y="-21" width="42" height="21"/>
+                                                    <animations/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                    <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                                        <rect key="frame" x="63" y="49" width="186" height="21"/>
+                                                    </variation>
+                                                </label>
                                             </subviews>
                                             <animations/>
                                             <variation key="default">
@@ -68,6 +78,7 @@
                                                     <exclude reference="kVs-O3-SSO"/>
                                                     <exclude reference="4kl-E5-1Nd"/>
                                                     <exclude reference="lyW-NK-LRe"/>
+                                                    <exclude reference="apR-Nj-IzZ"/>
                                                 </mask>
                                             </variation>
                                             <variation key="heightClass=regular-widthClass=compact">
@@ -75,16 +86,17 @@
                                                     <include reference="kVs-O3-SSO"/>
                                                     <include reference="4kl-E5-1Nd"/>
                                                     <include reference="lyW-NK-LRe"/>
+                                                    <include reference="apR-Nj-IzZ"/>
                                                 </mask>
                                             </variation>
                                         </tableViewCellContentView>
                                         <animations/>
                                         <color key="backgroundColor" red="1" green="0.56718417672327803" blue="0.40352935930414746" alpha="1" colorSpace="calibratedRGB"/>
                                         <connections>
+                                            <outlet property="addBeerLabel" destination="apR-Nj-IzZ" id="hsS-DD-kvO"/>
                                             <outlet property="beerABV" destination="lyW-NK-LRe" id="3VH-Se-ao0"/>
                                             <outlet property="beerStyle" destination="4kl-E5-1Nd" id="XNN-Ik-kzI"/>
                                             <outlet property="resutLabel" destination="kVs-O3-SSO" id="8a1-vh-c5O"/>
-                                            <segue destination="VcN-tL-zUt" kind="show" identifier="segueSearch" id="2TU-YI-v0e"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -131,7 +143,8 @@
                     <connections>
                         <outlet property="resultsTable" destination="Lzg-zN-ZBo" id="Lz2-v5-zIm"/>
                         <outlet property="searchDisplayController" destination="mG7-oI-67U" id="rqT-wS-ASm"/>
-                        <segue destination="2Fh-ah-yXo" kind="show" id="5j8-Cq-QP6"/>
+                        <segue destination="2Fh-ah-yXo" kind="show" identifier="segueFoundBrewery" id="5j8-Cq-QP6"/>
+                        <segue destination="VcN-tL-zUt" kind="show" identifier="segueSearch" id="Bfm-Ni-xVL"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FF7-OB-EUc" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -144,7 +157,7 @@
                     </connections>
                 </searchDisplayController>
             </objects>
-            <point key="canvasLocation" x="-414" y="641.25"/>
+            <point key="canvasLocation" x="-247.5" y="647.25"/>
         </scene>
         <!--UserProfileVC-->
         <scene sceneID="xL3-zI-QcZ">
@@ -867,6 +880,7 @@
                         <outlet property="logoBrewery" destination="mAn-BZ-fKt" id="7cP-ex-QH7"/>
                         <outlet property="nameBrewery" destination="NNL-D8-7tW" id="rDf-gY-E5Q"/>
                         <outlet property="placeBrewery" destination="r8q-Bo-dLO" id="Zm3-IL-gUm"/>
+                        <segue destination="0KM-tW-l55" kind="show" identifier="segueToAddBeer" id="CDH-Xp-Ux3"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XLn-R4-ISN" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1073,10 +1087,10 @@
             </objects>
             <point key="canvasLocation" x="-2559" y="885.75"/>
         </scene>
-        <!--Add Beer-->
+        <!--Search BreweryVC-->
         <scene sceneID="BKk-lk-QeP">
             <objects>
-                <viewController id="2Fh-ah-yXo" customClass="AddBeer" customModule="BeerLove" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="2Fh-ah-yXo" customClass="SearchBreweryVC" customModule="BeerLove" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="di3-kT-CoM"/>
                         <viewControllerLayoutGuide type="bottom" id="bqB-j3-ryU"/>
@@ -1090,15 +1104,40 @@
                                 <animations/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="W5s-8r-khH">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="W5s-8r-khH" customClass="SearchTVCell" customModule="BeerLove" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="W5s-8r-khH" id="IVI-Og-3LC">
                                             <rect key="frame" x="0.0" y="0.0" width="240" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OkH-4v-Jti">
+                                                    <rect key="frame" x="-42" y="-21" width="42" height="21"/>
+                                                    <animations/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                    <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                                        <rect key="frame" x="118" y="11" width="42" height="21"/>
+                                                    </variation>
+                                                </label>
+                                            </subviews>
                                             <animations/>
+                                            <variation key="default">
+                                                <mask key="subviews">
+                                                    <exclude reference="OkH-4v-Jti"/>
+                                                </mask>
+                                            </variation>
+                                            <variation key="heightClass=regular-widthClass=compact">
+                                                <mask key="subviews">
+                                                    <include reference="OkH-4v-Jti"/>
+                                                </mask>
+                                            </variation>
                                         </tableViewCellContentView>
                                         <animations/>
+                                        <connections>
+                                            <outlet property="BreweryName" destination="OkH-4v-Jti" id="PwA-fo-gIm"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -1109,6 +1148,17 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="yuh-zZ-VJw">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                <animations/>
+                                <textInputTraits key="textInputTraits"/>
+                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="0.0" y="20" width="400" height="44"/>
+                                </variation>
+                                <connections>
+                                    <outlet property="delegate" destination="2Fh-ah-yXo" id="YEV-aI-am2"/>
+                                </connections>
+                            </searchBar>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -1139,6 +1189,7 @@
                             <mask key="subviews">
                                 <exclude reference="xOm-8x-0K2"/>
                                 <exclude reference="uXH-h2-CdS"/>
+                                <exclude reference="yuh-zZ-VJw"/>
                             </mask>
                             <mask key="constraints">
                                 <exclude reference="ptW-bB-hoq"/>
@@ -1154,6 +1205,7 @@
                             <mask key="subviews">
                                 <include reference="xOm-8x-0K2"/>
                                 <include reference="uXH-h2-CdS"/>
+                                <include reference="yuh-zZ-VJw"/>
                             </mask>
                             <mask key="constraints">
                                 <include reference="ptW-bB-hoq"/>
@@ -1167,11 +1219,22 @@
                         </variation>
                     </view>
                     <connections>
+                        <outlet property="resultsTable" destination="xOm-8x-0K2" id="nIK-aK-rEi"/>
+                        <outlet property="searchDisplayController" destination="eUt-lG-wA2" id="j1B-Al-vBF"/>
                         <segue destination="Fhn-oR-zrU" kind="show" id="33d-pW-YWB"/>
                         <segue destination="0KM-tW-l55" kind="show" id="1ft-IH-Bmr"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sgf-lE-t09" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <searchDisplayController id="eUt-lG-wA2">
+                    <connections>
+                        <outlet property="delegate" destination="2Fh-ah-yXo" id="cYx-pL-Xfj"/>
+                        <outlet property="searchBar" destination="yuh-zZ-VJw" id="xLt-mo-7Xd"/>
+                        <outlet property="searchContentsController" destination="2Fh-ah-yXo" id="wIs-c9-ygI"/>
+                        <outlet property="searchResultsDataSource" destination="2Fh-ah-yXo" id="b5T-xd-d57"/>
+                        <outlet property="searchResultsDelegate" destination="2Fh-ah-yXo" id="Z0m-c6-kCz"/>
+                    </connections>
+                </searchDisplayController>
             </objects>
             <point key="canvasLocation" x="-1467" y="1377.75"/>
         </scene>
@@ -1633,10 +1696,10 @@
             </objects>
             <point key="canvasLocation" x="-2586" y="2877.75"/>
         </scene>
-        <!--View Controller-->
+        <!--Add Beer-->
         <scene sceneID="CzQ-ut-oCK">
             <objects>
-                <viewController id="0KM-tW-l55" sceneMemberID="viewController">
+                <viewController id="0KM-tW-l55" customClass="AddBeer" customModule="BeerLove" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="llR-04-H97"/>
                         <viewControllerLayoutGuide type="bottom" id="jgp-eU-teT"/>
@@ -1930,6 +1993,12 @@
                         </variation>
                     </view>
                     <navigationItem key="navigationItem" id="BFh-z2-PR8"/>
+                    <connections>
+                        <outlet property="abv" destination="Yzp-Kl-yx4" id="IFc-4F-m5T"/>
+                        <outlet property="ibu" destination="dEG-3f-l3O" id="UxG-aT-zHs"/>
+                        <outlet property="nameBeer" destination="zVV-ST-Mzz" id="qIl-0h-r0K"/>
+                        <outlet property="style" destination="FHO-pg-PlN" id="eaO-3v-TdL"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="g2e-OW-aQ5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -2223,6 +2292,6 @@
         <image name="hopsGreen" width="256" height="256"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="0b4-u2-fMM"/>
+        <segue reference="1ft-IH-Bmr"/>
     </inferredMetricsTieBreakers>
 </document>
