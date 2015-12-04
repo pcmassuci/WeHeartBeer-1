@@ -18,9 +18,11 @@
         
         @IBOutlet weak var ibu: UITextField!
         
+        var objectID:String!
         var brewery:Brewery!
         var pickOptionParse:[PFObject]? = [PFObject]()
-        var newBeer:Beer!
+        var newBeer = Beer()
+        
         var i:Int = 0
         
         override func viewDidLoad() {
@@ -37,12 +39,36 @@
             if self.nameBeer.text != ""{
                     if self.abv.text != ""{
                         if self.style.text != ""{
+                            print(objectID)
                             print("Salvar")
+                            print(newBeer)
+                            print(self.nameBeer)
+                            print(self.nameBeer.text)
                         newBeer.name = self.nameBeer.text
-                        newBeer.ABV = self.abv.text
-                        newBeer.IBU = self.ibu.text
-                     //   newBeer.Style = pickOptionParse![i]
                             
+                         
+
+                            
+                        newBeer.ABV = self.abv.text
+                            print("a")
+
+                            
+                        newBeer.IBU = self.ibu.text
+                            print("a")
+
+                        newBeer.Style = self.style.text
+                            print("a")
+
+                        newBeer.brewery = objectID
+                        print("a")
+                            print("a")
+
+                            print(newBeer)
+                     BeerServices.saveNewBeer(newBeer, completionHandler: { (beer, success) -> Void in
+                        print("salvou")
+                     })
+//
+//                            
                             
                         }else{
                             self.alertForUser("Digite o estilo!")
@@ -61,42 +87,9 @@
         
         
         
+    
         
         
-        
-        
-        
-        
-        func alertForUser(message:String){
-            let alert = UIAlertController(title: "Atenção", message:message, preferredStyle:UIAlertControllerStyle.Alert)
-            alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
-            self.presentViewController(alert, animated: true, completion: nil)
-            
-        }
-        
-        
-        func queryParse(){
-            let query = PFQuery(className:"Style")
-            query.findObjectsInBackgroundWithBlock {(result:[PFObject]?, error:NSError?) -> Void in
-                if error == nil {
-                    if let result = result as [PFObject]? {
-                        print(result)
-                        self.pickOptionParse = result
-                        
-                    
-                    }else{
-                        print("erro dao")
-                        //completionHandler(beer:nil,success: false)
-                    }
-                }else{
-                    print("erro dao 2")
-                    //completionHandler(beer:nil,success: false)
-                }
-                
-                
-                
-            }
-        }
         func saveInParse(){
             
             
@@ -140,4 +133,50 @@
     }
     
     
+    }
+    
+    
+    //MARK: - PARSE Methods
+    
+    extension AddBeer {
+        func queryParse(){
+            let query = PFQuery(className:"Style")
+            query.findObjectsInBackgroundWithBlock {(result:[PFObject]?, error:NSError?) -> Void in
+                if error == nil {
+                    if let result = result as [PFObject]? {
+                        print(result)
+                        self.pickOptionParse = result
+                        
+                        
+                    }else{
+                        print("erro dao")
+                        //completionHandler(beer:nil,success: false)
+                    }
+                }else{
+                    print("erro dao 2")
+                    //completionHandler(beer:nil,success: false)
+                }
+                
+                
+                
+            }
+        }
+
+        
+        
+    }
+    
+    
+  //MARK: - ALERT
+    
+    extension AddBeer{
+        
+        func alertForUser(message:String){
+            let alert = UIAlertController(title: "Atenção", message:message, preferredStyle:UIAlertControllerStyle.Alert)
+            alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
+            self.presentViewController(alert, animated: true, completion: nil)
+            
+        }
+        
+        
     }

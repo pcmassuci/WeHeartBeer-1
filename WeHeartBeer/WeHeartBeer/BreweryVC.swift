@@ -220,9 +220,9 @@ class BreweryVC: UIViewController{
 //                        
 //                       // let row = Int(indexPath)
                        destination.brewery = self.brewery
+                        destination.objectID = self.currentBrewery?.objectId
                     
-//                    }
-                    print("chupa fernando")
+//
                 }
             }
         

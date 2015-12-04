@@ -19,27 +19,29 @@ class BeerDAO {
     
     typealias FindObjectsCompletionHandler = (beer:[Beer]?,success:Bool) -> Void
     typealias RegisterBeerCH = (successs:Bool)->Void
-    typealias CreateCompletionHaldler = (beer:Beer?,success:Bool) -> Void
+    //typealias CreateCompletionHaldler = (beer:Beer?,success:Bool) -> Void
     
     
-    static func createBeer(beer:Beer,completionHandler:CreateCompletionHaldler){
-        beer.saveInBackgroundWithBlock { (success, error:NSError?) -> Void in
-            if success{
-                var newBeer = Beer()
-                
-                newBeer.Style = beer.Style
-                newBeer = beer
-                
-                
-                newBeer.saveInBackgroundWithBlock({ (success, error:NSError?) -> Void in
-                    completionHandler(beer: beer, success: success)
-                })
-            }
-            
-        }
+    static func createBeer(name:String, abv:String,style:String, ibu:String, brewery:Brewery ,completionHandler: RegisterBeerCH){
         
+                let newBeer = PFObject(className:"Beer")
+                newBeer["abv"] = abv
+                newBeer["name"] = name
+                newBeer["style"] = style
+                newBeer["ibu"] = ibu
+                newBeer["brewery"] = brewery.objectId
+                newBeer.saveInBackgroundWithBlock {
+                    (success: Bool, error: NSError?) -> Void in
+                    if (success) {
+                        // The object has been saved.
+                    } else {
+                        // There was a problem, check error.description
+                    }
+                }
+            
+        
+
     }
-    
     //find beer for name in parse using completionHandler, send a string with name of beer
     
     static func findBeer(beer:String,completionHandler:FindObjectsCompletionHandler){

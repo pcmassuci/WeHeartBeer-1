@@ -19,6 +19,23 @@ class BeerServices {
     typealias CreateCompletionHaldler = (beer:Beer?,success:Bool) -> Void
     typealias FindBeerCompletionHandler = (beer:[Beer]?,success:Bool) -> Void
     
+    
+    
+    static func saveNewBeer(name:String,completionHandler: CreateCompletionHaldler){
+    
+        
+        
+       
+        
+        
+        
+        
+        
+        
+    
+        
+    }
+    
     //find beer using name and completionHandler
     static func findBeerName(beer:String,completionHandler:FindBeerCompletionHandler){
         
