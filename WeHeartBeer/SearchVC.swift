@@ -70,6 +70,9 @@ class SearchVC: UIViewController {
         super.viewWillAppear(animated)
         //Hide NavigationController
         self.navigationController?.navigationBar.hidden = true
+        self.controller.searchBar.text = ""
+        controller.searchBar.resignFirstResponder()
+
     }
     
     
@@ -164,6 +167,12 @@ extension SearchVC: UITableViewDelegate, UITableViewDataSource{
             cell.beerStyle?.text = self.resultsList.objectAtIndex(indexPath.row).objectForKey("Style") as? String
             cell.addBeerLabel.hidden = true
             
+            cell.resutLabel.hidden = false
+            
+            cell.beerABV.hidden = false
+            
+            cell.beerStyle.hidden = false
+            
         }
             
         else{
@@ -172,6 +181,9 @@ extension SearchVC: UITableViewDelegate, UITableViewDataSource{
             cell.beerABV.hidden = true
             
             cell.beerStyle.hidden = true
+            
+            cell.addBeerLabel.hidden = false
+
             cell.addBeerLabel?.text = "Adcione cerveja"
         }
         

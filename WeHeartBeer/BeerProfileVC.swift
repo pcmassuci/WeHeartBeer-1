@@ -7,11 +7,23 @@
 //
 
 import UIKit
+import Foundation
+import Parse
+import ParseFacebookUtilsV4
 
-class BeerProfileVC: UIViewController, FloatRatingViewDelegate{
+class BeerProfileVC: UIViewController {
+    
+//    FloatRatingViewDelegate
+    
+    @IBOutlet weak var saveBeerProfile: UIButton!
     
     
+
     
+    
+    @IBOutlet weak var commentText: UITextField!
+    
+
     @IBOutlet var ratingSegmentedControl: UISegmentedControl!
     @IBOutlet var floatRatingView: FloatRatingView!
     @IBOutlet var liveLabel: UILabel!
@@ -26,6 +38,7 @@ class BeerProfileVC: UIViewController, FloatRatingViewDelegate{
     
     
     var beer : [Beer]! = [Beer]()
+    var user = PFUser.currentUser()
     var currentObject: PFObject?
     
     
@@ -42,17 +55,17 @@ class BeerProfileVC: UIViewController, FloatRatingViewDelegate{
         properties can be set directly in Interface builder **/
         
         // Required float rating view params
-        self.floatRatingView.emptyImage = UIImage(named: "hops")
-        self.floatRatingView.fullImage = UIImage(named: "hopsGreen")
-        // Optional params
-        self.floatRatingView.delegate = self
-        self.floatRatingView.contentMode = UIViewContentMode.ScaleAspectFit
-        self.floatRatingView.maxRating = 5
-        self.floatRatingView.minRating = 0
-        self.floatRatingView.rating = 0
-        self.floatRatingView.editable = true
-        self.floatRatingView.halfRatings = true
-        self.floatRatingView.floatRatings = false
+//        self.floatRatingView.emptyImage = UIImage(named: "hops")
+//        self.floatRatingView.fullImage = UIImage(named: "hopsGreen")
+//        // Optional params
+//        self.floatRatingView.delegate = self
+//        self.floatRatingView.contentMode = UIViewContentMode.ScaleAspectFit
+//        self.floatRatingView.maxRating = 5
+//        self.floatRatingView.minRating = 0
+//        self.floatRatingView.rating = 0
+//        self.floatRatingView.editable = true
+//        self.floatRatingView.halfRatings = true
+//        self.floatRatingView.floatRatings = false
         
         // Segmented control init
         // self.ratingSegmentedControl.selectedSegmentIndex = 1
@@ -67,6 +80,15 @@ class BeerProfileVC: UIViewController, FloatRatingViewDelegate{
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
+        
+        
+        
+        // Check if user is logged in
+        if UserServices.loggedUser() {
+//            self.floatRatingView.hidden = false
+        }else{
+//            self.floatRatingView.hidden = true
+        }
         
         
         // Pointer for view beer name
@@ -101,6 +123,10 @@ class BeerProfileVC: UIViewController, FloatRatingViewDelegate{
         // print(beer)
         
            self.name.text = beer!.objectForKey("name") as? String
+
+        
+        
+
         // self.brewery.text! = beer.objectForKey("brewery") as! String
         // self.style.text = beer.objectForKey("Style") as? String
         // self.ibv.text! = beer.objectForKey("IBV") as! String!
@@ -137,21 +163,64 @@ class BeerProfileVC: UIViewController, FloatRatingViewDelegate{
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+//    
+//    @IBAction func ratingTypeChanged(sender: UISegmentedControl) {
+//        self.floatRatingView.halfRatings = sender.selectedSegmentIndex==1
+//        self.floatRatingView.floatRatings = sender.selectedSegmentIndex==2
+//    }
     
-    @IBAction func ratingTypeChanged(sender: UISegmentedControl) {
-        self.floatRatingView.halfRatings = sender.selectedSegmentIndex==1
-        self.floatRatingView.floatRatings = sender.selectedSegmentIndex==2
+//    // MARK: FloatRatingViewDelegate
+//    
+//    func floatRatingView(ratingView: FloatRatingView, isUpdating rating:Float) {
+//        self.liveLabel.text = NSString(format: "%.2f", self.floatRatingView.rating) as String
+//    }
+//    
+//    func floatRatingView(ratingView: FloatRatingView, didUpdate rating: Float) {
+//        self.updatedLabel.text = NSString(format: "%.2f", self.floatRatingView.rating) as String
+//    }
+    
+    
+    
+    
+    
+    
+    
+    @IBAction func saveRating(sender: AnyObject) {
+        
+        self.saveData(currentObject)
+
+        
+        
     }
     
-    // MARK: FloatRatingViewDelegate
     
-    func floatRatingView(ratingView: FloatRatingView, isUpdating rating:Float) {
-        self.liveLabel.text = NSString(format: "%.2f", self.floatRatingView.rating) as String
+    
+    
+    // update informations
+    func saveData(beer: PFObject?){
+
+        
+        let beerReview = PFObject(className:"Review")
+       
+        beerReview["user"] = user
+        beerReview["beer"] = beer
+        beerReview["rating"] = Double(liveLabel.text!)
+        beerReview["comment"] = commentText.text
+        beerReview.saveInBackgroundWithBlock {
+            (success: Bool, error: NSError?) -> Void in
+            if (success) {
+                // The object has been saved.
+                print("deu")
+            } else {
+                // There was a problem, check error.description
+            }
+        }
+        
+
+        
     }
     
-    func floatRatingView(ratingView: FloatRatingView, didUpdate rating: Float) {
-        self.updatedLabel.text = NSString(format: "%.2f", self.floatRatingView.rating) as String
-    }
+    
     
     
     
