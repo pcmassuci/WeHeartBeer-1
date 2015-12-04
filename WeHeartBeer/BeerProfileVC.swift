@@ -11,9 +11,9 @@ import Foundation
 import Parse
 import ParseFacebookUtilsV4
 
-class BeerProfileVC: UIViewController, FloatRatingViewDelegate{
+class BeerProfileVC: UIViewController {
     
-    
+//    FloatRatingViewDelegate
     
     @IBOutlet weak var saveBeerProfile: UIButton!
     
@@ -55,17 +55,17 @@ class BeerProfileVC: UIViewController, FloatRatingViewDelegate{
         properties can be set directly in Interface builder **/
         
         // Required float rating view params
-        self.floatRatingView.emptyImage = UIImage(named: "hops")
-        self.floatRatingView.fullImage = UIImage(named: "hopsGreen")
-        // Optional params
-        self.floatRatingView.delegate = self
-        self.floatRatingView.contentMode = UIViewContentMode.ScaleAspectFit
-        self.floatRatingView.maxRating = 5
-        self.floatRatingView.minRating = 0
-        self.floatRatingView.rating = 0
-        self.floatRatingView.editable = true
-        self.floatRatingView.halfRatings = true
-        self.floatRatingView.floatRatings = false
+//        self.floatRatingView.emptyImage = UIImage(named: "hops")
+//        self.floatRatingView.fullImage = UIImage(named: "hopsGreen")
+//        // Optional params
+//        self.floatRatingView.delegate = self
+//        self.floatRatingView.contentMode = UIViewContentMode.ScaleAspectFit
+//        self.floatRatingView.maxRating = 5
+//        self.floatRatingView.minRating = 0
+//        self.floatRatingView.rating = 0
+//        self.floatRatingView.editable = true
+//        self.floatRatingView.halfRatings = true
+//        self.floatRatingView.floatRatings = false
         
         // Segmented control init
         // self.ratingSegmentedControl.selectedSegmentIndex = 1
@@ -163,21 +163,21 @@ class BeerProfileVC: UIViewController, FloatRatingViewDelegate{
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+//    
+//    @IBAction func ratingTypeChanged(sender: UISegmentedControl) {
+//        self.floatRatingView.halfRatings = sender.selectedSegmentIndex==1
+//        self.floatRatingView.floatRatings = sender.selectedSegmentIndex==2
+//    }
     
-    @IBAction func ratingTypeChanged(sender: UISegmentedControl) {
-        self.floatRatingView.halfRatings = sender.selectedSegmentIndex==1
-        self.floatRatingView.floatRatings = sender.selectedSegmentIndex==2
-    }
-    
-    // MARK: FloatRatingViewDelegate
-    
-    func floatRatingView(ratingView: FloatRatingView, isUpdating rating:Float) {
-        self.liveLabel.text = NSString(format: "%.2f", self.floatRatingView.rating) as String
-    }
-    
-    func floatRatingView(ratingView: FloatRatingView, didUpdate rating: Float) {
-        self.updatedLabel.text = NSString(format: "%.2f", self.floatRatingView.rating) as String
-    }
+//    // MARK: FloatRatingViewDelegate
+//    
+//    func floatRatingView(ratingView: FloatRatingView, isUpdating rating:Float) {
+//        self.liveLabel.text = NSString(format: "%.2f", self.floatRatingView.rating) as String
+//    }
+//    
+//    func floatRatingView(ratingView: FloatRatingView, didUpdate rating: Float) {
+//        self.updatedLabel.text = NSString(format: "%.2f", self.floatRatingView.rating) as String
+//    }
     
     
     
