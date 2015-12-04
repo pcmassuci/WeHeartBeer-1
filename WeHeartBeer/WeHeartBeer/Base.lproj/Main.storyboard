@@ -1356,7 +1356,6 @@
                     <connections>
                         <outlet property="brewery" destination="ZPN-Wg-hIg" id="wRT-Dn-ijX"/>
                         <outlet property="commentText" destination="CN7-WT-wDP" id="0yR-tQ-OUC"/>
-                        <outlet property="floatRatingView" destination="Arj-bW-Ogn" id="kWW-ED-jcg"/>
                         <outlet property="ibv" destination="tCD-oo-Ve2" id="ggh-Rg-YBF"/>
                         <outlet property="liveLabel" destination="yti-tU-kzy" id="A0V-Tf-o6g"/>
                         <outlet property="name" destination="oaD-DN-gur" id="mR1-Jp-ura"/>

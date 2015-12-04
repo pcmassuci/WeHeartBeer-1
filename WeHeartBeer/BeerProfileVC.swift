@@ -85,9 +85,9 @@ class BeerProfileVC: UIViewController {
         
         // Check if user is logged in
         if UserServices.loggedUser() {
-            self.floatRatingView.hidden = false
+//            self.floatRatingView.hidden = false
         }else{
-            self.floatRatingView.hidden = true
+//            self.floatRatingView.hidden = true
         }
         
         
