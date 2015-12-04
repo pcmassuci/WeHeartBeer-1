@@ -786,8 +786,7 @@
                                         <exclude reference="1X2-mF-Ea0"/>
                                     </mask>
                                 </variation>
-                                <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="20" y="502" width="360" height="241"/>
+                                <variation key="heightClass=regular-widthClass=compact">
                                     <mask key="constraints">
                                         <include reference="1X2-mF-Ea0"/>
                                     </mask>
@@ -799,9 +798,6 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="39"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
-                                <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="20" y="437" width="360" height="47"/>
-                                </variation>
                             </label>
                         </subviews>
                         <animations/>
@@ -865,6 +861,9 @@
                                 <exclude reference="2jm-bd-Rq3"/>
                             </mask>
                             <mask key="constraints">
+                                <exclude reference="9bO-Jn-xBN"/>
+                                <exclude reference="Psj-qY-Pun"/>
+                                <exclude reference="XzS-DT-g5H"/>
                                 <exclude reference="MsD-9e-cHV"/>
                                 <exclude reference="hSx-j9-8ou"/>
                                 <exclude reference="jVx-xN-Rsm"/>
@@ -883,9 +882,6 @@
                                 <exclude reference="snI-3w-D6O"/>
                                 <exclude reference="wPg-04-qzg"/>
                                 <exclude reference="yLo-lC-nTU"/>
-                                <exclude reference="9bO-Jn-xBN"/>
-                                <exclude reference="Psj-qY-Pun"/>
-                                <exclude reference="XzS-DT-g5H"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
@@ -896,6 +892,9 @@
                                 <include reference="2jm-bd-Rq3"/>
                             </mask>
                             <mask key="constraints">
+                                <exclude reference="9bO-Jn-xBN"/>
+                                <include reference="Psj-qY-Pun"/>
+                                <exclude reference="XzS-DT-g5H"/>
                                 <include reference="MsD-9e-cHV"/>
                                 <include reference="hSx-j9-8ou"/>
                                 <include reference="jVx-xN-Rsm"/>
@@ -914,9 +913,6 @@
                                 <include reference="snI-3w-D6O"/>
                                 <exclude reference="wPg-04-qzg"/>
                                 <exclude reference="yLo-lC-nTU"/>
-                                <exclude reference="9bO-Jn-xBN"/>
-                                <include reference="Psj-qY-Pun"/>
-                                <exclude reference="XzS-DT-g5H"/>
                             </mask>
                         </variation>
                     </view>
@@ -1093,16 +1089,6 @@
                                     <rect key="frame" x="205" y="163" width="95" height="21"/>
                                 </variation>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Comments" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ONn-xA-jB2">
-                                <rect key="frame" x="-42" y="-21" width="42" height="21"/>
-                                <animations/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="158" y="552" width="84" height="21"/>
-                                </variation>
-                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="IBU:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lkj-mz-0dm">
                                 <rect key="frame" x="-42" y="-21" width="42" height="21"/>
                                 <animations/>
@@ -1166,6 +1152,26 @@
                                     <segue destination="D0v-rr-m7t" kind="show" identifier="segueBeer" id="dZj-fN-WRD"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kmi-Bl-hje">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <animations/>
+                                <state key="normal" title="Button"/>
+                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="290" y="547" width="46" height="30"/>
+                                </variation>
+                                <connections>
+                                    <action selector="saveRating:" destination="VcN-tL-zUt" eventType="touchUpInside" id="38O-xh-JIS"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="teste" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="CN7-WT-wDP">
+                                <rect key="frame" x="-25" y="-30" width="97" height="30"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="48" y="504" width="216" height="30"/>
+                                </variation>
+                            </textField>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -1177,12 +1183,13 @@
                                 <exclude reference="g5Y-vf-Ow4"/>
                                 <exclude reference="oaD-DN-gur"/>
                                 <exclude reference="ZPN-Wg-hIg"/>
-                                <exclude reference="ONn-xA-jB2"/>
                                 <exclude reference="Lkj-mz-0dm"/>
                                 <exclude reference="tCD-oo-Ve2"/>
                                 <exclude reference="Arj-bW-Ogn"/>
                                 <exclude reference="HEe-Rj-kOg"/>
                                 <exclude reference="1SG-YO-REY"/>
+                                <exclude reference="kmi-Bl-hje"/>
+                                <exclude reference="CN7-WT-wDP"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
@@ -1193,22 +1200,25 @@
                                 <include reference="g5Y-vf-Ow4"/>
                                 <include reference="oaD-DN-gur"/>
                                 <include reference="ZPN-Wg-hIg"/>
-                                <include reference="ONn-xA-jB2"/>
                                 <include reference="Lkj-mz-0dm"/>
                                 <include reference="tCD-oo-Ve2"/>
                                 <include reference="Arj-bW-Ogn"/>
                                 <include reference="HEe-Rj-kOg"/>
                                 <include reference="1SG-YO-REY"/>
+                                <include reference="kmi-Bl-hje"/>
+                                <include reference="CN7-WT-wDP"/>
                             </mask>
                         </variation>
                     </view>
                     <connections>
                         <outlet property="brewery" destination="ZPN-Wg-hIg" id="wRT-Dn-ijX"/>
+                        <outlet property="commentText" destination="CN7-WT-wDP" id="0yR-tQ-OUC"/>
                         <outlet property="floatRatingView" destination="Arj-bW-Ogn" id="kWW-ED-jcg"/>
                         <outlet property="ibv" destination="tCD-oo-Ve2" id="ggh-Rg-YBF"/>
                         <outlet property="liveLabel" destination="yti-tU-kzy" id="A0V-Tf-o6g"/>
                         <outlet property="name" destination="oaD-DN-gur" id="mR1-Jp-ura"/>
                         <outlet property="photo" destination="yZN-cf-htQ" id="LXT-Ud-Zwq"/>
+                        <outlet property="saveBeerProfile" destination="kmi-Bl-hje" id="Aq3-QN-tgD"/>
                         <outlet property="updatedLabel" destination="g5Y-vf-Ow4" id="v6Y-69-7nc"/>
                     </connections>
                 </viewController>

@@ -15,6 +15,15 @@ class BeerProfileVC: UIViewController, FloatRatingViewDelegate{
     
     
     
+    @IBOutlet weak var saveBeerProfile: UIButton!
+    
+    
+
+    
+    
+    @IBOutlet weak var commentText: UITextField!
+    
+
     @IBOutlet var ratingSegmentedControl: UISegmentedControl!
     @IBOutlet var floatRatingView: FloatRatingView!
     @IBOutlet var liveLabel: UILabel!
@@ -29,6 +38,7 @@ class BeerProfileVC: UIViewController, FloatRatingViewDelegate{
     
     
     var beer : [Beer]! = [Beer]()
+    var user = PFUser.currentUser()
     var currentObject: PFObject?
     
     
@@ -113,6 +123,10 @@ class BeerProfileVC: UIViewController, FloatRatingViewDelegate{
         // print(beer)
         
            self.name.text = beer!.objectForKey("name") as? String
+
+        
+        
+
         // self.brewery.text! = beer.objectForKey("brewery") as! String
         // self.style.text = beer.objectForKey("Style") as? String
         // self.ibv.text! = beer.objectForKey("IBV") as! String!
@@ -164,6 +178,49 @@ class BeerProfileVC: UIViewController, FloatRatingViewDelegate{
     func floatRatingView(ratingView: FloatRatingView, didUpdate rating: Float) {
         self.updatedLabel.text = NSString(format: "%.2f", self.floatRatingView.rating) as String
     }
+    
+    
+    
+    
+    
+    
+    
+    @IBAction func saveRating(sender: AnyObject) {
+        
+        self.saveData(currentObject)
+
+        
+        
+    }
+    
+    
+    
+    
+    // update informations
+    func saveData(beer: PFObject?){
+
+        
+        let beerReview = PFObject(className:"Review")
+       
+        beerReview["user"] = user
+        beerReview["beer"] = beer
+        beerReview["rating"] = Double(liveLabel.text!)
+        beerReview["comment"] = commentText.text
+        beerReview.saveInBackgroundWithBlock {
+            (success: Bool, error: NSError?) -> Void in
+            if (success) {
+                // The object has been saved.
+                print("deu")
+            } else {
+                // There was a problem, check error.description
+            }
+        }
+        
+
+        
+    }
+    
+    
     
     
     
