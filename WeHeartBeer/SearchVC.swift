@@ -86,9 +86,10 @@ class SearchVC: UIViewController {
                 }
             }
         }
-        else if segue.identifier == "segueFoundBrewery" {
+    if segue.identifier == "segueFoundBrewery" {
+            print("do you dance")
             
-            performSegueWithIdentifier("segueFoundBrewery", sender: self)
+        
         }
     }
   
@@ -108,7 +109,7 @@ extension SearchVC: UITableViewDelegate, UITableViewDataSource{
     
     
     
-    //        Perform segue - WIP (redundancia com o prepareForSegue
+    //        Perform segue - WIP
         func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
             //let cell = self.resultsTable.cellForRowAtIndexPath(indexPath)
             if indexPath.row < self.resultsList.count {

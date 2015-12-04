@@ -42,7 +42,8 @@ class SearchBreweryVC: UIViewController {
             self.controller.delegate = self
             self.controller.searchBar.delegate = self
             self.definesPresentationContext = true
-            
+//            self.navigationController?.navigationBar.hidden = false
+
             // default text for search tab
             // searchTypeText.text = "Faça sua pesquisa por Cervejas"
             // searchTypeText.sizeToFit()
@@ -66,7 +67,7 @@ class SearchBreweryVC: UIViewController {
         override func viewWillAppear(animated: Bool) {
             super.viewWillAppear(animated)
             //Hide NavigationController
-            self.navigationController?.navigationBar.hidden = true
+            self.navigationController?.navigationBar.hidden = false
         }
         
     
