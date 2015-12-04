@@ -23,7 +23,7 @@ class ChallengeVC: UIViewController {
         self.view.addSubview(challengeImage)
         
         challengeTitle.text = "Challenge 10"
-        challengeDescription.text = "Tomar uma cerveja no Mr.Beer e compartilhar."
+        challengeDescription.text = "Tomar uma cerveja no Mr.Beer e compartilhar uma foto no facebook com os amigos."
         challengeDescription.adjustsFontSizeToFitWidth = true
         
         // Do any additional setup after loading the view.

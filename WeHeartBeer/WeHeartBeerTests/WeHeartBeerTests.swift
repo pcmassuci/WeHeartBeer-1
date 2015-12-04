@@ -7,9 +7,9 @@
 //
 
 import XCTest
-@testable import WeHeartBeer
+@testable import BeerLove
 
-class WeHeartBeerTests: XCTestCase {
+class BeerLoveTests: XCTestCase {
     
     override func setUp() {
         super.setUp()

@@ -14,7 +14,7 @@ protocol BreweryVCDelegate{
 }
 
 
-class BreweryVC: UIViewController{
+class BreweryVC: UIViewController {
     var delegate: BreweryVCDelegate?
     
     
@@ -50,8 +50,11 @@ class BreweryVC: UIViewController{
         listOfProducts.delegate = self
         listOfProducts.dataSource = self
         
+        
         // Do any additional setup after loading the view.
     }
+    
+  
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
@@ -140,6 +143,24 @@ class BreweryVC: UIViewController{
 
     extension BreweryVC: UITableViewDataSource, UITableViewDelegate {
         // Sets number of rows in tableview
+        
+        
+        func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+            
+            
+            return 35
+        }
+        
+        
+        func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+            var label: UILabel = UILabel()
+            label.text = "Cervejas"
+            label.textColor = UIColor.redColor()
+            label.backgroundColor = UIColor.greenColor()
+            
+            return label
+        }
+        
         func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
             
             var count = self.beers.count
