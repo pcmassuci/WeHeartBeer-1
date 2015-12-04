@@ -22,7 +22,7 @@ class UserDAO {
         
         user.signUpInBackgroundWithBlock { (success, error:NSError?) -> Void in
             if let error = error {
-                let errorString = error.userInfo["error"] as! NSString
+                _ = error.userInfo["error"] as! NSString
                 completionHandler(success: false)
             } else {
                 completionHandler(success: true)
@@ -48,11 +48,12 @@ class UserDAO {
     static func loginNormal(username:String,passowrd:String,completionHandler:SignUpCompletionHandler){
         User.logInWithUsernameInBackground(username, password: passowrd) { (user, error:NSError?) -> Void in
             
-            if let error = error {
-                let errorString = error.userInfo["error"] as? NSString
+            if let _ = error {
+               // let errorString = error.userInfo["error"] as? NSString
+                print("erro")
                 completionHandler(success: false)
             } else {
-                let userClass = user as! User
+                _ = user as! User
                 completionHandler(success: true)
             }
             

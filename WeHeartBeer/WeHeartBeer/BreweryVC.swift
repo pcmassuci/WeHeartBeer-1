@@ -187,7 +187,7 @@ class BreweryVC: UIViewController{
             print(indexPath.row)
             if (indexPath.row == cellControl) {
                 print("verificação 1")
-                //chamar push
+              self.performSegueWithIdentifier("segueToAddBeer", sender: self)
                 
                 
             }else{
@@ -213,18 +213,18 @@ class BreweryVC: UIViewController{
           // MARK: - Send to ADDBeer
         // Prepare segue - WIP
         override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-            if segue.identifier == "segueSearch"{
+            if segue.identifier == "segueToAddBeer"{
                 if let destination = segue.destinationViewController  as? AddBeer  {
-                    if let indexPath = self.listOfProducts.indexPathForSelectedRow?.row{
-                        
-                        let row = Int(indexPath)
-                        //destination.currentObject = (self.resultsList[row]) as? PFObject
-                        
-                    }
+                    
+//                    if let indexPath = self.listOfProducts.indexPathForSelectedRow?.row{
+//                        
+//                       // let row = Int(indexPath)
+                       destination.brewery = self.brewery
+                        destination.objectID = self.currentBrewery?.objectId
+                    
+//
                 }
             }
-        }
-
         
-    
+        }
 }

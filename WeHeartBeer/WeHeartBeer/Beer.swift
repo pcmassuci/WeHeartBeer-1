@@ -19,6 +19,9 @@ class Beer: PFObject, PFSubclassing {
     var IBU: String!
     var Photo: PFFile!
     var ABV: String!
+
+    
+    
     // var Photo: UIImage!
     
     override class func initialize() {
