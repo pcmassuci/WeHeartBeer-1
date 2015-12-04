@@ -10,65 +10,66 @@
     import Parse
     import ParseUI
     
-    class AddBeer: UIViewController {
+    class AddBeer: UIViewController, UITextFieldDelegate {
         
+        //Labels
         @IBOutlet weak var nameBeer: UITextField!
         @IBOutlet weak var abv: UITextField!
         @IBOutlet weak var style: UITextField!
-        
         @IBOutlet weak var ibu: UITextField!
         
         var objectID:String!
         var brewery:Brewery!
         var pickOptionParse:[PFObject]? = [PFObject]()
-        var newBeer = Beer()
-        
         var i:Int = 0
         
         override func viewDidLoad() {
             super.viewDidLoad()
+           
+            self.nameBeer.delegate = self
+            self.abv.delegate = self
+            self.style.delegate = self
+            self.ibu.delegate = self
+            
             let pickerView = UIPickerView()
             self.queryParse()
             pickerView.delegate = self
             
             style.inputView = pickerView
+            //se travar apagar
+            
+            NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("keyboardWillShow:"), name:UIKeyboardWillShowNotification, object: self.view.window)
+            NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("keyboardWillHide:"), name:UIKeyboardWillHideNotification, object: self.view.window)
+
+        
         }
         
+        override func viewWillDisappear(animated: Bool) {
+            NSNotificationCenter.defaultCenter().removeObserver(self, name: UIKeyboardWillShowNotification, object: self.view.window)
+            NSNotificationCenter.defaultCenter().removeObserver(self, name: UIKeyboardWillHideNotification, object: self.view.window)
+        }
         
+
         @IBAction func saveObject(sender: AnyObject) {
             if self.nameBeer.text != ""{
                     if self.abv.text != ""{
                         if self.style.text != ""{
                             print(objectID)
                             print("Salvar")
-                            print(newBeer)
+                            //print(newBeer)
                             print(self.nameBeer)
                             print(self.nameBeer.text)
-                        newBeer.name = self.nameBeer.text
-                            
-                         
 
-                            
-                        newBeer.ABV = self.abv.text
-                            print("a")
-
-                            
-                        newBeer.IBU = self.ibu.text
-                            print("a")
-
-                        newBeer.Style = self.style.text
-                            print("a")
-
-                        newBeer.brewery = objectID
-                        print("a")
-                            print("a")
-
-                            print(newBeer)
-                     BeerServices.saveNewBeer(newBeer, completionHandler: { (beer, success) -> Void in
-                        print("salvou")
-                     })
-//
-//                            
+                            BeerServices.saveNewBeer(self.nameBeer.text, abv: self.abv.text, brewery: self.brewery, style: self.style.text, ibu: self.ibu.text, completionHandler: {  (success) -> Void in
+                                
+                                
+                                    if success{
+                                        self.alertForUser("Parabéns, cerveja cadastrada com sucesso")
+                                    }else{
+                                        self.alertForUser("ERRO, CERVEJA NAO CADASTRADA")
+                                    }
+                                    })
+                           
                             
                         }else{
                             self.alertForUser("Digite o estilo!")
@@ -81,26 +82,18 @@
                 }else{
                 
                 self.alertForUser("Digite o nome da cerveja!")
+                }
+            
             }
-            
-        }
         
         
-        
-    
-        
-        
-        func saveInParse(){
-            
-            
-            
-        }
         override func didReceiveMemoryWarning() {
             super.didReceiveMemoryWarning()
             // Dispose of any resources that can be recreated.
         }
     }
     
+    //MARK: - PICKER METHODS
    extension AddBeer:UIPickerViewDataSource, UIPickerViewDelegate {
     
    //Set number of components in picker view
@@ -115,27 +108,62 @@
     
     //Set title for each row
     func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        //cell.beersFromBrew?.text = self.beers[indexPath.row].objectForKey("name") as? String
         print(self.pickOptionParse![row].objectForKey("name"))
         self.i = row
         return self.pickOptionParse![row].objectForKey("name") as? String
-//        return pickOption[row]
+
     }
     
     //Update textfield text when row is selected
     
     func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         style.text = self.pickOptionParse![row].objectForKey("name") as? String
-       // style.text = pickOption[row]
-        //hides the pickview
         style.resignFirstResponder()
 
     }
     
     
+    
     }
     
-    
+    //MARK: - KEYBOARDS METHODS
+    extension AddBeer{
+        override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+            self.view.endEditing(true)
+        }
+
+        
+        func textFieldShouldReturn(textField: UITextField) -> Bool {
+            self.view.endEditing(true)
+            return false
+        }
+        
+        func keyboardWillHide(sender: NSNotification) {
+            let userInfo: [NSObject : AnyObject] = sender.userInfo!
+            let keyboardSize: CGSize = userInfo[UIKeyboardFrameBeginUserInfoKey]!.CGRectValue.size
+            self.view.frame.origin.y += keyboardSize.height
+        }
+        func keyboardWillShow(sender: NSNotification) {
+            let userInfo: [NSObject : AnyObject] = sender.userInfo!
+            
+            let keyboardSize: CGSize = userInfo[UIKeyboardFrameBeginUserInfoKey]!.CGRectValue.size
+            let offset: CGSize = userInfo[UIKeyboardFrameEndUserInfoKey]!.CGRectValue.size
+            
+            if keyboardSize.height == offset.height {
+                if self.view.frame.origin.y == 0 {
+                    UIView.animateWithDuration(0.1, animations: { () -> Void in
+                        self.view.frame.origin.y -= keyboardSize.height
+                    })
+                }
+            } else {
+                UIView.animateWithDuration(0.1, animations: { () -> Void in
+                    self.view.frame.origin.y += keyboardSize.height - offset.height
+                })
+            }
+            print(self.view.frame.origin.y)        }
+        
+    }
+//
     //MARK: - PARSE Methods
     
     extension AddBeer {
