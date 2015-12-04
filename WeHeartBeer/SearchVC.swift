@@ -70,6 +70,9 @@ class SearchVC: UIViewController {
         super.viewWillAppear(animated)
         //Hide NavigationController
         self.navigationController?.navigationBar.hidden = true
+        self.controller.searchBar.text = ""
+        controller.searchBar.resignFirstResponder()
+
     }
     
     

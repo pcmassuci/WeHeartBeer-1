@@ -9,9 +9,9 @@
 import UIKit
 import Parse
 
-class BeerProfileVC: UIViewController, FloatRatingViewDelegate{
+class BeerProfileVC: UIViewController {
     
-    
+//    FloatRatingViewDelegate
     
     @IBOutlet var ratingSegmentedControl: UISegmentedControl!
     @IBOutlet var floatRatingView: FloatRatingView!
