@@ -17,7 +17,8 @@ class AddBreweryVC: UIViewController, UITextFieldDelegate {
 
     override func viewDidLoad() {
         
-        
+        self.navigationController?.navigationBar.hidden = true
+
         self.addressText.delegate = self
         self.countryTextField.delegate = self
         self.contactTex.delegate = self
@@ -49,9 +50,32 @@ class AddBreweryVC: UIViewController, UITextFieldDelegate {
                     
                     BreweryServices.saveNewBrewery(self.nameTextField.text, local: self.countryTextField.text, contact: self.contactTex.text, address: self.addressText.text!, completionHandler: { (success) -> Void in
                         if success{
-                            self.alertForUser("Parabéns, cervejaria cadastrada com sucesso")
+                            let query = PFQuery(className:"Brewery")
+                            query.whereKey("name", equalTo:self.nameTextField.text!)
+                            query.findObjectsInBackgroundWithBlock {
+                                (objects: [PFObject]?, error: NSError?) -> Void in
+                                
+                                if error == nil {
+                                    // The find succeeded.
+                                    print("Successfully retrieved \(objects!.count) scores.")
+                                    // Do something with the found objects
+                                    if let objects = objects {
+                                        for object in objects {
+                                            print(object.objectId)
+                                        self.performSegueWithIdentifier("addBrewToAddBeer", sender:object)
+                                            
+                                        }
+                                    }
+                                } else {
+                                    // Log details of the failure
+                                    print("Error: \(error!) \(error!.userInfo)")
+                                }
+                            }
+                           // self.alertForUser("Parabéns, cervejaria cadastrada com sucesso")
                             
-                            self.performSegueWithIdentifier("addBrewToAddBeer", sender: nil)
+                            
+                            
+                            //self.performSegueWithIdentifier("addBrewToAddBeer", sender: nil)
                         }else{
                             self.alertForUser("ERRO, CERVEJARIA NÃO CADASTRADA, tente novamente")
                         }
@@ -78,11 +102,9 @@ class AddBreweryVC: UIViewController, UITextFieldDelegate {
     // MARK: - Navigation
     //MARK: -Prepare segue
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == "brewAddToAddBeer"{
+        if segue.identifier == "addBrewToAddBeer"{
             if let destination = segue.destinationViewController  as?  AddBeer  {
-                //if let indexPath = resultsTable.indexPathForSelectedRow?.row{
-                   // let row = Int(indexPath)
-                   // destination.brewery = (self.resultsList[row]) as? Brewery
+               destination.brewery = (sender) as? Brewery
                 }
             }
         }
