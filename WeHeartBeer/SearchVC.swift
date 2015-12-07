@@ -240,13 +240,13 @@ extension SearchVC:  UISearchResultsUpdating, UISearchBarDelegate, UISearchContr
     func searchBarSearchButtonClicked(searchBar: UISearchBar) {
         
         controller.searchBar.showsCancelButton = false //dismiss cancel button
-        controller.searchBar.text = ""  //clears text field
+        //controller.searchBar.text = ""  //clears text field
         
         // Dismiss the keyboard
         controller.searchBar.resignFirstResponder()
         
         
-       // self.resultsTable.reloadData()
+       self.resultsTable.reloadData()
         
         
         
@@ -303,8 +303,12 @@ extension SearchVC:  UISearchResultsUpdating, UISearchBarDelegate, UISearchContr
         }
         else { // If the user taps the clear button or erase the text imput
             
-            self.resultsList = nil // Clean Query
-            //self.resultsTable.reloadData()
+            if(self.controller.searchBar.text == "" ){
+                self.resultsList = nil // Clean Query
+                self.resultsTable.reloadData()
+            }
+            
+
             
         }
     }
