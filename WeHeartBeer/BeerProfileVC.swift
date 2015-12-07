@@ -189,9 +189,9 @@ class BeerProfileVC: UIViewController {
     
     @IBAction func saveRating(sender: AnyObject) {
         
-        self.saveData(currentObject)
+        //self.saveData(currentObject)
 
-        
+        performSegueWithIdentifier("segueReview", sender: currentObject)
         
     }
     
@@ -246,7 +246,13 @@ class BeerProfileVC: UIViewController {
                 destination.currentBrewery = self.currentObject?.objectForKey("brewery") as? PFObject
             }
         }
+        if segue.identifier == "segueReview"{
+            if let destination = segue.destinationViewController as? ReviewVC {
+                destination.currentObjectReview = sender as? PFObject
+            }
+            }
     }
+    
 }
 
 extension BeerProfileVC: BreweryVCDelegate{

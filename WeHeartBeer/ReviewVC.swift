@@ -28,6 +28,7 @@ class ReviewVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        print("review VC")
         print(currentObjectReview)
 
     }
@@ -57,7 +58,7 @@ class ReviewVC: UIViewController {
         let beerReview = PFObject(className:"Review")
         
         beerReview["user"] = user
-        beerReview["beer"] = beer
+        beerReview["beer"] = currentObjectReview
         beerReview["rating"] = Double(updatedLabel.text!)
         beerReview["comment"] = commentText.text
         beerReview.saveInBackgroundWithBlock {

@@ -1489,7 +1489,7 @@
                         <outlet property="photo" destination="yZN-cf-htQ" id="LXT-Ud-Zwq"/>
                         <outlet property="saveBeerProfile" destination="kmi-Bl-hje" id="Aq3-QN-tgD"/>
                         <outlet property="updatedLabel" destination="g5Y-vf-Ow4" id="v6Y-69-7nc"/>
-                        <segue destination="zbh-Oz-nws" kind="show" id="bgp-MC-Xl6"/>
+                        <segue destination="zbh-Oz-nws" kind="show" identifier="segueReview" id="bgp-MC-Xl6"/>
                         <segue destination="sgA-Wm-f0P" kind="show" id="i0O-fM-R0U"/>
                     </connections>
                 </viewController>
