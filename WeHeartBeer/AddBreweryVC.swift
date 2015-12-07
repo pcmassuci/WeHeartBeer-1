@@ -49,7 +49,9 @@ class AddBreweryVC: UIViewController, UITextFieldDelegate {
                     
                     BreweryServices.saveNewBrewery(self.nameTextField.text, local: self.countryTextField.text, contact: self.contactTex.text, address: self.addressText.text!, completionHandler: { (success) -> Void in
                         if success{
-                            self.alertForUser("Parabéns, cerveja cadastrada com sucesso")
+                            self.alertForUser("Parabéns, cervejaria cadastrada com sucesso")
+                            
+                            self.performSegueWithIdentifier("addBrewToAddBeer", sender: nil)
                         }else{
                             self.alertForUser("ERRO, CERVEJARIA NÃO CADASTRADA, tente novamente")
                         }
@@ -73,17 +75,19 @@ class AddBreweryVC: UIViewController, UITextFieldDelegate {
         self.navigationController?.popToRootViewControllerAnimated(true)
         
     }
-    /*
     // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    //MARK: -Prepare segue
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+        if segue.identifier == "brewAddToAddBeer"{
+            if let destination = segue.destinationViewController  as?  AddBeer  {
+                //if let indexPath = resultsTable.indexPathForSelectedRow?.row{
+                   // let row = Int(indexPath)
+                   // destination.brewery = (self.resultsList[row]) as? Brewery
+                }
+            }
+        }
 }
+
 
 //MARK: - KEYBOARDS METHODS
 extension AddBreweryVC{

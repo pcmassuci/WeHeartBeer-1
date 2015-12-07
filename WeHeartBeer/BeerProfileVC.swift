@@ -44,7 +44,6 @@ class BeerProfileVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("oi tudo bem?")
         print(currentObject)
         self.updateData(currentObject)
         

@@ -50,7 +50,7 @@ class BreweryServices {
             } else {
                 
                 //criar alert para o usuário
-                print("erooo serivice")
+                print("error serivice")
                 completionHandler(brewery: nil,success: false)
                 
             }
