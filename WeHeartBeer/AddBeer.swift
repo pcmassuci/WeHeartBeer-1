@@ -18,7 +18,7 @@
         @IBOutlet weak var style: UITextField!
         @IBOutlet weak var ibu: UITextField!
         
-        var objectID:String!
+       // var objectID:String!
         var brewery:Brewery!
         var pickOptionParse:[PFObject]? = [PFObject]()
         var i:Int = 0
@@ -54,7 +54,6 @@
             if self.nameBeer.text != ""{
                     if self.abv.text != ""{
                         if self.style.text != ""{
-                            print(objectID)
                             print("Salvar")
                             //print(newBeer)
                             print(self.nameBeer)

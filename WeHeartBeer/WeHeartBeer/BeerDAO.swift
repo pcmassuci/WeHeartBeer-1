@@ -19,6 +19,7 @@ class BeerDAO {
     
     typealias FindObjectsCompletionHandler = (beer:[Beer]?,success:Bool) -> Void
     typealias RegisterBeerCH = (success:Bool)->Void
+    
     //typealias CreateCompletionHaldler = (beer:Beer?,success:Bool) -> Void
     
     
