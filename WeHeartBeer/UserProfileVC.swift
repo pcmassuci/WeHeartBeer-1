@@ -36,7 +36,8 @@ class UserProfileVC: UIViewController {
         //self.updateData()
         //self.loginButton.hidden = true
         
-        
+            self.navigationController?.navigationBar.hidden = true
+
             //UserServices.loginFaceUser { (success) -> Void in
              //   if success{
               print("deu certo userprofile")
