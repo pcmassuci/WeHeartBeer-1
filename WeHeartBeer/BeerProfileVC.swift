@@ -162,6 +162,9 @@ class BeerProfileVC: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    
+    
 //    
 //    @IBAction func ratingTypeChanged(sender: UISegmentedControl) {
 //        self.floatRatingView.halfRatings = sender.selectedSegmentIndex==1

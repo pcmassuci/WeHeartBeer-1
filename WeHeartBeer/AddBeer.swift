@@ -25,7 +25,8 @@
         
         override func viewDidLoad() {
             super.viewDidLoad()
-           
+            self.navigationController?.navigationBar.hidden = true
+
             self.nameBeer.delegate = self
             self.abv.delegate = self
             self.style.delegate = self
