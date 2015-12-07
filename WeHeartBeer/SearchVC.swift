@@ -88,7 +88,6 @@ class SearchVC: UIViewController {
             }
         }
     if segue.identifier == "segueFoundBrewery" {
-            print("do you dance")
             
         
         }
@@ -116,7 +115,11 @@ extension SearchVC: UITableViewDelegate, UITableViewDataSource{
             if indexPath.row < self.resultsList.count {
                 performSegueWithIdentifier("segueSearch", sender: indexPath)}
             else if indexPath.row == self.resultsList.count {
+                if UserServices.loggedUser(){
                 performSegueWithIdentifier("segueFoundBrewery", sender: indexPath)
+                }else{
+                    self.tabBarController?.selectedIndex = 2
+                }
             }
         }
     
