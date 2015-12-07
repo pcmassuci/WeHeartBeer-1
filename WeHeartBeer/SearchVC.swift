@@ -20,8 +20,6 @@ class SearchVC: UIViewController {
     @IBOutlet weak var searchTypeText: UILabel!
     
     @IBOutlet weak var beerStyle: UILabel!
-    @IBOutlet weak var beerABV: UILabel!
-    
     let controller = UISearchController(searchResultsController: nil)
     
     //Creates class object and aux array for
@@ -32,7 +30,12 @@ class SearchVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.controller.searchBar.barTintColor = UIColor(red: 0.16, green: 0.68, blue: 0.62, alpha: 1.0)
+        self.controller.searchBar.tintColor = UIColor(white: 1, alpha: 1)
         
+        let view: UIView = self.controller.searchBar.subviews[0]
+        let subViewsArray = view.subviews
+
         
         //  searchTypeText.hidden = false
         
@@ -69,8 +72,9 @@ class SearchVC: UIViewController {
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         //Hide NavigationController
-        self.navigationController?.navigationBar.hidden = true
-        self.controller.searchBar.text = ""
+        self.navigationController?.navigationBar.hidden = false
+        
+       // self.controller.searchBar.text = ""
         controller.searchBar.resignFirstResponder()
 
     }
@@ -162,14 +166,30 @@ extension SearchVC: UITableViewDelegate, UITableViewDataSource{
             
             cell.resutLabel?.text = self.resultsList.objectAtIndex(indexPath.row).objectForKey("name") as? String
             
-            cell.beerABV?.text = self.resultsList.objectAtIndex(indexPath.row).objectForKey("ABV") as? String
+            cell.brewery?.text = self.resultsList.objectAtIndex(indexPath.row).objectForKey("brewery")! as? String
             
             cell.beerStyle?.text = self.resultsList.objectAtIndex(indexPath.row).objectForKey("Style") as? String
+            
+            
+            if self.resultsList.objectAtIndex(indexPath.row).objectForKey("Photo") != nil{
+                
+                let userImageFile = resultsList.objectAtIndex(indexPath.row).objectForKey("Photo") as! PFFile
+                
+                userImageFile.getDataInBackgroundWithBlock {
+                    (imageData: NSData?, error: NSError?) -> Void in
+                    if error == nil {
+                        if let imageData = imageData {
+                            let image = UIImage(data:imageData)
+                            cell.searchImage.image = image
+                        }}}}
+            
+           // cell.searchImage.image = self.resultsList.objectAtIndex(indexPath.row).
+            
             cell.addBeerLabel.hidden = true
             
             cell.resutLabel.hidden = false
             
-            cell.beerABV.hidden = false
+           // cell.beerABV.hidden = false
             
             cell.beerStyle.hidden = false
             
@@ -178,11 +198,13 @@ extension SearchVC: UITableViewDelegate, UITableViewDataSource{
         else{
             cell.resutLabel.hidden = true
             
-            cell.beerABV.hidden = true
+            cell.brewery.hidden = true
             
             cell.beerStyle.hidden = true
             
             cell.addBeerLabel.hidden = false
+            
+            cell.searchImage.image = UIImage(named:"add")
 
             cell.addBeerLabel?.text = "Adcione cerveja"
         }
@@ -192,7 +214,7 @@ extension SearchVC: UITableViewDelegate, UITableViewDataSource{
     
 }
 
-// MARK: - Seach Methods 
+// MARK: - Search Methods
 
 extension SearchVC:  UISearchResultsUpdating, UISearchBarDelegate, UISearchControllerDelegate{
     //behaviour when search starts
@@ -218,12 +240,13 @@ extension SearchVC:  UISearchResultsUpdating, UISearchBarDelegate, UISearchContr
     func searchBarSearchButtonClicked(searchBar: UISearchBar) {
         
         controller.searchBar.showsCancelButton = false //dismiss cancel button
-        controller.searchBar.text = ""  //clears text field
+        //controller.searchBar.text = ""  //clears text field
         
         // Dismiss the keyboard
         controller.searchBar.resignFirstResponder()
         
-        self.resultsTable.reloadData()
+        
+       self.resultsTable.reloadData()
         
         
         
@@ -280,8 +303,12 @@ extension SearchVC:  UISearchResultsUpdating, UISearchBarDelegate, UISearchContr
         }
         else { // If the user taps the clear button or erase the text imput
             
-            self.resultsList = nil // Clean Query
-            self.resultsTable.reloadData()
+            if(self.controller.searchBar.text == "" ){
+                self.resultsList = nil // Clean Query
+                self.resultsTable.reloadData()
+            }
+            
+
             
         }
     }

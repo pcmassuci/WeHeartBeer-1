@@ -18,7 +18,10 @@ class FacebookCheckinVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationController?.navigationBar.hidden = true
+
     }
+    
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)

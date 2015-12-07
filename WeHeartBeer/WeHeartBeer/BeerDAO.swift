@@ -19,6 +19,7 @@ class BeerDAO {
     
     typealias FindObjectsCompletionHandler = (beer:[Beer]?,success:Bool) -> Void
     typealias RegisterBeerCH = (success:Bool)->Void
+    
     //typealias CreateCompletionHaldler = (beer:Beer?,success:Bool) -> Void
     
     
@@ -27,9 +28,10 @@ class BeerDAO {
                 let newBeer = PFObject(className:"Beer")
                 newBeer["abv"] = abv
                 newBeer["name"] = name
-                newBeer["style"] = style
+                newBeer["Style"] = style
                 newBeer["ibu"] = ibu
                 newBeer["brewery"] = brewery
+                newBeer["brewName"] = brewery.objectForKey("name")
                 newBeer.saveInBackgroundWithBlock {
                     (success: Bool, error: NSError?) -> Void in
                     if (success) {

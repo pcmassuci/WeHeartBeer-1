@@ -14,11 +14,30 @@ import UIKit
 
 class BreweryServices {
     
-    typealias BooleanCompletionHandler = (success:Bool) -> Void
+  //  typealias BooleanCompletionHandler = (success:Bool) -> Void
     typealias FindObjectsCompletionHandler = (brewerys:[Brewery]?,success:Bool) -> Void
     typealias FindBreweryCompletionHandler = (brewery:[Brewery]?,success:Bool) -> Void
     typealias FindObjIDCompletionHandler = (brewery:Brewery?,success:Bool) -> Void
+    typealias CreateCompletionHaldler = (success:Bool) -> Void
+
     
+
+    
+    static func saveNewBrewery(name:String!, local:String!, contact:String!, address:String, completionHandler: CreateCompletionHaldler){
+        BreweryDAO.createBrewery(name, contact: contact, local: local,address: address) { (success) -> Void in
+            if success {
+                
+                completionHandler(success:true)
+                
+            } else {
+                completionHandler(success:false)
+                
+            }
+        }
+        }
+
+      
+        
     //find Brewery using name and completion Handler
     static func findBreweryName(brewery:String,completionHandler:FindBreweryCompletionHandler){
         
@@ -31,7 +50,7 @@ class BreweryServices {
             } else {
                 
                 //criar alert para o usuário
-                print("erooo serivice")
+                print("error serivice")
                 completionHandler(brewery: nil,success: false)
                 
             }

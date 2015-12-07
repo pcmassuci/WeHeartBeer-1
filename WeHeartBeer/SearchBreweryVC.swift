@@ -76,28 +76,21 @@ class SearchBreweryVC: UIViewController {
             super.didReceiveMemoryWarning()
             // Dispose of any resources that can be recreated.
         }
-    // Prepare segue - WIP
+//MARK: -Prepare segue
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == "segueSearch"{
-            if let destination = segue.destinationViewController  as? BeerProfileVC{
-                if let indexPath = resultsTable.indexPathForSelectedRow?.row{
-                    
-                    let row = Int(indexPath)
-                    destination.currentObject = (self.resultsList[row]) as? PFObject
-                    
+        if segue.identifier == "segueAddBeer"{
+            if let destination = segue.destinationViewController  as?  AddBeer  {
+              if let indexPath = resultsTable.indexPathForSelectedRow?.row{
+                   let row = Int(indexPath)
+                    destination.brewery = (self.resultsList[row]) as? Brewery
                 }
             }
         }
-        else {
-            if let destination = segue.destinationViewController  as? SearchBreweryVC{
-                
-                performSegueWithIdentifier("segueFoundBrewery", sender: sender)
-            }
-        }
     }
+}
 
         
-    }
+    
     
 //MARK: TableView Methods
 extension SearchBreweryVC:   UITableViewDelegate, UITableViewDataSource{
@@ -109,16 +102,10 @@ extension SearchBreweryVC:   UITableViewDelegate, UITableViewDataSource{
         if (self.controller.active && self.resultsList != nil) {
             var count = self.resultsList.count
             count += 1
-            
-            
-            
             return count
-            
-            
         }
             
         else {
-            
             return 0
         }
     }
@@ -146,7 +133,7 @@ extension SearchBreweryVC:   UITableViewDelegate, UITableViewDataSource{
             
         else{
             
-            cell.BreweryName?.text = "Adcione cerveja"
+            cell.BreweryName?.text = "Adicione Cervejaria"
         }
         
         return cell
@@ -154,10 +141,13 @@ extension SearchBreweryVC:   UITableViewDelegate, UITableViewDataSource{
     
     
     // Perform segue - WIP (redundancia com o prepareForSegue
-    //    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-    //        let cell = self.resultsTable.cellForRowAtIndexPath(indexPath)
-    //        performSegueWithIdentifier("segueSearch", sender: indexPath)
-    //    }
+        func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+            if indexPath.row < self.resultsList.count {
+                performSegueWithIdentifier("segueAddBeer", sender: indexPath)}
+            else if indexPath.row == self.resultsList.count {
+                performSegueWithIdentifier("segueCreateBrew", sender: indexPath)
+            }
+        }
     
     
     

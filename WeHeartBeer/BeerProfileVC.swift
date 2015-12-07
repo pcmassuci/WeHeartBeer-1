@@ -44,7 +44,6 @@ class BeerProfileVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("oi tudo bem?")
         print(currentObject)
         self.updateData(currentObject)
         
@@ -163,6 +162,9 @@ class BeerProfileVC: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    
+    
 //    
 //    @IBAction func ratingTypeChanged(sender: UISegmentedControl) {
 //        self.floatRatingView.halfRatings = sender.selectedSegmentIndex==1
@@ -237,7 +239,7 @@ class BeerProfileVC: UIViewController {
                
                 destination.delegate = self
 
-                let breweryID = self.currentObject?.objectForKey("brewery")?.objectID
+                _ = self.currentObject?.objectForKey("brewery")?.objectID
                 
                 print(self.currentObject?.objectForKey("brewery"))
                 

@@ -14,7 +14,8 @@ class ResultsTableViewCell: UITableViewCell{
     
     @IBOutlet weak var resutLabel: UILabel!
     @IBOutlet weak var beerStyle: UILabel!
-    @IBOutlet weak var beerABV: UILabel!
+    @IBOutlet weak var brewery: UILabel!
+    @IBOutlet weak var searchImage: UIImageView!
     
     @IBOutlet weak var addBeerLabel: UILabel!
     
