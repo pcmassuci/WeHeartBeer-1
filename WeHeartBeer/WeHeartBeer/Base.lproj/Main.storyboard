@@ -1296,7 +1296,7 @@
                         <outlet property="resultsTable" destination="xOm-8x-0K2" id="nIK-aK-rEi"/>
                         <outlet property="searchDisplayController" destination="eUt-lG-wA2" id="j1B-Al-vBF"/>
                         <segue destination="Fhn-oR-zrU" kind="show" identifier="segueCreateBrew" id="33d-pW-YWB"/>
-                        <segue destination="0KM-tW-l55" kind="show" identifier="segueToAddBeer" id="1ft-IH-Bmr"/>
+                        <segue destination="0KM-tW-l55" kind="show" identifier="segueAddBeer" id="1ft-IH-Bmr"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sgf-lE-t09" userLabel="First Responder" sceneMemberID="firstResponder"/>
