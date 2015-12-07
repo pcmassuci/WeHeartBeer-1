@@ -76,23 +76,18 @@ class SearchBreweryVC: UIViewController {
             super.didReceiveMemoryWarning()
             // Dispose of any resources that can be recreated.
         }
-    // Prepare segue - WIP
+//MARK: -Prepare segue
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == "segueToADDBEER"{
+        if segue.identifier == "segueAddBeer"{
             if let destination = segue.destinationViewController  as?  AddBeer  {
-                
-               
-                if let indexPath = resultsTable.indexPathForSelectedRow?.row{
-                    
-                    let row = Int(indexPath)
+              if let indexPath = resultsTable.indexPathForSelectedRow?.row{
+                   let row = Int(indexPath)
                     destination.brewery = (self.resultsList[row]) as? Brewery
-                    
                 }
             }
         }
-       
-        }
     }
+}
 
         
     
@@ -107,16 +102,10 @@ extension SearchBreweryVC:   UITableViewDelegate, UITableViewDataSource{
         if (self.controller.active && self.resultsList != nil) {
             var count = self.resultsList.count
             count += 1
-            
-            
-            
             return count
-            
-            
         }
             
         else {
-            
             return 0
         }
     }
@@ -154,7 +143,7 @@ extension SearchBreweryVC:   UITableViewDelegate, UITableViewDataSource{
     // Perform segue - WIP (redundancia com o prepareForSegue
         func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
             if indexPath.row < self.resultsList.count {
-                performSegueWithIdentifier("segueToADDBEER", sender: indexPath)}
+                performSegueWithIdentifier("segueAddBeer", sender: indexPath)}
             else if indexPath.row == self.resultsList.count {
                 performSegueWithIdentifier("segueCreateBrew", sender: indexPath)
             }
