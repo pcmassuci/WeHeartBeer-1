@@ -124,6 +124,8 @@ extension SearchVC: UITableViewDelegate, UITableViewDataSource{
             else if indexPath.row == self.resultsList.count {
                 performSegueWithIdentifier("segueFoundBrewery", sender: indexPath)
             }
+            
+            resultsTable.deselectRowAtIndexPath(indexPath, animated: true)
         }
     
     // Sets number of rows in tableview
@@ -166,7 +168,7 @@ extension SearchVC: UITableViewDelegate, UITableViewDataSource{
             
             cell.resutLabel?.text = self.resultsList.objectAtIndex(indexPath.row).objectForKey("name") as? String
             
-            cell.brewery?.text = self.resultsList.objectAtIndex(indexPath.row).objectForKey("brewery")! as? String
+            cell.brewery?.text = self.resultsList.objectAtIndex(indexPath.row).objectForKey("brewName")! as? String
             
             cell.beerStyle?.text = self.resultsList.objectAtIndex(indexPath.row).objectForKey("Style") as? String
             
@@ -189,7 +191,7 @@ extension SearchVC: UITableViewDelegate, UITableViewDataSource{
             
             cell.resutLabel.hidden = false
             
-           // cell.beerABV.hidden = false
+            cell.brewery.hidden = false
             
             cell.beerStyle.hidden = false
             
@@ -271,7 +273,6 @@ extension SearchVC:  UISearchResultsUpdating, UISearchBarDelegate, UISearchContr
         
         self.resultsTable.reloadData()
     }
-    
     
     
     //Update controller as it changes

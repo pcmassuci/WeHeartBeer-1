@@ -52,7 +52,7 @@
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="6vI-3o-Nsc">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="6vI-3o-Nsc">
                                                     <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                                     <animations/>
                                                     <constraints>
@@ -2052,6 +2052,7 @@
                         <outlet property="ibu" destination="dEG-3f-l3O" id="UxG-aT-zHs"/>
                         <outlet property="nameBeer" destination="zVV-ST-Mzz" id="qIl-0h-r0K"/>
                         <outlet property="style" destination="FHO-pg-PlN" id="eaO-3v-TdL"/>
+                        <segue destination="VcN-tL-zUt" kind="show" id="WFq-x6-VBz"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="g2e-OW-aQ5" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -2356,8 +2357,8 @@
         <image name="hopsGreen" width="256" height="256"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Bfm-Ni-xVL"/>
         <segue reference="gJz-WE-NEo"/>
+        <segue reference="WFq-x6-VBz"/>
         <segue reference="i0O-fM-R0U"/>
     </inferredMetricsTieBreakers>
 </document>
