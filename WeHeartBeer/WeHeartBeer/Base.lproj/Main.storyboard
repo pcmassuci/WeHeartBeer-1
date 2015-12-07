@@ -37,9 +37,6 @@
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
-                                                    <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                                        <rect key="frame" x="184" y="8" width="125" height="21"/>
-                                                    </variation>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="style" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4kl-E5-1Nd">
                                                     <rect key="frame" x="-42" y="-21" width="42" height="21"/>
@@ -47,9 +44,6 @@
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
-                                                    <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                                        <rect key="frame" x="154" y="72" width="141" height="29"/>
-                                                    </variation>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="brewery" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A6k-lh-jZu">
                                                     <rect key="frame" x="-42" y="-21" width="42" height="21"/>
@@ -57,9 +51,6 @@
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
-                                                    <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                                        <rect key="frame" x="143" y="37" width="206" height="33"/>
-                                                    </variation>
                                                 </label>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="GTG-c0-RrN">
                                                     <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
@@ -74,8 +65,7 @@
                                                             <exclude reference="DV9-Ro-bkF"/>
                                                         </mask>
                                                     </variation>
-                                                    <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                                        <rect key="frame" x="8" y="6" width="120" height="120"/>
+                                                    <variation key="heightClass=regular-widthClass=compact">
                                                         <mask key="constraints">
                                                             <include reference="DPM-up-p92"/>
                                                             <include reference="DV9-Ro-bkF"/>
@@ -88,9 +78,6 @@
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
-                                                    <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                                        <rect key="frame" x="143" y="41" width="143" height="29"/>
-                                                    </variation>
                                                 </label>
                                             </subviews>
                                             <animations/>
@@ -127,16 +114,16 @@
                                                     <exclude reference="1Sn-L2-gDQ"/>
                                                 </mask>
                                                 <mask key="constraints">
-                                                    <exclude reference="11H-WL-Pd4"/>
-                                                    <exclude reference="JkP-CY-Zsv"/>
-                                                    <exclude reference="LTm-FQ-N1u"/>
-                                                    <exclude reference="nGw-TF-Z6C"/>
                                                     <exclude reference="3dd-v0-ifr"/>
                                                     <exclude reference="ZD2-Qh-vmm"/>
                                                     <exclude reference="Bf2-1M-D9K"/>
                                                     <exclude reference="bkR-Fa-882"/>
+                                                    <exclude reference="LTm-FQ-N1u"/>
+                                                    <exclude reference="nGw-TF-Z6C"/>
                                                     <exclude reference="ogl-Vu-hoO"/>
                                                     <exclude reference="xQ2-2D-zQs"/>
+                                                    <exclude reference="11H-WL-Pd4"/>
+                                                    <exclude reference="JkP-CY-Zsv"/>
                                                 </mask>
                                             </variation>
                                             <variation key="heightClass=regular-widthClass=compact">
@@ -148,16 +135,16 @@
                                                     <include reference="1Sn-L2-gDQ"/>
                                                 </mask>
                                                 <mask key="constraints">
-                                                    <include reference="11H-WL-Pd4"/>
-                                                    <include reference="JkP-CY-Zsv"/>
-                                                    <include reference="LTm-FQ-N1u"/>
-                                                    <include reference="nGw-TF-Z6C"/>
                                                     <include reference="3dd-v0-ifr"/>
                                                     <include reference="ZD2-Qh-vmm"/>
                                                     <include reference="Bf2-1M-D9K"/>
                                                     <include reference="bkR-Fa-882"/>
+                                                    <include reference="LTm-FQ-N1u"/>
+                                                    <include reference="nGw-TF-Z6C"/>
                                                     <include reference="ogl-Vu-hoO"/>
                                                     <include reference="xQ2-2D-zQs"/>
+                                                    <include reference="11H-WL-Pd4"/>
+                                                    <include reference="JkP-CY-Zsv"/>
                                                 </mask>
                                             </variation>
                                         </tableViewCellContentView>
@@ -417,9 +404,6 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
-                                <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="66" y="710" width="57" height="21"/>
-                                </variation>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cervejas" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cG9-ea-dj5" userLabel="Cerveja">
                                 <rect key="frame" x="-42" y="-21" width="42" height="21"/>
@@ -640,8 +624,8 @@
                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="WNw-QE-wou">
                                 <rect key="frame" x="0.0" y="-15" width="118" height="31"/>
                                 <animations/>
-                                <variation key="heightClass=regular-widthClass=compact" ambiguous="YES" misplaced="YES">
-                                    <rect key="frame" x="68" y="288" width="265" height="31"/>
+                                <variation key="heightClass=regular-widthClass=compact" ambiguous="YES">
+                                    <rect key="frame" x="68" y="288" width="265" height="50"/>
                                 </variation>
                             </slider>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I1a-zF-UMf">
@@ -1312,7 +1296,7 @@
                         <outlet property="resultsTable" destination="xOm-8x-0K2" id="nIK-aK-rEi"/>
                         <outlet property="searchDisplayController" destination="eUt-lG-wA2" id="j1B-Al-vBF"/>
                         <segue destination="Fhn-oR-zrU" kind="show" identifier="segueCreateBrew" id="33d-pW-YWB"/>
-                        <segue destination="0KM-tW-l55" kind="show" id="1ft-IH-Bmr"/>
+                        <segue destination="0KM-tW-l55" kind="show" identifier="segueToAddBeer" id="1ft-IH-Bmr"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sgf-lE-t09" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -2167,7 +2151,6 @@
                                 </variation>
                                 <connections>
                                     <action selector="saveObject:" destination="Fhn-oR-zrU" eventType="touchUpInside" id="v4O-r6-93L"/>
-                                    <segue destination="0KM-tW-l55" kind="show" id="0b4-u2-fMM"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JFF-df-IHw">
@@ -2338,6 +2321,7 @@
                         <outlet property="contactTex" destination="Poi-BO-yZ9" id="Z0n-9p-VKq"/>
                         <outlet property="countryTextField" destination="GaP-d1-wv8" id="tfW-7O-lvW"/>
                         <outlet property="nameTextField" destination="NKG-9n-ES1" id="IWi-ZJ-MG5"/>
+                        <segue destination="0KM-tW-l55" kind="show" identifier="addBrewToAddBeer" id="gJz-WE-NEo"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RXv-RS-peN" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -2372,8 +2356,7 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="Bfm-Ni-xVL"/>
-        <segue reference="0b4-u2-fMM"/>
+        <segue reference="1ft-IH-Bmr"/>
         <segue reference="i0O-fM-R0U"/>
-        <segue reference="0b4-u2-fMM"/>
     </inferredMetricsTieBreakers>
 </document>
