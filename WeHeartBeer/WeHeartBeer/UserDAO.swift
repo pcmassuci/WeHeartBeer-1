@@ -34,7 +34,7 @@ class UserDAO {
     static func logout(completionHandler:SignUpCompletionHandler){
         User.logOutInBackgroundWithBlock { (error:NSError?) -> Void in
             if let error = error {
-                let errorString = error.userInfo["error"] as? NSString
+                _ = error.userInfo["error"] as? NSString
                 completionHandler(success: false)
             } else {
                 completionHandler(success: true)

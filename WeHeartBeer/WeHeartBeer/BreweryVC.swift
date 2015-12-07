@@ -153,7 +153,7 @@ class BreweryVC: UIViewController {
         
         
         func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-            var label: UILabel = UILabel()
+            let label: UILabel = UILabel()
             label.text = "Cervejas"
             label.textColor = UIColor.redColor()
             label.backgroundColor = UIColor.greenColor()
@@ -207,7 +207,6 @@ class BreweryVC: UIViewController {
              print(self.cellControl)
             print(indexPath.row)
             if (indexPath.row == cellControl) {
-                print("verificação 1")
               self.performSegueWithIdentifier("segueToAddBeer", sender: self)
                 
                 
@@ -237,11 +236,9 @@ class BreweryVC: UIViewController {
             if segue.identifier == "segueToAddBeer"{
                 if let destination = segue.destinationViewController  as? AddBeer  {
                     
-//                    if let indexPath = self.listOfProducts.indexPathForSelectedRow?.row{
-//                        
-//                       // let row = Int(indexPath)
+//
                        destination.brewery = self.brewery
-                        destination.objectID = self.currentBrewery?.objectId
+                        //destination.objectID = self.currentBrewery?.objectId
                     
 //
                 }

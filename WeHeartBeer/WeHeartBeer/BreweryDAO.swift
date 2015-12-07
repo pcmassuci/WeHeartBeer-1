@@ -19,11 +19,31 @@ class BreweryDAO {
     
     typealias FindObjectsCompletionHandler = (brewery:[Brewery]?,success:Bool) -> Void
     typealias FindObjIDCompletionHandler = (brewery:Brewery?,success:Bool) -> Void
+    typealias RegisterBeerCH = (success:Bool)->Void
+
     
+    static func createBrewery(name:String, contact:String,local:String,address:String, completionHandler: RegisterBeerCH){
+        let newBrewery = PFObject(className:"Brewery")
+        newBrewery["contact"] = contact
+        newBrewery["name"] = name
+        newBrewery["local"] = local
+        newBrewery["address"] = address
+        newBrewery.saveInBackgroundWithBlock {
+            (success: Bool, error: NSError?) -> Void in
+            if (success) {
+                completionHandler(success: true)// The object has been saved.
+            } else {
+                completionHandler(success: false)
+                // There was a problem, check error.description
+            }
+        }
+    }
     
+
     
     
     //find Brewery, send a String Name from Parse
+    
     
     static func findBrewery(brewery:String,completionHandler:FindObjectsCompletionHandler){
         
