@@ -30,7 +30,12 @@ class SearchVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.controller.searchBar.barTintColor = UIColor(red: 0.16, green: 0.68, blue: 0.62, alpha: 1.0)
+        self.controller.searchBar.tintColor = UIColor(white: 1, alpha: 1)
         
+        let view: UIView = self.controller.searchBar.subviews[0]
+        let subViewsArray = view.subviews
+
         
         //  searchTypeText.hidden = false
         
@@ -67,8 +72,9 @@ class SearchVC: UIViewController {
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         //Hide NavigationController
-        self.navigationController?.navigationBar.hidden = true
-        self.controller.searchBar.text = ""
+        self.navigationController?.navigationBar.hidden = false
+        
+       // self.controller.searchBar.text = ""
         controller.searchBar.resignFirstResponder()
 
     }
@@ -121,6 +127,8 @@ extension SearchVC: UITableViewDelegate, UITableViewDataSource{
                     self.tabBarController?.selectedIndex = 2
                 }
             }
+            
+            resultsTable.deselectRowAtIndexPath(indexPath, animated: true)
         }
     
     // Sets number of rows in tableview
@@ -163,7 +171,7 @@ extension SearchVC: UITableViewDelegate, UITableViewDataSource{
             
             cell.resutLabel?.text = self.resultsList.objectAtIndex(indexPath.row).objectForKey("name") as? String
             
-            cell.brewery?.text = self.resultsList.objectAtIndex(indexPath.row).objectForKey("brewery")! as? String
+            cell.brewery?.text = self.resultsList.objectAtIndex(indexPath.row).objectForKey("brewName")! as? String
             
             cell.beerStyle?.text = self.resultsList.objectAtIndex(indexPath.row).objectForKey("Style") as? String
             
@@ -186,7 +194,7 @@ extension SearchVC: UITableViewDelegate, UITableViewDataSource{
             
             cell.resutLabel.hidden = false
             
-           // cell.beerABV.hidden = false
+            cell.brewery.hidden = false
             
             cell.beerStyle.hidden = false
             
@@ -211,7 +219,7 @@ extension SearchVC: UITableViewDelegate, UITableViewDataSource{
     
 }
 
-// MARK: - Seach Methods 
+// MARK: - Search Methods
 
 extension SearchVC:  UISearchResultsUpdating, UISearchBarDelegate, UISearchControllerDelegate{
     //behaviour when search starts
@@ -237,12 +245,13 @@ extension SearchVC:  UISearchResultsUpdating, UISearchBarDelegate, UISearchContr
     func searchBarSearchButtonClicked(searchBar: UISearchBar) {
         
         controller.searchBar.showsCancelButton = false //dismiss cancel button
-        controller.searchBar.text = ""  //clears text field
+        //controller.searchBar.text = ""  //clears text field
         
         // Dismiss the keyboard
         controller.searchBar.resignFirstResponder()
         
-        self.resultsTable.reloadData()
+        
+       self.resultsTable.reloadData()
         
         
         
@@ -267,7 +276,6 @@ extension SearchVC:  UISearchResultsUpdating, UISearchBarDelegate, UISearchContr
         
         self.resultsTable.reloadData()
     }
-    
     
     
     //Update controller as it changes
@@ -299,8 +307,12 @@ extension SearchVC:  UISearchResultsUpdating, UISearchBarDelegate, UISearchContr
         }
         else { // If the user taps the clear button or erase the text imput
             
-            self.resultsList = nil // Clean Query
-            self.resultsTable.reloadData()
+            if(self.controller.searchBar.text == "" ){
+                self.resultsList = nil // Clean Query
+                self.resultsTable.reloadData()
+            }
+            
+
             
         }
     }
