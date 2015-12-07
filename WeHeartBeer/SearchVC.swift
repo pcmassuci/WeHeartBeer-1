@@ -20,8 +20,6 @@ class SearchVC: UIViewController {
     @IBOutlet weak var searchTypeText: UILabel!
     
     @IBOutlet weak var beerStyle: UILabel!
-    @IBOutlet weak var beerABV: UILabel!
-    
     let controller = UISearchController(searchResultsController: nil)
     
     //Creates class object and aux array for
@@ -162,14 +160,30 @@ extension SearchVC: UITableViewDelegate, UITableViewDataSource{
             
             cell.resutLabel?.text = self.resultsList.objectAtIndex(indexPath.row).objectForKey("name") as? String
             
-            cell.beerABV?.text = self.resultsList.objectAtIndex(indexPath.row).objectForKey("ABV") as? String
+            cell.brewery?.text = self.resultsList.objectAtIndex(indexPath.row).objectForKey("brewery")! as? String
             
             cell.beerStyle?.text = self.resultsList.objectAtIndex(indexPath.row).objectForKey("Style") as? String
+            
+            
+            if self.resultsList.objectAtIndex(indexPath.row).objectForKey("Photo") != nil{
+                
+                let userImageFile = resultsList.objectAtIndex(indexPath.row).objectForKey("Photo") as! PFFile
+                
+                userImageFile.getDataInBackgroundWithBlock {
+                    (imageData: NSData?, error: NSError?) -> Void in
+                    if error == nil {
+                        if let imageData = imageData {
+                            let image = UIImage(data:imageData)
+                            cell.searchImage.image = image
+                        }}}}
+            
+           // cell.searchImage.image = self.resultsList.objectAtIndex(indexPath.row).
+            
             cell.addBeerLabel.hidden = true
             
             cell.resutLabel.hidden = false
             
-            cell.beerABV.hidden = false
+           // cell.beerABV.hidden = false
             
             cell.beerStyle.hidden = false
             
@@ -178,11 +192,13 @@ extension SearchVC: UITableViewDelegate, UITableViewDataSource{
         else{
             cell.resutLabel.hidden = true
             
-            cell.beerABV.hidden = true
+            cell.brewery.hidden = true
             
             cell.beerStyle.hidden = true
             
             cell.addBeerLabel.hidden = false
+            
+            cell.searchImage.image = UIImage(named:"add")
 
             cell.addBeerLabel?.text = "Adcione cerveja"
         }
