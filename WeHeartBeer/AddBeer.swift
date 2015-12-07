@@ -49,6 +49,9 @@
             NSNotificationCenter.defaultCenter().removeObserver(self, name: UIKeyboardWillHideNotification, object: self.view.window)
         }
         
+        @IBAction func cancelButton(sender: AnyObject) {
+            self.navigationController?.popToRootViewControllerAnimated(true)
+        }
 
         @IBAction func saveObject(sender: AnyObject) {
             if self.nameBeer.text != ""{

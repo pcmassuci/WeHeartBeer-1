@@ -51,7 +51,7 @@ class AddBreweryVC: UIViewController, UITextFieldDelegate {
                         if success{
                             self.alertForUser("Parabéns, cerveja cadastrada com sucesso")
                         }else{
-                            self.alertForUser("ERRO, CERVEJA NAO CADASTRADA")
+                            self.alertForUser("ERRO, CERVEJARIA NÃO CADASTRADA, tente novamente")
                         }
                     })
                 
@@ -66,7 +66,13 @@ class AddBreweryVC: UIViewController, UITextFieldDelegate {
         
     }
 
+   
 
+    @IBAction func cancelButton(sender: AnyObject) {
+        
+        self.navigationController?.popToRootViewControllerAnimated(true)
+        
+    }
     /*
     // MARK: - Navigation
 
