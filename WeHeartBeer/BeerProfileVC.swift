@@ -24,8 +24,8 @@ class BeerProfileVC: UIViewController {
     @IBOutlet weak var commentText: UITextField!
     
 
-    @IBOutlet var ratingSegmentedControl: UISegmentedControl!
-    @IBOutlet var floatRatingView: FloatRatingView!
+
+    @IBOutlet weak var ratingButton: UIButton!
     @IBOutlet var liveLabel: UILabel!
     @IBOutlet var updatedLabel: UILabel!
     
@@ -48,34 +48,54 @@ class BeerProfileVC: UIViewController {
         self.updateData(currentObject)
         
         self.navigationController?.navigationBar.hidden = false
-        
-      
+
     }
     
-    override func viewWillDisappear(animated: Bool) {
-        super.viewWillDisappear(animated)
-        
-        let stack = self.navigationController?.viewControllers
-        let target = stack![0]
-        self.navigationController?.popToViewController(target, animated: true)
-      
-    }
+    
     
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
-       
+        
+        
+        // Check if user is logged in
+        if UserServices.loggedUser() {
+            self.ratingButton.hidden = false
+        }else{
+            self.ratingButton.hidden = true
+        }
+        
+        
+        // Pointer for view beer name
+        // let pointerReceive = "cervejum"
+        
+        // BeerServices.findBeerName(pointerReceive) { (beer, success) -> Void in
+        
+        // if success {
+        //    self.beer = beer
+        
+        //Printing beer name
+        //print(self.beer[0])
+        
+        //Self name for view
+        //self.name.text! = self.beer[0].objectForKey("name") as! String!
+        //self.updateData(self.beer[0])
+        // }else{
+        //Warning error
+        // print("Erro, cerveja não encontrada!")
+        //}
+        //  }
     }
-   
     
     // update informations
     func updateData(beer: PFObject?){
         
+        print(beer?.objectForKey("brewery")?.objectId)
+
         
            self.name.text = beer!.objectForKey("name") as? String
 
-        
         
         // pegando a foto do parse
         
@@ -108,56 +128,13 @@ class BeerProfileVC: UIViewController {
     }
     
     
-    
-    
-    
-    
-    
-    @IBAction func saveRating(sender: AnyObject) {
-        
-
-        performSegueWithIdentifier("segueReview", sender: currentObject)
-        
+    @IBAction func reviewButton(sender: AnyObject) {
+        self.performSegueWithIdentifier("segueReview", sender: nil)
     }
     
-    
-    
-    
-    // update informations
-    func saveData(beer: PFObject?){
-
-        
-        let beerReview = PFObject(className:"Review")
-       
-        beerReview["user"] = user
-        beerReview["beer"] = beer
-        beerReview["rating"] = Double(liveLabel.text!)
-        beerReview["comment"] = commentText.text
-        beerReview.saveInBackgroundWithBlock {
-            (success: Bool, error: NSError?) -> Void in
-            if (success) {
-                // The object has been saved.
-                print("deu")
-            } else {
-                // There was a problem, check error.description
-            }
-        }
-        
-
-        
-    }
-    
-    
-    
-    
-    
-    @IBAction func breweryButton(sender: AnyObject) {
-        //não serve para nada
-    }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         
-        //print(currentObject?.objectForKey("brewery")?.objectId)
         
         if segue.identifier == "segueBeer"{
             if let destination = segue.destinationViewController  as? BreweryVC{
@@ -173,7 +150,7 @@ class BeerProfileVC: UIViewController {
         }
         if segue.identifier == "segueReview"{
             if let destination = segue.destinationViewController as? ReviewVC {
-                destination.currentObjectReview = sender as? PFObject
+                destination.currentObjectReview = (currentObject as? PFObject?)!
             }
             }
     }
