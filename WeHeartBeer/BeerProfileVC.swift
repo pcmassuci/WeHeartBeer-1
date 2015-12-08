@@ -24,8 +24,8 @@ class BeerProfileVC: UIViewController {
     @IBOutlet weak var commentText: UITextField!
     
 
-    @IBOutlet var ratingSegmentedControl: UISegmentedControl!
-    @IBOutlet var floatRatingView: FloatRatingView!
+
+    @IBOutlet weak var ratingButton: UIButton!
     @IBOutlet var liveLabel: UILabel!
     @IBOutlet var updatedLabel: UILabel!
     
@@ -48,30 +48,7 @@ class BeerProfileVC: UIViewController {
         self.updateData(currentObject)
         
         self.navigationController?.navigationBar.hidden = false
-        
-        
-        /** Note: With the exception of contentMode, all of these
-        properties can be set directly in Interface builder **/
-        
-        // Required float rating view params
-//        self.floatRatingView.emptyImage = UIImage(named: "hops")
-//        self.floatRatingView.fullImage = UIImage(named: "hopsGreen")
-//        // Optional params
-//        self.floatRatingView.delegate = self
-//        self.floatRatingView.contentMode = UIViewContentMode.ScaleAspectFit
-//        self.floatRatingView.maxRating = 5
-//        self.floatRatingView.minRating = 0
-//        self.floatRatingView.rating = 0
-//        self.floatRatingView.editable = true
-//        self.floatRatingView.halfRatings = true
-//        self.floatRatingView.floatRatings = false
-        
-        // Segmented control init
-        // self.ratingSegmentedControl.selectedSegmentIndex = 1
-        
-        // Labels init
-        // self.liveLabel.text = NSString(format: "%.2f", self.floatRatingView.rating) as String
-        // self.updatedLabel.text = NSString(format: "%.2f", self.floatRatingView.rating) as String
+
     }
     
     
@@ -84,9 +61,9 @@ class BeerProfileVC: UIViewController {
         
         // Check if user is logged in
         if UserServices.loggedUser() {
-//            self.floatRatingView.hidden = false
+            self.ratingButton.hidden = false
         }else{
-//            self.floatRatingView.hidden = true
+            self.ratingButton.hidden = true
         }
         
         
@@ -115,22 +92,10 @@ class BeerProfileVC: UIViewController {
     func updateData(beer: PFObject?){
         
         print(beer?.objectForKey("brewery")?.objectId)
-        
-        
-        
-        
-        // print(beer)
+
         
            self.name.text = beer!.objectForKey("name") as? String
 
-        
-        
-
-        // self.brewery.text! = beer.objectForKey("brewery") as! String
-        // self.style.text = beer.objectForKey("Style") as? String
-        // self.ibv.text! = beer.objectForKey("IBV") as! String!
-        
-        // self.pffileToUIImage(beer)
         
         // pegando a foto do parse
         
@@ -153,7 +118,6 @@ class BeerProfileVC: UIViewController {
             print("erro na imagem")
         }
         
-        //self.photo.image = beer.objectForKey("Photo") as? UIImage
         
     }
     
@@ -164,75 +128,13 @@ class BeerProfileVC: UIViewController {
     }
     
     
-    
-//    
-//    @IBAction func ratingTypeChanged(sender: UISegmentedControl) {
-//        self.floatRatingView.halfRatings = sender.selectedSegmentIndex==1
-//        self.floatRatingView.floatRatings = sender.selectedSegmentIndex==2
-//    }
-    
-//    // MARK: FloatRatingViewDelegate
-//    
-//    func floatRatingView(ratingView: FloatRatingView, isUpdating rating:Float) {
-//        self.liveLabel.text = NSString(format: "%.2f", self.floatRatingView.rating) as String
-//    }
-//    
-//    func floatRatingView(ratingView: FloatRatingView, didUpdate rating: Float) {
-//        self.updatedLabel.text = NSString(format: "%.2f", self.floatRatingView.rating) as String
-//    }
-    
-    
-    
-    
-    
-    
-    
-    @IBAction func saveRating(sender: AnyObject) {
-        
-        //self.saveData(currentObject)
-
-        performSegueWithIdentifier("segueReview", sender: currentObject)
-        
+    @IBAction func reviewButton(sender: AnyObject) {
+        self.performSegueWithIdentifier("segueReview", sender: nil)
     }
     
-    
-    
-    
-    // update informations
-    func saveData(beer: PFObject?){
-
-        
-        let beerReview = PFObject(className:"Review")
-       
-        beerReview["user"] = user
-        beerReview["beer"] = beer
-        beerReview["rating"] = Double(liveLabel.text!)
-        beerReview["comment"] = commentText.text
-        beerReview.saveInBackgroundWithBlock {
-            (success: Bool, error: NSError?) -> Void in
-            if (success) {
-                // The object has been saved.
-                print("deu")
-            } else {
-                // There was a problem, check error.description
-            }
-        }
-        
-
-        
-    }
-    
-    
-    
-    
-    
-    @IBAction func breweryButton(sender: AnyObject) {
-        //não serve para nada
-    }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         
-        //print(currentObject?.objectForKey("brewery")?.objectId)
         
         if segue.identifier == "segueBeer"{
             if let destination = segue.destinationViewController  as? BreweryVC{
@@ -248,7 +150,7 @@ class BeerProfileVC: UIViewController {
         }
         if segue.identifier == "segueReview"{
             if let destination = segue.destinationViewController as? ReviewVC {
-                destination.currentObjectReview = sender as? PFObject
+                destination.currentObjectReview = (currentObject as? PFObject?)!
             }
             }
     }

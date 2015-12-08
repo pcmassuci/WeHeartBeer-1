@@ -15,9 +15,8 @@ class ReviewVC: UIViewController {
     
     
     @IBOutlet weak var sliderControl: UISlider!
-    @IBOutlet var ratingSegmentedControl: UISegmentedControl!
+    //@IBOutlet var ratingSegmentedControl: UISegmentedControl!
     @IBOutlet var floatRatingView: FloatRatingView!
-    @IBOutlet var liveLabel: UILabel!
     @IBOutlet var updatedLabel: UILabel!
         @IBOutlet weak var commentText: UITextField!
     
