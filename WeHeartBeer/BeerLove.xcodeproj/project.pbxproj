@@ -20,6 +20,7 @@
 		677924B01BF6B9F700B8092B /* SearchVCCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 677924AF1BF6B9F700B8092B /* SearchVCCellTableViewCell.swift */; };
 		677924B21BFA064600B8092B /* RegisterBeerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 677924B11BFA064600B8092B /* RegisterBeerVC.swift */; };
 		67B50AB41C0F0D010032CCCD /* SearchBreweryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67B50AB31C0F0D010032CCCD /* SearchBreweryVC.swift */; };
+		67EE50991C1703F600AAA599 /* PagedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67EE50981C1703F600AAA599 /* PagedViewController.swift */; };
 		67FB0C121C0F6C8700122314 /* SearchTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67FB0C111C0F6C8700122314 /* SearchTVCell.swift */; };
 		67FB0C141C11D31500122314 /* AddBreweryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67FB0C131C11D31500122314 /* AddBreweryVC.swift */; };
 		8502AE6A1BEA66CC00C54142 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8502AE631BEA66CB00C54142 /* Bolts.framework */; };
@@ -101,6 +102,7 @@
 		677924AF1BF6B9F700B8092B /* SearchVCCellTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SearchVCCellTableViewCell.swift; path = ../SearchVCCellTableViewCell.swift; sourceTree = "<group>"; };
 		677924B11BFA064600B8092B /* RegisterBeerVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterBeerVC.swift; sourceTree = "<group>"; };
 		67B50AB31C0F0D010032CCCD /* SearchBreweryVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchBreweryVC.swift; sourceTree = "<group>"; };
+		67EE50981C1703F600AAA599 /* PagedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PagedViewController.swift; sourceTree = "<group>"; };
 		67FB0C111C0F6C8700122314 /* SearchTVCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchTVCell.swift; sourceTree = "<group>"; };
 		67FB0C131C11D31500122314 /* AddBreweryVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddBreweryVC.swift; sourceTree = "<group>"; };
 		8502AE631BEA66CB00C54142 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
@@ -206,6 +208,7 @@
 		63F668AA1BD915F400172050 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				67EE50981C1703F600AAA599 /* PagedViewController.swift */,
 				677924B11BFA064600B8092B /* RegisterBeerVC.swift */,
 				672C62F81BEA5E7200E667C8 /* BreweryVC.swift */,
 				8529B0001C11CE9100A0AAC3 /* UsersBeersVC.swift */,
@@ -520,6 +523,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				67EE50991C1703F600AAA599 /* PagedViewController.swift in Sources */,
 				676250791BF3757300F3BB0D /* UserValidation.swift in Sources */,
 				63F668AC1BD9165800172050 /* ChallengeVC.swift in Sources */,
 				858A7E211BF4AD050070E844 /* BeerDAO.swift in Sources */,
