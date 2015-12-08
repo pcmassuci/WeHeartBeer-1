@@ -217,7 +217,7 @@
                     </connections>
                 </searchDisplayController>
             </objects>
-            <point key="canvasLocation" x="-1920" y="285.75"/>
+            <point key="canvasLocation" x="-1920" y="308.25"/>
         </scene>
         <!--UserProfileVC-->
         <scene sceneID="xL3-zI-QcZ">
@@ -2357,8 +2357,8 @@
         <image name="hopsGreen" width="256" height="256"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="Bfm-Ni-xVL"/>
         <segue reference="gJz-WE-NEo"/>
-        <segue reference="WFq-x6-VBz"/>
         <segue reference="i0O-fM-R0U"/>
     </inferredMetricsTieBreakers>
 </document>
