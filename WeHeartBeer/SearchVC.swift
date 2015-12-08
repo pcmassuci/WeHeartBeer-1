@@ -211,7 +211,7 @@ extension SearchVC: UITableViewDelegate, UITableViewDataSource{
             
             cell.searchImage.image = UIImage(named:"add")
 
-            cell.addBeerLabel?.text = "Adcione cerveja"
+            cell.addBeerLabel?.text = "Adicione cerveja"
         }
         
         return cell

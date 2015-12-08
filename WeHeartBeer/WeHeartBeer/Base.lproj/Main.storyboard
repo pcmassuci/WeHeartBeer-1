@@ -813,7 +813,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HHk-qJ-2DZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-59" y="-134"/>
+            <point key="canvasLocation" x="-78" y="-235.5"/>
         </scene>
         <!--BreweryVC-->
         <scene sceneID="ijd-9h-OhZ">
@@ -1665,19 +1665,19 @@
                                 <exclude reference="bqT-N1-0WV"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="8G7-vV-vl7"/>
-                                <exclude reference="sIu-I3-Zv0"/>
-                                <exclude reference="t4g-aq-4Bv"/>
-                                <exclude reference="vw0-JM-O33"/>
-                                <exclude reference="akH-MJ-Nfr"/>
-                                <exclude reference="yTh-bb-Vgp"/>
+                                <exclude reference="77h-ui-7CG"/>
+                                <exclude reference="ggu-2v-KbZ"/>
+                                <exclude reference="q5A-gm-GzF"/>
                                 <exclude reference="4F0-VT-PBW"/>
                                 <exclude reference="Rpr-2J-gqh"/>
                                 <exclude reference="cgY-OU-IiG"/>
                                 <exclude reference="dZv-KW-0O2"/>
-                                <exclude reference="77h-ui-7CG"/>
-                                <exclude reference="ggu-2v-KbZ"/>
-                                <exclude reference="q5A-gm-GzF"/>
+                                <exclude reference="akH-MJ-Nfr"/>
+                                <exclude reference="yTh-bb-Vgp"/>
+                                <exclude reference="8G7-vV-vl7"/>
+                                <exclude reference="sIu-I3-Zv0"/>
+                                <exclude reference="t4g-aq-4Bv"/>
+                                <exclude reference="vw0-JM-O33"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
@@ -1688,19 +1688,19 @@
                                 <include reference="bqT-N1-0WV"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="8G7-vV-vl7"/>
-                                <include reference="sIu-I3-Zv0"/>
-                                <include reference="t4g-aq-4Bv"/>
-                                <exclude reference="vw0-JM-O33"/>
-                                <include reference="akH-MJ-Nfr"/>
-                                <include reference="yTh-bb-Vgp"/>
+                                <exclude reference="77h-ui-7CG"/>
+                                <include reference="ggu-2v-KbZ"/>
+                                <include reference="q5A-gm-GzF"/>
                                 <include reference="4F0-VT-PBW"/>
                                 <include reference="Rpr-2J-gqh"/>
                                 <include reference="cgY-OU-IiG"/>
                                 <include reference="dZv-KW-0O2"/>
-                                <exclude reference="77h-ui-7CG"/>
-                                <include reference="ggu-2v-KbZ"/>
-                                <include reference="q5A-gm-GzF"/>
+                                <include reference="akH-MJ-Nfr"/>
+                                <include reference="yTh-bb-Vgp"/>
+                                <exclude reference="8G7-vV-vl7"/>
+                                <include reference="sIu-I3-Zv0"/>
+                                <include reference="t4g-aq-4Bv"/>
+                                <exclude reference="vw0-JM-O33"/>
                             </mask>
                         </variation>
                     </view>
@@ -2525,10 +2525,8 @@
         <image name="hopsGreen" width="256" height="256"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="cVS-cp-fur"/>
-        <segue reference="Nlk-Bq-jqI"/>
-        <segue reference="Bfm-Ni-xVL"/>
         <segue reference="i0O-fM-R0U"/>
+        <segue reference="Bfm-Ni-xVL"/>
         <segue reference="gJz-WE-NEo"/>
     </inferredMetricsTieBreakers>
 </document>
