@@ -2108,7 +2108,7 @@
                         <outlet property="ibu" destination="dEG-3f-l3O" id="UxG-aT-zHs"/>
                         <outlet property="nameBeer" destination="zVV-ST-Mzz" id="qIl-0h-r0K"/>
                         <outlet property="style" destination="FHO-pg-PlN" id="eaO-3v-TdL"/>
-                        <segue destination="VcN-tL-zUt" kind="show" id="WFq-x6-VBz"/>
+                        <segue destination="VcN-tL-zUt" kind="show" identifier="successCreate" id="WFq-x6-VBz"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="g2e-OW-aQ5" userLabel="First Responder" sceneMemberID="firstResponder"/>

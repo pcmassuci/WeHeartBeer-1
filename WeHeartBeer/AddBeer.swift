@@ -45,6 +45,14 @@
         
         }
         
+        override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+            if segue.identifier == "successCreate"{
+                if let destination = segue.destinationViewController as? BeerProfileVC {
+                    destination.currentObject = sender as? PFObject
+                }
+            }
+        }
+        
         override func viewWillDisappear(animated: Bool) {
             NSNotificationCenter.defaultCenter().removeObserver(self, name: UIKeyboardWillShowNotification, object: self.view.window)
             NSNotificationCenter.defaultCenter().removeObserver(self, name: UIKeyboardWillHideNotification, object: self.view.window)
@@ -58,16 +66,37 @@
             if self.nameBeer.text != ""{
                     if self.abv.text != ""{
                         if self.style.text != ""{
-                            print("Salvar")
-                            //print(newBeer)
-                            print(self.nameBeer)
-                            print(self.nameBeer.text)
+                            
 
                             BeerServices.saveNewBeer(self.nameBeer.text, abv: self.abv.text, brewery: self.brewery, style: self.style.text, ibu: self.ibu.text, completionHandler: {  (success) -> Void in
                                 
                                 
                                     if success{
-                                        self.alertForUser("Parabéns, cerveja cadastrada com sucesso")
+                                        print("Salvo")
+                                        let query = PFQuery(className:"Beer")
+                                        query.whereKey("name", equalTo:self.nameBeer.text!)
+                                        query.findObjectsInBackgroundWithBlock {
+                                            (objects: [PFObject]?, error: NSError?) -> Void in
+                                            
+                                            if error == nil {
+                                                // The find succeeded.
+                                                print("Successfully retrieved \(objects!.count) scores.")
+                                                // Do something with the found objects
+                                                if let objects = objects {
+                                                    for object in objects {
+                                                        print(object.objectId)
+                                                        self.performSegueWithIdentifier("successCreate", sender:object)
+                                                        
+                                                    }
+                                                }
+                                            } else {
+                                                // Log details of the failure
+                                                print("Error: \(error!) \(error!.userInfo)")
+                                            }
+                                        }
+                                        
+
+                                        //self.alertForUser("Parabéns, cerveja cadastrada com sucesso")
                                     }else{
                                         self.alertForUser("ERRO, CERVEJA NAO CADASTRADA")
                                     }
@@ -142,9 +171,10 @@
         }
         
         func keyboardWillHide(sender: NSNotification) {
-            let userInfo: [NSObject : AnyObject] = sender.userInfo!
-            let keyboardSize: CGSize = userInfo[UIKeyboardFrameBeginUserInfoKey]!.CGRectValue.size
-            self.view.frame.origin.y += keyboardSize.height
+//            let userInfo: [NSObject : AnyObject] = sender.userInfo!
+//            let keyboardSize: CGSize = userInfo[UIKeyboardFrameBeginUserInfoKey]!.CGRectValue.size
+            self.view.frame.origin.y = 0
+                //keyboardSize.height
         }
         func keyboardWillShow(sender: NSNotification) {
             let userInfo: [NSObject : AnyObject] = sender.userInfo!
@@ -155,12 +185,12 @@
             if keyboardSize.height == offset.height {
                 if self.view.frame.origin.y == 0 {
                     UIView.animateWithDuration(0.1, animations: { () -> Void in
-                        self.view.frame.origin.y -= keyboardSize.height
+                        self.view.frame.origin.y -= keyboardSize.height - 70
                     })
                 }
             } else {
                 UIView.animateWithDuration(0.1, animations: { () -> Void in
-                    self.view.frame.origin.y += keyboardSize.height - offset.height
+                    self.view.frame.origin.y += keyboardSize.height - offset.height - 70
                 })
             }
             print(self.view.frame.origin.y)        }

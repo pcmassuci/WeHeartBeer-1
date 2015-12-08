@@ -18,7 +18,7 @@ class AddBreweryVC: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         
         self.navigationController?.navigationBar.hidden = true
-
+        self.nameTextField.delegate = self
         self.addressText.delegate = self
         self.countryTextField.delegate = self
         self.contactTex.delegate = self
@@ -71,11 +71,7 @@ class AddBreweryVC: UIViewController, UITextFieldDelegate {
                                     print("Error: \(error!) \(error!.userInfo)")
                                 }
                             }
-                           // self.alertForUser("Parabéns, cervejaria cadastrada com sucesso")
-                            
-                            
-                            
-                            //self.performSegueWithIdentifier("addBrewToAddBeer", sender: nil)
+                       
                         }else{
                             self.alertForUser("ERRO, CERVEJARIA NÃO CADASTRADA, tente novamente")
                         }
@@ -117,16 +113,17 @@ extension AddBreweryVC{
         self.view.endEditing(true)
     }
     
-    
+        
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         self.view.endEditing(true)
-        return false
+        return true
     }
     
     func keyboardWillHide(sender: NSNotification) {
-        let userInfo: [NSObject : AnyObject] = sender.userInfo!
-        let keyboardSize: CGSize = userInfo[UIKeyboardFrameBeginUserInfoKey]!.CGRectValue.size
-        self.view.frame.origin.y += keyboardSize.height
+        //let userInfo: [NSObject : AnyObject] = sender.userInfo!
+        //let keyboardSize: CGSize = userInfo[UIKeyboardFrameBeginUserInfoKey]!.CGRectValue.size
+        self.view.frame.origin.y = 0
+            //keyboardSize.height
     }
     func keyboardWillShow(sender: NSNotification) {
         let userInfo: [NSObject : AnyObject] = sender.userInfo!
@@ -134,21 +131,25 @@ extension AddBreweryVC{
         let keyboardSize: CGSize = userInfo[UIKeyboardFrameBeginUserInfoKey]!.CGRectValue.size
         let offset: CGSize = userInfo[UIKeyboardFrameEndUserInfoKey]!.CGRectValue.size
         
+    
+            
+        
         if keyboardSize.height == offset.height {
             if self.view.frame.origin.y == 0 {
                 UIView.animateWithDuration(0.1, animations: { () -> Void in
-                    self.view.frame.origin.y -= keyboardSize.height
+                    self.view.frame.origin.y -= keyboardSize.height - 60
                 })
             }
         } else {
             UIView.animateWithDuration(0.1, animations: { () -> Void in
-                self.view.frame.origin.y += keyboardSize.height - offset.height
+                self.view.frame.origin.y = keyboardSize.height - offset.height - 60
             })
         }
         print(self.view.frame.origin.y)        }
-    
-}
-//
+    }
+
+
+
 
 //MARK: - ALERT
 
