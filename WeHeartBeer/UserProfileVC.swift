@@ -33,19 +33,11 @@ class UserProfileVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         if UserServices.loggedUser(){
-        //self.updateData()
-        //self.loginButton.hidden = true
-        
-            self.navigationController?.navigationBar.hidden = true
-
-            //UserServices.loginFaceUser { (success) -> Void in
-             //   if success{
+                    self.navigationController?.navigationBar.hidden = true
               print("deu certo userprofile")
                     
                         self.updateData()
-                    //self.loginButton.hidden = true
-                    
-                    
+                   
                 }else{
               
                     print("deu errado userprofile")

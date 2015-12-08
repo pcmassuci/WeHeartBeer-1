@@ -49,88 +49,33 @@ class BeerProfileVC: UIViewController {
         
         self.navigationController?.navigationBar.hidden = false
         
-        
-        /** Note: With the exception of contentMode, all of these
-        properties can be set directly in Interface builder **/
-        
-        // Required float rating view params
-//        self.floatRatingView.emptyImage = UIImage(named: "hops")
-//        self.floatRatingView.fullImage = UIImage(named: "hopsGreen")
-//        // Optional params
-//        self.floatRatingView.delegate = self
-//        self.floatRatingView.contentMode = UIViewContentMode.ScaleAspectFit
-//        self.floatRatingView.maxRating = 5
-//        self.floatRatingView.minRating = 0
-//        self.floatRatingView.rating = 0
-//        self.floatRatingView.editable = true
-//        self.floatRatingView.halfRatings = true
-//        self.floatRatingView.floatRatings = false
-        
-        // Segmented control init
-        // self.ratingSegmentedControl.selectedSegmentIndex = 1
-        
-        // Labels init
-        // self.liveLabel.text = NSString(format: "%.2f", self.floatRatingView.rating) as String
-        // self.updatedLabel.text = NSString(format: "%.2f", self.floatRatingView.rating) as String
+      
     }
     
-    
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        let stack = self.navigationController?.viewControllers
+        let target = stack![0]
+        self.navigationController?.popToViewController(target, animated: true)
+      
+    }
     
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
-        
-        
-        // Check if user is logged in
-        if UserServices.loggedUser() {
-//            self.floatRatingView.hidden = false
-        }else{
-//            self.floatRatingView.hidden = true
-        }
-        
-        
-        // Pointer for view beer name
-        // let pointerReceive = "cervejum"
-        
-        // BeerServices.findBeerName(pointerReceive) { (beer, success) -> Void in
-        
-        // if success {
-        //    self.beer = beer
-        
-        //Printing beer name
-        //print(self.beer[0])
-        
-        //Self name for view
-        //self.name.text! = self.beer[0].objectForKey("name") as! String!
-        //self.updateData(self.beer[0])
-        // }else{
-        //Warning error
-        // print("Erro, cerveja não encontrada!")
-        //}
-        //  }
+       
     }
+   
     
     // update informations
     func updateData(beer: PFObject?){
         
-        print(beer?.objectForKey("brewery")?.objectId)
-        
-        
-        
-        
-        // print(beer)
         
            self.name.text = beer!.objectForKey("name") as? String
 
         
-        
-
-        // self.brewery.text! = beer.objectForKey("brewery") as! String
-        // self.style.text = beer.objectForKey("Style") as? String
-        // self.ibv.text! = beer.objectForKey("IBV") as! String!
-        
-        // self.pffileToUIImage(beer)
         
         // pegando a foto do parse
         
@@ -153,7 +98,6 @@ class BeerProfileVC: UIViewController {
             print("erro na imagem")
         }
         
-        //self.photo.image = beer.objectForKey("Photo") as? UIImage
         
     }
     
@@ -165,31 +109,12 @@ class BeerProfileVC: UIViewController {
     
     
     
-//    
-//    @IBAction func ratingTypeChanged(sender: UISegmentedControl) {
-//        self.floatRatingView.halfRatings = sender.selectedSegmentIndex==1
-//        self.floatRatingView.floatRatings = sender.selectedSegmentIndex==2
-//    }
-    
-//    // MARK: FloatRatingViewDelegate
-//    
-//    func floatRatingView(ratingView: FloatRatingView, isUpdating rating:Float) {
-//        self.liveLabel.text = NSString(format: "%.2f", self.floatRatingView.rating) as String
-//    }
-//    
-//    func floatRatingView(ratingView: FloatRatingView, didUpdate rating: Float) {
-//        self.updatedLabel.text = NSString(format: "%.2f", self.floatRatingView.rating) as String
-//    }
-    
-    
-    
     
     
     
     
     @IBAction func saveRating(sender: AnyObject) {
         
-        //self.saveData(currentObject)
 
         performSegueWithIdentifier("segueReview", sender: currentObject)
         
