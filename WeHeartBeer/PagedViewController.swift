@@ -9,13 +9,16 @@
 import UIKit
 
 class PagedViewController: UIViewController, UIScrollViewDelegate {
+    
     @IBOutlet weak var pageControl: UIPageControl!
 
     @IBOutlet weak var scrollView: UIScrollView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         //1
-        self.scrollView.frame = CGRectMake(0, 0, self.view.frame.width, self.view.frame.height)
+        //self.scrollView.frame = CGRectMake(0, 0, self.view.frame.width, self.view.frame.height)
+        self.scrollView.frame = CGRectOffset(scrollView.frame, scrollView.contentSize.width, 0)
         let scrollViewWidth:CGFloat = self.scrollView.frame.width
         let scrollViewHeight:CGFloat = self.scrollView.frame.height
        
@@ -33,8 +36,9 @@ class PagedViewController: UIViewController, UIScrollViewDelegate {
         self.scrollView.addSubview(imgTwo)
         self.scrollView.addSubview(imgThree)
         self.scrollView.addSubview(imgFour)
+        
         //4
-        self.scrollView.contentSize = CGSizeMake(self.scrollView.frame.width * 4, self.scrollView.frame.height)
+        self.scrollView.contentSize = CGSizeMake(self.scrollView.frame.width * 4,self.scrollView.frame.height)
         self.scrollView.delegate = self
         self.pageControl.currentPage = 0
         NSTimer.scheduledTimerWithTimeInterval(2, target: self, selector: "moveToNextPage", userInfo: nil, repeats: true)
@@ -43,16 +47,17 @@ class PagedViewController: UIViewController, UIScrollViewDelegate {
         // Do any additional setup after loading the view.
     }
     func scrollViewDidEndDecelerating(scrollView: UIScrollView){
+        
         // Test the offset and calculate the current page after scrolling ends
         let pageWidth:CGFloat = CGRectGetWidth(scrollView.frame)
         let currentPage:CGFloat = floor((scrollView.contentOffset.x-pageWidth/2)/pageWidth)+1
+        
         // Change the indicator
         self.pageControl.currentPage = Int(currentPage);
+        
         // Change the text accordingly
   
-            UIView.animateWithDuration(1.0, animations: { () -> Void in
-                //self.startButton.alpha = 1.0
-            })
+            UIView.animateWithDuration(1.0, animations: {() -> Void in })
         
     }
 
