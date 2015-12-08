@@ -803,7 +803,6 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HHk-qJ-2DZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-78" y="-235.5"/>
             <point key="canvasLocation" x="-60" y="-134.25"/>
         </scene>
         <!--BreweryVC-->
@@ -1150,16 +1149,6 @@
                                 <exclude reference="9bO-Jn-xBN"/>
                                 <exclude reference="Psj-qY-Pun"/>
                                 <exclude reference="XzS-DT-g5H"/>
-                                <exclude reference="7eq-of-3H1"/>
-                                <exclude reference="cPs-Im-1fm"/>
-                                <exclude reference="lD3-RF-ZJO"/>
-                                <exclude reference="rTN-ZS-yGK"/>
-                                <exclude reference="MsD-9e-cHV"/>
-                                <exclude reference="hSx-j9-8ou"/>
-                                <exclude reference="jVx-xN-Rsm"/>
-                                <exclude reference="NHv-CB-v8Z"/>
-                                <exclude reference="TZ7-ov-Bff"/>
-                                <exclude reference="dKX-f2-amL"/>
                                 <exclude reference="1rN-lf-Ucx"/>
                                 <exclude reference="7eq-of-3H1"/>
                                 <exclude reference="QRR-Ze-ZKf"/>
@@ -1200,16 +1189,6 @@
                                 <exclude reference="9bO-Jn-xBN"/>
                                 <include reference="Psj-qY-Pun"/>
                                 <exclude reference="XzS-DT-g5H"/>
-                                <include reference="7eq-of-3H1"/>
-                                <include reference="cPs-Im-1fm"/>
-                                <include reference="lD3-RF-ZJO"/>
-                                <include reference="rTN-ZS-yGK"/>
-                                <include reference="MsD-9e-cHV"/>
-                                <include reference="hSx-j9-8ou"/>
-                                <include reference="jVx-xN-Rsm"/>
-                                <include reference="NHv-CB-v8Z"/>
-                                <include reference="TZ7-ov-Bff"/>
-                                <include reference="dKX-f2-amL"/>
                                 <include reference="1rN-lf-Ucx"/>
                                 <exclude reference="7eq-of-3H1"/>
                                 <include reference="QRR-Ze-ZKf"/>
@@ -2473,8 +2452,6 @@
             <objects>
                 <viewController id="bpt-y3-irq" customClass="PagedViewController" customModule="BeerLove" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="8kv-c5-bAU"/>
-                        <viewControllerLayoutGuide type="bottom" id="f7r-zb-pSx"/>
                         <viewControllerLayoutGuide type="top" id="xET-vm-1iU"/>
                         <viewControllerLayoutGuide type="bottom" id="iYk-fu-WyX"/>
                     </layoutGuides>
@@ -2493,10 +2470,6 @@
                                         <exclude reference="AmH-DS-yVL"/>
                                     </mask>
                                 </variation>
-                                <variation key="heightClass=regular-widthClass=compact" ambiguous="YES">
-                                    <rect key="frame" x="0.0" y="0.0" width="326" height="458"/>
-                                    <mask key="subviews">
-                                        <include reference="Ssa-mq-s4L"/>
                                 <variation key="heightClass=regular-widthClass=compact">
                                     <mask key="constraints">
                                         <include reference="AmH-DS-yVL"/>
@@ -2567,7 +2540,6 @@
         <image name="hopsGreen" width="256" height="256"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="i0O-fM-R0U"/>
         <segue reference="Bfm-Ni-xVL"/>
         <segue reference="gJz-WE-NEo"/>
         <segue reference="i0O-fM-R0U"/>
