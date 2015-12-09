@@ -23,6 +23,8 @@ class ReviewVC: UIViewController {
     var user = User.currentUser()
     var currentObjectReview: PFObject?
     var reviewObject:PFObject!
+    
+    var state = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,7 +50,12 @@ class ReviewVC: UIViewController {
     
     
     @IBAction func saveReview(sender: AnyObject) {
-        saveData(currentObjectReview)
+        
+        //if self.state == false {
+            saveData(currentObjectReview)
+        //}else{
+          //  updateData(currentObjectReview)
+        //}
         
     }
     
@@ -62,19 +69,36 @@ class ReviewVC: UIViewController {
 
     
     
-    // update informations
-    func updateData(review: PFObject?){
+    func findReview (review: PFObject?) -> Bool {
         
+        let query = PFQuery(className:"Review")
+        query.whereKey("user", equalTo:user!)
+        query.whereKey("beer", equalTo:review!)
+        print(review)
+        self.state = false
         
-        
-        
-       // self.floatRatingView.rating = review!.objectForKey("name") as? String
-        
-
-        
-        
+        query.findObjectsInBackgroundWithBlock {
+            (objects: [PFObject]?, error: NSError?) -> Void in
+            
+            if error == nil {
+                // The find succeeded.
+                print("Successfully retrieved \(objects!.count) scores.")
+                if objects!.count > 0 {
+                    self.reviewObject = objects![0]
+                    
+                    self.commentText.text = self.reviewObject["comment"] as? String
+                    self.floatRatingView.rating = (self.reviewObject["rating"] as? Float)!
+                    self.sliderControl.value = (self.reviewObject["rating"] as? Float)!
+                    self.updatedLabel.text = self.reviewObject["rating"] as? String
+                    
+                    self.state = true
+                    print(self.state)
+                }
+            }
+        }
+        return state
     }
-    
+    //
     
     
     
@@ -97,44 +121,19 @@ class ReviewVC: UIViewController {
             }
         }
         
-        
-        
     }
     
 
-    func findReview (review: PFObject?) -> Bool {
-        
-        let query = PFQuery(className:"Review")
-        query.whereKey("user", equalTo:user!)
-        query.whereKey("beer", equalTo:review!)
-        print(review)
-        var state = false
+    
+    // update informations
+    func updateData(review: PFObject?){
 
-        query.findObjectsInBackgroundWithBlock {
-            (objects: [PFObject]?, error: NSError?) -> Void in
-            
-            if error == nil {
-                // The find succeeded.
-                print("Successfully retrieved \(objects!.count) scores.")
-                if objects!.count > 0 {
-                self.reviewObject = objects![0]
-                // Do something with the found objects
-//                if let objects = objects {
-//                    for object in objects {
-//                        print(object.objectId)
-                    //self.updatedLabel.text! = self.reviewObject["rating"] as! String
-                    self.commentText.text = self.reviewObject["comment"] as? String
-                    
-
-                   state = true
-                    print(state)
-                }
-            }
-        }
-        
-        return state
 
     }
+    
+    
+    
+
     
 }
 
