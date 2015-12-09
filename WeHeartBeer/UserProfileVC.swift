@@ -33,7 +33,9 @@ class UserProfileVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         if UserServices.loggedUser(){
-                    self.navigationController?.navigationBar.hidden = true
+                    self.navigationController?.navigationBar.hidden = false
+                    self.navigationItem.hidesBackButton =  true
+            
               print("deu certo userprofile")
                     
                         self.updateData()

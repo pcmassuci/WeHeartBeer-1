@@ -201,6 +201,8 @@ extension SearchVC: UITableViewDelegate, UITableViewDataSource{
         }
             
         else{
+            
+            self.resultsTable.rowHeight = 100
             cell.resutLabel.hidden = true
             
             cell.brewery.hidden = true
@@ -209,9 +211,10 @@ extension SearchVC: UITableViewDelegate, UITableViewDataSource{
             
             cell.addBeerLabel.hidden = false
             
-            cell.searchImage.image = UIImage(named:"add")
+            cell.searchImage.image = UIImage(named:"BeerAdd")
+            //cell.searchImage.sizeToFit()
 
-            cell.addBeerLabel?.text = "Adicione cerveja"
+            cell.addBeerLabel?.text = "Parece que essa cerveja não está registrada ainda. Você pode adicioná-la agora!"
         }
         
         return cell
