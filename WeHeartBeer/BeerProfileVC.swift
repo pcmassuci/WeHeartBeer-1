@@ -53,12 +53,6 @@ class BeerProfileVC: UIViewController {
 
     }
     
-    func tappedLabel(){
-        print("touched")
-        self.performSegueWithIdentifier("segueBrewery", sender: nil)
-        
-    }
-    
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)

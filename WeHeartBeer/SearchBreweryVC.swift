@@ -28,10 +28,11 @@ class SearchBreweryVC: UIViewController {
         
         override func viewDidLoad() {
             super.viewDidLoad()
+            self.controller.searchBar.barTintColor = UIColor(red: 0.16, green: 0.68, blue: 0.62, alpha: 1.0)
+            self.controller.searchBar.tintColor = UIColor(white: 1, alpha: 1)
             
-            
-            
-            //  searchTypeText.hidden = false
+            let view: UIView = self.controller.searchBar.subviews[0]
+            let subViewsArray = view.subviews
             
             
             //setting delegates
@@ -42,7 +43,7 @@ class SearchBreweryVC: UIViewController {
             self.controller.delegate = self
             self.controller.searchBar.delegate = self
             self.definesPresentationContext = true
-//            self.navigationController?.navigationBar.hidden = false
+
 
             // default text for search tab
             // searchTypeText.text = "Faça sua pesquisa por Cervejas"
@@ -68,6 +69,7 @@ class SearchBreweryVC: UIViewController {
             super.viewWillAppear(animated)
             //Hide NavigationController
             self.navigationController?.navigationBar.hidden = false
+            controller.searchBar.resignFirstResponder()
         }
         
     
@@ -156,41 +158,7 @@ extension SearchBreweryVC:   UITableViewDelegate, UITableViewDataSource{
 //MARK: Search Methods
 extension SearchBreweryVC: UISearchResultsUpdating, UISearchBarDelegate, UISearchControllerDelegate{
     
-    //Update controller as it changes
-    func updateSearchResultsForSearchController(searchController: UISearchController) {
-        
-        // To avoid querying results based on one or two letters
-        if(controller.searchBar.text?.characters.count > 2){
-            
-            // Query objects matching their names with text imput - regex for case insensitivity
-            let query = PFQuery(className: "Brewery").whereKey("name", matchesRegex: controller.searchBar.text!, modifiers: "i")
-            
-            // Alphabetical order
-            query.orderByAscending("name")
-            
-            // Get query objects and save them in resultsList array
-            query.findObjectsInBackgroundWithBlock { (results: [PFObject]?,error: NSError?) -> Void in
-                
-                if (error == nil) {
-                    
-                    self.resultsList = results
-                    self.resultsTable.reloadData()
-                    
-                } else {
-                    // Log details of the failure
-                    print("search query error: \(error) \(error!.userInfo)")
-                    
-                }
-            }
-        }
-        else { // If the user taps the clear button or erase the text imput
-            
-            self.resultsList = nil // Clean Query
-            self.resultsTable.reloadData()
-            
-        }
-    }
-    //behaviour when search starts
+       //behaviour when search starts
     func searchBarTextDidBeginEditing(searchBar: UISearchBar) {
         
         // searchTypeText.hidden = true //hides default message
@@ -213,8 +181,7 @@ extension SearchBreweryVC: UISearchResultsUpdating, UISearchBarDelegate, UISearc
     func searchBarSearchButtonClicked(searchBar: UISearchBar) {
         
         controller.searchBar.showsCancelButton = false //dismiss cancel button
-        controller.searchBar.text = ""  //clears text field
-        
+                
         // Dismiss the keyboard
         controller.searchBar.resignFirstResponder()
         
@@ -244,6 +211,42 @@ extension SearchBreweryVC: UISearchResultsUpdating, UISearchBarDelegate, UISearc
         self.resultsTable.reloadData()
     }
     
+    //Update controller as it changes
+    func updateSearchResultsForSearchController(searchController: UISearchController) {
+        
+        // To avoid querying results based on one or two letters
+        if(controller.searchBar.text?.characters.count > 2){
+            
+            // Query objects matching their names with text imput - regex for case insensitivity
+            let query = PFQuery(className: "Brewery").whereKey("name", matchesRegex: controller.searchBar.text!, modifiers: "i")
+            
+            // Alphabetical order
+            query.orderByAscending("name")
+            
+            // Get query objects and save them in resultsList array
+            query.findObjectsInBackgroundWithBlock { (results: [PFObject]?,error: NSError?) -> Void in
+                
+                if (error == nil) {
+                    
+                    self.resultsList = results
+                    self.resultsTable.reloadData()
+                    
+                } else {
+                    // Log details of the failure
+                    print("search query error: \(error) \(error!.userInfo)")
+                    
+                }
+            }
+        }
+        else { // If the user taps the clear button or erase the text imput
+            
+            if(self.controller.searchBar.text == "" ){
+                self.resultsList = nil // Clean Query
+                self.resultsTable.reloadData()
+            }
+        }
+    }
+
 
 
 }

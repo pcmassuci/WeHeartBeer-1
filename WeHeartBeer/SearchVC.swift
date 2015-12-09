@@ -311,9 +311,6 @@ extension SearchVC:  UISearchResultsUpdating, UISearchBarDelegate, UISearchContr
                 self.resultsList = nil // Clean Query
                 self.resultsTable.reloadData()
             }
-            
-
-            
         }
     }
 
