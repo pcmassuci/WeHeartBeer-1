@@ -11,11 +11,11 @@ import UIKit
 class AddBreweryVC: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var nameTextField: UITextField!
-    @IBOutlet weak var countryTextField: UITextField!
+   // @IBOutlet weak var countryTextField: UITextField!
     @IBOutlet weak var contactTex: UITextField!
     @IBOutlet weak var addressText: UITextField!
-    var pickOption:[String]? = [String]()
-    var i:Int = 0
+    @IBOutlet weak var countryBut: UIButton!
+    var country:String? = ""
 
     override func viewDidLoad() {
        super.viewDidLoad()
@@ -23,7 +23,7 @@ class AddBreweryVC: UIViewController, UITextFieldDelegate {
         self.navigationController?.navigationBar.hidden = true
         self.nameTextField.delegate = self
         self.addressText.delegate = self
-        self.countryTextField.delegate = self
+        //self.countryTextField.delegate = self
         self.contactTex.delegate = self
         self.addressText.delegate = self
         var countries: [String] = []
@@ -33,15 +33,10 @@ class AddBreweryVC: UIViewController, UITextFieldDelegate {
             let name = NSLocale(localeIdentifier: "pt_BR").displayNameForKey(NSLocaleIdentifier, value: id) ?? "Country not found for code: \(code)"
             countries.append(name)
         }
-        self.pickOption = countries.sort()
         
-        print(self.pickOption)
+      
         
         
-        let pickerView = UIPickerView()
-        pickerView.delegate = self
-        
-        self.countryTextField.inputView = pickerView
 
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("keyboardWillShow:"), name:UIKeyboardWillShowNotification, object: self.view.window)
@@ -64,8 +59,8 @@ class AddBreweryVC: UIViewController, UITextFieldDelegate {
     
     @IBAction func saveObject(sender: AnyObject) {
         if self.nameTextField.text != ""{
-            if self.countryTextField.text != ""{
-                    BreweryServices.saveNewBrewery(self.nameTextField.text, local: self.countryTextField.text, contact: self.contactTex.text, address: self.addressText.text!, completionHandler: { (mensage, success) -> Void in
+            if self.country != ""{
+                    BreweryServices.saveNewBrewery(self.nameTextField.text, local: self.country, contact: self.contactTex.text, address: self.addressText.text!, completionHandler: { (mensage, success) -> Void in
                     
                         if success{
                             let query = PFQuery(className:"Brewery")
@@ -121,9 +116,15 @@ class AddBreweryVC: UIViewController, UITextFieldDelegate {
                destination.brewery = (sender) as? Brewery
                 }
             }
+        if segue.identifier == "segueCountry"{
+            if let destination = segue.destinationViewController as? CountriesSearch {
+                destination.delegate = self
+                
+            }
+            
         }
 }
-
+}
 
 //MARK: - KEYBOARDS METHODS
 extension AddBreweryVC{
@@ -181,34 +182,16 @@ extension AddBreweryVC{
     }
    
 }
-extension AddBreweryVC:UIPickerViewDataSource, UIPickerViewDelegate {
+
+extension AddBreweryVC: CountriesSearchDelegate {
     
-    //Set number of components in picker view
-    func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
-        return 1
+    @IBAction func countryList(sender: AnyObject) {
+        performSegueWithIdentifier("segueCountry", sender: nil)
     }
     
-    //Set number of rows in components
-    func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return pickOption!.count
-    }
-    
-    //Set title for each row
-    func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        print(self.pickOption![row])
-        self.i = row
-        return self.pickOption![row]
-        
-    }
-    
-    //Update textfield text when row is selected
-    
-    func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        self.countryTextField.text = self.pickOption![row]
-        self.countryTextField.resignFirstResponder()
-        
-    }
-    
-    
+    func country(nameCountry:String?){
+        self.countryBut.setTitle(nameCountry, forState: UIControlState.Normal)
+         self.country = nameCountry
+        }
     
 }
