@@ -1744,7 +1744,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Para prosseguir é necessário        logar-se pelo facebook" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oel-VX-oGl">
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Para prosseguir é necessário logar-se pelo facebook" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="oel-VX-oGl">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                 <animations/>
@@ -1799,12 +1798,12 @@
                                 <exclude reference="Nad-01-TAe"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="DdS-RJ-i03"/>
-                                <exclude reference="KQc-mb-DH8"/>
-                                <exclude reference="jie-4t-ibd"/>
                                 <exclude reference="KmO-7L-le1"/>
                                 <exclude reference="VkO-FW-guz"/>
                                 <exclude reference="gjL-5x-xrI"/>
+                                <exclude reference="DdS-RJ-i03"/>
+                                <exclude reference="KQc-mb-DH8"/>
+                                <exclude reference="jie-4t-ibd"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
@@ -1813,12 +1812,12 @@
                                 <include reference="Nad-01-TAe"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="DdS-RJ-i03"/>
-                                <include reference="KQc-mb-DH8"/>
-                                <include reference="jie-4t-ibd"/>
                                 <include reference="KmO-7L-le1"/>
                                 <include reference="VkO-FW-guz"/>
                                 <include reference="gjL-5x-xrI"/>
+                                <include reference="DdS-RJ-i03"/>
+                                <include reference="KQc-mb-DH8"/>
+                                <include reference="jie-4t-ibd"/>
                             </mask>
                         </variation>
                     </view>
