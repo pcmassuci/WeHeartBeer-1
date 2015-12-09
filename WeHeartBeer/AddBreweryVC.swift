@@ -14,6 +14,8 @@ class AddBreweryVC: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var countryTextField: UITextField!
     @IBOutlet weak var contactTex: UITextField!
     @IBOutlet weak var addressText: UITextField!
+    var pickOption:[String]? = [String]()
+    var i:Int = 0
 
     override func viewDidLoad() {
        super.viewDidLoad()
@@ -31,10 +33,16 @@ class AddBreweryVC: UIViewController, UITextFieldDelegate {
             let name = NSLocale(localeIdentifier: "pt_BR").displayNameForKey(NSLocaleIdentifier, value: id) ?? "Country not found for code: \(code)"
             countries.append(name)
         }
-        let scoutries = countries.sort()
+        self.pickOption = countries.sort()
         
-        print(scoutries)
+        print(self.pickOption)
         
+        
+        let pickerView = UIPickerView()
+        pickerView.delegate = self
+        
+        self.countryTextField.inputView = pickerView
+
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("keyboardWillShow:"), name:UIKeyboardWillShowNotification, object: self.view.window)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("keyboardWillHide:"), name:UIKeyboardWillHideNotification, object: self.view.window)
@@ -171,6 +179,36 @@ extension AddBreweryVC{
         self.presentViewController(alert, animated: true, completion: nil)
         
     }
+   
+}
+extension AddBreweryVC:UIPickerViewDataSource, UIPickerViewDelegate {
+    
+    //Set number of components in picker view
+    func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    //Set number of rows in components
+    func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return pickOption!.count
+    }
+    
+    //Set title for each row
+    func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        print(self.pickOption![row])
+        self.i = row
+        return self.pickOption![row]
+        
+    }
+    
+    //Update textfield text when row is selected
+    
+    func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        self.countryTextField.text = self.pickOption![row]
+        self.countryTextField.resignFirstResponder()
+        
+    }
+    
     
     
 }
