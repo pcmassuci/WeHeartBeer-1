@@ -14,8 +14,11 @@ class AddBreweryVC: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var countryTextField: UITextField!
     @IBOutlet weak var contactTex: UITextField!
     @IBOutlet weak var addressText: UITextField!
+    var pickOption:[String]? = [String]()
+    var i:Int = 0
 
     override func viewDidLoad() {
+       super.viewDidLoad()
         
         self.navigationController?.navigationBar.hidden = true
         self.nameTextField.delegate = self
@@ -23,9 +26,24 @@ class AddBreweryVC: UIViewController, UITextFieldDelegate {
         self.countryTextField.delegate = self
         self.contactTex.delegate = self
         self.addressText.delegate = self
+        var countries: [String] = []
+        
+        for code in NSLocale.ISOCountryCodes() as [String] {
+            let id = NSLocale.localeIdentifierFromComponents([NSLocaleCountryCode: code])
+            let name = NSLocale(localeIdentifier: "pt_BR").displayNameForKey(NSLocaleIdentifier, value: id) ?? "Country not found for code: \(code)"
+            countries.append(name)
+        }
+        self.pickOption = countries.sort()
+        
+        print(self.pickOption)
         
         
-        super.viewDidLoad()
+        let pickerView = UIPickerView()
+        pickerView.delegate = self
+        
+        self.countryTextField.inputView = pickerView
+
+        
         NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("keyboardWillShow:"), name:UIKeyboardWillShowNotification, object: self.view.window)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("keyboardWillHide:"), name:UIKeyboardWillHideNotification, object: self.view.window)
 
@@ -47,8 +65,8 @@ class AddBreweryVC: UIViewController, UITextFieldDelegate {
     @IBAction func saveObject(sender: AnyObject) {
         if self.nameTextField.text != ""{
             if self.countryTextField.text != ""{
+                    BreweryServices.saveNewBrewery(self.nameTextField.text, local: self.countryTextField.text, contact: self.contactTex.text, address: self.addressText.text!, completionHandler: { (mensage, success) -> Void in
                     
-                    BreweryServices.saveNewBrewery(self.nameTextField.text, local: self.countryTextField.text, contact: self.contactTex.text, address: self.addressText.text!, completionHandler: { (success) -> Void in
                         if success{
                             let query = PFQuery(className:"Brewery")
                             query.whereKey("name", equalTo:self.nameTextField.text!)
@@ -73,7 +91,7 @@ class AddBreweryVC: UIViewController, UITextFieldDelegate {
                             }
                        
                         }else{
-                            self.alertForUser("ERRO, CERVEJARIA NÃO CADASTRADA, tente novamente")
+                            self.alertForUser(mensage)
                         }
                     })
                 
@@ -161,6 +179,36 @@ extension AddBreweryVC{
         self.presentViewController(alert, animated: true, completion: nil)
         
     }
+   
+}
+extension AddBreweryVC:UIPickerViewDataSource, UIPickerViewDelegate {
+    
+    //Set number of components in picker view
+    func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    //Set number of rows in components
+    func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return pickOption!.count
+    }
+    
+    //Set title for each row
+    func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        print(self.pickOption![row])
+        self.i = row
+        return self.pickOption![row]
+        
+    }
+    
+    //Update textfield text when row is selected
+    
+    func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        self.countryTextField.text = self.pickOption![row]
+        self.countryTextField.resignFirstResponder()
+        
+    }
+    
     
     
 }
