@@ -49,7 +49,7 @@ class BreweryVC: UIViewController {
         print(currentBrewery?.objectId)
         listOfProducts.delegate = self
         listOfProducts.dataSource = self
-        
+        listOfProducts.tableFooterView = UIView(frame: CGRect.zero)
         
         // Do any additional setup after loading the view.
     }
