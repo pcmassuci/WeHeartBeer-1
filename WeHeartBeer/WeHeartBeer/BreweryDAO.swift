@@ -16,27 +16,40 @@ class BreweryDAO {
     
     
     
-    
+    typealias createBreweryCH = (mensage:String, success:Bool)->Void
     typealias FindObjectsCompletionHandler = (brewery:[Brewery]?,success:Bool) -> Void
     typealias FindObjIDCompletionHandler = (brewery:Brewery?,success:Bool) -> Void
     typealias RegisterBeerCH = (success:Bool)->Void
 
     
-    static func createBrewery(name:String, contact:String,local:String,address:String, completionHandler: RegisterBeerCH){
-        let newBrewery = PFObject(className:"Brewery")
-        newBrewery["contact"] = contact
-        newBrewery["name"] = name
-        newBrewery["local"] = local
-        newBrewery["address"] = address
-        newBrewery.saveInBackgroundWithBlock {
-            (success: Bool, error: NSError?) -> Void in
-            if (success) {
-                completionHandler(success: true)// The object has been saved.
-            } else {
-                completionHandler(success: false)
-                // There was a problem, check error.description
+    static func createBrewery(name:String, contact:String,local:String,address:String, completionHandler: createBreweryCH){
+
+        self.findBrewery(name) { (brewery, success) -> Void in
+            if success {
+                let userMensage = "Cervejaria já cadatrada"
+                completionHandler(mensage: userMensage, success: false)
+                
+            }else{
+                        print("nao Existe")
+                        let newBrewery = PFObject(className:"Brewery")
+                        newBrewery["contact"] = contact
+                        newBrewery["name"] = name
+                        newBrewery["local"] = local
+                        newBrewery["address"] = address
+                        newBrewery.saveInBackgroundWithBlock {
+                            (success: Bool, error: NSError?) -> Void in
+                            if (success) {
+                                let userMensage = "Cervejaria cadatrada com sucesso"
+                                completionHandler(mensage: userMensage, success: true)
+                            } else {
+                                let userMensage = "Cervejaria não cadatrada"
+                                completionHandler(mensage: userMensage, success: false)                                // There was a problem, check error.description
+                            }
+                        }
+                
             }
         }
+
     }
     
 

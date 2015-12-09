@@ -18,19 +18,19 @@ class BreweryServices {
     typealias FindObjectsCompletionHandler = (brewerys:[Brewery]?,success:Bool) -> Void
     typealias FindBreweryCompletionHandler = (brewery:[Brewery]?,success:Bool) -> Void
     typealias FindObjIDCompletionHandler = (brewery:Brewery?,success:Bool) -> Void
-    typealias CreateCompletionHaldler = (success:Bool) -> Void
+    typealias CreateCompletionHaldler = (mensage:String,success:Bool) -> Void
 
     
 
     
     static func saveNewBrewery(name:String!, local:String!, contact:String!, address:String, completionHandler: CreateCompletionHaldler){
-        BreweryDAO.createBrewery(name, contact: contact, local: local,address: address) { (success) -> Void in
+        BreweryDAO.createBrewery(name, contact: contact, local: local, address: address) { (mensage, success) -> Void in
             if success {
                 
-                completionHandler(success:true)
+                completionHandler(mensage:mensage, success:true)
                 
             } else {
-                completionHandler(success:false)
+                completionHandler(mensage:mensage, success:false)
                 
             }
         }

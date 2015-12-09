@@ -44,7 +44,7 @@ class BreweryVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+      
         print(currentBrewery)
         print(currentBrewery?.objectId)
         listOfProducts.delegate = self
