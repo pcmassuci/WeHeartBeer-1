@@ -22,24 +22,20 @@ class ReviewVC: UIViewController {
     var beer : [Beer]! = [Beer]()
     var user = User.currentUser()
     var currentObjectReview: PFObject?
-    var reviewObject:PFObject!
+    var reviewObject = PFObject(className:"Review")
     
     var state = false
+    
+    
+    
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
         print("review VC")
         print(currentObjectReview)
-        if self.findReview(currentObjectReview) {
-            updatedLabel.text! = reviewObject["rating"] as! String
-            commentText.text = reviewObject["comment"] as? String
+        self.findReview(currentObjectReview)
 
-            
-        }else{
-            print("teste")
-            
-        }
-        
 
     }
     
@@ -51,11 +47,11 @@ class ReviewVC: UIViewController {
     
     @IBAction func saveReview(sender: AnyObject) {
         
-        //if self.state == false {
+        if self.state == false {
             saveData(currentObjectReview)
-        //}else{
-          //  updateData(currentObjectReview)
-        //}
+        }else{
+            updateData(currentObjectReview)
+        }
         
     }
     
@@ -89,7 +85,7 @@ class ReviewVC: UIViewController {
                     self.commentText.text = self.reviewObject["comment"] as? String
                     self.floatRatingView.rating = (self.reviewObject["rating"] as? Float)!
                     self.sliderControl.value = (self.reviewObject["rating"] as? Float)!
-                    self.updatedLabel.text = self.reviewObject["rating"] as? String
+                    self.updatedLabel.text = String(self.reviewObject["rating"])
                     
                     self.state = true
                     print(self.state)
@@ -105,17 +101,18 @@ class ReviewVC: UIViewController {
     // update informations
     func saveData(beer: PFObject?){
         
-        let beerReview = PFObject(className:"Review")
         
-        beerReview["user"] = user
-        beerReview["beer"] = currentObjectReview
-        beerReview["rating"] = Double(updatedLabel.text!)
-        beerReview["comment"] = commentText.text
-        beerReview.saveInBackgroundWithBlock {
+        
+        reviewObject["user"] = user
+        reviewObject["beer"] = currentObjectReview
+        reviewObject["rating"] = Double(updatedLabel.text!)
+        reviewObject["comment"] = commentText.text
+        reviewObject.saveInBackgroundWithBlock {
             (success: Bool, error: NSError?) -> Void in
             if (success) {
                 // The object has been saved.
                 print("deu")
+                self.state = true
             } else {
                 // There was a problem, check error.description
             }
@@ -129,11 +126,15 @@ class ReviewVC: UIViewController {
     func updateData(review: PFObject?){
 
 
+        
+        reviewObject["user"] = self.user
+        reviewObject["beer"] = self.currentObjectReview
+        reviewObject["rating"] = Double(self.updatedLabel.text!)
+        reviewObject["comment"] = self.commentText.text
+        reviewObject.saveInBackground()
+        
+        
     }
-    
-    
-    
-
     
 }
 
