@@ -28,15 +28,16 @@ class BeerProfileVC: UIViewController {
     @IBOutlet weak var ratingButton: UIButton!
     @IBOutlet var liveLabel: UILabel!
     @IBOutlet var updatedLabel: UILabel!
-    
     @IBOutlet var name: UILabel!
     @IBOutlet var brewery: UILabel!
     @IBOutlet var style: UILabel!
     @IBOutlet var ibv: UILabel!
     @IBOutlet var photo: UIImageView!
+    @IBOutlet weak var brewButton: UIButton!
     
     
     
+
     var beer : [Beer]! = [Beer]()
     var user = PFUser.currentUser()
     var currentObject: PFObject?
@@ -48,16 +49,19 @@ class BeerProfileVC: UIViewController {
         self.updateData(currentObject)
         
         self.navigationController?.navigationBar.hidden = false
+      
 
     }
     
-    
+    func tappedLabel(){
+        print("touched")
+        self.performSegueWithIdentifier("segueBrewery", sender: nil)
+        
+    }
     
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        
-        
         
         // Check if user is logged in
         if UserServices.loggedUser() {
@@ -66,35 +70,16 @@ class BeerProfileVC: UIViewController {
             self.ratingButton.hidden = true
         }
         
-        
-        // Pointer for view beer name
-        // let pointerReceive = "cervejum"
-        
-        // BeerServices.findBeerName(pointerReceive) { (beer, success) -> Void in
-        
-        // if success {
-        //    self.beer = beer
-        
-        //Printing beer name
-        //print(self.beer[0])
-        
-        //Self name for view
-        //self.name.text! = self.beer[0].objectForKey("name") as! String!
-        //self.updateData(self.beer[0])
-        // }else{
-        //Warning error
-        // print("Erro, cerveja não encontrada!")
-        //}
-        //  }
-    }
+           }
     
     // update informations
     func updateData(beer: PFObject?){
-        
         print(beer?.objectForKey("brewery")?.objectId)
-
+        self.name.text = beer!.objectForKey("name") as? String
+       let nameOfBrew = beer!.objectForKey("brewName") as? String
+        self.brewButton.setTitle(nameOfBrew, forState: UIControlState.Normal)
+      
         
-           self.name.text = beer!.objectForKey("name") as? String
 
         
         // pegando a foto do parse
@@ -121,6 +106,10 @@ class BeerProfileVC: UIViewController {
         
     }
     
+    @IBAction func callBrewery(sender: AnyObject) {
+        performSegueWithIdentifier("segueBeer", sender: nil)
+        
+    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
