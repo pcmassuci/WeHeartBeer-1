@@ -1468,22 +1468,12 @@
                                     <color key="titleColor" red="0.1215686275" green="0.12941176469999999" blue="0.14117647059999999" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="189" y="289" width="157" height="30"/>
+                                    <rect key="frame" x="116" y="165" width="157" height="30"/>
                                 </variation>
                                 <connections>
                                     <action selector="callBrewery:" destination="VcN-tL-zUt" eventType="touchUpInside" id="51Y-ph-csc"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cervejaria" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZPN-Wg-hIg">
-                                <rect key="frame" x="-42" y="-21" width="42" height="21"/>
-                                <animations/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="148" y="163" width="198" height="21"/>
-                                </variation>
-                            </label>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -1500,7 +1490,6 @@
                                 <exclude reference="kmi-Bl-hje"/>
                                 <exclude reference="CN7-WT-wDP"/>
                                 <exclude reference="1SG-YO-REY"/>
-                                <exclude reference="ZPN-Wg-hIg"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
@@ -1516,12 +1505,11 @@
                                 <include reference="kmi-Bl-hje"/>
                                 <include reference="CN7-WT-wDP"/>
                                 <include reference="1SG-YO-REY"/>
-                                <include reference="ZPN-Wg-hIg"/>
                             </mask>
                         </variation>
                     </view>
                     <connections>
-                        <outlet property="brewery" destination="ZPN-Wg-hIg" id="wRT-Dn-ijX"/>
+                        <outlet property="brewButton" destination="1SG-YO-REY" id="cMj-Ke-zVd"/>
                         <outlet property="commentText" destination="CN7-WT-wDP" id="0yR-tQ-OUC"/>
                         <outlet property="ibv" destination="tCD-oo-Ve2" id="ggh-Rg-YBF"/>
                         <outlet property="liveLabel" destination="yti-tU-kzy" id="A0V-Tf-o6g"/>
@@ -2506,7 +2494,7 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="Bfm-Ni-xVL"/>
-        <segue reference="Nlk-Bq-jqI"/>
         <segue reference="gJz-WE-NEo"/>
+        <segue reference="i0O-fM-R0U"/>
     </inferredMetricsTieBreakers>
 </document>

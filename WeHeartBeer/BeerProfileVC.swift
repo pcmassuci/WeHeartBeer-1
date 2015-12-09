@@ -28,16 +28,16 @@ class BeerProfileVC: UIViewController {
     @IBOutlet weak var ratingButton: UIButton!
     @IBOutlet var liveLabel: UILabel!
     @IBOutlet var updatedLabel: UILabel!
-    
     @IBOutlet var name: UILabel!
     @IBOutlet var brewery: UILabel!
     @IBOutlet var style: UILabel!
     @IBOutlet var ibv: UILabel!
     @IBOutlet var photo: UIImageView!
-    //@IBOutlet weak var brewButton: UIButton!
+    @IBOutlet weak var brewButton: UIButton!
     
     
     
+
     var beer : [Beer]! = [Beer]()
     var user = PFUser.currentUser()
     var currentObject: PFObject?
@@ -49,13 +49,15 @@ class BeerProfileVC: UIViewController {
         self.updateData(currentObject)
         
         self.navigationController?.navigationBar.hidden = false
-        let tap:UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "labelAction:")
-        self.brewery.addGestureRecognizer(tap)
-      //  tap.delegate = self
+      
 
     }
     
-    
+    func tappedLabel(){
+        print("touched")
+        self.performSegueWithIdentifier("segueBrewery", sender: nil)
+        
+    }
     
     
     override func viewWillAppear(animated: Bool) {
@@ -74,8 +76,8 @@ class BeerProfileVC: UIViewController {
     func updateData(beer: PFObject?){
         print(beer?.objectForKey("brewery")?.objectId)
         self.name.text = beer!.objectForKey("name") as? String
-        self.brewery.text = beer!.objectForKey("brewName") as? String
-        
+       let nameOfBrew = beer!.objectForKey("brewName") as? String
+        self.brewButton.setTitle(nameOfBrew, forState: UIControlState.Normal)
       
         
 
