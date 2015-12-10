@@ -38,7 +38,7 @@ class BeerProfileVC: UIViewController {
     
     
 
-    var beer : [Beer]! = [Beer]()
+  //  var beer : [Beer]! = [Beer]()
     var user = PFUser.currentUser()
     var currentObject: PFObject?
     

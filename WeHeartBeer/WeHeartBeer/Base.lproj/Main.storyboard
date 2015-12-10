@@ -662,6 +662,7 @@
                                 <nil key="highlightedColor"/>
                                 <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
                                     <rect key="frame" x="20" y="36" width="560" height="20.5"/>
+                                    <rect key="frame" x="16" y="16" width="328" height="61"/>
                                 </variation>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dê sua Nota:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ipu-NV-oAm">
@@ -682,6 +683,7 @@
                                 </variation>
                                 <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
                                     <rect key="frame" x="250" y="69" width="99" height="21"/>
+                                    <rect key="frame" x="130" y="90" width="99" height="21"/>
                                     <mask key="constraints">
                                         <include reference="LDo-I6-Flt"/>
                                         <include reference="r7S-WC-H0d"/>
@@ -731,6 +733,7 @@
                                 </userDefinedRuntimeAttributes>
                                 <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
                                     <rect key="frame" x="71" y="108" width="458" height="94.5"/>
+                                    <rect key="frame" x="68" y="129" width="224" height="74"/>
                                 </variation>
                             </view>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="teste" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0hK-2F-lIW">
@@ -957,7 +960,8 @@
                                         <exclude reference="eex-Fy-qgU"/>
                                     </mask>
                                 </variation>
-                                <variation key="heightClass=regular-widthClass=compact">
+                                <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="100" y="10" width="160" height="0.0"/>
                                     <mask key="constraints">
                                         <include reference="Yba-Kh-2Pj"/>
                                         <include reference="eex-Fy-qgU"/>
@@ -970,6 +974,9 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
+                                <variation key="heightClass=regular-widthClass=compact" ambiguous="YES" misplaced="YES">
+                                    <rect key="frame" x="107" y="287.5" width="145.5" height="20.5"/>
+                                </variation>
                             </label>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="pdI-NI-EoT">
                                 <rect key="frame" x="-10" y="-10" width="20" height="20"/>
@@ -984,6 +991,9 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
+                                <variation key="heightClass=regular-widthClass=compact" ambiguous="YES" misplaced="YES">
+                                    <rect key="frame" x="112" y="318" width="136.5" height="13"/>
+                                </variation>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="wIp-DJ-9Je">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
@@ -1027,6 +1037,9 @@
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="16" y="142" width="328" height="119"/>
+                                </variation>
                                 <connections>
                                     <outlet property="dataSource" destination="D0v-rr-m7t" id="T7w-km-fhz"/>
                                     <outlet property="delegate" destination="D0v-rr-m7t" id="ygN-Wl-GxJ"/>
@@ -1038,6 +1051,9 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="28"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
+                                <variation key="heightClass=regular-widthClass=compact" ambiguous="YES" misplaced="YES">
+                                    <rect key="frame" x="58" y="244" width="244.5" height="0.0"/>
+                                </variation>
                             </label>
                         </subviews>
                         <animations/>
@@ -2641,6 +2657,10 @@
                             </mask>
                         </variation>
                     </view>
+                    <connections>
+                        <outlet property="image" destination="m1c-Ju-xTC" id="VFo-pB-jJK"/>
+                        <segue destination="VcN-tL-zUt" kind="show" identifier="challengeToBeer" id="EjL-5R-mtm"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3qu-g4-YMw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -2665,5 +2685,8 @@
         <segue reference="cVS-cp-fur"/>
         <segue reference="i0O-fM-R0U"/>
         <segue reference="gJz-WE-NEo"/>
+        <segue reference="gJz-WE-NEo"/>
+        <segue reference="Nlk-Bq-jqI"/>
+        <segue reference="EjL-5R-mtm"/>
     </inferredMetricsTieBreakers>
 </document>

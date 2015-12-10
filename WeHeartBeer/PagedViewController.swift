@@ -6,6 +6,145 @@
 ////  Copyright © 2015 Fernando H M Bastos. All rights reserved.
 ////
 //
+
+import UIKit
+
+typealias FindObjectsCompletionHandler = (beer:[PFObject]?,success:Bool) -> Void
+typealias FindObjectCompletionHandler = (obj:PFObject?,success:Bool) -> Void
+
+class PagedViewController: UIViewController, UIScrollViewDelegate {
+
+    @IBOutlet weak var image: UIImageView!
+    var feat:PFObject!
+    var object:PFObject!
+    override func viewDidLoad() {
+            super.viewDidLoad()
+//            let tapGestureRecognizer = UITapGestureRecognizer(target:self, action:Selector("imageTapped:"))
+//            self.image.userInteractionEnabled = true
+//            self.image.addGestureRecognizer(tapGestureRecognizer)
+        }
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        self.findFeat { (beer, success) -> Void in
+            if success {
+                self.feat = beer![0]
+                let objectID = self.feat["beer"].objectId
+                self.findBeer(objectID, completionHandler: { (obj, success) -> Void in
+                    if success{
+                        self.object = obj
+                        self.updateData(self.object)
+                        
+                    }
+                })
+             
+                
+            }
+        }
+      
+    }
+    
+    override func didReceiveMemoryWarning() {
+            super.didReceiveMemoryWarning()
+            // Dispose of any resources that can be recreated.
+        }
+
+    func imageTapped(img: AnyObject)
+    {
+      //  print(self.beer)
+    self.performSegueWithIdentifier("challengeToBeer", sender: nil)
+    }
+
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "challengeToBeer"{
+            if let destination = segue.destinationViewController  as? BeerProfileVC{
+                destination.currentObject = self.object
+            }
+        }
+    }
+    
+    func findFeat(completionHandler:FindObjectsCompletionHandler){
+        var query = PFQuery(className:"Featured")
+        query.findObjectsInBackgroundWithBlock { (result:[PFObject]?, error:NSError?) -> Void in
+            if error == nil {
+                if let result = result as? [PFObject]? {
+                    completionHandler(beer: result, success: true)
+                }else{
+                    print("erro dao")
+                    completionHandler(beer:nil,success: false)
+                }
+            }else{
+                print("erro dao 2")
+                completionHandler(beer:nil,success: false)
+            }
+            
+            
+        }
+        
+    }
+    
+    func findBeer(objID: String!, completionHandler:FindObjectCompletionHandler){
+        var query = PFQuery(className:"Beer")
+        query.getObjectInBackgroundWithId(objID) { (result:PFObject?, error:NSError?) -> Void in
+            if error == nil {
+                if let result = result as? PFObject? {
+                    completionHandler(obj: result, success: true)
+                }else{
+                    print("erro dao")
+                    completionHandler(obj:nil,success: false)
+                }
+            }else{
+                print("erro dao 2")
+                completionHandler(obj:nil,success: false)
+            }
+        
+        }
+    }
+    func updateData(beer: PFObject?){
+        
+        // pegando a foto do parse
+        
+        if beer!.objectForKey("Photo") != nil{
+            let userImageFile = beer!.objectForKey("Photo") as! PFFile
+            
+            userImageFile.getDataInBackgroundWithBlock {
+                (imageData: NSData?, error: NSError?) -> Void in
+                if error == nil {
+                    if let imageData = imageData {
+                        let image = UIImage(data:imageData)
+                        self.image.image = image
+                        self.image.contentMode = UIViewContentMode.ScaleAspectFit
+                        let tapGestureRecognizer = UITapGestureRecognizer(target:self, action:Selector("imageTapped:"))
+                        self.image.userInteractionEnabled = true
+                        self.image.addGestureRecognizer(tapGestureRecognizer)
+                        
+                    }else{
+                        print("sem imagem")
+                    }
+                }
+                
+            }
+        }else{
+            print("erro na imagem")
+        }
+        
+        
+    }
+
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+//Gambiarra do Fernando/Julio
 //import UIKit
 //
 //class PagedViewController: UIViewController, UIScrollViewDelegate {
@@ -61,10 +200,7 @@
 //        
 //    }
 //
-//    override func didReceiveMemoryWarning() {
-//        super.didReceiveMemoryWarning()
-//        // Dispose of any resources that can be recreated.
-//    }
+
 //    
 //    func moveToNextPage (){
 //        
