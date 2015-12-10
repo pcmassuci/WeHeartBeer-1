@@ -15,6 +15,7 @@ import ParseFacebookUtilsV4
 
 class UserProfileVC: UIViewController {
     
+    @IBOutlet weak var beerImage: UIImageView!
     
     //teste
     var dict : NSDictionary!
@@ -36,7 +37,10 @@ class UserProfileVC: UIViewController {
                     self.navigationController?.navigationBar.hidden = false
                     self.navigationItem.hidesBackButton =  true
                     self.navigationController?.navigationBar.barTintColor = UIColor(red: 255.0/255.0, green: 192.0/255.0, blue: 3.0/255.0, alpha: 1.0)
-            
+            let tapGestureRecognizer = UITapGestureRecognizer(target:self, action:Selector("imageTapped:"))
+            self.beerImage.userInteractionEnabled = true
+            self.beerImage.addGestureRecognizer(tapGestureRecognizer)
+
               print("deu certo userprofile")
                     
                         self.updateData()
@@ -54,27 +58,12 @@ class UserProfileVC: UIViewController {
     
     
     
-    
-    
-//    @IBAction func loginButton(sender: AnyObject) {
-//        
-//        
-//        
-//        UserServices.loginFaceUser { (success) -> Void in
-//            if success{
-//                print("Deu Certo Atualizar tela!")
-//                self.updateData()
-//                self.loginButton.hidden = true
-//                
-//                
-//            }else{
-//                print("Usuário não encontrado")
-//            }
-//            
-//            
-//        }
-//        
-//    }
+    func imageTapped(img: AnyObject)
+    {
+        //  print(self.beer)
+        self.performSegueWithIdentifier("userBeers", sender: nil)
+    }
+
     
     
     func updateData(){
