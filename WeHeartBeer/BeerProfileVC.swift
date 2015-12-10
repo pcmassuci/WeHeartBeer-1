@@ -17,7 +17,7 @@ class BeerProfileVC: UIViewController {
     
     @IBOutlet weak var saveBeerProfile: UIButton!
     
-    
+   
 
     
     
@@ -31,7 +31,7 @@ class BeerProfileVC: UIViewController {
     @IBOutlet var name: UILabel!
     @IBOutlet var brewery: UILabel!
     @IBOutlet var style: UILabel!
-    @IBOutlet var ibv: UILabel!
+    @IBOutlet var ibv: UILabel! //needs renaming
     @IBOutlet var photo: UIImageView!
     @IBOutlet weak var brewButton: UIButton!
     
@@ -48,8 +48,9 @@ class BeerProfileVC: UIViewController {
         print(currentObject)
         self.updateData(currentObject)
         
+        
         self.navigationController?.navigationBar.hidden = false
-      
+        self.navigationController?.navigationBar.barTintColor = UIColor(red: 255.0/255.0, green: 192.0/255.0, blue: 3.0/255.0, alpha: 1.0)
 
     }
     
@@ -70,6 +71,8 @@ class BeerProfileVC: UIViewController {
     func updateData(beer: PFObject?){
         print(beer?.objectForKey("brewery")?.objectId)
         self.name.text = beer!.objectForKey("name") as? String
+        self.style.text = beer!.objectForKey("Style") as? String
+        self.ibv.text = beer!.objectForKey("ABV") as? String
        let nameOfBrew = beer!.objectForKey("brewName") as? String
         self.brewButton.setTitle(nameOfBrew, forState: UIControlState.Normal)
       

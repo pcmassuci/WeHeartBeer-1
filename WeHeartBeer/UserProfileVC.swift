@@ -35,6 +35,7 @@ class UserProfileVC: UIViewController {
         if UserServices.loggedUser(){
                     self.navigationController?.navigationBar.hidden = false
                     self.navigationItem.hidesBackButton =  true
+                    self.navigationController?.navigationBar.barTintColor = UIColor(red: 255.0/255.0, green: 192.0/255.0, blue: 3.0/255.0, alpha: 1.0)
             
               print("deu certo userprofile")
                     

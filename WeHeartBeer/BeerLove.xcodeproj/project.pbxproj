@@ -218,6 +218,7 @@
 		63F668AA1BD915F400172050 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				674127931C189F0200016D52 /* CountriesSearch.swift */,
 				67EE50981C1703F600AAA599 /* PagedViewController.swift */,
 				677924B11BFA064600B8092B /* RegisterBeerVC.swift */,
 				672C62F81BEA5E7200E667C8 /* BreweryVC.swift */,
@@ -268,7 +269,6 @@
 		8518D13C1BD7B7BC00499ACA = {
 			isa = PBXGroup;
 			children = (
-				674127931C189F0200016D52 /* CountriesSearch.swift */,
 				8518D1471BD7B7BD00499ACA /* WeHeartBeer */,
 				8518D15F1BD7B7BD00499ACA /* WeHeartBeerTests */,
 				8518D16A1BD7B7BD00499ACA /* WeHeartBeerUITests */,

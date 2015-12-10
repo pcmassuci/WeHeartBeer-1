@@ -30,11 +30,12 @@ class SearchVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.controller.searchBar.barTintColor = UIColor(red: 0.16, green: 0.68, blue: 0.62, alpha: 1.0)
+        self.controller.searchBar.barTintColor = UIColor(red: 255.0/255.0, green: 192.0/255.0, blue: 3.0/255.0, alpha: 1.0)
         self.controller.searchBar.tintColor = UIColor(white: 1, alpha: 1)
         
         let view: UIView = self.controller.searchBar.subviews[0]
         let subViewsArray = view.subviews
+        self.navigationController?.navigationBar.barTintColor = UIColor(red: 255.0/255.0, green: 192.0/255.0, blue: 3.0/255.0, alpha: 1.0)
 
         
         //  searchTypeText.hidden = false

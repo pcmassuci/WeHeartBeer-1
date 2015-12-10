@@ -50,6 +50,7 @@ class BreweryVC: UIViewController {
         listOfProducts.delegate = self
         listOfProducts.dataSource = self
         listOfProducts.tableFooterView = UIView(frame: CGRect.zero)
+        self.navigationController?.navigationBar.barTintColor = UIColor(red: 255.0/255.0, green: 192.0/255.0, blue: 3.0/255.0, alpha: 1.0)
         
         // Do any additional setup after loading the view.
     }
@@ -155,8 +156,8 @@ class BreweryVC: UIViewController {
         func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
             let label: UILabel = UILabel()
             label.text = "Cervejas"
-            label.textColor = UIColor.redColor()
-            label.backgroundColor = UIColor.greenColor()
+            label.textColor = UIColor.blackColor()
+            label.backgroundColor = UIColor(red: 255.0/255.0, green: 192.0/255.0, blue: 3.0/255.0, alpha: 1.0)
             
             return label
         }
@@ -189,7 +190,7 @@ class BreweryVC: UIViewController {
                 cell.beersFromBrew?.text = self.beers[indexPath.row].objectForKey("name") as? String
                 //        cell.resutLabel?.text = self.resultsList.objectAtIndex(indexPath.row).objectForKey("name") as? String
             }else{
-                cell.beersFromBrew?.text = "ADICIONAR CARVEJA"
+                cell.beersFromBrew?.text = "Adicionar Nova Cerveja"
                 
             }
             

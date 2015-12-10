@@ -19,13 +19,15 @@ class ChallengeVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.challengeImage.image = UIImage(named:"beer1")
+        self.challengeImage.image = UIImage(named:"now-pouring")
         self.view.addSubview(challengeImage)
         
-        challengeTitle.text = "Challenge 10"
-        challengeDescription.text = "Tomar uma cerveja no Mr.Beer e compartilhar uma foto no facebook com os amigos."
+        challengeTitle.text = "Challenge 1"
+        challengeDescription.text = "Para participar desse challenge você deve experimentar e compartilhar na nossa página 10 estilos diferentes de cerveja. O ganhador irá ganhar uma camiseta exlusiva do BeerLove"
         //challengeDescription.adjustsFontSizeToFitWidth = true
         challengeDescription.sizeToFit()
+        
+        self.navigationController?.navigationBar.barTintColor = UIColor(red: 255.0/255.0, green: 192.0/255.0, blue: 3.0/255.0, alpha: 1.0)
         
         // Do any additional setup after loading the view.
     }
