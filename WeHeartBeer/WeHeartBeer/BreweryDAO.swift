@@ -25,7 +25,8 @@ class BreweryDAO {
     static func createBrewery(name:String, contact:String,local:String,address:String, completionHandler: createBreweryCH){
 
         self.findBrewery(name) { (brewery, success) -> Void in
-            if success {
+            print(brewery?.count)
+            if brewery?.count > 0 {
                 let userMensage = "Cervejaria já cadatrada"
                 completionHandler(mensage: userMensage, success: false)
                 
