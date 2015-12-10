@@ -66,6 +66,10 @@
 		854AAF551BF0BEDF002F405B /* Brewery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 854AAF541BF0BEDF002F405B /* Brewery.swift */; };
 		858A7E211BF4AD050070E844 /* BeerDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858A7E201BF4AD050070E844 /* BeerDAO.swift */; };
 		858A7E231BFDF6190070E844 /* AddBeer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858A7E221BFDF6190070E844 /* AddBeer.swift */; };
+		85FC937A1C190B9400CF59C7 /* UserBeersVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85FC93791C190B9400CF59C7 /* UserBeersVC.swift */; };
+		85FC937C1C190BA500CF59C7 /* UserPlacesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85FC937B1C190BA500CF59C7 /* UserPlacesVC.swift */; };
+		85FC937E1C190BCE00CF59C7 /* UserTrophiesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85FC937D1C190BCE00CF59C7 /* UserTrophiesVC.swift */; };
+		85FC93801C190BE900CF59C7 /* UserFriendsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85FC937F1C190BE900CF59C7 /* UserFriendsVC.swift */; };
 		D246342D1BEBAFBF00CF605D /* FloatRatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D246342C1BEBAFBF00CF605D /* FloatRatingView.swift */; };
 		D24634331BEBC93300CF605D /* BeerProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D24634321BEBC93300CF605D /* BeerProfileVC.swift */; };
 		D2526D7B1BDA56C9003953F9 /* HomepageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2526D7A1BDA56C9003953F9 /* HomepageVC.swift */; };
@@ -157,6 +161,10 @@
 		854AAF541BF0BEDF002F405B /* Brewery.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Brewery.swift; sourceTree = "<group>"; };
 		858A7E201BF4AD050070E844 /* BeerDAO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeerDAO.swift; sourceTree = "<group>"; };
 		858A7E221BFDF6190070E844 /* AddBeer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddBeer.swift; sourceTree = "<group>"; };
+		85FC93791C190B9400CF59C7 /* UserBeersVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserBeersVC.swift; sourceTree = "<group>"; };
+		85FC937B1C190BA500CF59C7 /* UserPlacesVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserPlacesVC.swift; sourceTree = "<group>"; };
+		85FC937D1C190BCE00CF59C7 /* UserTrophiesVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserTrophiesVC.swift; sourceTree = "<group>"; };
+		85FC937F1C190BE900CF59C7 /* UserFriendsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserFriendsVC.swift; sourceTree = "<group>"; };
 		D246342C1BEBAFBF00CF605D /* FloatRatingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FloatRatingView.swift; sourceTree = "<group>"; };
 		D24634321BEBC93300CF605D /* BeerProfileVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeerProfileVC.swift; sourceTree = "<group>"; };
 		D2526D7A1BDA56C9003953F9 /* HomepageVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HomepageVC.swift; path = WeHeartBeer/HomepageVC.swift; sourceTree = "<group>"; };
@@ -222,7 +230,11 @@
 				63F668AB1BD9165800172050 /* ChallengeVC.swift */,
 				D2526D7A1BDA56C9003953F9 /* HomepageVC.swift */,
 				854AAC8D1BEB8CCE002F405B /* SearchVC.swift */,
+				85FC93791C190B9400CF59C7 /* UserBeersVC.swift */,
+				85FC937B1C190BA500CF59C7 /* UserPlacesVC.swift */,
 				858A7E221BFDF6190070E844 /* AddBeer.swift */,
+				85FC937F1C190BE900CF59C7 /* UserFriendsVC.swift */,
+				85FC937D1C190BCE00CF59C7 /* UserTrophiesVC.swift */,
 				67FB0C131C11D31500122314 /* AddBreweryVC.swift */,
 				63710E241C07D6F000E0794A /* FacebookChekinVC.swift */,
 				63072E4E1C0C78DB00A96DCF /* TabBarVC.swift */,
@@ -530,8 +542,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				67EE50991C1703F600AAA599 /* PagedViewController.swift in Sources */,
+				85FC937A1C190B9400CF59C7 /* UserBeersVC.swift in Sources */,
 				676250791BF3757300F3BB0D /* UserValidation.swift in Sources */,
 				63F668AC1BD9165800172050 /* ChallengeVC.swift in Sources */,
+				85FC93801C190BE900CF59C7 /* UserFriendsVC.swift in Sources */,
 				858A7E211BF4AD050070E844 /* BeerDAO.swift in Sources */,
 				63710E251C07D6F000E0794A /* FacebookChekinVC.swift in Sources */,
 				674127981C18A20700016D52 /* CountryCell.swift in Sources */,
@@ -556,6 +570,8 @@
 				677924B01BF6B9F700B8092B /* SearchVCCellTableViewCell.swift in Sources */,
 				854AAC8E1BEB8CCE002F405B /* SearchVC.swift in Sources */,
 				67FB0C121C0F6C8700122314 /* SearchTVCell.swift in Sources */,
+				85FC937C1C190BA500CF59C7 /* UserPlacesVC.swift in Sources */,
+				85FC937E1C190BCE00CF59C7 /* UserTrophiesVC.swift in Sources */,
 				854AAF511BF0BEAE002F405B /* BreweryServices.swift in Sources */,
 				63072E4F1C0C78DB00A96DCF /* TabBarVC.swift in Sources */,
 				8518D1491BD7B7BD00499ACA /* AppDelegate.swift in Sources */,
