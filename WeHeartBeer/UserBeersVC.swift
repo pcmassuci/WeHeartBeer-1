@@ -7,7 +7,14 @@
 //
 
 import UIKit
+import Foundation
 
 class UserBeersVC: UIViewController {
-
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.navigationController?.navigationBar.hidden = false
+    }
+    
+    
 }

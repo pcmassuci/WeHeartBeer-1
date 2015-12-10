@@ -556,10 +556,10 @@
             </objects>
             <point key="canvasLocation" x="-2316" y="2421.75"/>
         </scene>
-        <!--Users BeersVC-->
+        <!--User BeersVC-->
         <scene sceneID="hCi-zL-UvL">
             <objects>
-                <viewController id="j4j-fw-IfS" customClass="UsersBeersVC" customModule="BeerLove" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="j4j-fw-IfS" customClass="UserBeersVC" customModule="BeerLove" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="5MJ-bg-FiA"/>
                         <viewControllerLayoutGuide type="bottom" id="Zeg-Jn-J25"/>
@@ -641,7 +641,7 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                                 <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="16" y="80" width="328" height="41"/>
+                                    <rect key="frame" x="16" y="16" width="328" height="61"/>
                                 </variation>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dê sua Nota:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ipu-NV-oAm">
@@ -661,7 +661,7 @@
                                     </mask>
                                 </variation>
                                 <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="130" y="134" width="99" height="21"/>
+                                    <rect key="frame" x="130" y="90" width="99" height="21"/>
                                     <mask key="constraints">
                                         <include reference="LDo-I6-Flt"/>
                                         <include reference="r7S-WC-H0d"/>
@@ -709,7 +709,7 @@
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="editable" value="NO"/>
                                 </userDefinedRuntimeAttributes>
                                 <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="67" y="173" width="226" height="30"/>
+                                    <rect key="frame" x="68" y="129" width="224" height="74"/>
                                 </variation>
                             </view>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="teste" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0hK-2F-lIW">
@@ -930,7 +930,7 @@
                                     </mask>
                                 </variation>
                                 <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="100" y="74" width="160" height="160"/>
+                                    <rect key="frame" x="100" y="10" width="160" height="0.0"/>
                                     <mask key="constraints">
                                         <include reference="Yba-Kh-2Pj"/>
                                         <include reference="eex-Fy-qgU"/>
@@ -1007,7 +1007,7 @@
                                     </tableViewCell>
                                 </prototypes>
                                 <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="16" y="366.5" width="328" height="374.5"/>
+                                    <rect key="frame" x="16" y="142" width="328" height="119"/>
                                 </variation>
                                 <connections>
                                     <outlet property="dataSource" destination="D0v-rr-m7t" id="T7w-km-fhz"/>
@@ -2711,7 +2711,7 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="gJz-WE-NEo"/>
-        <segue reference="EjL-5R-mtm"/>
         <segue reference="Nlk-Bq-jqI"/>
+        <segue reference="EjL-5R-mtm"/>
     </inferredMetricsTieBreakers>
 </document>
