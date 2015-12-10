@@ -24,7 +24,10 @@ class UserProfileVC: UIViewController {
     @IBOutlet weak var displayPicture: UIImageView!
     @IBOutlet weak var displayName: UILabel!
     
-
+    @IBOutlet var userBeerLink: UIImageView!
+    @IBOutlet var userTrophiesLink: UIImageView!
+    @IBOutlet var userFriendsLink: UIImageView!
+    @IBOutlet var userPlacesLink: UIImageView!
     
 
     let layer:CGFloat = 7
@@ -40,9 +43,20 @@ class UserProfileVC: UIViewController {
               print("deu certo userprofile")
                     
                         self.updateData()
-                   
+            let tapGesture1 = UITapGestureRecognizer(target: self, action: Selector("imageTapped:"))
+            let tapGesture2 = UITapGestureRecognizer(target: self, action: Selector("imageTapped:"))
+            let tapGesture3 = UITapGestureRecognizer(target: self, action: Selector("imageTapped:"))
+            let tapGesture4 = UITapGestureRecognizer(target: self, action: Selector("imageTapped:"))
+            self.userBeerLink.userInteractionEnabled = true
+            self.userBeerLink.addGestureRecognizer(tapGesture1)
+            self.userTrophiesLink.userInteractionEnabled = true
+            self.userTrophiesLink.addGestureRecognizer(tapGesture2)
+            self.userFriendsLink.userInteractionEnabled = true
+            self.userFriendsLink.addGestureRecognizer(tapGesture3)
+            self.userPlacesLink.userInteractionEnabled  = true
+            self.userPlacesLink.addGestureRecognizer(tapGesture4)
                 }else{
-              
+            
                     print("deu errado userprofile")
 //                    self.tabBarController?.selectedIndex = 0
                 }
@@ -51,9 +65,10 @@ class UserProfileVC: UIViewController {
         //}
        
     }
-    
-    
-    
+  
+    func imageTapped(img:AnyObject){
+        self.performSegueWithIdentifier("underConstruction", sender: nil)
+    }
     
     
 //    @IBAction func loginButton(sender: AnyObject) {
