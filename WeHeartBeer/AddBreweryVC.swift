@@ -16,7 +16,9 @@ class AddBreweryVC: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var addressText: UITextField!
     @IBOutlet weak var countryBut: UIButton!
     var country:String? = ""
-
+    var textFieldHeightSize = 0.0 as CGFloat
+    
+    
     override func viewDidLoad() {
        super.viewDidLoad()
         
@@ -41,6 +43,12 @@ class AddBreweryVC: UIViewController, UITextFieldDelegate {
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("keyboardWillShow:"), name:UIKeyboardWillShowNotification, object: self.view.window)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("keyboardWillHide:"), name:UIKeyboardWillHideNotification, object: self.view.window)
+        
+        let bounds = UIScreen.mainScreen().bounds
+        let width = bounds.size.width
+        let height = bounds.size.height
+        print(width)
+        print(height)
 
         // Do any additional setup after loading the view.
     }
@@ -59,6 +67,14 @@ class AddBreweryVC: UIViewController, UITextFieldDelegate {
     override func viewWillDisappear(animated: Bool) {
         NSNotificationCenter.defaultCenter().removeObserver(self, name: UIKeyboardWillShowNotification, object: self.view.window)
         NSNotificationCenter.defaultCenter().removeObserver(self, name: UIKeyboardWillHideNotification, object: self.view.window)
+    }
+    func textFieldDidBeginEditing(textField: UITextField) {
+      self.textFieldHeightSize =  textField.frame.origin.y
+        
+        
+        //var x = textField.frame.origin.x;
+        
+        //NSLog("x Position is :%f , y position is : %f",x,y);
     }
     
     
@@ -155,9 +171,13 @@ extension AddBreweryVC{
         let keyboardSize: CGSize = userInfo[UIKeyboardFrameBeginUserInfoKey]!.CGRectValue.size
         let offset: CGSize = userInfo[UIKeyboardFrameEndUserInfoKey]!.CGRectValue.size
         
-    
-            
         
+        let bounds = UIScreen.mainScreen().bounds
+        let width = bounds.size.width
+        let height = bounds.size.height
+            
+        if (height - keyboardSize.height) <= self.textFieldHeightSize {
+    
         if keyboardSize.height == offset.height {
             if self.view.frame.origin.y == 0 {
                 UIView.animateWithDuration(0.1, animations: { () -> Void in
@@ -171,7 +191,7 @@ extension AddBreweryVC{
         }
         print(self.view.frame.origin.y)        }
     }
-
+}
 
 
 

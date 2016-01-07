@@ -3005,10 +3005,10 @@
             </objects>
             <point key="canvasLocation" x="-3138" y="1512.75"/>
         </scene>
-        <!--CarouselVC-->
+        <!--Paged View Controller-->
         <scene sceneID="IW9-bz-ixJ">
             <objects>
-                <viewController id="bpt-y3-irq" customClass="CarouselVC" customModule="BeerLove" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="bpt-y3-irq" customClass="PagedViewController" customModule="BeerLove" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="xET-vm-1iU"/>
                         <viewControllerLayoutGuide type="bottom" id="iYk-fu-WyX"/>

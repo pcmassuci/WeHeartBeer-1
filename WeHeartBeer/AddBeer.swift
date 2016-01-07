@@ -41,7 +41,11 @@
             
             NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("keyboardWillShow:"), name:UIKeyboardWillShowNotification, object: self.view.window)
             NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("keyboardWillHide:"), name:UIKeyboardWillHideNotification, object: self.view.window)
-
+            let bounds = UIScreen.mainScreen().bounds
+            let width = bounds.size.width
+            let height = bounds.size.height
+            print(width)
+            print(height)
         
         }
         
