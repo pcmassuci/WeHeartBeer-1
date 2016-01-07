@@ -137,13 +137,6 @@ class PagedViewController: UIViewController, UIScrollViewDelegate {
 
 
 
-
-
-
-
-
-
-
 //Gambiarra do Fernando/Julio
 //import UIKit
 //

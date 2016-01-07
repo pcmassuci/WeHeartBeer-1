@@ -1,0 +1,10 @@
+PODS:
+  - MVCarouselCollectionView (1.0.5)
+
+DEPENDENCIES:
+  - MVCarouselCollectionView (~> 1.0.5)
+
+SPEC CHECKSUMS:
+  MVCarouselCollectionView: 4da0a8d98953c7636e416a573c046ee2742207f1
+
+COCOAPODS: 0.39.0
