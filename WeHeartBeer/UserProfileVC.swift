@@ -38,6 +38,34 @@ class UserProfileVC: UIViewController {
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
+        
+        let parameters = ["fields": "id,birthday,location,locale,hometown,gender, name, picture.type(large), email"]
+        
+        let graphRequest : FBSDKGraphRequest = FBSDKGraphRequest(graphPath: "me",     parameters: parameters)
+        graphRequest.startWithCompletionHandler { (connection, result:AnyObject!, error) -> Void in
+            
+            
+            if ((error) != nil)
+            {
+                // Process error
+                print("Error: \(error)")
+            }
+            else
+            {
+                //get Facebook ID
+                let faceBookID: NSString = result.valueForKey("id") as! NSString
+                //get username
+                // let userName : NSString = result.valueForKey("name") as! NSString
+                //get facebook friends who use app
+                // let friendlist: AnyObject = (result.valueForKey("friends")! as AnyObject)
+                print(faceBookID)
+                //print(friendlist)
+            }
+            
+        }
+    
+
+        
         if UserServices.loggedUser(){
             self.navigationController?.navigationBar.hidden = false
             self.navigationItem.hidesBackButton =  true
@@ -62,6 +90,11 @@ class UserProfileVC: UIViewController {
             performSegueWithIdentifier("segueFacebookCheckin", sender: nil)
         }
     }
+    
+    
+    
+    
+    
     
     
     func beersTapped(img:AnyObject){
