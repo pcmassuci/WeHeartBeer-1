@@ -127,7 +127,7 @@ class BeerProfileVC: UIViewController {
                
                 destination.delegate = self
 
-                _ = self.currentObject?.objectForKey("brewery")?.objectID
+//                _ = self.currentObject?.objectForKey("brewery")?.objectID
                 
                 print(self.currentObject?.objectForKey("brewery"))
                 
