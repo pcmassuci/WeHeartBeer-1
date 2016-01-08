@@ -39,7 +39,8 @@ class UserProfileVC: UIViewController {
         super.viewWillAppear(animated)
         
         
-        let parameters = ["fields": "id,birthday,location,locale,hometown,gender, name, picture.type(large), email"]
+        let parameters = ["fields": "id,birthday,location,locale,hometown,gender, name, picture.type(large), email,friends"]
+        
         
         let graphRequest : FBSDKGraphRequest = FBSDKGraphRequest(graphPath: "me",     parameters: parameters)
         graphRequest.startWithCompletionHandler { (connection, result:AnyObject!, error) -> Void in
@@ -54,10 +55,13 @@ class UserProfileVC: UIViewController {
             {
                 //get Facebook ID
                 let faceBookID: NSString = result.valueForKey("id") as! NSString
+//                let userFriends = result.valueForKey("friends")
+//                print(userFriends)
                 //get username
                 // let userName : NSString = result.valueForKey("name") as! NSString
                 //get facebook friends who use app
-                // let friendlist: AnyObject = (result.valueForKey("friends")! as AnyObject)
+                let friendlist: AnyObject = (result.valueForKey("friends")! as AnyObject)
+                print(friendlist)
                 print(faceBookID)
                 //print(friendlist)
             }
