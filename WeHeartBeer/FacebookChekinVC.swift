@@ -13,13 +13,12 @@ import Parse
 import ParseFacebookUtilsV4
 
 
-
 class FacebookCheckinVC: UIViewController {
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.navigationBar.hidden = true
-
     }
     
     
@@ -28,9 +27,11 @@ class FacebookCheckinVC: UIViewController {
         
         // Check if user is logged in
         if UserServices.loggedUser() {
-            self.performSegueWithIdentifier("userProfileSegue", sender: nil)
+             self.navigationController?.popToRootViewControllerAnimated(true)
         }
     }
+    
+    
     
     @IBAction func loginButton(sender: AnyObject) {
         performLogin()
@@ -38,15 +39,14 @@ class FacebookCheckinVC: UIViewController {
     
     private func performLogin() {
         UserServices.loginFaceUser { (success) -> Void in
+            
             if success {
-                print("Deu Certo facecheckin")
-                self.performSegueWithIdentifier("userProfileSegue", sender: nil)
-            } else {
-                print("cancelar facechekin")
-                
+                self.navigationController?.popToRootViewControllerAnimated(true)
             }
         }
     }
+    
 }
+
 
 

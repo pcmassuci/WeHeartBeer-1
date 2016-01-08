@@ -53,7 +53,8 @@ class ReviewVC: UIViewController {
         }else{
             updateData(currentObjectReview)
         }
-        
+        self.navigationController?.popViewControllerAnimated(true)
+        //popToRootViewControllerAnimated(true)
     }
     
     

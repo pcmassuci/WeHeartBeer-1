@@ -11,4 +11,5 @@
 #import <Bolts/Bolts.h>
 #import <FBSDKLoginKit/FBSDKLoginKit.h>
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
+#import <FBSDKShareKit/FBSDKShareKit.h>
 #import <ParseFacebookUtilsV4/PFFacebookUtils.h>
