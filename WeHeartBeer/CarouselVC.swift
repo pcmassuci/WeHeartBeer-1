@@ -8,11 +8,13 @@
 
 import UIKit
 import MVCarouselCollectionView
+import Foundation
 
-class CarouselVC: UIViewController, MVCarouselCollectionViewDelegate {
+
+class CarouselVC: UIViewController, MVCarouselCollectionViewDelegate{
     
     // Local images
-    let imagePaths = [ "beer1", "beer2", "beer3" ]
+    let imagePaths : [String] = [ "beer1", "beer2", "beer3" ]
     //Or
     //var imagePaths : [String] = []
     
@@ -31,28 +33,32 @@ class CarouselVC: UIViewController, MVCarouselCollectionViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // Do any additional setup after loading the view.
+        
         view.translatesAutoresizingMaskIntoConstraints = false
         
-        // Do any additional setup after loading the view.
         self.pageControl.numberOfPages = imagePaths.count
         
-        //configureCollectionView
-        self.collectionView.selectDelegate = self
-        self.collectionView.imagePaths = imagePaths
-        self.collectionView.commonImageLoader = self.imageLoader
-        //collectionView.maximumZoom = 2.0
-        self.collectionView.reloadData()
+        configureCollectionView()
+        
+//        // Configure collection view
+//        collectionView.selectDelegate = self
+//        collectionView.imagePaths = imagePaths
+//        collectionView.commonImageLoader = self.imageLoader
+//        collectionView.maximumZoom = 2.0
+//        collectionView.reloadData()
+
     }
     
-//    func configureCollectionView() {
-//        
-//        // NOTE: the collectionView IBOutlet class must be declared as MVCarouselCollectionView in Interface Builder, otherwise this will crash.
-//        self.collectionView.selectDelegate = self
-//        self.collectionView.imagePaths = imagePaths
-//        self.collectionView.commonImageLoader = self.imageLoader
-//        //collectionView.maximumZoom = 2.0
-//        self.collectionView.reloadData()
-//    }
+    func configureCollectionView() {
+        
+        // NOTE: the collectionView IBOutlet class must be declared as MVCarouselCollectionView in Interface Builder, otherwise this will crash.
+        collectionView.selectDelegate = self
+        collectionView.imagePaths = imagePaths
+        collectionView.commonImageLoader = self.imageLoader
+        //collectionView.maximumZoom = 2.0
+        collectionView.reloadData()
+    }
     
 //    func addAsChildViewController(parentViewController : UIViewController, attachToView parentView: UIView) {
 //        
@@ -124,6 +130,7 @@ class CarouselVC: UIViewController, MVCarouselCollectionViewDelegate {
 //        self.collectionView.resetZoom()
 //        self.collectionView.scrollToItemAtIndexPath(indexPath, atScrollPosition:UICollectionViewScrollPosition.CenteredHorizontally, animated:false)
 //    }
+    
     
 
 }
