@@ -76,6 +76,79 @@ class CarouselVC: UIViewController, MVCarouselCollectionViewDelegate{
         
     }
     
+    
+    
+//    
+//    func findFeat(completionHandler:FindObjectsCompletionHandler){
+//        var query = PFQuery(className:"Featured")
+//        query.findObjectsInBackgroundWithBlock { (result:[PFObject]?, error:NSError?) -> Void in
+//            if error == nil {
+//                if let result = result as? [PFObject]? {
+//                    completionHandler(beer: result, success: true)
+//                }else{
+//                    print("erro dao")
+//                    completionHandler(beer:nil,success: false)
+//                }
+//            }else{
+//                print("erro dao 2")
+//                completionHandler(beer:nil,success: false)
+//            }
+//            
+//            
+//        }
+//        
+//    }
+//    
+//    func findBeer(objID: String!, completionHandler:FindObjectCompletionHandler){
+//        var query = PFQuery(className:"Beer")
+//        query.getObjectInBackgroundWithId(objID) { (result:PFObject?, error:NSError?) -> Void in
+//            if error == nil {
+//                if let result = result as? PFObject? {
+//                    completionHandler(obj: result, success: true)
+//                }else{
+//                    print("erro dao")
+//                    completionHandler(obj:nil,success: false)
+//                }
+//            }else{
+//                print("erro dao 2")
+//                completionHandler(obj:nil,success: false)
+//            }
+//            
+//        }
+//    }
+//    func updateData(beer: PFObject?){
+//        
+//        // pegando a foto do parse
+//        
+//        if beer!.objectForKey("Photo") != nil{
+//            let userImageFile = beer!.objectForKey("Photo") as! PFFile
+//            
+//            userImageFile.getDataInBackgroundWithBlock {
+//                (imageData: NSData?, error: NSError?) -> Void in
+//                if error == nil {
+//                    if let imageData = imageData {
+//                        let image = UIImage(data:imageData)
+//                        self.image.image = image
+//                        self.image.contentMode = UIViewContentMode.ScaleAspectFit
+//                        let tapGestureRecognizer = UITapGestureRecognizer(target:self, action:Selector("imageTapped:"))
+//                        self.image.userInteractionEnabled = true
+//                        self.image.addGestureRecognizer(tapGestureRecognizer)
+//                        
+//                    }else{
+//                        print("sem imagem")
+//                    }
+//                }
+//                
+//            }
+//        }else{
+//            print("erro na imagem")
+//        }
+//        
+//        
+//    }
+//    
+//}
+    
 //    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
 //        
 //        if segue.identifier == "FullScreenSegue" {
