@@ -14,7 +14,7 @@ import Foundation
 class CarouselVC: UIViewController, MVCarouselCollectionViewDelegate{
     
     // Local images
-    let imagePaths : [String] = [ "beer1", "beer2", "beer3" ]
+    let imagePaths = [ "beer1", "beer2", "beer3" ]
     //Or
     //var imagePaths : [String] = []
     
@@ -41,13 +41,6 @@ class CarouselVC: UIViewController, MVCarouselCollectionViewDelegate{
         
         configureCollectionView()
         
-//        // Configure collection view
-//        collectionView.selectDelegate = self
-//        collectionView.imagePaths = imagePaths
-//        collectionView.commonImageLoader = self.imageLoader
-//        collectionView.maximumZoom = 2.0
-//        collectionView.reloadData()
-
     }
     
     func configureCollectionView() {
@@ -59,28 +52,6 @@ class CarouselVC: UIViewController, MVCarouselCollectionViewDelegate{
         //collectionView.maximumZoom = 2.0
         collectionView.reloadData()
     }
-    
-//    func addAsChildViewController(parentViewController : UIViewController, attachToView parentView: UIView) {
-//        
-//        parentViewController.addChildViewController(self)
-//        self.didMoveToParentViewController(parentViewController)
-//        parentView.addSubview(self.view)
-//        self.autoLayout(parentView)
-//    }
-//    
-//    func autoLayout(parentView: UIView) {
-//        
-//        self.matchLayoutAttribute(.Left, parentView:parentView)
-//        self.matchLayoutAttribute(.Right, parentView:parentView)
-//        self.matchLayoutAttribute(.Bottom, parentView:parentView)
-//        self.matchLayoutAttribute(.Top, parentView:parentView)
-//    }
-//    
-//    func matchLayoutAttribute(attribute : NSLayoutAttribute, parentView: UIView) {
-//        
-//        parentView.addConstraint(
-//            NSLayoutConstraint(item:self.view, attribute:attribute, relatedBy:NSLayoutRelation.Equal, toItem:parentView, attribute:attribute, multiplier:1.0, constant:0))
-//    }
     
     
     // MARK:  MVCarouselCollectionViewDelegate
@@ -123,14 +94,5 @@ class CarouselVC: UIViewController, MVCarouselCollectionViewDelegate{
 //            }
 //        }
 //    }
-//    
-//    // MARK: FullScreenViewControllerDelegate
-//    func willCloseWithSelectedIndexPath(indexPath: NSIndexPath) {
-//        
-//        self.collectionView.resetZoom()
-//        self.collectionView.scrollToItemAtIndexPath(indexPath, atScrollPosition:UICollectionViewScrollPosition.CenteredHorizontally, animated:false)
-//    }
-    
-    
 
 }
