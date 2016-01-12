@@ -106,7 +106,7 @@ class UserDAO {
         
         
         
-        let params = ["fields": "email,first_name,last_name,gender,picture.width(480).height(480)"]
+        let params = ["fields": "email,first_name,last_name,gender,picture.width(480).height(480),id"]
         let graphRequest : FBSDKGraphRequest = FBSDKGraphRequest(graphPath: "me", parameters: params)
         print("asdas")
         
@@ -121,14 +121,15 @@ class UserDAO {
                 user.mail = email
                 
             }
-            
+            let faceID = dict.valueForKey("id") as! String
+            print(faceID)
             let data = NSData(contentsOfURL: NSURL(string: imageURL)!)
             let image = UIImage(data: data!)
             let imageData = UIImageJPEGRepresentation(image!, 0)
             let imageFile = PFFile(name:"profile.png", data:imageData!)
             user.name = name + " " + lastName
             user.photo = imageFile!
-            
+            user.faceID = faceID
             
             
             UserDAO.update(user, completionHandler: { (success) -> Void in

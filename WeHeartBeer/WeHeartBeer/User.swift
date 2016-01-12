@@ -17,6 +17,7 @@ class User : PFUser {
     @NSManaged var birthDate: NSDate
     @NSManaged var photo: PFFile
     @NSManaged var mail: String
+    @NSManaged var faceID: String
     
     
     override class func initialize() {
