@@ -416,6 +416,15 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="add" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y5G-gF-0bT">
+                                <rect key="frame" x="-42" y="-21" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="320" y="151" width="30" height="21"/>
+                                </variation>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -473,6 +482,7 @@
                                 <exclude reference="qAR-Hi-war"/>
                                 <exclude reference="fYd-oY-xZI"/>
                                 <exclude reference="RQe-Yo-kqs"/>
+                                <exclude reference="Y5G-gF-0bT"/>
                             </mask>
                             <mask key="constraints">
                                 <exclude reference="XPa-eh-IlI"/>
@@ -512,6 +522,7 @@
                                 <include reference="qAR-Hi-war"/>
                                 <include reference="fYd-oY-xZI"/>
                                 <include reference="RQe-Yo-kqs"/>
+                                <include reference="Y5G-gF-0bT"/>
                             </mask>
                             <mask key="constraints">
                                 <include reference="XPa-eh-IlI"/>
@@ -2281,6 +2292,7 @@
                     <tabBarItem key="tabBarItem" title="Mais" image="1449598810_plus" id="Nsi-IT-gGN"/>
                     <connections>
                         <segue destination="XJi-gT-Vil" kind="show" id="yke-bM-cTd"/>
+                        <segue destination="p1Q-mH-m2z" kind="show" id="FNH-F6-icH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ewu-vh-cfJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -2297,7 +2309,35 @@
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="9XV-Km-2vf">
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Mt8-kf-TbT">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="nuL-8n-Fda">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="nuL-8n-Fda" id="M7J-nI-liJ">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="20" y="36" width="360" height="701"/>
+                                </variation>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="Mt8-kf-TbT"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular-widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="Mt8-kf-TbT"/>
+                            </mask>
+                        </variation>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="s9p-ov-eYl" userLabel="First Responder" sceneMemberID="firstResponder"/>
