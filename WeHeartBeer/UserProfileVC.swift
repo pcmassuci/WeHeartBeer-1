@@ -68,8 +68,8 @@ class UserProfileVC: UIViewController {
 //            
 //        }
 //tentativa 2
-                getFBTaggableFriends(nil, failureHandler: {(error)
-            in print(error)});
+              //  getFBTaggableFriends(nil, failureHandler: {(error)
+           // in print(error)});
                 if UserServices.loggedUser(){
             self.navigationController?.navigationBar.hidden = false
             self.navigationItem.hidesBackButton =  true
@@ -136,8 +136,8 @@ class UserProfileVC: UIViewController {
 
             }else{
                 //println("fetched user: \(result)")
-                var resultdict = result as! NSDictionary
-                var data : NSArray = resultdict.objectForKey("data") as! NSArray
+                let resultdict = result as! NSDictionary
+                let data : NSArray = resultdict.objectForKey("data") as! NSArray
                 
                 for i in 0..<data.count {
                    let valueDict : NSDictionary = data[i] as! NSDictionary
@@ -151,7 +151,7 @@ class UserProfileVC: UIViewController {
                     //println("URL: \(pictureURL)")
                 }
                 if let after = ((resultdict.objectForKey("paging") as? NSDictionary)?.objectForKey("cursors") as? NSDictionary)?.objectForKey("after") as? String {
-                    self.getFBTaggableFriends(after, failureHandler: {(error) in
+                    self.getFBAppFriends(after, failureHandler: {(error) in
                         print("error")})
                 } else {
                     print("Can't read next!!!")
