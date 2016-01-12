@@ -16,13 +16,23 @@ import ParseFacebookUtilsV4
 
 
 class UserFriendsVC: UIViewController {
+    
+    @IBOutlet weak var tableView: UITableView!
+    
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.tableView.dataSource = self
+        
+        
+    }
 
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
         
-        getFBAppFriends(nil, failureHandler: {(error)
-            in print(error)})
+//        getFBAppFriends(nil, failureHandler: {(error)
+//            in print(error)})
         
         }
 
@@ -76,10 +86,32 @@ class UserFriendsVC: UIViewController {
             
         }
 
-        
+
         
         
         
         
     }
+    
+}
+
+extension UserFriendsVC: UITableViewDataSource , UITableViewDelegate{
+    
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 3
+    }
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        
+        return UITableViewCell()
+    }
+    
+    
+    
+    
+    
 }
