@@ -2208,7 +2208,7 @@
         <!--Mais-->
         <scene sceneID="ztq-Qy-fDA">
             <objects>
-                <viewController id="yRS-pf-69G" sceneMemberID="viewController">
+                <viewController id="yRS-pf-69G" customClass="MoreVC" customModule="BeerLove" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="q0M-jY-90u"/>
                         <viewControllerLayoutGuide type="bottom" id="rSa-eX-vjq"/>
@@ -2279,10 +2279,30 @@
                         </variation>
                     </view>
                     <tabBarItem key="tabBarItem" title="Mais" image="1449598810_plus" id="Nsi-IT-gGN"/>
+                    <connections>
+                        <segue destination="XJi-gT-Vil" kind="show" id="yke-bM-cTd"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ewu-vh-cfJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-5418" y="1512.75"/>
+        </scene>
+        <!--GuidesVC-->
+        <scene sceneID="vV6-1L-RPP">
+            <objects>
+                <viewController id="p1Q-mH-m2z" customClass="GuidesVC" customModule="BeerLove" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="l8c-Mz-LuP"/>
+                        <viewControllerLayoutGuide type="bottom" id="SZn-S7-fMv"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="9XV-Km-2vf">
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="s9p-ov-eYl" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-4750.5" y="1512.75"/>
         </scene>
         <!--Add Beer-->
         <scene sceneID="CzQ-ut-oCK">
@@ -2949,22 +2969,50 @@
             </objects>
             <point key="canvasLocation" x="837" y="2325.75"/>
         </scene>
-        <!--View Controller-->
+        <!--ConfigVC-->
         <scene sceneID="Sxg-Qh-LrP">
             <objects>
-                <viewController id="XJi-gT-Vil" sceneMemberID="viewController">
+                <viewController id="XJi-gT-Vil" customClass="ConfigVC" customModule="BeerLove" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="xkB-Kb-uTI"/>
                         <viewControllerLayoutGuide type="bottom" id="wbU-ug-yYa"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="U0r-PT-EsT">
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="GZP-Oo-p86">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="dfB-8t-sRK">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="dfB-8t-sRK" id="KRM-zM-DB0">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="20" y="66" width="360" height="677"/>
+                                </variation>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="GZP-Oo-p86"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular-widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="GZP-Oo-p86"/>
+                            </mask>
+                        </variation>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hLN-0T-MGB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-4752" y="1512.75"/>
+            <point key="canvasLocation" x="-6075" y="1512.75"/>
         </scene>
         <!--Perfil-->
         <scene sceneID="1hm-lK-Go7">
@@ -3192,7 +3240,52 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2za-Xj-wWP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2328" y="3855"/>
+            <point key="canvasLocation" x="-2634" y="3865.5"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="jx0-tr-I3T">
+            <objects>
+                <viewController id="2p9-dE-Eab" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="8FH-3R-RhN"/>
+                        <viewControllerLayoutGuide type="bottom" id="RDG-M2-GvL"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="a1K-5f-jad">
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="5Zr-9i-PL8">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="0dh-Xw-H5H">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="0dh-Xw-H5H" id="I5E-mD-HFg">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="20" y="84" width="360" height="696"/>
+                                </variation>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="5Zr-9i-PL8"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular-widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="5Zr-9i-PL8"/>
+                            </mask>
+                        </variation>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NSV-Vk-k8R" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1891.5" y="3865.5"/>
         </scene>
     </scenes>
     <resources>
