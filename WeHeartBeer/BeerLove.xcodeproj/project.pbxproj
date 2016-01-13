@@ -11,6 +11,10 @@
 		6333567D1BED151000A71155 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6333567C1BED151000A71155 /* User.swift */; };
 		6333567F1BED154C00A71155 /* UserProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6333567E1BED154C00A71155 /* UserProfileVC.swift */; };
 		63710E251C07D6F000E0794A /* FacebookChekinVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63710E241C07D6F000E0794A /* FacebookChekinVC.swift */; };
+		63D37B3E1C43CFC00040CC52 /* ReviewServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D37B3D1C43CFC00040CC52 /* ReviewServices.swift */; };
+		63D37B421C43D0E50040CC52 /* ReviewDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D37B411C43D0E50040CC52 /* ReviewDAO.swift */; };
+		63D37B441C43D1E00040CC52 /* Review.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D37B431C43D1E00040CC52 /* Review.swift */; };
+		63E504B51C45490200671168 /* ReviewVCCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63E504B41C45490200671168 /* ReviewVCCell.swift */; };
 		63F668AC1BD9165800172050 /* ChallengeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63F668AB1BD9165800172050 /* ChallengeVC.swift */; };
 		672C62F91BEA5E7200E667C8 /* BreweryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 672C62F81BEA5E7200E667C8 /* BreweryVC.swift */; };
 		672C62FB1BEAD2F700E667C8 /* BreweryVCCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 672C62FA1BEAD2F700E667C8 /* BreweryVCCell.swift */; };
@@ -101,6 +105,10 @@
 		6333567C1BED151000A71155 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		6333567E1BED154C00A71155 /* UserProfileVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserProfileVC.swift; sourceTree = "<group>"; };
 		63710E241C07D6F000E0794A /* FacebookChekinVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FacebookChekinVC.swift; sourceTree = "<group>"; };
+		63D37B3D1C43CFC00040CC52 /* ReviewServices.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReviewServices.swift; sourceTree = "<group>"; };
+		63D37B411C43D0E50040CC52 /* ReviewDAO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReviewDAO.swift; sourceTree = "<group>"; };
+		63D37B431C43D1E00040CC52 /* Review.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Review.swift; sourceTree = "<group>"; };
+		63E504B41C45490200671168 /* ReviewVCCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReviewVCCell.swift; sourceTree = "<group>"; };
 		63F668AB1BD9165800172050 /* ChallengeVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ChallengeVC.swift; path = WeHeartBeer/ChallengeVC.swift; sourceTree = "<group>"; };
 		672C62F81BEA5E7200E667C8 /* BreweryVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BreweryVC.swift; path = WeHeartBeer/BreweryVC.swift; sourceTree = "<group>"; };
 		672C62FA1BEAD2F700E667C8 /* BreweryVCCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BreweryVCCell.swift; path = ../BreweryVCCell.swift; sourceTree = "<group>"; };
@@ -259,6 +267,7 @@
 				676250731BF1759300F3BB0D /* BreweryDAO.swift */,
 				676250761BF373AF00F3BB0D /* UserDAO.swift */,
 				858A7E201BF4AD050070E844 /* BeerDAO.swift */,
+				63D37B411C43D0E50040CC52 /* ReviewDAO.swift */,
 			);
 			name = DAO;
 			sourceTree = "<group>";
@@ -343,6 +352,7 @@
 				854AAC8F1BEB8FAA002F405B /* ResultsTableViewCell.swift */,
 				6333567C1BED151000A71155 /* User.swift */,
 				8529AFFB1C10787800A0AAC3 /* ListHeaderCell.swift */,
+				63D37B431C43D1E00040CC52 /* Review.swift */,
 			);
 			name = Objects;
 			sourceTree = "<group>";
@@ -372,6 +382,7 @@
 		D25499C21BF1769300D38C88 /* Parse Services */ = {
 			isa = PBXGroup;
 			children = (
+				63D37B3D1C43CFC00040CC52 /* ReviewServices.swift */,
 			);
 			name = "Parse Services";
 			sourceTree = "<group>";
@@ -395,6 +406,7 @@
 				677924AF1BF6B9F700B8092B /* SearchVCCellTableViewCell.swift */,
 				672C62FA1BEAD2F700E667C8 /* BreweryVCCell.swift */,
 				D246342C1BEBAFBF00CF605D /* FloatRatingView.swift */,
+				63E504B41C45490200671168 /* ReviewVCCell.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -637,8 +649,11 @@
 				854AAC901BEB8FAA002F405B /* ResultsTableViewCell.swift in Sources */,
 				854AAF4B1BED1431002F405B /* Beer.swift in Sources */,
 				8529AFFC1C10787800A0AAC3 /* ListHeaderCell.swift in Sources */,
+				63E504B51C45490200671168 /* ReviewVCCell.swift in Sources */,
 				8518D14B1BD7B7BD00499ACA /* ViewController.swift in Sources */,
 				854AAF551BF0BEDF002F405B /* Brewery.swift in Sources */,
+				63D37B441C43D1E00040CC52 /* Review.swift in Sources */,
+				63D37B421C43D0E50040CC52 /* ReviewDAO.swift in Sources */,
 				6333567D1BED151000A71155 /* User.swift in Sources */,
 				D24634331BEBC93300CF605D /* BeerProfileVC.swift in Sources */,
 				67B50AB41C0F0D010032CCCD /* SearchBreweryVC.swift in Sources */,
@@ -654,6 +669,7 @@
 				85FC937E1C190BCE00CF59C7 /* UserTrophiesVC.swift in Sources */,
 				854AAF511BF0BEAE002F405B /* BreweryServices.swift in Sources */,
 				63072E4F1C0C78DB00A96DCF /* TabBarVC.swift in Sources */,
+				63D37B3E1C43CFC00040CC52 /* ReviewServices.swift in Sources */,
 				8518D1491BD7B7BD00499ACA /* AppDelegate.swift in Sources */,
 				672C62FB1BEAD2F700E667C8 /* BreweryVCCell.swift in Sources */,
 				858A7E231BFDF6190070E844 /* AddBeer.swift in Sources */,

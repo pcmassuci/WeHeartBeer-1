@@ -10,16 +10,21 @@ import UIKit
 import Foundation
 import Parse
 
-class UserBeersVC: UIViewController {
-    
-    
 
-    @IBOutlet weak var nameBeer: UILabel!
+protocol UserBeersVCDelegate{
+    func newReview(objIDUser:PFObject?)
+}
+
+class UserBeersVC: UIViewController {
+    var delegate: UserBeersVCDelegate?
+    
+        
+
     @IBOutlet weak var listOfBeers: UITableView!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
-    
-    var userBeer :Brewery!
-    var currentBeer: PFObject?
+
+    var userBeer = User.currentUser()
+    var currentReview: PFObject?
     var beers:[Beer]! = [Beer]()
     var cellControl: Int = 0
     
@@ -29,9 +34,13 @@ class UserBeersVC: UIViewController {
         self.navigationController?.navigationBar.hidden = false
         self.navigationController?.navigationBar.barTintColor = UIColor(red: 255.0/255.0, green: 192.0/255.0, blue: 3.0/255.0, alpha: 1.0)
         
+        ReviewServices.findReviewfromUser(userBeer!.objectId!) { (Review, success) -> Void in
+            print(Review)
+        }
+    
         
-        print(currentBeer)
-        print(currentBeer?.objectId)
+        print(currentReview)
+        print(currentReview?.objectId)
         listOfBeers.delegate = self
         listOfBeers.dataSource = self
         listOfBeers.tableFooterView = UIView(frame: CGRect.zero)
@@ -40,10 +49,7 @@ class UserBeersVC: UIViewController {
     
     
     
-
-    
-    
-    
+ 
     
     
     override func viewWillAppear(animated: Bool) {
@@ -51,19 +57,19 @@ class UserBeersVC: UIViewController {
         
         
         
-        let pointer :String = (currentBeer?.objectId)! as String
+        /*let pointer :String = (currentReview?.objectId)! as String
         print(pointer)
         self.activityIndicator.startAnimating()
-        BreweryServices.findBreweryObjectID(pointer) { (brewery, success) -> Void in
+        BeerServices.findBeerName(pointer) { (userBeer, success) -> Void in
             //BreweryServices.findBreweryName(pointerReceive) { (brewery, success) -> Void in
             self.activityIndicator.stopAnimating()
             if success {
                 
-                self.brewery = brewery
+                //self.userBeer = self.userBeer
                 
                 
-                print(self.brewery.objectForKey("local") )
-                self.updateData(self.brewery)
+                print(self.userBeer.objectForKey("local") )
+                self.updateData(self.userBeer)
                 
                 
             }else{
@@ -71,30 +77,30 @@ class UserBeersVC: UIViewController {
             }
         }
         
-        
+        */
     }
     
     
     // update labels
-    func updateData(brewery: Brewery){
-        
-        
-        nameBeer.text = brewery.objectForKey("name") as? String
-        
-
-        print(self.currentBeer?.objectId)
-        BeerServices.findBeerFromBrewery(self.currentBeer?.objectId) { (beer, success) -> Void in
-            if success{
-                self.beers = beer
-                print(self.beers)
-                self.listOfBeers.reloadData()
-                
-            }else{
-                print("não conseguiu conectar")
-            }
-        }
-        
-    }
+//    func updateData(UserBeers: User){
+//        
+//        
+//        self.BeersFromUser.text = userBeer!.objectForKey("beer") as? String
+//        
+//print(BeersFromUser.text)
+//        print(self.currentReview?.objectId)
+//        BeerServices.findBeerFromBrewery(self.currentReview?.objectId) { (beer, success) -> Void in
+//            if success{
+//                self.beers = beer
+//                print(self.beers)
+//                self.listOfBeers.reloadData()
+//                
+//            }else{
+//                print("não conseguiu conectar")
+//            }
+//        }
+//        
+//    }
     
     
     
@@ -117,7 +123,7 @@ extension UserBeersVC: UITableViewDataSource, UITableViewDelegate {
     func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         
         
-        return 35
+        return 10
     }
     
     
@@ -149,13 +155,13 @@ extension UserBeersVC: UITableViewDataSource, UITableViewDelegate {
     //Sets the tableview cell and change its info to the correspondent object
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
-        let cell =  listOfBeers.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as! BreweryVCCell
+        let cell =  listOfBeers.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as! ReviewVCCell
         
         let count = self.beers.count
         self.cellControl = count
         
         if indexPath.row < count{
-            cell.beersFromBrew?.text = self.beers[indexPath.row].objectForKey("name") as? String
+            cell.beersFromUser?.text = self.beers[indexPath.row].objectForKey("user") as? String
             //        cell.resutLabel?.text = self.resultsList.objectAtIndex(indexPath.row).objectForKey("name") as? String
             
         }
@@ -168,17 +174,15 @@ extension UserBeersVC: UITableViewDataSource, UITableViewDelegate {
     
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        //            print("valor do obejto")
-        //            print(self.beers[indexPath.row])
-        
+
         print(self.cellControl)
         print(indexPath.row)
         if (indexPath.row == cellControl) {
-            self.performSegueWithIdentifier("segueToAddBeer", sender: self)
+            //self.performSegueWithIdentifier("segueToAddBeer", sender: self)
             
             
         }else{
-            delegate?.newBeer(self.beers[indexPath.row])
+            delegate?.newReview(self.beers[indexPath.row])
             if let navController = self.navigationController {
                 navController.popViewControllerAnimated(true)
             }else{

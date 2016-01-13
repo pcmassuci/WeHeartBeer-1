@@ -60,10 +60,17 @@ class UserProfileVC: UIViewController {
                 //get username
                 // let userName : NSString = result.valueForKey("name") as! NSString
                 //get facebook friends who use app
+                if result.valueForKey("friends") != nil {
+                    
+                
                 let friendlist: AnyObject = (result.valueForKey("friends")! as AnyObject)
                 print(friendlist)
                 print(faceBookID)
                 //print(friendlist)
+            }
+                else{
+                    print("sem amigos")
+                }
             }
             
         }
