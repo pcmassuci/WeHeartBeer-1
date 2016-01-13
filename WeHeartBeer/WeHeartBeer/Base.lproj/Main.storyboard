@@ -1419,6 +1419,9 @@
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
+                                                    <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                                        <rect key="frame" x="18" y="13" width="204" height="18"/>
+                                                    </variation>
                                                 </label>
                                             </subviews>
                                             <constraints>
@@ -2283,6 +2286,8 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Mais" image="1449598810_plus" id="Nsi-IT-gGN"/>
                     <connections>
+                        <outlet property="optionsMore" destination="SFi-7g-sV1" id="F8A-jd-gV0"/>
+                        <outlet property="titleMore" destination="Mar-p6-VRn" id="Vmx-Cu-UDn"/>
                         <segue destination="XJi-gT-Vil" kind="show" id="yke-bM-cTd"/>
                         <segue destination="p1Q-mH-m2z" kind="show" id="FNH-F6-icH"/>
                     </connections>
@@ -3092,8 +3097,7 @@
                                         <exclude reference="Unw-To-Byp"/>
                                     </mask>
                                 </variation>
-                                <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="161" y="224" width="39" height="37"/>
+                                <variation key="heightClass=regular-widthClass=compact">
                                     <mask key="constraints">
                                         <exclude reference="Unw-To-Byp"/>
                                     </mask>
