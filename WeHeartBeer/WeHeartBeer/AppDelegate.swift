@@ -45,6 +45,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         Brewery.registerSubclass()
         Beer.registerSubclass()
         User.registerSubclass()
+        Review.registerSubclass()
         
         return FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
         

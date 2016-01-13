@@ -43,7 +43,7 @@ class UserBeersVC: UIViewController {
         print(currentReview?.objectId)
         listOfBeers.delegate = self
         listOfBeers.dataSource = self
-        listOfBeers.tableFooterView = UIView(frame: CGRect.zero)
+        listOfBeers.tableHeaderView = UIView(frame: CGRect.zero)
         self.navigationController?.navigationBar.barTintColor = UIColor(red: 255.0/255.0, green: 192.0/255.0, blue: 3.0/255.0, alpha: 1.0)
     }
     
@@ -57,27 +57,27 @@ class UserBeersVC: UIViewController {
         
         
         
-        /*let pointer :String = (currentReview?.objectId)! as String
-        print(pointer)
-        self.activityIndicator.startAnimating()
-        BeerServices.findBeerName(pointer) { (userBeer, success) -> Void in
-            //BreweryServices.findBreweryName(pointerReceive) { (brewery, success) -> Void in
-            self.activityIndicator.stopAnimating()
-            if success {
-                
-                //self.userBeer = self.userBeer
-                
-                
-                print(self.userBeer.objectForKey("local") )
-                self.updateData(self.userBeer)
-                
-                
-            }else{
-                //colocar aviso de erro para o usuário
-            }
-        }
+//        let pointer :String = (currentReview?.objectId)! as String
+//        print(pointer)
+//        self.activityIndicator.startAnimating()
+//        BeerServices.findBeerName(pointer) { (userBeer, success) -> Void in
+//            //BreweryServices.findBreweryName(pointerReceive) { (brewery, success) -> Void in
+//            self.activityIndicator.stopAnimating()
+//            if success {
+//                
+//                //self.userBeer = self.userBeer
+//                
+//                
+//                print(self.userBeer!.objectForKey("user") )
+//              //  self.updateData(self.userBeer)
+//                
+//                
+//            }else{
+//                //colocar aviso de erro para o usuário
+//            }
+//        }
         
-        */
+
     }
     
     

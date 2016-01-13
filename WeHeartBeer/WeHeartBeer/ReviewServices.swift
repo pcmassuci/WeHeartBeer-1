@@ -18,8 +18,6 @@ class ReviewServices: UIViewController {
     typealias FindObjIDCompletionHandler = (review:[Review]?,success:Bool) -> Void
     typealias CreateCompletionHaldler = (success:Bool) -> Void
     
-    
-    //typealias FindObjIDCompletionHandler = (brewery:Brewery?,success:Bool) -> Void
 
 
     

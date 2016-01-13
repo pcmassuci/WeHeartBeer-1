@@ -15,12 +15,12 @@ class ReviewDAO: UIViewController {
     typealias FindObjectsCompletionHandler = (review:[Review]?,success:Bool) -> Void
     typealias RegisterReviewCH = (success:Bool)->Void
     
-    //typealias CreateCompletionHaldler = (beer:Beer?,success:Bool) -> Void
+    typealias CreateCompletionHaldler = (beer:Beer?,success:Bool) -> Void
     
     
     
     
-    // find beer from brewery,using CH, send a brewery name from parse return objects Beer
+    // find beer from user,using CH, send a user from parse return objects Beer
     static func findReviewFromUser(User:String,completionHandler:FindObjectsCompletionHandler){
         
         let userObject = PFUser.objectWithoutDataWithObjectId(User)
