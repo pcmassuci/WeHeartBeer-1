@@ -60,12 +60,15 @@ extension UserAddAppFriendsVC: UITableViewDataSource , UITableViewDelegate{
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         print(indexPath.row)
+        let cell =  tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as! UserAppCell
+        
         if indexPath.row == (self.countFriends){
-            
+            cell.name.text = "adicione um amigo"
         }else{
+            cell.name.text = self.testeArray[indexPath.row]
             
         }
-        return UITableViewCell()
+        return cell
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
