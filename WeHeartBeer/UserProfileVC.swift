@@ -70,16 +70,18 @@ class UserProfileVC: UIViewController {
 //tentativa 2
               //  getFBTaggableFriends(nil, failureHandler: {(error)
            // in print(error)});
-                if UserServices.loggedUser(){
+        
+        
+        if UserServices.loggedUser(){
             self.navigationController?.navigationBar.hidden = false
             self.navigationItem.hidesBackButton =  true
             self.navigationController?.navigationBar.barTintColor = UIColor(red: 255.0/255.0, green: 192.0/255.0, blue: 3.0/255.0, alpha: 1.0)
             
             print("deu certo userprofile")
-                    getFBAppFriends(nil, failureHandler: {(error)
-                        in print(error)});
-                    
-
+            getFBAppFriends(nil, failureHandler: {(error)
+                in print(error)});
+            
+            
             self.updateData()
             let tapGesture1 = UITapGestureRecognizer(target: self, action: Selector("beersTapped:"))
             let tapGesture2 = UITapGestureRecognizer(target: self, action: Selector("imageTapped:"))
@@ -116,7 +118,7 @@ class UserProfileVC: UIViewController {
     
     // pegar amigos que usam o app
     func getFBAppFriends(nextCursor : String?, failureHandler: (error: NSError) -> Void) {
-       
+        
         let qry = "/me/friends"
         var parameters = Dictionary<String, String>() as? Dictionary
         if nextCursor == nil {
@@ -133,19 +135,19 @@ class UserProfileVC: UIViewController {
             if (error) != nil{
                 // Process error
                 print("Error: \(error)")
-
+                
             }else{
                 //println("fetched user: \(result)")
                 let resultdict = result as! NSDictionary
                 let data : NSArray = resultdict.objectForKey("data") as! NSArray
                 
                 for i in 0..<data.count {
-                   let valueDict : NSDictionary = data[i] as! NSDictionary
-//                    let id = valueDict.objectForKey("id") as! String
+                    let valueDict : NSDictionary = data[i] as! NSDictionary
+                    //                    let id = valueDict.objectForKey("id") as! String
                     let name = valueDict.objectForKey("name") as! String
-//                    let pictureDict = valueDict.objectForKey("picture") as! NSDictionary
-//                    let pictureData = pictureDict.objectForKey("data") as! NSDictionary
-//                    let pictureURL = pictureData.objectForKey("url") as! String
+                    //                    let pictureDict = valueDict.objectForKey("picture") as! NSDictionary
+                    //                    let pictureData = pictureDict.objectForKey("data") as! NSDictionary
+                    //                    let pictureURL = pictureData.objectForKey("url") as! String
                     print("Name: \(name)")
                     //println("ID: \(id)")
                     //println("URL: \(pictureURL)")
@@ -157,47 +159,40 @@ class UserProfileVC: UIViewController {
                     print("Can't read next!!!")
                 }
             }
-
-                
-                
-                
-            }
             
-            
-            
-            
-            
-            
-//            if error == nil {
-//                var resultdict = result as! NSDictionary
-//                print("Result Dict: \(resultdict)")
-//                var data : NSArray = resultdict.objectForKey("data") as! NSArray
-//                
-//                for i in 0..<data.count {
-//                    let valueDict : NSDictionary = data[i] as! NSDictionary
-//                    let id = valueDict.objectForKey("id") as! String
-//                    print("the id value is \(id)")
-//                }
-//                
-//                if let after = ((resultdict.objectForKey("paging") as? NSDictionary)?.objectForKey("cursors") as? NSDictionary)?.objectForKey("after") as? String {
-//                    self.getFBAppFriends(after, failureHandler: {(error) in
-//                        print("error")})
-//                } else {
-//                    print("Can't read next!!!")
-//                }
-//
-//                
-//                
-//                var friends = resultdict.objectForKey("data") as! NSArray
-//                print("Found \(friends.count) friends")
-//                
-//                print("Friends are : \(result)")
-//            } else {
-//                print("Error Getting Friends \(error)");
-//            }
-//        }
+        }
         
-
+        
+        //            if error == nil {
+        //                var resultdict = result as! NSDictionary
+        //                print("Result Dict: \(resultdict)")
+        //                var data : NSArray = resultdict.objectForKey("data") as! NSArray
+        //
+        //                for i in 0..<data.count {
+        //                    let valueDict : NSDictionary = data[i] as! NSDictionary
+        //                    let id = valueDict.objectForKey("id") as! String
+        //                    print("the id value is \(id)")
+        //                }
+        //
+        //                if let after = ((resultdict.objectForKey("paging") as? NSDictionary)?.objectForKey("cursors") as? NSDictionary)?.objectForKey("after") as? String {
+        //                    self.getFBAppFriends(after, failureHandler: {(error) in
+        //                        print("error")})
+        //                } else {
+        //                    print("Can't read next!!!")
+        //                }
+        //
+        //
+        //
+        //                var friends = resultdict.objectForKey("data") as! NSArray
+        //                print("Found \(friends.count) friends")
+        //
+        //                print("Friends are : \(result)")
+        //            } else {
+        //                print("Error Getting Friends \(error)");
+        //            }
+        //        }
+        
+        
         
         
     }
@@ -272,7 +267,7 @@ class UserProfileVC: UIViewController {
                     }
                 }
             }
-    
+            
         }else{
             print("erro na imagem")
         }

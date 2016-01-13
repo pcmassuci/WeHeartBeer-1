@@ -15,8 +15,7 @@ class CarouselVC: UIViewController, MVCarouselCollectionViewDelegate{
     
     // Local images
     let imagePaths = [ "beer1", "beer2", "beer3" ]
-    //Or
-    //var imagePaths : [String] = []
+    
     
     // Closure to load local images with UIImage.named
     let imageLoader: ((imageView: UIImageView, imagePath : String, completion: (newImage: Bool) -> ()) -> ()) = {
@@ -26,7 +25,7 @@ class CarouselVC: UIViewController, MVCarouselCollectionViewDelegate{
         completion(newImage: imageView.image != nil)
     }
     
-    
+    //IBOutlets
     @IBOutlet var collectionView : MVCarouselCollectionView!
     @IBOutlet var pageControl : MVCarouselPageControl!
     
@@ -34,7 +33,6 @@ class CarouselVC: UIViewController, MVCarouselCollectionViewDelegate{
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
-        
         view.translatesAutoresizingMaskIntoConstraints = false
         
         self.pageControl.numberOfPages = imagePaths.count
@@ -43,6 +41,7 @@ class CarouselVC: UIViewController, MVCarouselCollectionViewDelegate{
         
     }
     
+    // Function CollectionView
     func configureCollectionView() {
         
         // NOTE: the collectionView IBOutlet class must be declared as MVCarouselCollectionView in Interface Builder, otherwise this will crash.

@@ -13,16 +13,18 @@ typealias FindObjectsCompletionHandler = (beer:[PFObject]?,success:Bool) -> Void
 typealias FindObjectCompletionHandler = (obj:PFObject?,success:Bool) -> Void
 
 class PagedViewController: UIViewController, UIScrollViewDelegate {
-
+    
     @IBOutlet weak var image: UIImageView!
     var feat:PFObject!
     var object:PFObject!
     override func viewDidLoad() {
-            super.viewDidLoad()
-//            let tapGestureRecognizer = UITapGestureRecognizer(target:self, action:Selector("imageTapped:"))
-//            self.image.userInteractionEnabled = true
-//            self.image.addGestureRecognizer(tapGestureRecognizer)
-        }
+        super.viewDidLoad()
+        // let tapGestureRecognizer = UITapGestureRecognizer(target:self, action:Selector("imageTapped:"))
+        // self.image.userInteractionEnabled = true
+        // self.image.addGestureRecognizer(tapGestureRecognizer)
+    }
+    
+    
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         self.findFeat { (beer, success) -> Void in
@@ -36,23 +38,25 @@ class PagedViewController: UIViewController, UIScrollViewDelegate {
                         
                     }
                 })
-
+                
             }
         }
-      
+        
     }
     
     override func didReceiveMemoryWarning() {
-            super.didReceiveMemoryWarning()
-            // Dispose of any resources that can be recreated.
-        }
-
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+    
+    
     func imageTapped(img: AnyObject)
     {
-      //  print(self.beer)
-    self.performSegueWithIdentifier("challengeToBeer", sender: nil)
+        //  print(self.beer)
+        self.performSegueWithIdentifier("challengeToBeer", sender: nil)
     }
-
+    
+    //Segue for challengeToBeer
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "challengeToBeer"{
             if let destination = segue.destinationViewController  as? BeerProfileVC{
@@ -61,6 +65,7 @@ class PagedViewController: UIViewController, UIScrollViewDelegate {
         }
     }
     
+    // findFeat
     func findFeat(completionHandler:FindObjectsCompletionHandler){
         var query = PFQuery(className:"Featured")
         query.findObjectsInBackgroundWithBlock { (result:[PFObject]?, error:NSError?) -> Void in
@@ -81,6 +86,8 @@ class PagedViewController: UIViewController, UIScrollViewDelegate {
         
     }
     
+    
+    //findBeer
     func findBeer(objID: String!, completionHandler:FindObjectCompletionHandler){
         var query = PFQuery(className:"Beer")
         query.getObjectInBackgroundWithId(objID) { (result:PFObject?, error:NSError?) -> Void in
@@ -95,9 +102,11 @@ class PagedViewController: UIViewController, UIScrollViewDelegate {
                 print("erro dao 2")
                 completionHandler(obj:nil,success: false)
             }
-        
+            
         }
     }
+    
+    // updateData Photo
     func updateData(beer: PFObject?){
         
         // pegando a foto do parse
@@ -128,7 +137,7 @@ class PagedViewController: UIViewController, UIScrollViewDelegate {
         
         
     }
-
+    
 }
 
 
@@ -137,11 +146,11 @@ class PagedViewController: UIViewController, UIScrollViewDelegate {
 //import UIKit
 //
 //class PagedViewController: UIViewController, UIScrollViewDelegate {
-//    
+//
 //    @IBOutlet weak var pageControl: UIPageControl!
 //
 //    @IBOutlet weak var scrollView: UIScrollView!
-//    
+//
 //    override func viewDidLoad() {
 //        super.viewDidLoad()
 //        //1
@@ -149,7 +158,7 @@ class PagedViewController: UIViewController, UIScrollViewDelegate {
 //        self.scrollView.frame = CGRectOffset(scrollView.frame, scrollView.contentSize.width, 0)
 //        let scrollViewWidth:CGFloat = self.scrollView.frame.width
 //        let scrollViewHeight:CGFloat = self.scrollView.frame.height
-//       
+//
 //        //3
 //        let imgOne = UIImageView(frame: CGRectMake(0, 0,scrollViewWidth, scrollViewHeight))
 //        imgOne.image = UIImage(named: "beer1")
@@ -159,12 +168,12 @@ class PagedViewController: UIViewController, UIScrollViewDelegate {
 //        imgThree.image = UIImage(named: "beer3")
 //        let imgFour = UIImageView(frame: CGRectMake(scrollViewWidth*3, 0,scrollViewWidth, scrollViewHeight))
 //        imgFour.image = UIImage(named: "beer4")
-//        
+//
 //        self.scrollView.addSubview(imgOne)
 //        self.scrollView.addSubview(imgTwo)
 //        self.scrollView.addSubview(imgThree)
 //        self.scrollView.addSubview(imgFour)
-//        
+//
 //        //4
 //        self.scrollView.contentSize = CGSizeMake(self.scrollView.frame.width * 4,self.scrollView.frame.height)
 //        self.scrollView.delegate = self
@@ -175,30 +184,30 @@ class PagedViewController: UIViewController, UIScrollViewDelegate {
 //        // Do any additional setup after loading the view.
 //    }
 //    func scrollViewDidEndDecelerating(scrollView: UIScrollView){
-//        
+//
 //        // Test the offset and calculate the current page after scrolling ends
 //        let pageWidth:CGFloat = CGRectGetWidth(scrollView.frame)
 //        let currentPage:CGFloat = floor((scrollView.contentOffset.x-pageWidth/2)/pageWidth)+1
-//        
+//
 //        // Change the indicator
 //        self.pageControl.currentPage = Int(currentPage);
-//        
+//
 //        // Change the text accordingly
-//  
+//
 //            UIView.animateWithDuration(1.0, animations: {() -> Void in })
-//        
+//
 //    }
 //
 
-//    
+//
 //    func moveToNextPage (){
-//        
+//
 //        let pageWidth:CGFloat = CGRectGetWidth(self.scrollView.frame)
 //        let maxWidth:CGFloat = pageWidth * 4
 //        let contentOffset:CGFloat = self.scrollView.contentOffset.x
-//        
+//
 //        var slideToX = contentOffset + pageWidth
-//        
+//
 //        if  contentOffset + pageWidth == maxWidth{
 //            slideToX = 0
 //        }
