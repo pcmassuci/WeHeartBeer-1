@@ -676,7 +676,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mN8-T4-VwA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2328" y="3138"/>
+            <point key="canvasLocation" x="-2364" y="3160.5"/>
         </scene>
         <!--ReviewVC-->
         <scene sceneID="dmO-ph-3dd">
@@ -3339,6 +3339,10 @@
                                 <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
                                     <rect key="frame" x="20" y="84" width="360" height="696"/>
                                 </variation>
+                                <connections>
+                                    <outlet property="dataSource" destination="gPr-wX-9FK" id="fOR-9c-pUo"/>
+                                    <outlet property="delegate" destination="gPr-wX-9FK" id="HIr-13-yII"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -3353,10 +3357,13 @@
                             </mask>
                         </variation>
                     </view>
+                    <connections>
+                        <segue destination="6y3-Yj-Avu" kind="show" identifier="seguetoAddFriend" id="elX-rU-8nc"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2za-Xj-wWP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2634" y="3865.5"/>
+            <point key="canvasLocation" x="-2340" y="3935.25"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="jx0-tr-I3T">
@@ -3403,7 +3410,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NSV-Vk-k8R" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1891.5" y="3865.5"/>
+            <point key="canvasLocation" x="-874.5" y="3849"/>
         </scene>
     </scenes>
     <resources>
@@ -3424,5 +3431,6 @@
         <segue reference="WFq-x6-VBz"/>
         <segue reference="CDH-Xp-Ux3"/>
         <segue reference="i0O-fM-R0U"/>
+        <segue reference="elX-rU-8nc"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -18,7 +18,9 @@ import ParseFacebookUtilsV4
 class UserFriendsVC: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
-    
+    var countFriends = 0
+    //var friends:[User]? = [User]()
+    let testeArray = ["julio", "fernado", "mateus"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,6 +32,9 @@ class UserFriendsVC: UIViewController {
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
+        
+        //criar reload friends
+        tableView.reloadData()
         
 //        getFBAppFriends(nil, failureHandler: {(error)
 //            in print(error)})
@@ -102,14 +107,35 @@ extension UserFriendsVC: UITableViewDataSource , UITableViewDelegate{
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        //self.countFriends = (self.friends?.count)!
+        self.countFriends  = self.testeArray.count
+        let rows = self.countFriends + 1
+        print(rows)
+        return rows
     }
     
+    
+    
+    
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        
+        print(indexPath.row)
+        if indexPath.row == (self.countFriends){
+            
+        }else{
+            
+        }
         return UITableViewCell()
     }
     
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        if indexPath.row == (self.countFriends){
+            print("nós que voa bruxão")
+            performSegueWithIdentifier("", sender: nil)
+        }else{
+            print(testeArray[indexPath.row])
+            
+        }
+    }
     
     
     
