@@ -553,7 +553,7 @@
                         <outlet property="userPlacesLink" destination="fYd-oY-xZI" id="dlY-JE-YTy"/>
                         <outlet property="userTrophiesLink" destination="nuy-RR-ucD" id="1bF-fH-MBa"/>
                         <segue destination="j4j-fw-IfS" kind="show" identifier="segueUserBeers" id="dul-aO-v5i"/>
-                        <segue destination="6y3-Yj-Avu" kind="show" id="PBo-vi-Idb"/>
+                        <segue destination="6y3-Yj-Avu" kind="show" identifier="segueUserFriends" id="PBo-vi-Idb"/>
                         <segue destination="Kvp-gg-n4u" kind="show" id="5it-hv-Aor"/>
                         <segue destination="vp7-Kw-jxX" kind="show" identifier="underConstruction" id="Moc-J4-LOn"/>
                         <segue destination="2Gs-UR-GsQ" kind="show" identifier="segueFacebookCheckin" id="w2J-jh-0EJ"/>
@@ -652,6 +652,10 @@
                                 <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
                                     <rect key="frame" x="20" y="72" width="367" height="671"/>
                                 </variation>
+                                <connections>
+                                    <outlet property="dataSource" destination="6y3-Yj-Avu" id="zGj-q2-LnI"/>
+                                    <outlet property="delegate" destination="6y3-Yj-Avu" id="EkU-qJ-CPd"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -666,10 +670,13 @@
                             </mask>
                         </variation>
                     </view>
+                    <connections>
+                        <outlet property="tableView" destination="0f5-t0-Cw9" id="063-hj-oIx"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mN8-T4-VwA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2328" y="3138"/>
+            <point key="canvasLocation" x="-2364" y="3160.5"/>
         </scene>
         <!--ReviewVC-->
         <scene sceneID="dmO-ph-3dd">
@@ -698,7 +705,8 @@
                                         <exclude reference="r7S-WC-H0d"/>
                                     </mask>
                                 </variation>
-                                <variation key="heightClass=regular-widthClass=compact">
+                                <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="151" y="134" width="99" height="21"/>
                                     <mask key="constraints">
                                         <include reference="LDo-I6-Flt"/>
                                         <include reference="r7S-WC-H0d"/>
@@ -746,6 +754,9 @@
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="editable" value="NO"/>
                                 </userDefinedRuntimeAttributes>
+                                <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="71" y="173" width="258" height="30"/>
+                                </variation>
                             </view>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="teste" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0hK-2F-lIW">
                                 <rect key="frame" x="-25" y="-30" width="97" height="30"/>
@@ -804,6 +815,9 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
+                                <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="20" y="80" width="360" height="41"/>
+                                </variation>
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -1419,6 +1433,9 @@
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
+                                                    <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                                        <rect key="frame" x="18" y="13" width="204" height="18"/>
+                                                    </variation>
                                                 </label>
                                             </subviews>
                                             <constraints>
@@ -2653,7 +2670,7 @@
                                 <rect key="frame" x="0.0" y="92" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="DhV-dJ-4HN" id="btC-Bh-GRk">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T6e-zC-cTN">
@@ -3323,6 +3340,10 @@
                                 <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
                                     <rect key="frame" x="20" y="84" width="360" height="696"/>
                                 </variation>
+                                <connections>
+                                    <outlet property="dataSource" destination="gPr-wX-9FK" id="fOR-9c-pUo"/>
+                                    <outlet property="delegate" destination="gPr-wX-9FK" id="HIr-13-yII"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -3337,10 +3358,13 @@
                             </mask>
                         </variation>
                     </view>
+                    <connections>
+                        <segue destination="6y3-Yj-Avu" kind="show" identifier="seguetoAddFriend" id="elX-rU-8nc"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2za-Xj-wWP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2634" y="3865.5"/>
+            <point key="canvasLocation" x="-2340" y="3935.25"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="jx0-tr-I3T">
@@ -3387,7 +3411,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NSV-Vk-k8R" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1891.5" y="3865.5"/>
+            <point key="canvasLocation" x="-874.5" y="3849"/>
         </scene>
     </scenes>
     <resources>
@@ -3405,8 +3429,9 @@
         <image name="now-pouring" width="1800" height="1200"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="1ft-IH-Bmr"/>
-        <segue reference="ZKS-H1-FU2"/>
+        <segue reference="WFq-x6-VBz"/>
+        <segue reference="CDH-Xp-Ux3"/>
         <segue reference="i0O-fM-R0U"/>
+        <segue reference="elX-rU-8nc"/>
     </inferredMetricsTieBreakers>
 </document>
