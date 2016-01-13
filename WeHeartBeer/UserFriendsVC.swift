@@ -130,7 +130,7 @@ extension UserFriendsVC: UITableViewDataSource , UITableViewDelegate{
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         if indexPath.row == (self.countFriends){
             print("nós que voa bruxão")
-            performSegueWithIdentifier("", sender: nil)
+            performSegueWithIdentifier("segueToAddFriend", sender: nil)
         }else{
             print(testeArray[indexPath.row])
             
