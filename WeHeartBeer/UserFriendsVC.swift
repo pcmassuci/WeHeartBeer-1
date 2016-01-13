@@ -16,13 +16,28 @@ import ParseFacebookUtilsV4
 
 
 class UserFriendsVC: UIViewController {
+    
+    @IBOutlet weak var tableView: UITableView!
+    var countFriends = 0
+    //var friends:[User]? = [User]()
+    let testeArray = ["julio", "fernado", "mateus"]
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.tableView.dataSource = self
+        
+        
+    }
 
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
         
-        getFBAppFriends(nil, failureHandler: {(error)
-            in print(error)})
+        //criar reload friends
+        tableView.reloadData()
+        
+//        getFBAppFriends(nil, failureHandler: {(error)
+//            in print(error)})
         
         }
 
@@ -76,10 +91,53 @@ class UserFriendsVC: UIViewController {
             
         }
 
-        
+
         
         
         
         
     }
+    
+}
+
+extension UserFriendsVC: UITableViewDataSource , UITableViewDelegate{
+    
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        //self.countFriends = (self.friends?.count)!
+        self.countFriends  = self.testeArray.count
+        let rows = self.countFriends + 1
+        print(rows)
+        return rows
+    }
+    
+    
+    
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        print(indexPath.row)
+        if indexPath.row == (self.countFriends){
+            
+        }else{
+            
+        }
+        return UITableViewCell()
+    }
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        if indexPath.row == (self.countFriends){
+            print("nós que voa bruxão")
+            performSegueWithIdentifier("", sender: nil)
+        }else{
+            print(testeArray[indexPath.row])
+            
+        }
+    }
+    
+    
+    
+    
 }
