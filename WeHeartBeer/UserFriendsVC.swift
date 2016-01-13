@@ -21,32 +21,60 @@ class UserFriendsVC: UIViewController {
         super.viewWillAppear(animated)
         
         
-        
-        
-        
-        let graphRequest : FBSDKGraphRequest = FBSDKGraphRequest(graphPath: "me",     parameters: nil)
-        graphRequest.startWithCompletionHandler { (connection, result:AnyObject!, error) -> Void in
-            
-            
-                        if ((error) != nil)
-                        {
-                            // Process error
-                            print("Error: \(error)")
-                        }
-                        else
-                        {
-                            //get Facebook ID
-                            let faceBookID: NSString = result.valueForKey("id") as! NSString
-                            //get username
-                            let userName : NSString = result.valueForKey("name") as! NSString
-                            //get facebook friends who use app
-                            let friendlist: AnyObject = (result.valueForKey("friends")! as AnyObject)
-                           
-                            print(friendlist)
-                        }
+        getFBAppFriends(nil, failureHandler: {(error)
+            in print(error)})
         
         }
 
+
+    // pegar amigos que usam o app
+    func getFBAppFriends(nextCursor : String?, failureHandler: (error: NSError) -> Void) {
+        
+        let qry = "/me/friends"
+        var parameters = Dictionary<String, String>() as? Dictionary
+        if nextCursor == nil {
+            parameters = nil
+        } else {
+            parameters!["after"] = nextCursor
+        }
+        
+        var request = FBSDKGraphRequest(graphPath: qry, parameters: parameters);
+        
+        
+        request.startWithCompletionHandler { (connection : FBSDKGraphRequestConnection!, result : AnyObject!, error : NSError!) -> Void in
+            
+            if (error) != nil{
+                // Process error
+                print("Error: \(error)")
+                
+            }else{
+                //println("fetched user: \(result)")
+                let resultdict = result as! NSDictionary
+                let data : NSArray = resultdict.objectForKey("data") as! NSArray
+                
+                for i in 0..<data.count {
+                    let valueDict : NSDictionary = data[i] as! NSDictionary
+                    //                    let id = valueDict.objectForKey("id") as! String
+                    let name = valueDict.objectForKey("name") as! String
+                    //                    let pictureDict = valueDict.objectForKey("picture") as! NSDictionary
+                    //                    let pictureData = pictureDict.objectForKey("data") as! NSDictionary
+                    //                    let pictureURL = pictureData.objectForKey("url") as! String
+                    print("Name: \(name)")
+                    //println("ID: \(id)")
+                    //println("URL: \(pictureURL)")
+                }
+                if let after = ((resultdict.objectForKey("paging") as? NSDictionary)?.objectForKey("cursors") as? NSDictionary)?.objectForKey("after") as? String {
+                    self.getFBAppFriends(after, failureHandler: {(error) in
+                        print("error")})
+                } else {
+                    print("Can't read next!!!")
+                }
+            }
+            
+            
+            
+            
+        }
 
         
         

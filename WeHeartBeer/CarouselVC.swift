@@ -59,6 +59,7 @@ class CarouselVC: UIViewController, MVCarouselCollectionViewDelegate{
         
         // Do something with cell selection
         // Send indexPath.row as index to use
+        //
         self.performSegueWithIdentifier("FullScreenSegue", sender:indexPath);
     }
     

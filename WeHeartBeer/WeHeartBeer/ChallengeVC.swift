@@ -39,7 +39,7 @@ class ChallengeVC: UIViewController {
     
     @IBAction func challengeFb(sender: UIButton){
         
-        let fbURLWeb: NSURL = NSURL(string: "https://www.facebook.com/Matheusfccfaj")!
+        let fbURLWeb: NSURL = NSURL(string: "https://www.facebook.com/BeerLoveApp/?ref=hl")!
         //let fbURLID: NSURL = NSURL(string: "fb://profile/719245588122387")!
         
         UIApplication.sharedApplication().openURL(fbURLWeb)
