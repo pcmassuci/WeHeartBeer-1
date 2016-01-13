@@ -129,9 +129,6 @@ class PagedViewController: UIViewController, UIScrollViewDelegate {
         
     }
 
-
-
-
 }
 
 

@@ -70,6 +70,9 @@
 		854AAF551BF0BEDF002F405B /* Brewery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 854AAF541BF0BEDF002F405B /* Brewery.swift */; };
 		858A7E211BF4AD050070E844 /* BeerDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858A7E201BF4AD050070E844 /* BeerDAO.swift */; };
 		858A7E231BFDF6190070E844 /* AddBeer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858A7E221BFDF6190070E844 /* AddBeer.swift */; };
+		85C9957C1C45230900EBEEBF /* MoreVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85C9957B1C45230900EBEEBF /* MoreVC.swift */; };
+		85C9957E1C45239400EBEEBF /* ConfigVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85C9957D1C45239400EBEEBF /* ConfigVC.swift */; };
+		85C995801C45241A00EBEEBF /* GuidesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85C9957F1C45241A00EBEEBF /* GuidesVC.swift */; };
 		85FC937A1C190B9400CF59C7 /* UserBeersVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85FC93791C190B9400CF59C7 /* UserBeersVC.swift */; };
 		85FC937C1C190BA500CF59C7 /* UserPlacesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85FC937B1C190BA500CF59C7 /* UserPlacesVC.swift */; };
 		85FC937E1C190BCE00CF59C7 /* UserTrophiesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85FC937D1C190BCE00CF59C7 /* UserTrophiesVC.swift */; };
@@ -172,6 +175,9 @@
 		854AAF541BF0BEDF002F405B /* Brewery.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Brewery.swift; sourceTree = "<group>"; };
 		858A7E201BF4AD050070E844 /* BeerDAO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeerDAO.swift; sourceTree = "<group>"; };
 		858A7E221BFDF6190070E844 /* AddBeer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddBeer.swift; sourceTree = "<group>"; };
+		85C9957B1C45230900EBEEBF /* MoreVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoreVC.swift; sourceTree = "<group>"; };
+		85C9957D1C45239400EBEEBF /* ConfigVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigVC.swift; sourceTree = "<group>"; };
+		85C9957F1C45241A00EBEEBF /* GuidesVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GuidesVC.swift; sourceTree = "<group>"; };
 		85FC93791C190B9400CF59C7 /* UserBeersVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserBeersVC.swift; sourceTree = "<group>"; };
 		85FC937B1C190BA500CF59C7 /* UserPlacesVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserPlacesVC.swift; sourceTree = "<group>"; };
 		85FC937D1C190BCE00CF59C7 /* UserTrophiesVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserTrophiesVC.swift; sourceTree = "<group>"; };
@@ -240,12 +246,15 @@
 				D2BAC5E41C3BF2E8006981A2 /* CarouselVC.swift */,
 				67EE50981C1703F600AAA599 /* PagedViewController.swift */,
 				677924B11BFA064600B8092B /* RegisterBeerVC.swift */,
+				85C9957F1C45241A00EBEEBF /* GuidesVC.swift */,
 				672C62F81BEA5E7200E667C8 /* BreweryVC.swift */,
 				854542EB1C105F1900AC2A0B /* ReviewVC.swift */,
 				6333567E1BED154C00A71155 /* UserProfileVC.swift */,
 				D24634321BEBC93300CF605D /* BeerProfileVC.swift */,
+				85C9957D1C45239400EBEEBF /* ConfigVC.swift */,
 				63F668AB1BD9165800172050 /* ChallengeVC.swift */,
 				D2526D7A1BDA56C9003953F9 /* HomepageVC.swift */,
+				85C9957B1C45230900EBEEBF /* MoreVC.swift */,
 				854AAC8D1BEB8CCE002F405B /* SearchVC.swift */,
 				85FC93791C190B9400CF59C7 /* UserBeersVC.swift */,
 				85FC937B1C190BA500CF59C7 /* UserPlacesVC.swift */,
@@ -399,9 +408,9 @@
 		D286638A1BE07D3E002CE6F2 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				674127971C18A20700016D52 /* CountryCell.swift */,
 				8518D14C1BD7B7BD00499ACA /* Main.storyboard */,
 				8518D1541BD7B7BD00499ACA /* LaunchScreen.storyboard */,
+				674127971C18A20700016D52 /* CountryCell.swift */,
 				67FB0C111C0F6C8700122314 /* SearchTVCell.swift */,
 				677924AF1BF6B9F700B8092B /* SearchVCCellTableViewCell.swift */,
 				672C62FA1BEAD2F700E667C8 /* BreweryVCCell.swift */,
@@ -655,9 +664,12 @@
 				63D37B441C43D1E00040CC52 /* Review.swift in Sources */,
 				63D37B421C43D0E50040CC52 /* ReviewDAO.swift in Sources */,
 				6333567D1BED151000A71155 /* User.swift in Sources */,
+				85C9957C1C45230900EBEEBF /* MoreVC.swift in Sources */,
 				D24634331BEBC93300CF605D /* BeerProfileVC.swift in Sources */,
 				67B50AB41C0F0D010032CCCD /* SearchBreweryVC.swift in Sources */,
+				85C9957E1C45239400EBEEBF /* ConfigVC.swift in Sources */,
 				D2BAC5E51C3BF2E8006981A2 /* CarouselVC.swift in Sources */,
+				85C995801C45241A00EBEEBF /* GuidesVC.swift in Sources */,
 				6333567F1BED154C00A71155 /* UserProfileVC.swift in Sources */,
 				D246342D1BEBAFBF00CF605D /* FloatRatingView.swift in Sources */,
 				D2D88DA11BFB95B6002C8EF5 /* UserFBUtil.swift in Sources */,
