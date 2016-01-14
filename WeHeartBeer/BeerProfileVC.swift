@@ -16,15 +16,9 @@ class BeerProfileVC: UIViewController {
 //    FloatRatingViewDelegate
     
     @IBOutlet weak var saveBeerProfile: UIButton!
-    
-   
 
-    
-    
     @IBOutlet weak var commentText: UITextField!
     
-
-
     @IBOutlet weak var ratingButton: UIButton!
     @IBOutlet var liveLabel: UILabel!
     @IBOutlet var updatedLabel: UILabel!
@@ -34,8 +28,7 @@ class BeerProfileVC: UIViewController {
     @IBOutlet var ibv: UILabel! //needs renaming
     @IBOutlet var photo: UIImageView!
     @IBOutlet weak var brewButton: UIButton!
-    
-    
+      
     
 
   //  var beer : [Beer]! = [Beer]()
@@ -119,6 +112,7 @@ class BeerProfileVC: UIViewController {
     }
     
     
+    // Segue
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         
         
