@@ -18,7 +18,7 @@ class User : PFUser {
     @NSManaged var photo: PFFile
     @NSManaged var mail: String
     @NSManaged var faceID: String
-    
+    @NSManaged var frieds: PFRelation!
     
     override class func initialize() {
         var onceToken : dispatch_once_t = 0;

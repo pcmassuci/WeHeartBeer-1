@@ -39,6 +39,7 @@ class UserFriendsVC: UIViewController {
         
 //        getFBAppFriends(nil, failureHandler: {(error)
 //            in print(error)})
+        //self.queryFriends()
         
         }
 
@@ -145,5 +146,18 @@ extension UserFriendsVC: UITableViewDataSource , UITableViewDelegate{
     
     
     
+    
+}
+
+extension UserFriendsVC {
+    
+    func queryFriends(){
+        let book = PFObject(className: "User")
+        let relation = book.relationForKey("friends")
+        
+        // generate a query based on that relation
+        let query = relation.query()
+        print("passou")
+    }
     
 }
