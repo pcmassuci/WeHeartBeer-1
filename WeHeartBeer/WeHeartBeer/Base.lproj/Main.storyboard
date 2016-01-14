@@ -139,7 +139,7 @@
                                                 </mask>
                                             </variation>
                                             <variation key="heightClass=regular-widthClass=compact" ambiguous="YES">
-                                                <rect key="frame" x="0.0" y="0.0" width="400" height="135"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="400" height="134.5"/>
                                                 <mask key="subviews">
                                                     <include reference="K4d-Ft-r1h"/>
                                                     <include reference="sIZ-Bf-yfv"/>
