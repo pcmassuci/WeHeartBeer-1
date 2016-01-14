@@ -46,6 +46,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         Beer.registerSubclass()
         User.registerSubclass()
         Review.registerSubclass()
+    
+        
         
         return FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
         
