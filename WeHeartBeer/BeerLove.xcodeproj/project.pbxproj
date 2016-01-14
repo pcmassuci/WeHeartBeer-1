@@ -409,10 +409,6 @@
 			children = (
 				676250751BF3737E00F3BB0D /* DAO */,
 				D25499C21BF1769300D38C88 /* Parse Services */,
-				854AAF4E1BF0BE8F002F405B /* BeerServices.swift */,
-				854AAF501BF0BEAE002F405B /* BreweryServices.swift */,
-				854AAF521BF0BECE002F405B /* UserServices.swift */,
-				676250781BF3757300F3BB0D /* UserValidation.swift */,
 			);
 			name = Services;
 			sourceTree = "<group>";
@@ -430,6 +426,10 @@
 			isa = PBXGroup;
 			children = (
 				63D37B3D1C43CFC00040CC52 /* ReviewServices.swift */,
+				854AAF4E1BF0BE8F002F405B /* BeerServices.swift */,
+				854AAF501BF0BEAE002F405B /* BreweryServices.swift */,
+				854AAF521BF0BECE002F405B /* UserServices.swift */,
+				676250781BF3757300F3BB0D /* UserValidation.swift */,
 			);
 			name = "Parse Services";
 			sourceTree = "<group>";
