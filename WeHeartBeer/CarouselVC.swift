@@ -18,10 +18,9 @@ class CarouselVC: UIViewController, MVCarouselCollectionViewDelegate{
     
     // Local images
     
-    @IBOutlet weak var image: UIImageView!
     let imagePaths = [ "beer1", "beer2", "beer3" ]
-    var feat:[PFObject]!
-    var object:PFObject!
+    var imageArray:[UIImage] = [UIImage]()
+    
     
     // Closure to load local images with UIImage.named
     let imageLoader: ((imageView: UIImageView, imagePath : String, completion: (newImage: Bool) -> ()) -> ()) = {
@@ -31,13 +30,6 @@ class CarouselVC: UIViewController, MVCarouselCollectionViewDelegate{
         completion(newImage: imageView.image != nil)
     }
     
-    // Closure to load remote images with UIImage.named
-    let imageLoader2: ((imageView: UIImageView, imagePath : String, completion: (newImage: Bool) -> ()) -> ()) = {
-        (imageView: UIImageView, imagePath : String, completion: (newImage: Bool) -> ()) in
-        
-        imageView.image = UIImage(named:imagePath)
-        completion(newImage: imageView.image != nil)
-    }
     
     //IBOutlets
     @IBOutlet var collectionView : MVCarouselCollectionView!
@@ -51,16 +43,20 @@ class CarouselVC: UIViewController, MVCarouselCollectionViewDelegate{
         
         self.pageControl.numberOfPages = imagePaths.count
         
-        configureCollectionView()
+        configureCollectionView(false)
         
     }
     
     // Function CollectionView
-    func configureCollectionView() {
+    func configureCollectionView(parseLoad:Bool) {
         
         // NOTE: the collectionView IBOutlet class must be declared as MVCarouselCollectionView in Interface Builder, otherwise this will crash.
         collectionView.selectDelegate = self
+        if parseLoad {
+        //   collectionView.imagePaths = self.imageArray
+        }else{
         collectionView.imagePaths = imagePaths
+        }
         collectionView.commonImageLoader = self.imageLoader
         //collectionView.maximumZoom = 0
         collectionView.reloadData()
@@ -92,93 +88,9 @@ class CarouselVC: UIViewController, MVCarouselCollectionViewDelegate{
     
     
     
-//    override func viewWillAppear(animated: Bool) {
-//        super.viewWillAppear(animated)
-//        self.findFeat { (beer, success) -> Void in
-//            if success {
-//                self.feat = beer![0]
-//                let objectID = self.feat["beer"].objectId
-//                self.findBeer(objectID, completionHandler: { (obj, success) -> Void in
-//                    if success{
-//                        self.object = obj
-//                        self.updateData(self.object)
-//                        
-//                    }
-//                })
-//                
-//            }
-//        }
-//        
-//    }
-    
-    // MARK: Query take table Featured from Parse.
-    func findFeat(completionHandler:FindObjectsCompletionHandler){
-        
-        let query = PFQuery(className:"Featured")
-        query.findObjectsInBackgroundWithBlock { (result:[PFObject]?, error:NSError?) -> Void in
-            if error == nil {
-                if let result = result as? [PFObject]? {
-                    completionHandler(beer: result, success: true)
-                }else{
-                    print("erro dao")
-                    completionHandler(beer:nil,success: false)
-                }
-            }else{
-                print("erro dao 2")
-                completionHandler(beer:nil,success: false)
-            }
-            
-            
-        }
-        
-    }
-    
-    // MARK: Query take table Beer from Parse.
-    func findBeer(objID: String!, completionHandler:FindObjectCompletionHandler){
-        let query = PFQuery(className:"Beer")
-        query.getObjectInBackgroundWithId(objID) { (result:PFObject?, error:NSError?) -> Void in
-            if error == nil {
-                if let result = result as? PFObject? {
-                    completionHandler(obj: result, success: true)
-                }else{
-                    print("erro dao")
-                    completionHandler(obj:nil,success: false)
-                }
-            }else{
-                print("erro dao 2")
-                completionHandler(obj:nil,success: false)
-            }
-            
-        }
-    }
-    
-    func updateData(beer: PFObject?){
-        
-        // pegando a foto do parse
-        if beer!.objectForKey("Photo") != nil{
-            let userImageFile = beer!.objectForKey("Photo") as! PFFile
-            
-            userImageFile.getDataInBackgroundWithBlock {
-                (imageData: NSData?, error: NSError?) -> Void in
-                if error == nil {
-                    if let imageData = imageData {
-                        
-                        let image = UIImage(data:imageData)
-                        self.image.image = image
-                        self.image.contentMode = UIViewContentMode.ScaleAspectFill
-                        let tapGestureRecognizer = UITapGestureRecognizer(target:self, action:Selector("imageTapped:"))
-                        self.image.userInteractionEnabled = true
-                        self.image.addGestureRecognizer(tapGestureRecognizer)
-                        
-                    }else{
-                        print("sem imagem")
-                    }
-                }
-                
-            }
-        }else{
-            print("erro na imagem")
-        }
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        self.queryCarousel()
     }
     
     //    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -200,4 +112,95 @@ class CarouselVC: UIViewController, MVCarouselCollectionViewDelegate{
     //        }
     //    }
     
+}
+
+extension CarouselVC {
+    
+    // Query return if Featured Beer.
+    func queryCarousel () {
+        
+        let query = PFQuery(className:"Featured")
+        query.whereKey("active", equalTo: true)
+        query.findObjectsInBackgroundWithBlock {
+            (objects: [PFObject]?, error: NSError?) -> Void in
+            
+            if error == nil {
+                // The find succeeded.
+                print("Successfully retrieved \(objects!.count) scores.")
+                // Do something with the found objects
+                if let objects = objects {
+                    for object in objects {
+                        print(object.objectId)
+                        
+                        print(object.valueForKey("beer")?.objectId)
+                        
+                      self.queryBeer((object.valueForKey("beer")?.objectId)!)
+                        
+                    }
+                    //self.configureCollectionView(true)
+                }
+            } else {
+                // Log details of the failure
+                print("Error: \(error!) \(error!.userInfo)")
+            }
+        }
+
+    }
+    
+    
+    func queryBeer (featuredId: String) {
+        
+        let query = PFQuery(className:"Beer")
+        query.whereKey("objectId", equalTo: featuredId  )
+        query.findObjectsInBackgroundWithBlock {
+            (objects: [PFObject]?, error: NSError?) -> Void in
+            
+            if error == nil {
+                // The find succeeded.
+                print("Successfully retrieved \(objects!.count) scores.")
+                // Do something with the found objects
+                if let objects = objects {
+                    for object in objects {
+                        print(object)
+                        
+                        //print(object.valueForKey("Photo"))
+                        self.updateData(object)
+                    }
+                    
+                }
+            } else {
+                // Log details of the failure
+                print("Error: \(error!) \(error!.userInfo)")
+            }
+        }
+        
+    }
+    
+    
+    func updateData(beer: PFObject?){
+        
+        // pegando a foto do parse
+        if beer!.objectForKey("Photo") != nil{
+            let userImageFile = beer!.objectForKey("Photo") as! PFFile
+            
+            userImageFile.getDataInBackgroundWithBlock {
+                (imageData: NSData?, error: NSError?) -> Void in
+                if error == nil {
+                    if let imageData = imageData {
+                        
+                        print("Pc que fez!!!!!")
+                        
+                        let image = UIImage(data:imageData)
+                        self.imageArray.append(image!)
+                        
+                    }else{
+                        print("sem imagem")
+                    }
+                }
+                
+            }
+        }else{
+            print("erro na imagem")
+        }
+    }
 }
