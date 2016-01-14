@@ -55,7 +55,7 @@ class UserAddAppFriendsVC: UIViewController {
 extension UserAddAppFriendsVC: UITableViewDataSource , UITableViewDelegate{
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return 1
+        return 2
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
