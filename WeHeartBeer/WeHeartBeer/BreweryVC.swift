@@ -170,7 +170,7 @@ class BreweryVC: UIViewController {
             
             
             return count
-            //}
+            
         }
         
         // Number of sections in tableview - not used
