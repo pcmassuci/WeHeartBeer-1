@@ -25,9 +25,10 @@ class UserFriendsVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tableView.dataSource = self
-        
+        self.tableView.delegate = self
         
     }
+    
 
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
@@ -38,6 +39,7 @@ class UserFriendsVC: UIViewController {
         
 //        getFBAppFriends(nil, failureHandler: {(error)
 //            in print(error)})
+        //self.queryFriends()
         
         }
 
@@ -85,19 +87,20 @@ class UserFriendsVC: UIViewController {
                     print("Can't read next!!!")
                 }
             }
-            
-            
-            
-            
         }
-
-
-        
-        
-        
-        
     }
     
+    // MARK: - Navigation
+    
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        // Get the new view controller using segue.destinationViewController.
+        // Pass the selected object to the new view controller.
+        if (segue.identifier == "segueToAddFriend") {
+            print("ola")
+        }
+    }
+
 }
 
 extension UserFriendsVC: UITableViewDataSource , UITableViewDelegate{
@@ -119,18 +122,22 @@ extension UserFriendsVC: UITableViewDataSource , UITableViewDelegate{
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         print(indexPath.row)
+        let cell =  tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as! UserFriendsCell
+
         if indexPath.row == (self.countFriends){
-            
+            cell.name.text = "adicione um amigo"
         }else{
+            cell.name.text = self.testeArray[indexPath.row]
             
         }
-        return UITableViewCell()
+       // return UITableViewCell()
+        return cell
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         if indexPath.row == (self.countFriends){
             print("nós que voa bruxão")
-            performSegueWithIdentifier("", sender: nil)
+            performSegueWithIdentifier("segueToAddFriend", sender: nil)
         }else{
             print(testeArray[indexPath.row])
             
@@ -139,5 +146,18 @@ extension UserFriendsVC: UITableViewDataSource , UITableViewDelegate{
     
     
     
+    
+}
+
+extension UserFriendsVC {
+    
+    func queryFriends(){
+        let book = PFObject(className: "User")
+        let relation = book.relationForKey("friends")
+        
+        // generate a query based on that relation
+        let query = relation.query()
+        print("passou")
+    }
     
 }
