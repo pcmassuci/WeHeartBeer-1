@@ -19,7 +19,7 @@ class CarouselVC: UIViewController, MVCarouselCollectionViewDelegate{
     // Local images
     
     let imagePaths = [ "beer1", "beer2", "beer3" ]
-    var imageArray:[UIImage] = [UIImage]()
+    var imageArray = [PFFile]()
     
     
     // Closure to load local images with UIImage.named
@@ -53,7 +53,7 @@ class CarouselVC: UIViewController, MVCarouselCollectionViewDelegate{
         // NOTE: the collectionView IBOutlet class must be declared as MVCarouselCollectionView in Interface Builder, otherwise this will crash.
         collectionView.selectDelegate = self
         if parseLoad {
-        //   collectionView.imagePaths = self.imageArray
+        collectionView.imagePaths = imagePaths
         }else{
         collectionView.imagePaths = imagePaths
         }
@@ -87,32 +87,13 @@ class CarouselVC: UIViewController, MVCarouselCollectionViewDelegate{
     }
     
     
-    
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         self.queryCarousel()
     }
-    
-    //    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-    //
-    //        if segue.identifier == "FullScreenSegue" {
-    //
-    //            let nc = segue.destinationViewController as? UINavigationController
-    //            let vc = nc?.viewControllers[0] as? MVFullScreenCarouselViewController
-    //
-    //            if let vc = vc {
-    //                vc.imageLoader = self.imageLoader
-    //                vc.imagePaths = self.imagePaths
-    //                vc.delegate = self
-    //                vc.title = self.parentViewController?.navigationItem.title
-    //                if let indexPath = sender as? NSIndexPath {
-    //                    vc.initialViewIndex = indexPath.row
-    //                }
-    //            }
-    //        }
-    //    }
-    
 }
+
+
 
 extension CarouselVC {
     
@@ -191,7 +172,7 @@ extension CarouselVC {
                         print("Pc que fez!!!!!")
                         
                         let image = UIImage(data:imageData)
-                        self.imageArray.append(image!)
+                        //self.imageArray.append(object[]PFFile)
                         
                     }else{
                         print("sem imagem")
