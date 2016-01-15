@@ -9,6 +9,10 @@
 import Foundation
 import UIKit
 
-class MoreVC: UIViewController {
 
+
+class MoreVC: UIViewController {
+        
+    @IBOutlet weak var optionsTable: UIView!
+  
 }

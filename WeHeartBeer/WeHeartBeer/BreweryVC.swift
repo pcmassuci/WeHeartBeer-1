@@ -162,6 +162,16 @@ extension BreweryVC: UITableViewDataSource, UITableViewDelegate {
         var count = self.beers.count
         count += 1
         
+        func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+            
+            var count = self.beers.count
+            count += 1
+            
+            
+            
+            return count
+            
+        }
         
         return count
         //}
