@@ -29,8 +29,11 @@ class HomepageVC: UIViewController {
         self.challengeLink.addGestureRecognizer(gesture)
         
         // Do any additional setup after loading the view.
+        
     }
     
+    
+        
     
     // MARK: - ChallengeLink
     func challengeLinkClicked(){

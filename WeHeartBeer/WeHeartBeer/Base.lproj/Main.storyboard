@@ -3816,7 +3816,6 @@
                     <connections>
                         <outlet property="tableView" destination="KBx-31-QlS" id="e23-ni-4f9"/>
                         <segue destination="2p9-dE-Eab" kind="show" identifier="segueInviteFacebook" id="lX6-pX-Yk1"/>
-                        <segue destination="S3B-zS-ZrN" kind="show" id="sjr-UG-qSx"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2za-Xj-wWP" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -3916,53 +3915,6 @@
             </objects>
             <point key="canvasLocation" x="-1564.5" y="3863.25"/>
         </scene>
-        <!--Friend ProfileVC-->
-        <scene sceneID="tKb-xT-b5T">
-            <objects>
-                <viewController id="S3B-zS-ZrN" customClass="FriendProfileVC" customModule="BeerLove" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="YkP-XE-adY"/>
-                        <viewControllerLayoutGuide type="bottom" id="9n3-oU-5Xc"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="3oI-8f-rN4">
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sdC-7K-ceD">
-                                <rect key="frame" x="-42" y="-21" width="42" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="188" y="233" width="42" height="21"/>
-                                </variation>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S2c-Kl-s2n">
-                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
-                                <state key="normal" title="Button"/>
-                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="184" y="339" width="46" height="30"/>
-                                </variation>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <variation key="default">
-                            <mask key="subviews">
-                                <exclude reference="sdC-7K-ceD"/>
-                                <exclude reference="S2c-Kl-s2n"/>
-                            </mask>
-                        </variation>
-                        <variation key="heightClass=regular-widthClass=compact">
-                            <mask key="subviews">
-                                <include reference="sdC-7K-ceD"/>
-                                <include reference="S2c-Kl-s2n"/>
-                            </mask>
-                        </variation>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="qTo-I8-2zw" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-2344.5" y="4617"/>
-        </scene>
     </scenes>
     <resources>
         <image name="1449598777_search" width="50" height="50"/>
@@ -3979,8 +3931,8 @@
         <image name="now-pouring" width="1800" height="1200"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Bfm-Ni-xVL"/>
         <segue reference="i0O-fM-R0U"/>
-        <segue reference="gJz-WE-NEo"/>
+        <segue reference="ZKS-H1-FU2"/>
+        <segue reference="CDH-Xp-Ux3"/>
     </inferredMetricsTieBreakers>
 </document>
