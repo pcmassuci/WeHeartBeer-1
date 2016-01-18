@@ -15,8 +15,8 @@ class Review: PFObject, PFSubclassing {
     
     var user: PFUser!
     var beer: PFObject!
-    var objectID: String!
-    var rating: NSNumber!
+    //var objectID: String!
+    //var rating: NSNumber!
     
       override class func initialize() {
         struct Static {

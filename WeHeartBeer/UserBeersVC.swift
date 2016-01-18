@@ -32,8 +32,10 @@ class UserBeersVC: UIViewController {
             for i in 0..<reviews!.count {
                 let review = reviews![i]
                 let beer = review.objectForKey("beer") as! Beer
-                
                 self.beers.append(beer)
+                let brewery = beer.objectForKey("brewery") as! Beer
+
+                
             }
             self.listOfBeers.reloadData()
         }
@@ -85,6 +87,7 @@ extension UserBeersVC: UITableViewDataSource, UITableViewDelegate {
         let cell =  listOfBeers.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as! ReviewVCCell
         
         cell.beersFromUser?.text = self.beers[indexPath.row].objectForKey("name") as? String
+        cell.breweryFromUser?.text = self.beers[indexPath.row].objectForKey("brewery") as? String
         
         return cell
     }
