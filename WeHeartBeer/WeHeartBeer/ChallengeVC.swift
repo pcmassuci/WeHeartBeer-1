@@ -37,6 +37,8 @@ class ChallengeVC: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    
+    
     @IBAction func challengeFb(sender: UIButton){
         
         let fbURLWeb: NSURL = NSURL(string: "https://www.facebook.com/BeerLoveApp/?ref=hl")!
