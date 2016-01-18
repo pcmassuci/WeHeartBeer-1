@@ -13,13 +13,9 @@ import Foundation
 
 class CarouselVC: UIViewController, MVCarouselCollectionViewDelegate{
     
-    typealias FindObjectsCompletionHandler = (beer:[PFObject]?,success:Bool) -> Void
-    typealias FindObjectCompletionHandler = (obj:PFObject?,success:Bool) -> Void
     
-    // Local images
-    
-    let imagePaths = [ "beer1", "beer2", "beer3" ]
-    var imageArray = [PFFile]()
+    let imagePaths = [ "beer1", "beer2", "beer3" ] // Local images
+    var imageArray: [UIImage]! // Array images from parse.
     
     
     // Closure to load local images with UIImage.named
@@ -43,7 +39,7 @@ class CarouselVC: UIViewController, MVCarouselCollectionViewDelegate{
         
         self.pageControl.numberOfPages = imagePaths.count
         
-        configureCollectionView(false)
+        //configureCollectionView(false)
         
     }
     
@@ -107,7 +103,7 @@ extension CarouselVC {
             
             if error == nil {
                 // The find succeeded.
-                print("Successfully retrieved \(objects!.count) scores.")
+                print("Successfully \(objects!.count).")
                 // Do something with the found objects
                 if let objects = objects {
                     for object in objects {
@@ -118,7 +114,7 @@ extension CarouselVC {
                       self.queryBeer((object.valueForKey("beer")?.objectId)!)
                         
                     }
-                    //self.configureCollectionView(true)
+                    self.configureCollectionView(true)
                 }
             } else {
                 // Log details of the failure
@@ -128,7 +124,7 @@ extension CarouselVC {
 
     }
     
-    
+    //Query return every data
     func queryBeer (featuredId: String) {
         
         let query = PFQuery(className:"Beer")
@@ -138,7 +134,7 @@ extension CarouselVC {
             
             if error == nil {
                 // The find succeeded.
-                print("Successfully retrieved \(objects!.count) scores.")
+                print("Successfully \(objects!.count).")
                 // Do something with the found objects
                 if let objects = objects {
                     for object in objects {
@@ -156,32 +152,30 @@ extension CarouselVC {
         }
         
     }
-    
+
     
     func updateData(beer: PFObject?){
         
         // pegando a foto do parse
-        if beer!.objectForKey("Photo") != nil{
-            let userImageFile = beer!.objectForKey("Photo") as! PFFile
+        if beer?.objectForKey("photo") != nil {
+            let imageArray = beer?.objectForKey("Photo") as! PFFile
             
-            userImageFile.getDataInBackgroundWithBlock {
+            imageArray.getDataInBackgroundWithBlock ({
                 (imageData: NSData?, error: NSError?) -> Void in
                 if error == nil {
                     if let imageData = imageData {
                         
-                        print("Pc que fez!!!!!")
+                        let imageArray = UIImage(data:imageData)
+                        self.imageArray.append(imageArray!)
                         
-                        let image = UIImage(data:imageData)
-                        //self.imageArray.append(object[]PFFile)
+                        print("Aeee foi!!!!!")
+                    
                         
                     }else{
                         print("sem imagem")
                     }
                 }
-                
-            }
-        }else{
-            print("erro na imagem")
+            })
         }
+      }
     }
-}
