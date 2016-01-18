@@ -12,7 +12,7 @@ import Parse
 
 class ReviewDAO: UIViewController {
 
-    typealias FindObjectsCompletionHandler = (review:[Review]?,success:Bool) -> Void
+    typealias FindObjectsCompletionHandler = (reviews:[Review]?,success:Bool) -> Void
     typealias RegisterReviewCH = (success:Bool)->Void
     
     typealias CreateCompletionHaldler = (beer:Beer?,success:Bool) -> Void
@@ -21,34 +21,33 @@ class ReviewDAO: UIViewController {
     
     
     // find beer from user,using CH, send a user from parse return objects Beer
-    static func findReviewFromUser(User:String,completionHandler:FindObjectsCompletionHandler){
+    static func findReviewFromUser(user:PFObject,completionHandler:FindObjectsCompletionHandler){
         
-        let userObject = PFUser.objectWithoutDataWithObjectId(User)
+    
         
         let query = PFQuery(className: "Review")
-        query.whereKey("user", equalTo: userObject)
         
+        query.whereKey("user", equalTo: user)
+        query.includeKey("beer")
+        query.includeKey("Beer.name")
         
         query.findObjectsInBackgroundWithBlock { (result:[PFObject]?, error:NSError?) -> Void in
+        
             if error == nil {
-                
-                for object in result! {
-                    print(object)
-                    let review = object as! Review
-                    print(review)
-                }
-                
+                print(result)
+
                 
                 if let result = result as? [Review] {
-                    completionHandler(review: result, success: true)
+                    print(result.first!)
+                    completionHandler(reviews: result, success: true)
                     print(result)
                 }else{
                     print("erro dao")
-                    completionHandler(review:nil,success: false)
+                    completionHandler(reviews:nil,success: false)
                 }
             }else{
                 print("erro dao 2")
-                completionHandler(review:nil,success: false)
+                completionHandler(reviews:nil,success: false)
             }
             
             
@@ -60,6 +59,9 @@ class ReviewDAO: UIViewController {
     
     
 
+
+    
+    
     
 }
 
