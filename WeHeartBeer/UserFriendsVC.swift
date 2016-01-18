@@ -24,9 +24,10 @@ class UserFriendsVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         self.tableView.dataSource = self
         self.tableView.delegate = self
-        
+        self.queryFriends()
     }
     
 
@@ -39,6 +40,7 @@ class UserFriendsVC: UIViewController {
         
 //        getFBAppFriends(nil, failureHandler: {(error)
 //            in print(error)})
+        //self.queryFriends()
         
         }
 
@@ -86,17 +88,7 @@ class UserFriendsVC: UIViewController {
                     print("Can't read next!!!")
                 }
             }
-            
-            
-            
-            
         }
-
-
-        
-        
-        
-        
     }
     
     // MARK: - Navigation
@@ -107,12 +99,19 @@ class UserFriendsVC: UIViewController {
         // Pass the selected object to the new view controller.
         if (segue.identifier == "segueToAddFriend") {
             print("ola")
+            
         }
     }
 
 }
 
 extension UserFriendsVC: UITableViewDataSource , UITableViewDelegate{
+    
+    
+ 
+        
+        
+     
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
@@ -131,17 +130,20 @@ extension UserFriendsVC: UITableViewDataSource , UITableViewDelegate{
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         print(indexPath.row)
+        let cell =  tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as! UserFriendsCell
+
         if indexPath.row == (self.countFriends){
-            
+            cell.name.text = "adicione um amigo"
         }else{
+            cell.name.text = self.testeArray[indexPath.row]
             
         }
-        return UITableViewCell()
+       // return UITableViewCell()
+        return cell
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         if indexPath.row == (self.countFriends){
-            print("nós que voa bruxão")
             performSegueWithIdentifier("segueToAddFriend", sender: nil)
         }else{
             print(testeArray[indexPath.row])
@@ -151,5 +153,36 @@ extension UserFriendsVC: UITableViewDataSource , UITableViewDelegate{
     
     
     
+    
+}
+
+extension UserFriendsVC {
+    
+    
+    func queryFriends(){
+        let user = User.currentUser()
+        let query = PFQuery(className: "Friends")
+        query.whereKey("id1", equalTo: (user?.faceID)!)
+        query.findObjectsInBackgroundWithBlock {
+            (objects: [PFObject]?, error: NSError?) -> Void in
+            if error == nil {
+                // The find succeeded.
+                print("Successfully retrieved \(objects!.count) scores.")
+                // Do something with the found objects
+                if let objects = objects {
+                    for object in objects {
+                        print(object.objectId)
+                    }
+                }
+            } else {
+                // Log details of the failure
+                print("Error: \(error!) \(error!.userInfo)")
+            }
+        }
+        
+        
+    }
+    
+
     
 }

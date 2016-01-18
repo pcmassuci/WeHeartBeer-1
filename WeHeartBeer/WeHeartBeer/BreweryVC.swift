@@ -18,10 +18,6 @@ class BreweryVC: UIViewController {
     var delegate: BreweryVCDelegate?
     
     
-    
-    
-    
-    
     //Outlets
     @IBOutlet weak var logoBrewery: UIImageView!
     
@@ -44,7 +40,7 @@ class BreweryVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-      
+        
         print(currentBrewery)
         print(currentBrewery?.objectId)
         listOfProducts.delegate = self
@@ -55,7 +51,7 @@ class BreweryVC: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-  
+    
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
@@ -81,8 +77,6 @@ class BreweryVC: UIViewController {
                 //colocar aviso de erro para o usuário
             }
         }
-        
-        
     }
     
     
@@ -116,6 +110,7 @@ class BreweryVC: UIViewController {
         }
         print(self.currentBrewery?.objectId)
         BeerServices.findBeerFromBrewery(self.currentBrewery?.objectId) { (beer, success) -> Void in
+            
             if success{
                 self.beers = beer
                 print(self.beers)
@@ -129,38 +124,43 @@ class BreweryVC: UIViewController {
     }
     
     
-    
-    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
     
-   }
-    
-    // MARK: - TableView
-    
+}
 
-    extension BreweryVC: UITableViewDataSource, UITableViewDelegate {
-        // Sets number of rows in tableview
+
+// MARK: - TableView
+
+extension BreweryVC: UITableViewDataSource, UITableViewDelegate {
+    // Sets number of rows in tableview
+    
+    
+    func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         
         
-        func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-            
-            
-            return 35
-        }
+        return 35
+    }
+    
+    
+    func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let label: UILabel = UILabel()
+        label.text = "Cervejas"
+        label.textColor = UIColor.blackColor()
+        label.backgroundColor = UIColor(red: 255.0/255.0, green: 192.0/255.0, blue: 3.0/255.0, alpha: 1.0)
         
+        return label
+    }
+    
+    
+    // Number of Rows in sections
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-            let label: UILabel = UILabel()
-            label.text = "Cervejas"
-            label.textColor = UIColor.blackColor()
-            label.backgroundColor = UIColor(red: 255.0/255.0, green: 192.0/255.0, blue: 3.0/255.0, alpha: 1.0)
-            
-            return label
-        }
+        var count = self.beers.count
+        count += 1
         
         func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
             
@@ -170,48 +170,53 @@ class BreweryVC: UIViewController {
             
             
             return count
-            //}
+            
         }
         
-        // Number of sections in tableview - not used
-        func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-            return 1
+        return count
+        //}
+    }
+    
+    // Number of sections in tableview - not used
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    
+    //Sets the tableview cell and change its info to the correspondent object
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        
+        let cell =  listOfProducts.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as! BreweryVCCell
+        
+        let count = self.beers.count
+        self.cellControl = count
+        
+        if indexPath.row < count{
+            cell.beersFromBrew?.text = self.beers[indexPath.row].objectForKey("name") as? String
+            //        cell.resutLabel?.text = self.resultsList.objectAtIndex(indexPath.row).objectForKey("name") as? String
+        }else{
+            cell.beersFromBrew?.text = "Adicionar Nova Cerveja"
+            
         }
         
-        //Sets the tableview cell and change its info to the correspondent object
-        func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-            
-            let cell =  listOfProducts.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as! BreweryVCCell
-            
-            let count = self.beers.count
-            self.cellControl = count
-            
-            if indexPath.row < count{
-                cell.beersFromBrew?.text = self.beers[indexPath.row].objectForKey("name") as? String
-                //        cell.resutLabel?.text = self.resultsList.objectAtIndex(indexPath.row).objectForKey("name") as? String
-            }else{
-                cell.beersFromBrew?.text = "Adicionar Nova Cerveja"
-                
-            }
-            
-            
-            return cell
-        }
         
-
+        return cell
+    }
+    
+    
+    
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        //            print("valor do obejto")
+        //            print(self.beers[indexPath.row])
         
-        
-        func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-//            print("valor do obejto")
-//            print(self.beers[indexPath.row])
-           
-             print(self.cellControl)
-            print(indexPath.row)
-            if (indexPath.row == cellControl) {
-              self.performSegueWithIdentifier("segueToAddBeer", sender: self)
-                
-                
-            }else{
+        print(self.cellControl)
+        print(indexPath.row)
+        if (indexPath.row == cellControl) {
+            self.performSegueWithIdentifier("segueToAddBeer", sender: self)
+            
+            
+        }else{
             delegate?.newBeer(self.beers[indexPath.row])
             if let navController = self.navigationController {
                 navController.popViewControllerAnimated(true)
@@ -221,29 +226,29 @@ class BreweryVC: UIViewController {
                 
                 
             }
+        }
+        //        if let del = delegate{
+        //
+        //            del.newBeer(self.beers[indexPath.row])
+        //
+        //        }else{
+        //            print("erro no delegate")
+        //        }
+    }
+    
+    // MARK: - Send to ADDBeer
+    // Prepare segue - WIP
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "segueToAddBeer"{
+            if let destination = segue.destinationViewController  as? AddBeer  {
+                
+                //
+                destination.brewery = self.brewery
+                //destination.objectID = self.currentBrewery?.objectId
+                
+                //
             }
-            //        if let del = delegate{
-            //
-            //            del.newBeer(self.beers[indexPath.row])
-            //            
-            //        }else{
-            //            print("erro no delegate")
-            //        }
         }
         
-          // MARK: - Send to ADDBeer
-        // Prepare segue - WIP
-        override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-            if segue.identifier == "segueToAddBeer"{
-                if let destination = segue.destinationViewController  as? AddBeer  {
-                    
-//
-                       destination.brewery = self.brewery
-                        //destination.objectID = self.currentBrewery?.objectId
-                    
-//
-                }
-            }
-        
-        }
+    }
 }

@@ -132,6 +132,7 @@ class UserDAO {
             user.faceID = faceID
             
             
+            
             UserDAO.update(user, completionHandler: { (success) -> Void in
                 completionHandler(success: success)
             })

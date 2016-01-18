@@ -41,6 +41,17 @@ class FacebookCheckinVC: UIViewController {
         UserServices.loginFaceUser { (success) -> Void in
             
             if success {
+                let friendList = PFObject(className:"FriendList")
+                friendList["user"] = User.currentUser()
+                
+                friendList.saveInBackgroundWithBlock {
+                    (success: Bool, error: NSError?) -> Void in
+                    if (success) {
+                        // The object has been saved.
+                    } else {
+                        // There was a problem, check error.description
+                    }
+                }
                 self.navigationController?.popToRootViewControllerAnimated(true)
             }
         }
