@@ -157,24 +157,8 @@ extension UserAddAppFriendsVC{
         
         
         // set up the query on the Follow table
-        let query = PFQuery(className: "User")
-        query.whereKey("friends", equalTo: PFUser.currentUser()!)
+        let query = PFQuery(className: "Friends")
         
-        // execute the query
-        query.findObjectsInBackgroundWithBlock { (objects:[PFObject]?, error: NSError?) -> Void in
-          
-            if let objects = objects {
-                for o in objects {
-                print(o)
-                    // o is an entry in the Follow table
-                    // to get the user, we get the object with the to key
-//                    let otherUse = o.objectForKey("to") as? PFUser
-//
-//                    // to get the time when we followed this user, get the date key
-//                    let when = o.objectForKey("date") as? PFObject
-                }
-            }
-        }
         
         
     }
