@@ -13,8 +13,8 @@ import Parse
 
 class Review: PFObject, PFSubclassing {
     
-    var user: String!
-    var beer: String!
+    var user: PFUser!
+    var beer: PFObject!
     var objectID: String!
     var rating: NSNumber!
     

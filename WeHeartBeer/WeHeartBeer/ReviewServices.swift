@@ -13,28 +13,29 @@ import UIKit
 class ReviewServices: UIViewController {
     typealias BooleanCompletionHandler = (success:Bool) -> Void
     
-    typealias FindObjectsCompletionHandler = (review:[Review]?,success:Bool) -> Void
+    typealias FindObjectsCompletionHandler = (reviews:[Review]?,success:Bool) -> Void
     typealias FindReviewCompletionHandler = (review:[Review]?,success:Bool) -> Void
     typealias FindObjIDCompletionHandler = (review:[Review]?,success:Bool) -> Void
     typealias CreateCompletionHaldler = (success:Bool) -> Void
-    
 
 
+
     
     
-    static func findReviewfromUser(User:String,completionHandler:FindObjectsCompletionHandler) {
-        ReviewDAO.findReviewFromUser(User) { (Review, success) -> Void in
+    static func findReviewfromUser(user:PFUser,completionHandler:FindObjectsCompletionHandler) {
+        
+        ReviewDAO.findReviewFromUser(user) { (reviews, success) -> Void in
             
-            print(Review)
+            print(reviews?.count)
             
             
             if success{
-                completionHandler(review: Review, success: true)
-                  print(Review)
+                completionHandler(reviews: reviews, success: true)
+                  print(reviews)
             }else{
                 // alertar o usuario
                 print("erooo serivice")
-                completionHandler(review: nil,success: false)
+                completionHandler(reviews: nil,success: false)
                 
             }
         }
