@@ -12,10 +12,11 @@ import UIKit
 
 class ReviewVCCell: UITableViewCell {
 
-    @IBOutlet weak var imageBeersFromUser: UIImageView!
+
     @IBOutlet weak var beersFromUser: UILabel!
     @IBOutlet weak var breweryFromUser: UILabel!
     
+    @IBOutlet weak var imageBeersFromUser: UIImageView!
     @IBOutlet weak var ratingFromUser: UILabel!
     
     

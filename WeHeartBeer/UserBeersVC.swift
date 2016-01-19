@@ -21,7 +21,6 @@ class UserBeersVC: UIViewController {
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     var currentReview: PFObject?
     var beers:[Beer]! = [Beer]()
-    var resultsList: NSArray!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -87,22 +86,30 @@ extension UserBeersVC: UITableViewDataSource, UITableViewDelegate {
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell =  listOfBeers.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as! ReviewVCCell
         
-        if self.review.objectAtIndex(indexPath.row).objectForKey("Photo") != nil{
+ 
+        if self.beers[indexPath.row].objectForKey("Photo") != nil{
+            let userImageFile = self.beers[indexPath.row].objectForKey("Photo")
             
-            let userImageFile = resultsList.objectAtIndex(indexPath.row).objectForKey("Photo") as! PFFile
-            
-            userImageFile.getDataInBackgroundWithBlock {
+            userImageFile!.getDataInBackgroundWithBlock {
                 (imageData: NSData?, error: NSError?) -> Void in
                 if error == nil {
                     if let imageData = imageData {
                         let image = UIImage(data:imageData)
                         cell.imageBeersFromUser.image = image
-                    }}}}
+                    }else{
+                        print("sem imagem")
+                    }
+                }
+                
+            }
+        }else{
+            print("erro na imagem")
+        }
         
-        
-        //cell.imageBeersFromUser.image = self.beers[indexPath.row].objectForKey("Photo") as? PFObject
+        //cell.imageBeersFromUser. = self.beers[indexPath.row].objectForKey("Photo") as? PFFile
         cell.beersFromUser?.text = self.beers[indexPath.row].objectForKey("name") as? String
         cell.breweryFromUser?.text = self.beers[indexPath.row].objectForKey("brewName") as? String
+        //cell.ratingFromUser?.text = self.currentReview!.valueForKey("rating")
         
         return cell
     }

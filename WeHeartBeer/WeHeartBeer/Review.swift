@@ -15,7 +15,7 @@ class Review: PFObject, PFSubclassing {
     
     var user: PFUser!
     var beer: PFObject!
-    var photo: UIImageView!
+    
     //var objectID: String!
     //var rating: NSNumber!
     
