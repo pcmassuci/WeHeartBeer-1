@@ -267,7 +267,6 @@
 		63F668AA1BD915F400172050 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				6746518B1C4D295E00C464F3 /* FriendProfileVC.swift */,
 				674127931C189F0200016D52 /* CountriesSearch.swift */,
 				D28691DD1C3D5DD300A1BCE4 /* MVCarouselPageControl.swift */,
 				D2BAC5E41C3BF2E8006981A2 /* CarouselVC.swift */,
@@ -306,6 +305,7 @@
 				6701DE091C4686F600F25FC2 /* UserAddAppFriendsVC.swift */,
 				6333567E1BED154C00A71155 /* UserProfileVC.swift */,
 				85FC937F1C190BE900CF59C7 /* UserFriendsVC.swift */,
+				6746518B1C4D295E00C464F3 /* FriendProfileVC.swift */,
 			);
 			name = User;
 			sourceTree = "<group>";
