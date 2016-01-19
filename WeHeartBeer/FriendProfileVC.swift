@@ -13,7 +13,7 @@ class FriendProfileVC: UIViewController {
     @IBOutlet weak var friendName: UILabel!
     var currentRequest: PFObject?
     var currentFriend: String?
-    var friend:User?
+    var friend: PFObject?
     
     
     override func viewDidLoad() {
@@ -25,7 +25,7 @@ class FriendProfileVC: UIViewController {
     }
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        //self.loadUser()
+        self.loadUser()
         
     }
 
@@ -36,7 +36,7 @@ class FriendProfileVC: UIViewController {
     
 
     @IBAction func addFriend(sender: AnyObject) {
-        //self.addOrAcceptFriend()
+        self.addOrAcceptFriend()
         
     }
     @IBAction func recuseFriend(sender: AnyObject) {
@@ -72,11 +72,11 @@ extension FriendProfileVC {
             query.getFirstObjectInBackgroundWithBlock({ (obj: PFObject?, error: NSError?) -> Void in
                 if error == nil{
                     if obj != nil{
+                        print(obj)
+                    self.friend  = obj!
+                    self.updateData()
                         
-                        self.friend?.name = (obj?.valueForKey("name") as! String)
-                        self.friend?.photo = (obj!.valueForKey("photo") as! PFFile)
-                        self.friend?.faceID = self.currentFriend!
-                        
+                        print(self.friend)
                     } else {
                         print("erro Usuario não encontrado")
                     }
@@ -93,14 +93,41 @@ extension FriendProfileVC {
     }
 //
 //    
-//    func addOrAcceptFriend(){
-//    
-//        
-//    }
-//    
+    func addOrAcceptFriend(){
+        print(currentRequest)
+        
+        if currentRequest == nil {
+            let user = User.currentUser()
+            let friendList = PFObject(className:"Friends")
+            friendList["user1"] = user
+            friendList["id1"] = user?.faceID
+            friendList["accepted"] = false
+            friendList["user2"] = self.friend!
+            friendList["id2"] = self.friend?.valueForKey("faceID")
+            friendList.saveInBackgroundWithBlock {
+                (success: Bool, error: NSError?) -> Void in
+                if (success) {
+                    print("PEDIDO deu Certo")
+                    // The object has been saved.
+                } else {
+                    print("PEDIDO DEU ERRADO")
+                    // There was a problem, check error.description
+                }
+            }
+            
+        }
+    
+        
+    }
+//
 //    func recuseFriend(){
 //        
 //    }
 //    
 //    
+}
+extension FriendProfileVC {
+    func updateData(){
+        self.friendName.text = (self.friend!.valueForKey("name") as! String)
+    }
 }
