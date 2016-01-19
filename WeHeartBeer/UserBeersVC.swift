@@ -21,6 +21,7 @@ class UserBeersVC: UIViewController {
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     var currentReview: PFObject?
     var beers:[Beer]! = [Beer]()
+    var resultsList: NSArray!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,9 +33,9 @@ class UserBeersVC: UIViewController {
             for i in 0..<reviews!.count {
                 let review = reviews![i]
                 let beer = review.objectForKey("beer") as! Beer
+                //let brewery = beer.objectForKey("brewName")
+                //let image = beer.objectForKey("Photo") as! UIImageView
                 self.beers.append(beer)
-                let brewery = beer.objectForKey("brewery") as! Beer
-
                 
             }
             self.listOfBeers.reloadData()
@@ -86,9 +87,29 @@ extension UserBeersVC: UITableViewDataSource, UITableViewDelegate {
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell =  listOfBeers.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as! ReviewVCCell
         
+        if self.review.objectAtIndex(indexPath.row).objectForKey("Photo") != nil{
+            
+            let userImageFile = resultsList.objectAtIndex(indexPath.row).objectForKey("Photo") as! PFFile
+            
+            userImageFile.getDataInBackgroundWithBlock {
+                (imageData: NSData?, error: NSError?) -> Void in
+                if error == nil {
+                    if let imageData = imageData {
+                        let image = UIImage(data:imageData)
+                        cell.imageBeersFromUser.image = image
+                    }}}}
+        
+        
+        //cell.imageBeersFromUser.image = self.beers[indexPath.row].objectForKey("Photo") as? PFObject
         cell.beersFromUser?.text = self.beers[indexPath.row].objectForKey("name") as? String
-        cell.breweryFromUser?.text = self.beers[indexPath.row].objectForKey("brewery") as? String
+        cell.breweryFromUser?.text = self.beers[indexPath.row].objectForKey("brewName") as? String
         
         return cell
     }
+    
+    
+    
+    
+    
+    
 }
