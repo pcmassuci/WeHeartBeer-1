@@ -40,22 +40,30 @@ class UserAddAppFriendsVC: UIViewController {
     }
     
 
-    /*
+    
     // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
+
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        if segue.identifier == "segueToFriendProfile"{
+            if let destination = segue.destinationViewController  as? FriendProfileVC{
+                if let indexPath = tableView.indexPathForSelectedRow?.row{
+                    destination.currentFriend = self.friends[indexPath].fBiD
+                    
+                }
+            }
+        }
+
+      
     }
-    */
+
 
 }
 
 extension UserAddAppFriendsVC: UITableViewDataSource , UITableViewDelegate{
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return 2
+        return 1
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -77,7 +85,7 @@ extension UserAddAppFriendsVC: UITableViewDataSource , UITableViewDelegate{
             cell.name.text = "Convide para o App"
         }else{
             cell.name.text = self.friends[indexPath.row].name
-           // cell.name.text = self.testeArray[indexPath.row]
+         
             
         }
         return cell
@@ -88,7 +96,8 @@ extension UserAddAppFriendsVC: UITableViewDataSource , UITableViewDelegate{
             
             performSegueWithIdentifier("segueInviteFacebook", sender: nil)
         }else{
-        self.showAlertTapped(indexPath.row)
+            performSegueWithIdentifier("segueToFriendProfile", sender: indexPath)
+        //self.showAlertTapped(indexPath.row)
             
         }
     }
@@ -183,50 +192,50 @@ extension UserAddAppFriendsVC{
 
 extension UserAddAppFriendsVC {
     
-    func showAlertTapped(row:Int) {
-        //Create the AlertController
-        let actionSheetController: UIAlertController = UIAlertController(title: "Alerta", message: "Você deseja adicionar \(self.friends[row].name) como amigo", preferredStyle: .Alert)
-        
-        //Create and add the Cancel action
-        let cancelAction: UIAlertAction = UIAlertAction(title: "Não", style: .Cancel) { action -> Void in
-            //Do some stuff
-        }
-        actionSheetController.addAction(cancelAction)
-        //Create and an option action
-        let nextAction: UIAlertAction = UIAlertAction(title: "Sim", style: .Default) { action -> Void in
-            
-            
-            let follow = PFObject(className: "User")
-            var otherUser:PFObject?
-            var query = PFQuery(className:"_User")
-            
-            print(self.friends[row].fBiD)
-            
-            query.whereKey("name", equalTo:(self.friends[row].name as String))
-            query.getFirstObjectInBackgroundWithBlock({ (object: PFObject?, error: NSError?) -> Void in
-                if error == nil {
-                    // The find succeeded
-                            print(object!.objectId)
-                            print(object!.objectForKey("faceID"))
-                    follow.setObject(PFUser.currentUser()!, forKey: "friend")
-                    follow.setObject(object!, forKey: "to")
-                    follow.setObject(NSDate(), forKey: "date")
-                    follow.saveInBackground()
-                    
-                } else {
-                    // Log details of the failure
-                    print("Error ao salvar: \(error!) \(error!.userInfo)")
-                }
-                })
-            
-          
-        }
-        actionSheetController.addAction(nextAction)
-    
-        
-        //Present the AlertController
-        self.presentViewController(actionSheetController, animated: true, completion: nil)
-    }
+//    func showAlertTapped(row:Int) {
+//        //Create the AlertController
+//        let actionSheetController: UIAlertController = UIAlertController(title: "Alerta", message: "Você deseja adicionar \(self.friends[row].name) como amigo", preferredStyle: .Alert)
+//        
+//        //Create and add the Cancel action
+//        let cancelAction: UIAlertAction = UIAlertAction(title: "Não", style: .Cancel) { action -> Void in
+//            //Do some stuff
+//        }
+//        actionSheetController.addAction(cancelAction)
+//        //Create and an option action
+//        let nextAction: UIAlertAction = UIAlertAction(title: "Sim", style: .Default) { action -> Void in
+//            
+//            
+//            let follow = PFObject(className: "User")
+//            var otherUser:PFObject?
+//            var query = PFQuery(className:"_User")
+//            
+//            print(self.friends[row].fBiD)
+//            
+//            query.whereKey("name", equalTo:(self.friends[row].name as String))
+//            query.getFirstObjectInBackgroundWithBlock({ (object: PFObject?, error: NSError?) -> Void in
+//                if error == nil {
+//                    // The find succeeded
+//                            print(object!.objectId)
+//                            print(object!.objectForKey("faceID"))
+//                    follow.setObject(PFUser.currentUser()!, forKey: "friend")
+//                    follow.setObject(object!, forKey: "to")
+//                    follow.setObject(NSDate(), forKey: "date")
+//                    follow.saveInBackground()
+//                    
+//                } else {
+//                    // Log details of the failure
+//                    print("Error ao salvar: \(error!) \(error!.userInfo)")
+//                }
+//                })
+//            
+//          
+//        }
+//        actionSheetController.addAction(nextAction)
+//    
+//        
+//        //Present the AlertController
+//        self.presentViewController(actionSheetController, animated: true, completion: nil)
+//    }
     
 }
 

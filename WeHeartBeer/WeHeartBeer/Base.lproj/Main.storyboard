@@ -3563,7 +3563,8 @@
                                         <exclude reference="Unw-To-Byp"/>
                                     </mask>
                                 </variation>
-                                <variation key="heightClass=regular-widthClass=compact">
+                                <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="160" y="224" width="39" height="37"/>
                                     <mask key="constraints">
                                         <exclude reference="Unw-To-Byp"/>
                                     </mask>
@@ -3816,6 +3817,7 @@
                     <connections>
                         <outlet property="tableView" destination="KBx-31-QlS" id="e23-ni-4f9"/>
                         <segue destination="2p9-dE-Eab" kind="show" identifier="segueInviteFacebook" id="lX6-pX-Yk1"/>
+                        <segue destination="yYe-9E-9fm" kind="show" identifier="segueToFriendProfile" id="1G7-09-BRb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2za-Xj-wWP" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -3914,6 +3916,65 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NSV-Vk-k8R" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1564.5" y="3863.25"/>
+        </scene>
+        <!--Friend ProfileVC-->
+        <scene sceneID="1WI-8I-0mB">
+            <objects>
+                <viewController id="yYe-9E-9fm" customClass="FriendProfileVC" customModule="BeerLove" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ADM-Re-aVc"/>
+                        <viewControllerLayoutGuide type="bottom" id="mPD-PO-NGW"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="FtV-Ax-YbQ">
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yjr-yh-4hD">
+                                <rect key="frame" x="-42" y="-21" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="179" y="165" width="42" height="21"/>
+                                </variation>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DRB-AB-4q8">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <state key="normal" title="Add"/>
+                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="115" y="224" width="30" height="30"/>
+                                </variation>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xRe-bc-7KK">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <state key="normal" title="recusar"/>
+                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="225" y="224" width="92" height="30"/>
+                                </variation>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="Yjr-yh-4hD"/>
+                                <exclude reference="DRB-AB-4q8"/>
+                                <exclude reference="xRe-bc-7KK"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular-widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="Yjr-yh-4hD"/>
+                                <include reference="DRB-AB-4q8"/>
+                                <include reference="xRe-bc-7KK"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <connections>
+                        <outlet property="friendName" destination="Yjr-yh-4hD" id="a10-5w-mNQ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="QMl-p6-vLj" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2344.5" y="4551.75"/>
         </scene>
     </scenes>
     <resources>
