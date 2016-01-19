@@ -89,6 +89,7 @@ class BreweryVC: UIViewController {
         placeBrewery.text = brewery.objectForKey("local") as? String
         
         linkBrewery.text = brewery.objectForKey("contact") as? String
+        
         //logoBrewery.image = brewery.objectForKey("photo") as? UIImage
         if brewery.objectForKey("photo") != nil{
             let userImageFile = brewery.objectForKey("photo") as! PFFile
@@ -108,6 +109,7 @@ class BreweryVC: UIViewController {
         }else{
             print("erro na imagem")
         }
+        
         print(self.currentBrewery?.objectId)
         BeerServices.findBeerFromBrewery(self.currentBrewery?.objectId) { (beer, success) -> Void in
             
