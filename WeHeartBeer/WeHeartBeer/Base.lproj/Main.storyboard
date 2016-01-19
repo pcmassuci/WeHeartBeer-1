@@ -2324,36 +2324,7 @@
                     <view key="view" contentMode="scaleToFill" id="9XV-Km-2vf">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Mt8-kf-TbT">
-                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="nuL-8n-Fda">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="nuL-8n-Fda" id="M7J-nI-liJ">
-                                            <rect key="frame" x="0.0" y="0.0" width="240" height="43.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                </prototypes>
-                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="20" y="36" width="360" height="701"/>
-                                </variation>
-                            </tableView>
-                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <variation key="default">
-                            <mask key="subviews">
-                                <exclude reference="Mt8-kf-TbT"/>
-                            </mask>
-                        </variation>
-                        <variation key="heightClass=regular-widthClass=compact">
-                            <mask key="subviews">
-                                <include reference="Mt8-kf-TbT"/>
-                            </mask>
-                        </variation>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="s9p-ov-eYl" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -3252,10 +3223,107 @@
             </objects>
             <point key="canvasLocation" x="-6111" y="2153.25"/>
         </scene>
-        <!--Table View Controller-->
+        <!--ContactVC-->
+        <scene sceneID="tgD-ye-R0B">
+            <objects>
+                <viewController id="Uel-KI-MZ7" customClass="ContactVC" customModule="BeerLove" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="E2W-1H-UON"/>
+                        <viewControllerLayoutGuide type="bottom" id="p66-HH-Axb"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="uft-f7-DHp">
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KBb-7n-75S">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="512" id="Hpw-d6-aaT">
+                                        <variation key="heightClass=regular-widthClass=compact" constant="120"/>
+                                    </constraint>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="89" id="Igz-F9-F5I"/>
+                                    <constraint firstAttribute="width" constant="89" id="dgZ-bO-zQR">
+                                        <variation key="heightClass=regular-widthClass=compact" constant="120"/>
+                                    </constraint>
+                                </constraints>
+                                <state key="normal" title="Email" image="email"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="Hpw-d6-aaT"/>
+                                        <exclude reference="Igz-F9-F5I"/>
+                                        <exclude reference="dgZ-bO-zQR"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=regular-widthClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="Hpw-d6-aaT"/>
+                                        <exclude reference="Igz-F9-F5I"/>
+                                        <include reference="dgZ-bO-zQR"/>
+                                    </mask>
+                                </variation>
+                                <connections>
+                                    <action selector="mailMe:" destination="Uel-KI-MZ7" eventType="touchUpInside" id="Qey-nM-bev"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AEi-rt-USt">
+                                <rect key="frame" x="-42" y="-21" width="42" height="21"/>
+                                <string key="text">Oi! Por aqui você pode entrar em contato conosco. Achou algum problema? Tem alguma sugestão? Gostaria de ser nosso parceiro nos desafios? É só falar!</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="AEi-rt-USt" firstAttribute="leading" secondItem="uft-f7-DHp" secondAttribute="leadingMargin" constant="-4" id="YbA-ef-AYi"/>
+                            <constraint firstItem="KBb-7n-75S" firstAttribute="centerX" secondItem="uft-f7-DHp" secondAttribute="centerX" id="aUZ-Hg-xm6"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="AEi-rt-USt" secondAttribute="trailing" constant="-4" id="iwG-0v-KMn"/>
+                            <constraint firstItem="KBb-7n-75S" firstAttribute="top" secondItem="AEi-rt-USt" secondAttribute="bottom" constant="110" id="odG-Xa-eA6">
+                                <variation key="heightClass=regular-widthClass=compact" constant="80"/>
+                            </constraint>
+                            <constraint firstItem="AEi-rt-USt" firstAttribute="top" secondItem="E2W-1H-UON" secondAttribute="bottom" constant="30" id="rAZ-Fw-0q8">
+                                <variation key="heightClass=regular-widthClass=compact" constant="100"/>
+                            </constraint>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="KBb-7n-75S"/>
+                                <exclude reference="AEi-rt-USt"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="YbA-ef-AYi"/>
+                                <exclude reference="iwG-0v-KMn"/>
+                                <exclude reference="rAZ-Fw-0q8"/>
+                                <exclude reference="aUZ-Hg-xm6"/>
+                                <exclude reference="odG-Xa-eA6"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular-widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="KBb-7n-75S"/>
+                                <include reference="AEi-rt-USt"/>
+                            </mask>
+                            <mask key="constraints">
+                                <include reference="YbA-ef-AYi"/>
+                                <include reference="iwG-0v-KMn"/>
+                                <include reference="rAZ-Fw-0q8"/>
+                                <include reference="aUZ-Hg-xm6"/>
+                                <include reference="odG-Xa-eA6"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <connections>
+                        <outlet property="contactIntro" destination="KBb-7n-75S" id="Xc1-ok-oKl"/>
+                        <outlet property="mailMe" destination="KBb-7n-75S" id="dXo-UT-bjG"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="u8k-jy-Ry6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-5410.5" y="2194.125"/>
+        </scene>
+        <!--MoreVC-->
         <scene sceneID="7dl-8N-7rp">
             <objects>
-                <tableViewController id="O4q-ZA-tqj" sceneMemberID="viewController">
+                <tableViewController id="O4q-ZA-tqj" customClass="MoreVC" customModule="BeerLove" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="Wzj-Ox-qSJ">
                         <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -3406,6 +3474,9 @@
                                                 </mask>
                                             </variation>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="Uel-KI-MZ7" kind="show" id="dnL-Ht-cYv"/>
+                                        </connections>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
@@ -3420,10 +3491,10 @@
             </objects>
             <point key="canvasLocation" x="-5410.5" y="1512.75"/>
         </scene>
-        <!--View Controller-->
+        <!--More Nav ContainerVC-->
         <scene sceneID="1zT-Dx-TTK">
             <objects>
-                <viewController id="PYP-1L-3cB" sceneMemberID="viewController">
+                <viewController id="PYP-1L-3cB" customClass="MoreNavContainerVC" customModule="BeerLove" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Uib-RI-GQx"/>
                         <viewControllerLayoutGuide type="bottom" id="jBT-0e-TNc"/>
@@ -3984,6 +4055,7 @@
         <image name="1449598810_plus" width="50" height="50"/>
         <image name="Icon_beer-500x500" width="500" height="500"/>
         <image name="construcao" width="505" height="505"/>
+        <image name="email" width="512" height="512"/>
         <image name="hexaicon" width="500" height="500"/>
         <image name="hexaicon copy" width="500" height="500"/>
         <image name="hexaicon copy 2" width="500" height="500"/>
