@@ -29,7 +29,8 @@ class UserAddAppFriendsVC: UIViewController {
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        
+        self.friends.removeAll()
+        self.view.layoutIfNeeded()
           getFBAppFriends(nil, failureHandler: {(error)
              in print(error)})
     }

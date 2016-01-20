@@ -35,7 +35,6 @@
 		677924B21BFA064600B8092B /* RegisterBeerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 677924B11BFA064600B8092B /* RegisterBeerVC.swift */; };
 		67B50AB41C0F0D010032CCCD /* SearchBreweryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67B50AB31C0F0D010032CCCD /* SearchBreweryVC.swift */; };
 		67EBCCE11C4D1F0700073A08 /* HeaderSectionFriends.xib in Resources */ = {isa = PBXBuildFile; fileRef = 67EBCCE01C4D1F0700073A08 /* HeaderSectionFriends.xib */; };
-		67EBCCE31C4D216800073A08 /* HeaderSecFriends.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67EBCCE21C4D216800073A08 /* HeaderSecFriends.swift */; };
 		67EE50991C1703F600AAA599 /* PagedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67EE50981C1703F600AAA599 /* PagedViewController.swift */; };
 		67FB0C121C0F6C8700122314 /* SearchTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67FB0C111C0F6C8700122314 /* SearchTVCell.swift */; };
 		67FB0C141C11D31500122314 /* AddBreweryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67FB0C131C11D31500122314 /* AddBreweryVC.swift */; };
@@ -146,7 +145,6 @@
 		677924B11BFA064600B8092B /* RegisterBeerVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterBeerVC.swift; sourceTree = "<group>"; };
 		67B50AB31C0F0D010032CCCD /* SearchBreweryVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchBreweryVC.swift; sourceTree = "<group>"; };
 		67EBCCE01C4D1F0700073A08 /* HeaderSectionFriends.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HeaderSectionFriends.xib; sourceTree = "<group>"; };
-		67EBCCE21C4D216800073A08 /* HeaderSecFriends.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeaderSecFriends.swift; sourceTree = "<group>"; };
 		67EE50981C1703F600AAA599 /* PagedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PagedViewController.swift; sourceTree = "<group>"; };
 		67FB0C111C0F6C8700122314 /* SearchTVCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchTVCell.swift; sourceTree = "<group>"; };
 		67FB0C131C11D31500122314 /* AddBreweryVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddBreweryVC.swift; sourceTree = "<group>"; };
@@ -462,7 +460,6 @@
 				8518D14C1BD7B7BD00499ACA /* Main.storyboard */,
 				67EBCCE01C4D1F0700073A08 /* HeaderSectionFriends.xib */,
 				8518D1541BD7B7BD00499ACA /* LaunchScreen.storyboard */,
-				67EBCCE21C4D216800073A08 /* HeaderSecFriends.swift */,
 				674127971C18A20700016D52 /* CountryCell.swift */,
 				67FB0C111C0F6C8700122314 /* SearchTVCell.swift */,
 				674651891C4D290500C464F3 /* UserFriendAddTableViewController.swift */,
@@ -706,7 +703,6 @@
 				63710E251C07D6F000E0794A /* FacebookChekinVC.swift in Sources */,
 				674127981C18A20700016D52 /* CountryCell.swift in Sources */,
 				67FB0C141C11D31500122314 /* AddBreweryVC.swift in Sources */,
-				67EBCCE31C4D216800073A08 /* HeaderSecFriends.swift in Sources */,
 				677924B21BFA064600B8092B /* RegisterBeerVC.swift in Sources */,
 				854AAF4F1BF0BE8F002F405B /* BeerServices.swift in Sources */,
 				8518D1511BD7B7BD00499ACA /* WeHeartBeer.xcdatamodeld in Sources */,
