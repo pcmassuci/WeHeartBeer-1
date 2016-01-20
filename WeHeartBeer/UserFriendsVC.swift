@@ -160,9 +160,12 @@ extension UserFriendsVC: UITableViewDataSource , UITableViewDelegate{
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-
+        print("section:\(indexPath.section) , row: \(indexPath.row)")
         if indexPath.section == 0 {
+            print("vai segueeeee vai")
+
             if indexPath.row == (self.requests.count){
+                print("vai segue vai")
                 performSegueWithIdentifier("segueToAddFriend", sender: nil)
             }else{
                 print(self.requests[indexPath.row])
