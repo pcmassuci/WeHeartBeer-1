@@ -165,6 +165,9 @@ extension CarouselVC {
                 if error == nil {
                     if let imageData = imageData {
                         let image = UIImage(data:imageData)
+                        print("Foi!!!", image)
+                        
+                        image?.select(self.collectionView)
                         //self.image.image = image
                         //self.image.contentMode = UIViewContentMode.ScaleAspectFit
                         let tapGestureRecognizer = UITapGestureRecognizer(target:self, action:Selector(""))
