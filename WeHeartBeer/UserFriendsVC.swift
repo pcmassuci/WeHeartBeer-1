@@ -137,7 +137,7 @@ extension UserFriendsVC: UITableViewDataSource , UITableViewDelegate{
              
         case 1:
             if 0 == (self.waitingFriends.count){
-                cell.name.text = "sem requisição"
+                cell.name.text = "sem requisição \(self.waitingFriends.count)"
             }else{
                 cell.name.text = (self.waitingFriends[indexPath.row]!.valueForKey("id1") as! String)
             }
@@ -163,7 +163,7 @@ extension UserFriendsVC: UITableViewDataSource , UITableViewDelegate{
         print("section:\(indexPath.section) , row: \(indexPath.row)")
         if indexPath.section == 0 {
             print("vai segueeeee vai")
-
+            print(self.requests.count)
             if indexPath.row == (self.requests.count){
                 print("vai segue vai")
                 performSegueWithIdentifier("segueToAddFriend", sender: nil)
@@ -195,17 +195,17 @@ extension UserFriendsVC {
                         print(object.objectId)
                         if object.valueForKey("accepted") != nil{
                             if object.valueForKey("accepted") as? Bool  == false {
-                                self.requests.append(object)
+                                self.waitingFriends.append(object)
                                 
                             }else{
-                                self.waitingFriends.append(object)
+                                self.requests.append(object)
                             }
                         }
 
                     }
                     let qry = PFQuery(className: "Friends")
                     qry.whereKey("id2", equalTo: (user?.faceID)!)
-                    query.findObjectsInBackgroundWithBlock({ (objs:[PFObject]?, erro: NSError?) -> Void in
+                    qry.findObjectsInBackgroundWithBlock({ (objs:[PFObject]?, erro: NSError?) -> Void in
                         if erro == nil{
                             if let objs = objs{
                                 for obj in objs{

@@ -10,7 +10,7 @@ import UIKit
 import Foundation
 import Parse
 
-class ReviewDAO: UIViewController {
+class ReviewDAO {
 
     typealias FindObjectsCompletionHandler = (reviews:[Review]?,success:Bool) -> Void
     typealias RegisterReviewCH = (success:Bool)->Void
