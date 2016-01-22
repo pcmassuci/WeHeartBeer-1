@@ -78,11 +78,11 @@ public class MVCarouselCollectionView: UICollectionView, UICollectionViewDataSou
         cell.cellSize = self.bounds.size
 
         // Pass the closure to the cell
-        //let imagePath = self.imagePaths[indexPath.row]
-        //let loader = self.selectDelegate?.imageLoaderForCell?(atIndexPath: indexPath, imagePath: imagePath)
-        //cell.imageLoader = loader != nil ? loader : self.commonImageLoader
+        let imagePath = self.imagePaths[indexPath.row]
+        let loader = self.selectDelegate?.imageLoaderForCell?(atIndexPath: indexPath, imagePath: imagePath)
+        cell.imageLoader = loader != nil ? loader : self.commonImageLoader
         // Set image path, which will call closure
-        //cell.imagePath = imagePath
+        cell.imagePath = imagePath
         //cell.maximumZoom = maximumZoom
 
         // http://stackoverflow.com/questions/16960556/how-to-zoom-a-uiscrollview-inside-of-a-uicollectionviewcell

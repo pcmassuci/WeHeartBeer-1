@@ -18,20 +18,12 @@ class ReviewServices: UIViewController {
     typealias FindObjIDCompletionHandler = (review:[Review]?,success:Bool) -> Void
     typealias CreateCompletionHaldler = (success:Bool) -> Void
 
-
-
-    
-    
     static func findReviewfromUser(user:PFUser,completionHandler:FindObjectsCompletionHandler) {
         
         ReviewDAO.findReviewFromUser(user) { (reviews, success) -> Void in
-            
-            print(reviews?.count)
-            
-            
+
             if success{
                 completionHandler(reviews: reviews, success: true)
-                  print(reviews)
             }else{
                 // alertar o usuario
                 print("erooo serivice")

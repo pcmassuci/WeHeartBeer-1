@@ -32,8 +32,10 @@ class UserBeersVC: UIViewController {
             for i in 0..<reviews!.count {
                 let review = reviews![i]
                 let beer = review.objectForKey("beer") as! Beer
-                
+                //let brewery = beer.objectForKey("brewName")
+                //let image = beer.objectForKey("Photo") as! UIImageView
                 self.beers.append(beer)
+                
             }
             self.listOfBeers.reloadData()
         }
@@ -84,8 +86,37 @@ extension UserBeersVC: UITableViewDataSource, UITableViewDelegate {
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell =  listOfBeers.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as! ReviewVCCell
         
+ 
+        if self.beers[indexPath.row].objectForKey("Photo") != nil{
+            let userImageFile = self.beers[indexPath.row].objectForKey("Photo")
+            
+            userImageFile!.getDataInBackgroundWithBlock {
+                (imageData: NSData?, error: NSError?) -> Void in
+                if error == nil {
+                    if let imageData = imageData {
+                        let image = UIImage(data:imageData)
+                        cell.imageBeersFromUser.image = image
+                    }else{
+                        print("sem imagem")
+                    }
+                }
+                
+            }
+        }else{
+            print("erro na imagem")
+        }
+        
+        //cell.imageBeersFromUser. = self.beers[indexPath.row].objectForKey("Photo") as? PFFile
         cell.beersFromUser?.text = self.beers[indexPath.row].objectForKey("name") as? String
+        cell.breweryFromUser?.text = self.beers[indexPath.row].objectForKey("brewName") as? String
+        //cell.ratingFromUser?.text = self.currentReview!.valueForKey("rating")
         
         return cell
     }
+    
+    
+    
+    
+    
+    
 }

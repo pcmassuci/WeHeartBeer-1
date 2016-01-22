@@ -10,37 +10,29 @@ import UIKit
 import Foundation
 import Parse
 
-class ReviewDAO: UIViewController {
+class ReviewDAO {
 
     typealias FindObjectsCompletionHandler = (reviews:[Review]?,success:Bool) -> Void
     typealias RegisterReviewCH = (success:Bool)->Void
-    
     typealias CreateCompletionHaldler = (beer:Beer?,success:Bool) -> Void
-    
-    
-    
     
     // find beer from user,using CH, send a user from parse return objects Beer
     static func findReviewFromUser(user:PFObject,completionHandler:FindObjectsCompletionHandler){
-        
-    
         
         let query = PFQuery(className: "Review")
         
         query.whereKey("user", equalTo: user)
         query.includeKey("beer")
         query.includeKey("Beer.name")
+        query.includeKey("Beer.brewery")
+        query.includeKey("Beer.Photo")
+        query.includeKey("Review.rating")
         
         query.findObjectsInBackgroundWithBlock { (result:[PFObject]?, error:NSError?) -> Void in
         
             if error == nil {
-                print(result)
-
-                
                 if let result = result as? [Review] {
-                    print(result.first!)
                     completionHandler(reviews: result, success: true)
-                    print(result)
                 }else{
                     print("erro dao")
                     completionHandler(reviews:nil,success: false)
@@ -54,14 +46,6 @@ class ReviewDAO: UIViewController {
         }
         
     }
-    
-    
-    
-    
-
-
-    
-    
     
 }
 

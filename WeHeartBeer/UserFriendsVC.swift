@@ -9,91 +9,66 @@
 import UIKit
 import FBSDKCoreKit
 import FBSDKLoginKit
-
 import FBSDKShareKit
-
 import ParseFacebookUtilsV4
 
 
 class UserFriendsVC: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
-    var countFriends = 0
-    //var friends:[User]? = [User]()
-    let testeArray = ["julio", "fernado", "mateus"]
+
     var requests:[PFObject?] = [PFObject]()
-    var myFriends: [PFObject] = [PFObject]()
-    let testeArray1 = ["juliow", "fernawdo", "mateusw"]
+    var myFriends: [PFObject?] = [PFObject]()
+    var waitingFriends:[PFObject?] = [PFObject]()
+    let testView: UIView = UIView(frame: CGRectMake(0, 0, 320, 568))
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         self.tableView.dataSource = self
         self.tableView.delegate = self
-        self.queryFriends()
     }
     
 
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
-        
-        //criar reload friends
-        tableView.reloadData()
-        
-//        getFBAppFriends(nil, failureHandler: {(error)
-//            in print(error)})
-        //self.queryFriends()
-        
-        }
+        self.loadingView(true)
+        self.requests.removeAll()
+        self.waitingFriends.removeAll()
+        self.myFriends.removeAll()
 
-
-    // pegar amigos que usam o app
-    func getFBAppFriends(nextCursor : String?, failureHandler: (error: NSError) -> Void) {
-        
-        let qry = "/me/friends"
-        var parameters = Dictionary<String, String>() as? Dictionary
-        if nextCursor == nil {
-            parameters = nil
-        } else {
-            parameters!["after"] = nextCursor
-        }
-        
-        let request = FBSDKGraphRequest(graphPath: qry, parameters: parameters);
-        
-        
-        request.startWithCompletionHandler { (connection : FBSDKGraphRequestConnection!, result : AnyObject!, error : NSError!) -> Void in
-            
-            if (error) != nil{
-                // Process error
-                print("Error: \(error)")
+        FriendsDAO.queryFriends { (requests, waitingFriends, myFriends, success) -> Void in
+            if success{
+                print("uma vez")
+                if requests! == requests!{
+                    for request in requests!{
+                        self.requests.append(request)
+                    }
+                }
+                if waitingFriends! == waitingFriends!{
+                    for wf in waitingFriends!{
+                        self.waitingFriends.append(wf)
+                        //print(wf)
+                    }
+                }
                 
+                for mf in myFriends!{
+                    self.myFriends.append(mf)
+                }
+                self.tableView.reloadData()
             }else{
-                //println("fetched user: \(result)")
-                let resultdict = result as! NSDictionary
-                let data : NSArray = resultdict.objectForKey("data") as! NSArray
-                
-                for i in 0..<data.count {
-                    let valueDict : NSDictionary = data[i] as! NSDictionary
-                    //                    let id = valueDict.objectForKey("id") as! String
-                    let name = valueDict.objectForKey("name") as! String
-                    //                    let pictureDict = valueDict.objectForKey("picture") as! NSDictionary
-                    //                    let pictureData = pictureDict.objectForKey("data") as! NSDictionary
-                    //                    let pictureURL = pictureData.objectForKey("url") as! String
-                    print("Name: \(name)")
-                    //println("ID: \(id)")
-                    //println("URL: \(pictureURL)")
-                }
-                if let after = ((resultdict.objectForKey("paging") as? NSDictionary)?.objectForKey("cursors") as? NSDictionary)?.objectForKey("after") as? String {
-                    self.getFBAppFriends(after, failureHandler: {(error) in
-                        print("error")})
-                } else {
-                    print("Can't read next!!!")
-                }
-            }
+                print("deu erro")
         }
-    }
-    
+        
+        }
+        
+        
+        self.tableView.reloadData()
+
+        
+        }
+
+
     // MARK: - Navigation
     
     // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -101,97 +76,131 @@ class UserFriendsVC: UIViewController {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
         if (segue.identifier == "segueToAddFriend") {
-            print("ola")
             
         }
     }
 
 }
 
+
+
+
 extension UserFriendsVC: UITableViewDataSource , UITableViewDelegate{
     
-    
- 
-        
-        
      
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return 2
+        return 3
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        //self.countFriends = (self.friends?.count)!
-        self.countFriends  = self.testeArray.count
-        let rows = self.countFriends + 1
-        print(rows)
-        return rows
-    }
-    
-    
-    func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         
-        let view = HeaderSecFriends()
-//        if section == 0 {
-//            view.sectionName.text = "Solicitações"
-//        }else{
-//            view.sectionName.text = "Amigos"
-// 
-//        }
-//        
-        return view
+        
+        switch section {
+            
+        case 0:
+            return (self.requests.count + 1)
+        
+        case 1:
+            
+            if self.waitingFriends.count == 0 {
+                return 1
+            } else {
+            return self.waitingFriends.count
+            }
+            
+        case 2:
+            if self.myFriends.count == 0{
+                return 1
+            } else {
+                return self.myFriends.count
+  
+            }
+            
+        default :
+            return 1
+        }
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        switch indexPath.section{
-        case 0:
-            
-            let cell =  tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as! UserFriendsCell
-            
-            if indexPath.row == (self.countFriends){
-                cell.name.text = "adicione um amigo"
-            }else{
-                cell.name.text = self.testeArray[indexPath.row]
-                
-            }
-            break
-        case 1:
-            let cell =  tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as! UserFriendsCell
-            
-            if indexPath.row == (self.countFriends){
-                cell.name.text = "adicione um amigo"
-            }else{
-                cell.name.text = self.testeArray1[indexPath.row]
-                
-            }
-
-            
-            break
+    
+    
+    
+    func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        
+        var header:String = ""
+        
+        switch section {
+            case 0:
+            header = "Solicitações"
+            case 1:
+            header = "Pendente"
+            case 2:
+            header = "Amigos"
         default:
             break
         }
-        
+        return header
+    }
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    
         let cell =  tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as! UserFriendsCell
-
-        if indexPath.row == (self.countFriends){
-            cell.name.text = "adicione um amigo"
-        }else{
-            cell.name.text = self.testeArray[indexPath.row]
             
+        
+        switch indexPath.section {
+        case 0:
+             if indexPath.row == (self.requests.count){
+                        cell.name.text = "adicione um amigo"
+                    }else{
+                        cell.name.text = (self.requests[indexPath.row]!.objectForKey("name1") as! String)
+                
+                    }
+             
+        case 1:
+            if 0 == (self.waitingFriends.count){
+                cell.name.text = "sem requisição \(self.waitingFriends.count)"
+            }else{
+                //print(self.waitingFriends[indexPath.row]?.objectForKey("name2"))
+                cell.name.text = (self.waitingFriends[indexPath.row]?.objectForKey("name2") as! String)
+                //(self.waitingFriends[indexPath.row]!.valueForKey("id1") as! String)
+            }
+            break
+            
+        case 2:
+            if 0 == (self.myFriends.count){
+                cell.name.text = "sem amigos"
+            }else{
+                let id = self.myFriends[indexPath.row]!.objectForKey("id1") as? String
+                let user = User.currentUser()
+                if user?.faceID == id {
+                    cell.name.text = (self.myFriends[indexPath.row]!.objectForKey("name2") as! String)
+                    break
+   
+                }else{
+                    cell.name.text = (self.myFriends[indexPath.row]!.objectForKey("name1") as! String)
+                    break
+
+                }
+            }
+        default:
+                break
+
         }
-       // return UITableViewCell()
+        
+        
         return cell
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        if indexPath.row == (self.countFriends){
-            performSegueWithIdentifier("segueToAddFriend", sender: nil)
-        }else{
-            print(testeArray[indexPath.row])
-            
+        print("section:\(indexPath.section) , row: \(indexPath.row)")
+        if indexPath.section == 0 {
+            if indexPath.row == (self.requests.count){
+                performSegueWithIdentifier("segueToAddFriend", sender: nil)
+            }else{
+                print(self.requests[indexPath.row])
+            }
         }
     }
-    
     
     
     
@@ -200,61 +209,19 @@ extension UserFriendsVC: UITableViewDataSource , UITableViewDelegate{
 extension UserFriendsVC {
     
     
-    func queryFriends(){
-        let user = User.currentUser()
-        let query = PFQuery(className: "Friends")
-        query.whereKey("id1", equalTo: (user?.faceID)!)
-        query.findObjectsInBackgroundWithBlock {
-            (objects: [PFObject]?, error: NSError?) -> Void in
-            if error == nil {
-                // The find succeeded.
-                print("Successfully retrieved \(objects!.count) f1 scores.")
-                // Do something with the found objects
-                if let objects = objects {
-                    for object in objects {
-                        print(object.objectId)
-                        if object.valueForKey("accepted") != nil{
-                            if object.valueForKey("accepted") as! Bool  == false {
-                                self.requests.append(object)
-                                
-                            }else{
-                                self.myFriends.append(object)
-                            }
-                        }
-
-                    }
-                    let qry = PFQuery(className: "Friends")
-                    qry.whereKey("id2", equalTo: (user?.faceID)!)
-                    query.findObjectsInBackgroundWithBlock({ (objs:[PFObject]?, erro: NSError?) -> Void in
-                        if erro == nil{
-                            if let objs = objs{
-                                for obj in objs{
-                                    print(obj.objectId)
-                                    if obj.valueForKey("accepted") != nil{
-                                    if obj.valueForKey("accepted") as! Bool  == false {
-                                        self.requests.append(obj)
-                                        
-                                    }else{
-                                        self.myFriends.append(obj)
-                                    }
-                                    }
-                                }
-                            }
-                            
-                        }else{
-                          print("Error: \(error!) \(error!.userInfo)")
-                        }
-                    })
-                }
-            } else {
-                // Log details of the failure
-                print("Error: \(error!) \(error!.userInfo)")
-            }
-            print(self.requests.count)
-            print(self.myFriends.count)
+    func loadingView(option:Bool){
+        if option{
+    
+            //let testView: UIView = UIView(frame: CGRectMake(0, 0, 320, 568))
+            self.testView.backgroundColor = UIColor.blueColor()
+            self.testView.alpha = 0.5
+            self.testView.tag = 100
+            super.view.userInteractionEnabled = false
+            self.view.userInteractionEnabled = true
+            self.view.addSubview(testView)
+        }else{
+            self.testView.removeFromSuperview()
         }
-        
-        
     }
     
 
