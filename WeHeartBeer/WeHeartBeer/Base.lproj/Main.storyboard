@@ -139,7 +139,7 @@
                                                 </mask>
                                             </variation>
                                             <variation key="heightClass=regular-widthClass=compact" ambiguous="YES">
-                                                <rect key="frame" x="0.0" y="0.0" width="400" height="135"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="400" height="134.5"/>
                                                 <mask key="subviews">
                                                     <include reference="K4d-Ft-r1h"/>
                                                     <include reference="sIZ-Bf-yfv"/>
@@ -837,7 +837,7 @@
                                     </mask>
                                 </variation>
                                 <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="251" y="70" width="99" height="21"/>
+                                    <rect key="frame" x="251" y="69" width="99" height="21"/>
                                     <mask key="constraints">
                                         <include reference="LDo-I6-Flt"/>
                                         <include reference="r7S-WC-H0d"/>
@@ -887,7 +887,7 @@
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="editable" value="NO"/>
                                 </userDefinedRuntimeAttributes>
                                 <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="71" y="109" width="458" height="94"/>
+                                    <rect key="frame" x="71" y="108" width="458" height="94.5"/>
                                 </variation>
                             </view>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="teste" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0hK-2F-lIW">
@@ -955,7 +955,7 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                                 <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="20" y="36" width="560" height="21"/>
+                                    <rect key="frame" x="20" y="36" width="560" height="20.5"/>
                                 </variation>
                             </label>
                         </subviews>
@@ -1791,7 +1791,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <state key="normal" title="Cervejaria"/>
                                 <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="112" y="319" width="463" height="39"/>
+                                    <rect key="frame" x="111" y="319" width="463.5" height="39"/>
                                 </variation>
                                 <connections>
                                     <action selector="callBrewery:" destination="VcN-tL-zUt" eventType="touchUpInside" id="51Y-ph-csc"/>
@@ -1889,7 +1889,7 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                                 <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="81" y="393" width="494" height="21"/>
+                                    <rect key="frame" x="80" y="393" width="494.5" height="20.5"/>
                                 </variation>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ABV" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mnj-BU-qku">
@@ -1898,7 +1898,7 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                                 <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="148" y="431" width="427" height="20"/>
+                                    <rect key="frame" x="147" y="430" width="427.5" height="20.5"/>
                                 </variation>
                             </label>
                         </subviews>
@@ -3381,7 +3381,7 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                                 <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="12" y="100" width="336" height="143"/>
+                                    <rect key="frame" x="12" y="100" width="336" height="142.5"/>
                                 </variation>
                             </label>
                         </subviews>
@@ -4185,7 +4185,7 @@
         <image name="now-pouring" width="1800" height="1200"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="cVS-cp-fur"/>
+        <segue reference="ZKS-H1-FU2"/>
         <segue reference="i0O-fM-R0U"/>
         <segue reference="CDH-Xp-Ux3"/>
     </inferredMetricsTieBreakers>

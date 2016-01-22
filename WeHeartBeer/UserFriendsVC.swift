@@ -24,10 +24,8 @@ class UserFriendsVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         self.tableView.dataSource = self
         self.tableView.delegate = self
-       
     }
     
 
@@ -38,7 +36,32 @@ class UserFriendsVC: UIViewController {
         self.requests.removeAll()
         self.waitingFriends.removeAll()
         self.myFriends.removeAll()
-        self.queryFriends()
+
+        FriendsDAO.queryFriends { (requests, waitingFriends, myFriends, success) -> Void in
+            if success{
+                print("uma vez")
+                if requests! == requests!{
+                    for request in requests!{
+                        self.requests.append(request)
+                    }
+                }
+                if waitingFriends! == waitingFriends!{
+                    for wf in waitingFriends!{
+                        self.waitingFriends.append(wf)
+                        //print(wf)
+                    }
+                }
+                
+                for mf in myFriends!{
+                    self.myFriends.append(mf)
+                }
+                self.tableView.reloadData()
+            }else{
+                print("deu erro")
+        }
+        
+        }
+        
         
         self.tableView.reloadData()
 
@@ -59,8 +82,6 @@ class UserFriendsVC: UIViewController {
 
 }
 
-
-/////// DOA TROPA NA GUERRA PRA MIM :)
 
 
 
@@ -131,7 +152,7 @@ extension UserFriendsVC: UITableViewDataSource , UITableViewDelegate{
              if indexPath.row == (self.requests.count){
                         cell.name.text = "adicione um amigo"
                     }else{
-                        cell.name.text = (self.requests[indexPath.row]!.valueForKey("id1") as! String)
+                        cell.name.text = (self.requests[indexPath.row]!.objectForKey("name1") as! String)
                 
                     }
              
@@ -139,7 +160,9 @@ extension UserFriendsVC: UITableViewDataSource , UITableViewDelegate{
             if 0 == (self.waitingFriends.count){
                 cell.name.text = "sem requisição \(self.waitingFriends.count)"
             }else{
-                cell.name.text = (self.waitingFriends[indexPath.row]!.valueForKey("id1") as! String)
+                //print(self.waitingFriends[indexPath.row]?.objectForKey("name2"))
+                cell.name.text = (self.waitingFriends[indexPath.row]?.objectForKey("name2") as! String)
+                //(self.waitingFriends[indexPath.row]!.valueForKey("id1") as! String)
             }
             break
             
@@ -147,8 +170,17 @@ extension UserFriendsVC: UITableViewDataSource , UITableViewDelegate{
             if 0 == (self.myFriends.count){
                 cell.name.text = "sem amigos"
             }else{
-                cell.name.text = (self.myFriends[indexPath.row]!.valueForKey("id1") as! String)
-                break
+                let id = self.myFriends[indexPath.row]!.objectForKey("id1") as? String
+                let user = User.currentUser()
+                if user?.faceID == id {
+                    cell.name.text = (self.myFriends[indexPath.row]!.objectForKey("name2") as! String)
+                    break
+   
+                }else{
+                    cell.name.text = (self.myFriends[indexPath.row]!.objectForKey("name1") as! String)
+                    break
+
+                }
             }
         default:
                 break
@@ -162,10 +194,7 @@ extension UserFriendsVC: UITableViewDataSource , UITableViewDelegate{
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         print("section:\(indexPath.section) , row: \(indexPath.row)")
         if indexPath.section == 0 {
-            print("vai segueeeee vai")
-            print(self.requests.count)
             if indexPath.row == (self.requests.count){
-                print("vai segue vai")
                 performSegueWithIdentifier("segueToAddFriend", sender: nil)
             }else{
                 print(self.requests[indexPath.row])
@@ -179,64 +208,6 @@ extension UserFriendsVC: UITableViewDataSource , UITableViewDelegate{
 
 extension UserFriendsVC {
     
-    
-    func queryFriends(){
-        let user = User.currentUser()
-        let query = PFQuery(className: "Friends")
-        query.whereKey("id1", equalTo: (user?.faceID)!)
-        query.findObjectsInBackgroundWithBlock {
-            (objects: [PFObject]?, error: NSError?) -> Void in
-            if error == nil {
-                // The find succeeded.
-                print("Successfully retrieved \(objects!.count) f1 scores.")
-                // Do something with the found objects
-                if let objects = objects {
-                    for object in objects {
-                        print(object.objectId)
-                        if object.valueForKey("accepted") != nil{
-                            if object.valueForKey("accepted") as? Bool  == false {
-                                self.waitingFriends.append(object)
-                                
-                            }else{
-                                self.requests.append(object)
-                            }
-                        }
-
-                    }
-                    let qry = PFQuery(className: "Friends")
-                    qry.whereKey("id2", equalTo: (user?.faceID)!)
-                    qry.findObjectsInBackgroundWithBlock({ (objs:[PFObject]?, erro: NSError?) -> Void in
-                        if erro == nil{
-                            if let objs = objs{
-                                for obj in objs{
-                                    
-                                    print(obj.objectId)
-                                    if obj.valueForKey("accepted") != nil{
-                                    if obj.valueForKey("accepted") as! Bool  == false {
-                                        self.requests.append(obj)
-                                        
-                                    }else{
-                                        self.myFriends.append(obj)
-                                    }
-                                    }
-                                }
-                            }
-                            
-                        }else{
-                          print("Error: \(error!) \(error!.userInfo)")
-                        }
-                    })
-                }
-            } else {
-                // Log details of the failure
-                print("Error: \(error!) \(error!.userInfo)")
-            }
-            print(self.requests.count)
-            print(self.myFriends.count)
-        }
-       self.loadingView(false)
-        
-    }
     
     func loadingView(option:Bool){
         if option{

@@ -17,6 +17,7 @@ class UserAddAppFriendsVC: UIViewController {
     var friends = [FBUser]()
     var fbIds = [String]()
     var user = User.currentUser()
+    var fbIDCheck = [String]()
   
     override func viewDidLoad() {
         super.viewDidLoad()

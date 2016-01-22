@@ -14,17 +14,17 @@ import Parse
 class FriendsServices {
     
     typealias FindObjectsCompletionHandler = (requests:[Friends]?, waitingFriends:[Friends]?, myFriends:[Friends]? ,success:Bool) -> Void
-    
-    func requestFriendList(completionHandler:FindObjectsCompletionHandler){
-        FriendsDAO.queryFriends { (requests, waitingFriends, myFriends, success) -> Void in
-            if success{
-                completionHandler(requests: requests, waitingFriends: waitingFriends, myFriends: myFriends, success: true)
-            }else{
-               completionHandler(requests: requests, waitingFriends: waitingFriends, myFriends: myFriends, success: true)
-            }
-            
-        }
-        
-    }
-    
+//    
+//   static func requestFriendList(completionHandler:FindObjectsCompletionHandler){
+//        FriendsDAO.queryFriends { (requests, waitingFriends, myFriends, success) -> Void in
+//            if success{
+//                completionHandler(requests: requests, waitingFriends: waitingFriends, myFriends: myFriends, success: true)
+//            }else{
+//               completionHandler(requests: requests, waitingFriends: waitingFriends, myFriends: myFriends, success: true)
+//            }
+//            
+//        }
+//        
+//    }
+//    
 }

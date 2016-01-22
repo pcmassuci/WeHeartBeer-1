@@ -42,28 +42,11 @@ class FriendProfileVC: UIViewController {
     @IBAction func recuseFriend(sender: AnyObject) {
         //self.recuseFriend()
     }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
 
 //Parse
 extension FriendProfileVC {
-    
-    
-//    @NSManaged var name: String
-//    @NSManaged var birthDate: NSDate
-//    @NSManaged var photo: PFFile
-//    @NSManaged var mail: String
-//    @NSManaged var faceID: String
-//    @NSManaged var frieds: PFRelation!
 
     func loadUser() {
         if self.currentFriend != nil {
@@ -91,8 +74,7 @@ extension FriendProfileVC {
         }
         
     }
-//
-//    
+   
     func addOrAcceptFriend(){
         print(currentRequest)
         
@@ -100,9 +82,11 @@ extension FriendProfileVC {
             let user = User.currentUser()
             let friendList = PFObject(className:"Friends")
             friendList["user1"] = user
+            friendList["name1"] = user?.name
             friendList["id1"] = user?.faceID
             friendList["accepted"] = false
             friendList["user2"] = self.friend!
+            friendList["name2"] = self.friend!.objectForKey("name")
             friendList["id2"] = self.friend?.valueForKey("faceID")
             friendList.saveInBackgroundWithBlock {
                 (success: Bool, error: NSError?) -> Void in
@@ -119,13 +103,8 @@ extension FriendProfileVC {
     
         
     }
-//
-//    func recuseFriend(){
-//        
-//    }
-//    
-//    
 }
+
 extension FriendProfileVC {
     func updateData(){
         self.friendName.text = (self.friend!.valueForKey("name") as! String)

@@ -32,60 +32,15 @@ class UserProfileVC: UIViewController {
             performSegueWithIdentifier("segueFacebookCheckin", sender: nil)
         }
     }
-    
-    
 
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
         
-        let parameters = ["fields": "id,birthday,location,locale,hometown,gender, name, picture.type(large), email,friends"]
-        
-        
-        let graphRequest : FBSDKGraphRequest = FBSDKGraphRequest(graphPath: "me",     parameters: parameters)
-        graphRequest.startWithCompletionHandler { (connection, result:AnyObject!, error) -> Void in
-            
-            
-            if ((error) != nil)
-            {
-                // Process error
-                print("Error: \(error)")
-            }
-            else
-            {
-                //get Facebook ID
-                let faceBookID: NSString = result.valueForKey("id") as! NSString
-//                let userFriends = result.valueForKey("friends")
-//                print(userFriends)
-                //get username
-                // let userName : NSString = result.valueForKey("name") as! NSString
-                //get facebook friends who use app
-                if result.valueForKey("friends") != nil {
-                    
-                
-                let friendlist: AnyObject = (result.valueForKey("friends")! as AnyObject)
-                print(friendlist)
-                print(faceBookID)
-                //print(friendlist)
-            }
-                else{
-                    print("sem amigos")
-                }
-            }
-            
-        }
-    
-
-        
-        if UserServices.loggedUser(){
+            if UserServices.loggedUser(){
             self.navigationController?.navigationBar.hidden = false
             self.navigationItem.hidesBackButton =  true
             self.navigationController?.navigationBar.barTintColor = UIColor(red: 255.0/255.0, green: 192.0/255.0, blue: 3.0/255.0, alpha: 1.0)
-            
-            print("deu certo userprofile")
-                  //  getFBAppFriends(nil, failureHandler: {(error)
-                   //     in print(error)});
-                    
 
             self.updateData()
             let tapGesture1 = UITapGestureRecognizer(target: self, action: Selector("beersTapped:"))
@@ -104,12 +59,7 @@ class UserProfileVC: UIViewController {
             performSegueWithIdentifier("segueFacebookCheckin", sender: nil)
         }
     }
-    
-    
-    
-    
-    
-    
+
     
     func beersTapped(img:AnyObject){
         self.performSegueWithIdentifier("segueUserBeers", sender: nil)
@@ -125,9 +75,6 @@ class UserProfileVC: UIViewController {
     func friendsTapped(img:AnyObject){
         self.performSegueWithIdentifier("segueUserFriends", sender: nil)
     }
-    
-    
-    
     
     func updateData(){
         let user = User.currentUser()
