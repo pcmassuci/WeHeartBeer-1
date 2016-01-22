@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="7Kz-mP-eSq">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="7Kz-mP-eSq">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
@@ -3232,6 +3232,7 @@
                         <viewControllerLayoutGuide type="bottom" id="p66-HH-Axb"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="uft-f7-DHp">
+                        <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KBb-7n-75S">
@@ -3253,7 +3254,8 @@
                                         <exclude reference="dgZ-bO-zQR"/>
                                     </mask>
                                 </variation>
-                                <variation key="heightClass=regular-widthClass=compact">
+                                <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="120" y="322" width="120" height="120"/>
                                     <mask key="constraints">
                                         <include reference="Hpw-d6-aaT"/>
                                         <exclude reference="Igz-F9-F5I"/>
@@ -3270,6 +3272,9 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
+                                <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="12" y="100" width="336" height="143"/>
+                                </variation>
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -3290,11 +3295,11 @@
                                 <exclude reference="AEi-rt-USt"/>
                             </mask>
                             <mask key="constraints">
+                                <exclude reference="aUZ-Hg-xm6"/>
+                                <exclude reference="odG-Xa-eA6"/>
                                 <exclude reference="YbA-ef-AYi"/>
                                 <exclude reference="iwG-0v-KMn"/>
                                 <exclude reference="rAZ-Fw-0q8"/>
-                                <exclude reference="aUZ-Hg-xm6"/>
-                                <exclude reference="odG-Xa-eA6"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
@@ -3303,11 +3308,11 @@
                                 <include reference="AEi-rt-USt"/>
                             </mask>
                             <mask key="constraints">
+                                <include reference="aUZ-Hg-xm6"/>
+                                <include reference="odG-Xa-eA6"/>
                                 <include reference="YbA-ef-AYi"/>
                                 <include reference="iwG-0v-KMn"/>
                                 <include reference="rAZ-Fw-0q8"/>
-                                <include reference="aUZ-Hg-xm6"/>
-                                <include reference="odG-Xa-eA6"/>
                             </mask>
                         </variation>
                     </view>
@@ -3634,7 +3639,8 @@
                                         <exclude reference="Unw-To-Byp"/>
                                     </mask>
                                 </variation>
-                                <variation key="heightClass=regular-widthClass=compact">
+                                <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="161" y="224" width="39" height="37"/>
                                     <mask key="constraints">
                                         <exclude reference="Unw-To-Byp"/>
                                     </mask>

@@ -15,7 +15,7 @@ class CarouselVC: UIViewController, MVCarouselCollectionViewDelegate{
     
     
     let imagePaths = [ "beer1", "beer2", "beer3" ] // Local images
-    var imageArray: [UIImage]! // Array images from parse.
+    var imageArray: [UIImage]! = [] // Array images from parse.
     
     
     // Closure to load local images with UIImage.named
@@ -157,7 +157,7 @@ extension CarouselVC {
     func updateData(beer: PFObject?){
         
         // pegando a foto do parse
-        if beer?.objectForKey("photo") != nil {
+        if beer?.objectForKey("Photo") != nil {
             let imageArray = beer?.objectForKey("Photo") as! PFFile
             
             imageArray.getDataInBackgroundWithBlock ({
@@ -165,10 +165,15 @@ extension CarouselVC {
                 if error == nil {
                     if let imageData = imageData {
                         
-                        let imageArray = UIImage(data:imageData)
-                        self.imageArray.append(imageArray!)
+                        let images = UIImage(data:imageData)
                         
-                        print("Aeee foi!!!!!")
+                        print("Aeee foi!!!!! \(images)")
+                        
+                        if images != nil {
+                            self.imageArray.append(images!)
+                            print(self.imageArray)
+
+                        }
                     
                         
                     }else{
