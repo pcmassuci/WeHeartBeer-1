@@ -16,7 +16,8 @@ import ParseFacebookUtilsV4
 class UserFriendsVC: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
-
+    
+    var idsFace = [String]()
     var requests:[PFObject?] = [PFObject]()
     var myFriends: [PFObject?] = [PFObject]()
     var waitingFriends:[PFObject?] = [PFObject]()
@@ -31,11 +32,12 @@ class UserFriendsVC: UIViewController {
 
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        
+        let usr = User.currentUser()
         self.loadingView(true)
         self.requests.removeAll()
         self.waitingFriends.removeAll()
         self.myFriends.removeAll()
+        self.idsFace.removeAll()
 
         FriendsDAO.queryFriends { (requests, waitingFriends, myFriends, success) -> Void in
             if success{
@@ -43,18 +45,31 @@ class UserFriendsVC: UIViewController {
                 if requests! == requests!{
                     for request in requests!{
                         self.requests.append(request)
+                        self.idsFace.append(request.objectForKey("id1") as! String)
                     }
                 }
                 if waitingFriends! == waitingFriends!{
                     for wf in waitingFriends!{
                         self.waitingFriends.append(wf)
+                        self.idsFace.append(wf.objectForKey("id2") as! String)
+
                         //print(wf)
                     }
                 }
                 
                 for mf in myFriends!{
+                   
+                    let mfID = mf.objectForKey("id1") as! String
+                    if mfID == usr?.faceID{
+                        self.idsFace.append(mf.objectForKey("id2") as! String)
+                    }else{
+                        self.idsFace.append(mfID)
+                    }
+                    
                     self.myFriends.append(mf)
+                    
                 }
+            
                 self.tableView.reloadData()
             }else{
                 print("deu erro")
@@ -76,6 +91,9 @@ class UserFriendsVC: UIViewController {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
         if (segue.identifier == "segueToAddFriend") {
+            if let destination = segue.destinationViewController  as? UserAddAppFriendsVC{
+                                   //destination.fbIDCheck = self.idsFace
+            }
             
         }
     }
@@ -196,6 +214,7 @@ extension UserFriendsVC: UITableViewDataSource , UITableViewDelegate{
         if indexPath.section == 0 {
             if indexPath.row == (self.requests.count){
                 performSegueWithIdentifier("segueToAddFriend", sender: nil)
+
             }else{
                 print(self.requests[indexPath.row])
             }

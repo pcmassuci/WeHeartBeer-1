@@ -17,7 +17,7 @@ class UserAddAppFriendsVC: UIViewController {
     var friends = [FBUser]()
     var fbIds = [String]()
     var user = User.currentUser()
-    var fbIDCheck = [String]()
+    var fbIDCheck = [String?]()
   
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -135,7 +135,18 @@ extension UserAddAppFriendsVC{
                     let valueDict : NSDictionary = data[i] as! NSDictionary
                     let id = valueDict.objectForKey("id") as! String
                     let name = valueDict.objectForKey("name") as! String
-                    self.friends.append(FBUser(name: name, id: id))
+                    var control = true
+                    if self.fbIDCheck.count > 0{
+                        for fbs in self.fbIDCheck {
+                            if fbs == id {
+                                control = false
+                            }
+                        }
+                    }
+                    if control {
+                        self.friends.append(FBUser(name: name, id: id))
+                    }
+                    
                     
                     //                    let pictureDict = valueDict.objectForKey("picture") as! NSDictionary
                     //                    let pictureData = pictureDict.objectForKey("data") as! NSDictionary
