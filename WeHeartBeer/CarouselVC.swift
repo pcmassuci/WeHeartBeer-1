@@ -15,7 +15,7 @@ class CarouselVC: UIViewController, MVCarouselCollectionViewDelegate{
     
     @IBOutlet weak var image: UIImageView!
     let imagePaths = [ "beer1", "beer2", "beer3" ] // Local images
-    var imageArray: [UIImage]! // Array images from parse.
+    var imageArray: [UIImage]! = [] // Array images from parse.
     
     
     // Closure to load local images with UIImage.named
@@ -157,8 +157,8 @@ extension CarouselVC {
     func updateData(beer: PFObject?){
         
         // pegando a foto do parse
-        if beer!.objectForKey("Photo") != nil{
-            let imageFile = beer!.objectForKey("Photo") as! PFFile
+        if beer?.objectForKey("Photo") != nil {
+            let imageArray = beer?.objectForKey("Photo") as! PFFile
             
             imageFile.getDataInBackgroundWithBlock {
                 (imageData: NSData?, error: NSError?) -> Void in
@@ -167,12 +167,16 @@ extension CarouselVC {
                         let image = UIImage(data:imageData)
                         print("Foi!!!", image)
                         
-                        image?.select(self.collectionView)
-                        //self.image.image = image
-                        //self.image.contentMode = UIViewContentMode.ScaleAspectFit
-                        let tapGestureRecognizer = UITapGestureRecognizer(target:self, action:Selector(""))
-                        //self.image.userInteractionEnabled = true
-                        //self.image.addGestureRecognizer(tapGestureRecognizer)
+                        let images = UIImage(data:imageData)
+                        
+                        print("Aeee foi!!!!! \(images)")
+                        
+                        if images != nil {
+                            self.imageArray.append(images!)
+                            print(self.imageArray)
+
+                        }
+                    
                         
                     }else{
                         print("Sem imagem")
