@@ -17,7 +17,7 @@ class UserFriendsVC: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
-    var idsFace = [String]()
+    var idsFace = [String?]()
     var requests:[PFObject?] = [PFObject]()
     var myFriends: [PFObject?] = [PFObject]()
     var waitingFriends:[PFObject?] = [PFObject]()
@@ -45,13 +45,13 @@ class UserFriendsVC: UIViewController {
                 if requests! == requests!{
                     for request in requests!{
                         self.requests.append(request)
-                        self.idsFace.append(request.objectForKey("id1") as! String)
+                        self.idsFace.append(request.objectForKey("id1") as? String)
                     }
                 }
                 if waitingFriends! == waitingFriends!{
                     for wf in waitingFriends!{
                         self.waitingFriends.append(wf)
-                        self.idsFace.append(wf.objectForKey("id2") as! String)
+                        self.idsFace.append(wf.objectForKey("id2") as? String)
 
                         //print(wf)
                     }
@@ -61,7 +61,7 @@ class UserFriendsVC: UIViewController {
                    
                     let mfID = mf.objectForKey("id1") as! String
                     if mfID == usr?.faceID{
-                        self.idsFace.append(mf.objectForKey("id2") as! String)
+                        self.idsFace.append(mf.objectForKey("id2") as? String)
                     }else{
                         self.idsFace.append(mfID)
                     }
@@ -92,7 +92,8 @@ class UserFriendsVC: UIViewController {
         // Pass the selected object to the new view controller.
         if (segue.identifier == "segueToAddFriend") {
             if let destination = segue.destinationViewController  as? UserAddAppFriendsVC{
-                                   //destination.fbIDCheck = self.idsFace
+                print(self.idsFace)
+                        destination.fbIDCheck = self.idsFace
             }
             
         }

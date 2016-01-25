@@ -23,7 +23,7 @@ class UserAddAppFriendsVC: UIViewController {
         super.viewDidLoad()
         self.tableView.delegate = self
         self.tableView.dataSource = self
-        self.userFriends()
+        //self.userFriends()
 
         // Do any additional setup after loading the view.
     }
@@ -72,7 +72,7 @@ extension UserAddAppFriendsVC: UITableViewDataSource , UITableViewDelegate{
         //self.countFriends = (self.friends?.count)!
         self.countFriends  = self.friends.count
         let rows = self.countFriends + 1
-        print(rows)
+        //print(rows)
         return rows
     }
     
@@ -80,7 +80,7 @@ extension UserAddAppFriendsVC: UITableViewDataSource , UITableViewDelegate{
     
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        print(indexPath.row)
+        //print(indexPath.row)
         let cell =  tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as! UserAppCell
         
         if indexPath.row == (self.countFriends){
@@ -106,7 +106,7 @@ extension UserAddAppFriendsVC: UITableViewDataSource , UITableViewDelegate{
     
 }
 extension UserAddAppFriendsVC{
-    // pegar amigos que usam o app
+    
     func getFBAppFriends(nextCursor : String?, failureHandler: (error: NSError) -> Void) {
         
         let qry = "/me/friends"
@@ -135,23 +135,14 @@ extension UserAddAppFriendsVC{
                     let valueDict : NSDictionary = data[i] as! NSDictionary
                     let id = valueDict.objectForKey("id") as! String
                     let name = valueDict.objectForKey("name") as! String
-                    var control = true
-                    if self.fbIDCheck.count > 0{
-                        for fbs in self.fbIDCheck {
-                            if fbs == id {
-                                control = false
-                            }
-                        }
-                    }
-                    if control {
-                        self.friends.append(FBUser(name: name, id: id))
-                    }
+                    self.fbcheck(name, id: id)
+                    //self.friends.append(FBUser(name: name, id: id))
                     
                     
                     //                    let pictureDict = valueDict.objectForKey("picture") as! NSDictionary
                     //                    let pictureData = pictureDict.objectForKey("data") as! NSDictionary
                     //                    let pictureURL = pictureData.objectForKey("url") as! String
-                    print("Name: \(name)")
+                    //print("Name: \(name)")
                     //println("ID: \(id)")
                     //println("URL: \(pictureURL)")
                 }
@@ -170,54 +161,29 @@ extension UserAddAppFriendsVC{
         
     }
     
-    
+
 }
-//Parse
+
 extension UserAddAppFriendsVC{
     
-    func parseQuery(){
-        
-        
-        // set up the query on the Follow table
-        let query = PFQuery(className: "Friends")
-        
-        
+    func fbcheck(name:String, id:String){
+        var check = true
+        for fb in fbIDCheck{
+            if fb == id{
+                check = false
+            }
+        }
+        if check{
+            self.friends.append(FBUser(name: name, id: id))
+        }
         
     }
     
-    func userFriends(){
-        
-        var brejas:Int
-        if user?.objectForKey("friend")?.count == nil{
-        brejas = 0
-            
-        }else{
-            
-        brejas = (user?.objectForKey("friend")?.count)!
-        
-        }
-        print("amigos")
-        print(brejas)
-    }
- 
     
 }
 
 extension UserAddAppFriendsVC {
-    
-//    func showAlertTapped(row:Int) {
-//        //Create the AlertController
-//        let actionSheetController: UIAlertController = UIAlertController(title: "Alerta", message: "Você deseja adicionar \(self.friends[row].name) como amigo", preferredStyle: .Alert)
-//        
-//        //Create and add the Cancel action
-//        let cancelAction: UIAlertAction = UIAlertAction(title: "Não", style: .Cancel) { action -> Void in
-//            //Do some stuff
-//        }
-//        actionSheetController.addAction(cancelAction)
-//        //Create and an option action
-//        let nextAction: UIAlertAction = UIAlertAction(title: "Sim", style: .Default) { action -> Void in
-//            
-//            
+               
 //            let follow = PFObject(className: "User")
 //            var otherUser:PFObject?
 //            var query = PFQuery(className:"_User")
