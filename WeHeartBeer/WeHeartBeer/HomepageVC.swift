@@ -22,6 +22,7 @@ class HomepageVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+
         self.navigationController?.navigationBar.barTintColor = UIColor(red: 250.0/255.0, green: 170.0/255.0, blue: 0.0/255.0, alpha: 1.0)
         
         let gesture = UITapGestureRecognizer(target: self, action: "challengeLinkClicked")
@@ -32,6 +33,10 @@ class HomepageVC: UIViewController {
         
     }
     
+    override func viewWillAppear(animated: Bool) {
+        self.navigationController?.navigationBarHidden = true
+
+    }
     
         
     

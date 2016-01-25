@@ -160,34 +160,35 @@ extension CarouselVC {
         if beer?.objectForKey("Photo") != nil {
             let imageArray = beer?.objectForKey("Photo") as! PFFile
             
-            imageFile.getDataInBackgroundWithBlock {
-                (imageData: NSData?, error: NSError?) -> Void in
-                if error == nil {
-                    if let imageData = imageData {
-                        let image = UIImage(data:imageData)
-                        print("Foi!!!", image)
-                        
-                        let images = UIImage(data:imageData)
-                        
-                        print("Aeee foi!!!!! \(images)")
-                        
-                        if images != nil {
-                            self.imageArray.append(images!)
-                            print(self.imageArray)
-
-                        }
-                    
-                        
-                    }else{
-                        print("Sem imagem")
-                    }
-                }
-                
-            }
-        }else{
-            print("erro na imagem")
+//            imageFile.getDataInBackgroundWithBlock {
+//                (imageData: NSData?, error: NSError?) -> Void in
+//                if error == nil {
+//                    if let imageData = imageData {
+//                        let image = UIImage(data:imageData)
+//                        print("Foi!!!", image)
+//                        
+//                        let images = UIImage(data:imageData)
+//                        
+//                        print("Aeee foi!!!!! \(images)")
+//                        
+//                        if images != nil {
+//                            self.imageArray.append(images!)
+//                            print(self.imageArray)
+//
+//                        }
+//                    
+//                        
+//                    }else{
+//                        print("Sem imagem")
+//                    }
+//                }
+//                
+//            }
+//        }else{
+//            print("erro na imagem")
+//        }
+//        
+        
         }
-        
-        
     }
 }
