@@ -27,6 +27,8 @@ class ChallengeVC: UIViewController {
         //challengeDescription.adjustsFontSizeToFitWidth = true
         challengeDescription.sizeToFit()
         
+        self.navigationController?.navigationBarHidden = false
+
         self.navigationController?.navigationBar.barTintColor = UIColor(red: 250.0/255.0, green: 170.0/255.0, blue: 0.0/255.0, alpha: 1.0)
         
         // Do any additional setup after loading the view.

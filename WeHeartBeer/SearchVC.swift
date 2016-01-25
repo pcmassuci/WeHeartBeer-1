@@ -30,11 +30,20 @@ class SearchVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.controller.searchBar.barTintColor = UIColor(red: 255.0/255.0, green: 192.0/255.0, blue: 3.0/255.0, alpha: 1.0)
+        self.controller.searchBar.barTintColor = UIColor(red: 250.0/255.0, green: 170.0/255.0, blue: 0.0/255.0, alpha: 1.0)
         self.controller.searchBar.tintColor = UIColor(white: 1, alpha: 1)
         
         let view: UIView = self.controller.searchBar.subviews[0]
         let subViewsArray = view.subviews
+        
+        let view2 = UIView(frame:
+            CGRect(x: 0.0, y: 0.0, width: UIScreen.mainScreen().bounds.size.width, height: UIApplication.sharedApplication().statusBarFrame.size.height)
+        )
+        view2.backgroundColor = UIColor(red: 250.0/255.0, green: 170.0/255.0, blue: 0.0/255.0, alpha: 1.0)
+        
+        self.view.addSubview(view2)
+        
+        
         self.navigationController?.navigationBar.barTintColor = UIColor(red: 250.0/255.0, green: 170.0/255.0, blue: 0.0/255.0, alpha: 1.0)
 
         
@@ -73,7 +82,7 @@ class SearchVC: UIViewController {
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         //Hide NavigationController
-        self.navigationController?.navigationBar.hidden = false
+        self.navigationController?.navigationBar.hidden = true
         
        // self.controller.searchBar.text = ""
         controller.searchBar.resignFirstResponder()

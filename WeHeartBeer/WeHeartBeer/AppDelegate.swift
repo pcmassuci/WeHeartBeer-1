@@ -49,7 +49,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         Friends.registerSubclass()
         
     
-        
+
         
         return FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
         
