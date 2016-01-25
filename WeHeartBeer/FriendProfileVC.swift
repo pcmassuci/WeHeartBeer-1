@@ -13,6 +13,7 @@ class FriendProfileVC: UIViewController {
     @IBOutlet weak var friendName: UILabel!
     var currentRequest: PFObject?
     var currentFriend: String?
+   // var check: Bool
     var friend: PFObject?
     
     

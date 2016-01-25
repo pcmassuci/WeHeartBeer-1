@@ -38,6 +38,8 @@
 		677924B21BFA064600B8092B /* RegisterBeerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 677924B11BFA064600B8092B /* RegisterBeerVC.swift */; };
 		67B50AB41C0F0D010032CCCD /* SearchBreweryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67B50AB31C0F0D010032CCCD /* SearchBreweryVC.swift */; };
 		67E8776B1C532C100065B8E8 /* FacebookDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67E8776A1C532C100065B8E8 /* FacebookDAO.swift */; };
+		67E8776D1C567AA60065B8E8 /* ImageServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67E8776C1C567AA60065B8E8 /* ImageServices.swift */; };
+		67E8776F1C567ABA0065B8E8 /* ImageDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67E8776E1C567ABA0065B8E8 /* ImageDAO.swift */; };
 		67EBCCE11C4D1F0700073A08 /* HeaderSectionFriends.xib in Resources */ = {isa = PBXBuildFile; fileRef = 67EBCCE01C4D1F0700073A08 /* HeaderSectionFriends.xib */; };
 		67EE50991C1703F600AAA599 /* PagedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67EE50981C1703F600AAA599 /* PagedViewController.swift */; };
 		67FB0C121C0F6C8700122314 /* SearchTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67FB0C111C0F6C8700122314 /* SearchTVCell.swift */; };
@@ -152,6 +154,8 @@
 		677924B11BFA064600B8092B /* RegisterBeerVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterBeerVC.swift; sourceTree = "<group>"; };
 		67B50AB31C0F0D010032CCCD /* SearchBreweryVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchBreweryVC.swift; sourceTree = "<group>"; };
 		67E8776A1C532C100065B8E8 /* FacebookDAO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FacebookDAO.swift; sourceTree = "<group>"; };
+		67E8776C1C567AA60065B8E8 /* ImageServices.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageServices.swift; sourceTree = "<group>"; };
+		67E8776E1C567ABA0065B8E8 /* ImageDAO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageDAO.swift; sourceTree = "<group>"; };
 		67EBCCE01C4D1F0700073A08 /* HeaderSectionFriends.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HeaderSectionFriends.xib; sourceTree = "<group>"; };
 		67EE50981C1703F600AAA599 /* PagedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PagedViewController.swift; sourceTree = "<group>"; };
 		67FB0C111C0F6C8700122314 /* SearchTVCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchTVCell.swift; sourceTree = "<group>"; };
@@ -311,6 +315,7 @@
 				6701DE091C4686F600F25FC2 /* UserAddAppFriendsVC.swift */,
 				6333567E1BED154C00A71155 /* UserProfileVC.swift */,
 				85FC937F1C190BE900CF59C7 /* UserFriendsVC.swift */,
+				67E877701C568E420065B8E8 /* FriendProfile */,
 				6746518B1C4D295E00C464F3 /* FriendProfileVC.swift */,
 			);
 			name = User;
@@ -325,8 +330,16 @@
 				63D37B411C43D0E50040CC52 /* ReviewDAO.swift */,
 				673504301C501E0500D7A8A6 /* FriendsDAO.swift */,
 				67E8776A1C532C100065B8E8 /* FacebookDAO.swift */,
+				67E8776E1C567ABA0065B8E8 /* ImageDAO.swift */,
 			);
 			name = DAO;
+			sourceTree = "<group>";
+		};
+		67E877701C568E420065B8E8 /* FriendProfile */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = FriendProfile;
 			sourceTree = "<group>";
 		};
 		8502AE621BEA66CB00C54142 /* parse-library-1.9.1 */ = {
@@ -448,6 +461,7 @@
 			isa = PBXGroup;
 			children = (
 				63D37B3D1C43CFC00040CC52 /* ReviewServices.swift */,
+				67E8776C1C567AA60065B8E8 /* ImageServices.swift */,
 				854AAF4E1BF0BE8F002F405B /* BeerServices.swift */,
 				854AAF501BF0BEAE002F405B /* BreweryServices.swift */,
 				673504341C502A9C00D7A8A6 /* FriendsServices.swift */,
@@ -705,6 +719,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				67E8776F1C567ABA0065B8E8 /* ImageDAO.swift in Sources */,
 				67EE50991C1703F600AAA599 /* PagedViewController.swift in Sources */,
 				85FC937A1C190B9400CF59C7 /* UserBeersVC.swift in Sources */,
 				676250791BF3757300F3BB0D /* UserValidation.swift in Sources */,
@@ -767,6 +782,7 @@
 				854542EC1C105F1900AC2A0B /* ReviewVC.swift in Sources */,
 				676250741BF1759300F3BB0D /* BreweryDAO.swift in Sources */,
 				854AAF531BF0BECE002F405B /* UserServices.swift in Sources */,
+				67E8776D1C567AA60065B8E8 /* ImageServices.swift in Sources */,
 				8529E59B1C467DFD00433054 /* MoreVCCell.swift in Sources */,
 				673504351C502A9C00D7A8A6 /* FriendsServices.swift in Sources */,
 			);
