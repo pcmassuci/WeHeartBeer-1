@@ -156,6 +156,11 @@ extension CarouselVC {
     //updateData Photo
     func updateData(beer: PFObject?){
         
+//        // pegando a foto do parse
+//        if beer?.objectForKey("Photo") != nil {
+//            let imageArray = beer?.objectForKey("Photo") as! PFFile
+//            
+//        //    imageFile.getDataInBackgroundWithBlock {
         // pegando a foto do parse
         if beer?.objectForKey("Photo") != nil {
             let imageArray = beer?.objectForKey("Photo") as! PFFile
@@ -187,6 +192,7 @@ extension CarouselVC {
 //        }else{
 //            print("erro na imagem")
 //        }
+//        
 //        
         
         }

@@ -83,27 +83,20 @@ class UserProfileVC: UIViewController {
     func updateData(){
         let user = User.currentUser()
         self.displayName.text = user!.objectForKey("name") as? String
+        let pffile = user!.objectForKey("photo") as! PFFile
         
-        if user!.objectForKey("photo") != nil{
-            
-            let userImageFile = user!.objectForKey("photo") as! PFFile
-            
-            userImageFile.getDataInBackgroundWithBlock {
-                
-                (imageData: NSData?, error: NSError?) -> Void in
-                
-                if error == nil {
-                    if let imageData = imageData {
-                        let image = UIImage(data:imageData)
-                        self.displayPicture.image = image
-                    }else{
-                        print("sem imagem")
-                    }
+        ImageDAO.getImageFromParse(pffile) { (image, success) -> Void in
+            if success{
+                if image != nil{
+                     self.displayPicture.image = image
+                    
+                }else{
+                    //user without Image
                 }
+            }else{
+                // error to get image
             }
             
-        }else{
-            print("erro na imagem")
         }
     }
     

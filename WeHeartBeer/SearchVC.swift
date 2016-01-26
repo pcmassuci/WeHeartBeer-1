@@ -150,7 +150,6 @@ extension SearchVC: UITableViewDelegate, UITableViewDataSource{
             count += 1
             
             
-            
             return count
             
             
@@ -189,16 +188,36 @@ extension SearchVC: UITableViewDelegate, UITableViewDataSource{
             
             
             if self.resultsList.objectAtIndex(indexPath.row).objectForKey("Photo") != nil{
+                let imageBeer = resultsList.objectAtIndex(indexPath.row).objectForKey("Photo") as! PFFile
+                ImageDAO.getImageFromParse(imageBeer, ch: { (image, success) -> Void in
+                    if success{
+                        if image != nil{
+                            
+                             cell.searchImage.image = image
+                            
+                        }else{
+                            //imagem generica
+                            cell.searchImage.image = UIImage(contentsOfFile: "mug")
+                        }
+                        
+                    }else{
+                        //error tratar
+                        cell.searchImage.image = UIImage(contentsOfFile: "mug")
+                    }
+                })
                 
-                let userImageFile = resultsList.objectAtIndex(indexPath.row).objectForKey("Photo") as! PFFile
-                
-                userImageFile.getDataInBackgroundWithBlock {
-                    (imageData: NSData?, error: NSError?) -> Void in
-                    if error == nil {
-                        if let imageData = imageData {
-                            let image = UIImage(data:imageData)
-                            cell.searchImage.image = image
-                        }}}}
+//                let userImageFile = resultsList.objectAtIndex(indexPath.row).objectForKey("Photo") as! PFFile
+//                
+//                userImageFile.getDataInBackgroundWithBlock {
+//                    (imageData: NSData?, error: NSError?) -> Void in
+//                    if error == nil {
+//                        if let imageData = imageData {
+//                            let image = UIImage(data:imageData)
+//                            cell.searchImage.image = image
+//                        }}}
+            }else{
+                 cell.searchImage.image = UIImage(contentsOfFile: "mug")
+            }
             
            // cell.searchImage.image = self.resultsList.objectAtIndex(indexPath.row).
             
