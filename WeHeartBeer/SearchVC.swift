@@ -17,7 +17,7 @@ class SearchVC: UIViewController {
     
     
     @IBOutlet weak var resultsTable: UITableView!
-    @IBOutlet weak var searchTypeText: UILabel!
+    @IBOutlet weak var name: UILabel!
     
     @IBOutlet weak var beerStyle: UILabel!
     let controller = UISearchController(searchResultsController: nil)
@@ -183,7 +183,9 @@ extension SearchVC: UITableViewDelegate, UITableViewDataSource{
             
             cell.brewery?.text = self.resultsList.objectAtIndex(indexPath.row).objectForKey("brewName")! as? String
             
-            cell.beerStyle?.text = self.resultsList.objectAtIndex(indexPath.row).objectForKey("Style") as? String
+            var styleTemp = self.resultsList.objectAtIndex(indexPath.row).objectForKey("Style") as! String
+            
+            cell.beerStyle?.text = "Estilo: \(styleTemp) "
             
             
             if self.resultsList.objectAtIndex(indexPath.row).objectForKey("Photo") != nil{
@@ -220,7 +222,7 @@ extension SearchVC: UITableViewDelegate, UITableViewDataSource{
             
             cell.addBeerLabel.hidden = false
             
-            cell.searchImage.image = UIImage(named:"BeerAdd")
+            cell.searchImage.image = UIImage(named:"cerva_add")
             //cell.searchImage.sizeToFit()
 
             cell.addBeerLabel?.text = "Não achou a cerveja que estava procurando? Você pode adicioná-la agora!"
