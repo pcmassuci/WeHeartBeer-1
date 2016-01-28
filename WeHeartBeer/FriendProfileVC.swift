@@ -21,6 +21,7 @@ class FriendProfileVC: UIViewController {
        
         
         super.viewDidLoad()
+        self.internetCheck()
         
         // Do any additional setup after loading the view.
     }
@@ -95,4 +96,5 @@ extension FriendProfileVC {
     func updateData(){
         self.friendName.text = (self.friend!.valueForKey("name") as! String)
     }
+
 }

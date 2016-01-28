@@ -25,12 +25,16 @@ class UserFriendsVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        let check = self.internetCheck()
+        if check{
+            
+        }
         self.tableView.dataSource = self
         self.tableView.delegate = self
         self.navigationController?.navigationBar.hidden = false
-        self.navigationController?.navigationBar.barTintColor = UIColor(red: 250.0/255.0, green: 170.0/255.0, blue: 0.0/255.0, alpha: 1.0)
-
-       // self.navigationController?.navigationController = true
+        //self.navigationController?.navigationBar.barTintColor = UIColor(red: 250.0/255.0, green: 170.0/255.0, blue: 0.0/255.0, alpha: 1.0)
+        changeColor()
+        // self.navigationController?.navigationController = true
     }
     
 
@@ -247,7 +251,7 @@ extension UserFriendsVC: UITableViewDataSource , UITableViewDelegate{
 }
 
 extension UserFriendsVC {
-    
+
     
     func loadingView(option:Bool){
 //        let screenSize: CGRect = UIScreen.mainScreen().bounds
