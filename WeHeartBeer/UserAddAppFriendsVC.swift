@@ -50,6 +50,7 @@ class UserAddAppFriendsVC: UIViewController {
         if segue.identifier == "segueToFriendProfile"{
             if let destination = segue.destinationViewController  as? FriendProfileVC{
                 if let indexPath = tableView.indexPathForSelectedRow?.row{
+                    //envia o fbid para a tela de amigo
                     destination.currentFriend = self.friends[indexPath].fBiD
                     
                 }
@@ -183,38 +184,7 @@ extension UserAddAppFriendsVC{
 }
 
 extension UserAddAppFriendsVC {
-               
-//            let follow = PFObject(className: "User")
-//            var otherUser:PFObject?
-//            var query = PFQuery(className:"_User")
-//            
-//            print(self.friends[row].fBiD)
-//            
-//            query.whereKey("name", equalTo:(self.friends[row].name as String))
-//            query.getFirstObjectInBackgroundWithBlock({ (object: PFObject?, error: NSError?) -> Void in
-//                if error == nil {
-//                    // The find succeeded
-//                            print(object!.objectId)
-//                            print(object!.objectForKey("faceID"))
-//                    follow.setObject(PFUser.currentUser()!, forKey: "friend")
-//                    follow.setObject(object!, forKey: "to")
-//                    follow.setObject(NSDate(), forKey: "date")
-//                    follow.saveInBackground()
-//                    
-//                } else {
-//                    // Log details of the failure
-//                    print("Error ao salvar: \(error!) \(error!.userInfo)")
-//                }
-//                })
-//            
-//          
-//        }
-//        actionSheetController.addAction(nextAction)
-//    
-//        
-//        //Present the AlertController
-//        self.presentViewController(actionSheetController, animated: true, completion: nil)
-//    }
+
     
 }
 

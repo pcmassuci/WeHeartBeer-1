@@ -15,7 +15,44 @@ class FriendsDAO {
     typealias FindObjectsCompletionHandler = (requests:[PFObject]?, waitingFriends:[PFObject]?, myFriends:[PFObject]? ,success:Bool) -> Void
     
     typealias FindObjsCH = (object:[PFObject]?, success: Bool) -> Void
-
+    
+    typealias CompleteCH =  (success:Bool) -> Void
+    
+    static func friendReques(friend:PFObject?, currentRequest: PFObject?, ch: CompleteCH){
+        if currentRequest == nil {
+            let user = User.currentUser()
+            let friendList = PFObject(className:"Friends")
+            friendList["user1"] = user
+            friendList["name1"] = user?.name
+            friendList["id1"] = user?.faceID
+            friendList["accepted"] = false
+            friendList["user2"] = friend!
+            friendList["name2"] = friend!.objectForKey("name")
+            friendList["id2"] = friend?.valueForKey("faceID")
+            friendList.saveInBackgroundWithBlock {
+                (success: Bool, error: NSError?) -> Void in
+                if (success) {
+                    //print("PEDIDO deu Certo")
+                    ch(success: true)
+                    // The object has been saved.
+                } else {
+                    ch(success: false)
+                    //print("PEDIDO DEU ERRADO")
+                    // There was a problem, check error.description
+                }
+            }
+            
+        }
+        
+        
+        
+        
+        
+        
+        
+        
+    }
+    
     
     
     static func queryFriends(completionHandler:FindObjectsCompletionHandler) {
