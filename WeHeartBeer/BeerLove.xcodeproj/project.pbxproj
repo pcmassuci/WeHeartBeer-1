@@ -37,6 +37,7 @@
 		676250791BF3757300F3BB0D /* UserValidation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 676250781BF3757300F3BB0D /* UserValidation.swift */; };
 		677924B01BF6B9F700B8092B /* SearchVCCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 677924AF1BF6B9F700B8092B /* SearchVCCellTableViewCell.swift */; };
 		677924B21BFA064600B8092B /* RegisterBeerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 677924B11BFA064600B8092B /* RegisterBeerVC.swift */; };
+		6793D0091C5A3D65009D9CBD /* UIViewController+Actions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6793D0081C5A3D65009D9CBD /* UIViewController+Actions.swift */; };
 		67B50AB41C0F0D010032CCCD /* SearchBreweryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67B50AB31C0F0D010032CCCD /* SearchBreweryVC.swift */; };
 		67E8776B1C532C100065B8E8 /* FacebookDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67E8776A1C532C100065B8E8 /* FacebookDAO.swift */; };
 		67E8776D1C567AA60065B8E8 /* ImageServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67E8776C1C567AA60065B8E8 /* ImageServices.swift */; };
@@ -154,6 +155,7 @@
 		6762507A1BF3775500F3BB0D /* Header-WeHeartBeer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Header-WeHeartBeer.h"; sourceTree = "<group>"; };
 		677924AF1BF6B9F700B8092B /* SearchVCCellTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SearchVCCellTableViewCell.swift; path = ../SearchVCCellTableViewCell.swift; sourceTree = "<group>"; };
 		677924B11BFA064600B8092B /* RegisterBeerVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterBeerVC.swift; sourceTree = "<group>"; };
+		6793D0081C5A3D65009D9CBD /* UIViewController+Actions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Actions.swift"; sourceTree = "<group>"; };
 		67B50AB31C0F0D010032CCCD /* SearchBreweryVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchBreweryVC.swift; sourceTree = "<group>"; };
 		67E8776A1C532C100065B8E8 /* FacebookDAO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FacebookDAO.swift; sourceTree = "<group>"; };
 		67E8776C1C567AA60065B8E8 /* ImageServices.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageServices.swift; sourceTree = "<group>"; };
@@ -479,6 +481,7 @@
 			children = (
 				854AAF4D1BF0BE65002F405B /* Services */,
 				854AAF4C1BF0BE4D002F405B /* Objects */,
+				6793D0081C5A3D65009D9CBD /* UIViewController+Actions.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -772,6 +775,7 @@
 				D2526D7B1BDA56C9003953F9 /* HomepageVC.swift in Sources */,
 				677924B01BF6B9F700B8092B /* SearchVCCellTableViewCell.swift in Sources */,
 				6701DE0F1C46949600F25FC2 /* UserInviteCell.swift in Sources */,
+				6793D0091C5A3D65009D9CBD /* UIViewController+Actions.swift in Sources */,
 				854AAC8E1BEB8CCE002F405B /* SearchVC.swift in Sources */,
 				67FB0C121C0F6C8700122314 /* SearchTVCell.swift in Sources */,
 				85FC937C1C190BA500CF59C7 /* UserPlacesVC.swift in Sources */,
