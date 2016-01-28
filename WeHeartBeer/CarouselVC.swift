@@ -13,16 +13,20 @@ import Foundation
 
 class CarouselVC: UIViewController, MVCarouselCollectionViewDelegate{
     
-    @IBOutlet weak var image: UIImageView!
-    let imagePaths = [ "beer1", "beer2", "beer3" ] // Local images
-    var imageArray: [UIImage]! = [] // Array images from parse.
+    typealias FindObjectsCompletionHandler = (beer:[PFObject]?,success:Bool) -> Void
+    typealias FindObjectCompletionHandler = (obj:PFObject?,success:Bool) -> Void
+    
+    // Local images
+    
+    //let imagePaths = [ "beer1", "beer2", "beer3" ]
+    var images : [UIImage] = []
     
     
     // Closure to load local images with UIImage.named
-    let imageLoader: ((imageView: UIImageView, imagePath : String, completion: (newImage: Bool) -> ()) -> ()) = {
-        (imageView: UIImageView, imagePath : String, completion: (newImage: Bool) -> ()) in
+    let imageLoader: ((imageView: UIImageView, image : UIImage, completion: (newImage: Bool) -> ()) -> ()) = {
+        (imageView: UIImageView, image : UIImage, completion: (newImage: Bool) -> ()) in
         
-        imageView.image = UIImage(named:imagePath)
+        imageView.image = image
         completion(newImage: imageView.image != nil)
     }
     
@@ -37,7 +41,7 @@ class CarouselVC: UIViewController, MVCarouselCollectionViewDelegate{
         // Do any additional setup after loading the view.
         view.translatesAutoresizingMaskIntoConstraints = false
         
-        self.pageControl.numberOfPages = imagePaths.count
+        self.pageControl.numberOfPages = images.count
         
         configureCollectionView(false)
         
@@ -49,9 +53,9 @@ class CarouselVC: UIViewController, MVCarouselCollectionViewDelegate{
         // NOTE: the collectionView IBOutlet class must be declared as MVCarouselCollectionView in Interface Builder, otherwise this will crash.
         collectionView.selectDelegate = self
         if parseLoad {
-            collectionView.imagePaths = imagePaths
+            collectionView.images = self.images
         }else{
-            collectionView.imagePaths = imagePaths
+            collectionView.images = self.images
         }
         collectionView.commonImageLoader = self.imageLoader
         //collectionView.maximumZoom = 0
@@ -83,13 +87,34 @@ class CarouselVC: UIViewController, MVCarouselCollectionViewDelegate{
     }
     
     
+    
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         self.queryCarousel()
+        collectionView.reloadData()
+        
     }
+    
+    //    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    //
+    //        if segue.identifier == "FullScreenSegue" {
+    //
+    //            let nc = segue.destinationViewController as? UINavigationController
+    //            let vc = nc?.viewControllers[0] as? MVFullScreenCarouselViewController
+    //
+    //            if let vc = vc {
+    //                vc.imageLoader = self.imageLoader
+    //                vc.imagePaths = self.imagePaths
+    //                vc.delegate = self
+    //                vc.title = self.parentViewController?.navigationItem.title
+    //                if let indexPath = sender as? NSIndexPath {
+    //                    vc.initialViewIndex = indexPath.row
+    //                }
+    //            }
+    //        }
+    //    }
+    
 }
-
-
 
 extension CarouselVC {
     
@@ -103,7 +128,7 @@ extension CarouselVC {
             
             if error == nil {
                 // The find succeeded.
-                print("Successfully \(objects!.count).")
+                print("Successfully retrieved \(objects!.count) scores.")
                 // Do something with the found objects
                 if let objects = objects {
                     for object in objects {
@@ -114,7 +139,7 @@ extension CarouselVC {
                         self.queryBeer((object.valueForKey("beer")?.objectId)!)
                         
                     }
-                    self.configureCollectionView(true)
+                    //self.configureCollectionView(true)
                 }
             } else {
                 // Log details of the failure
@@ -124,7 +149,7 @@ extension CarouselVC {
         
     }
     
-    //Query return every data
+    
     func queryBeer (featuredId: String) {
         
         let query = PFQuery(className:"Beer")
@@ -134,7 +159,7 @@ extension CarouselVC {
             
             if error == nil {
                 // The find succeeded.
-                print("Successfully \(objects!.count).")
+                print("Successfully retrieved \(objects!.count) scores.")
                 // Do something with the found objects
                 if let objects = objects {
                     for object in objects {
@@ -153,48 +178,31 @@ extension CarouselVC {
         
     }
     
-    //updateData Photo
+    
     func updateData(beer: PFObject?){
         
-//        // pegando a foto do parse
-//        if beer?.objectForKey("Photo") != nil {
-//            let imageArray = beer?.objectForKey("Photo") as! PFFile
-//            
-//        //    imageFile.getDataInBackgroundWithBlock {
         // pegando a foto do parse
-        if beer?.objectForKey("Photo") != nil {
-            let imageArray = beer?.objectForKey("Photo") as! PFFile
+        if beer!.objectForKey("Photo") != nil{
+            let userImageFile = beer!.objectForKey("Photo") as! PFFile
             
-//            imageFile.getDataInBackgroundWithBlock {
-//                (imageData: NSData?, error: NSError?) -> Void in
-//                if error == nil {
-//                    if let imageData = imageData {
-//                        let image = UIImage(data:imageData)
-//                        print("Foi!!!", image)
-//                        
-//                        let images = UIImage(data:imageData)
-//                        
-//                        print("Aeee foi!!!!! \(images)")
-//                        
-//                        if images != nil {
-//                            self.imageArray.append(images!)
-//                            print(self.imageArray)
-//
-//                        }
-//                    
-//                        
-//                    }else{
-//                        print("Sem imagem")
-//                    }
-//                }
-//                
-//            }
-//        }else{
-//            print("erro na imagem")
-//        }
-//        
-//        
-        
+            userImageFile.getDataInBackgroundWithBlock {
+                (imageData: NSData?, error: NSError?) -> Void in
+                if error == nil {
+                    if let imageData = imageData {
+                        
+                        print("Pc que fez!!!!!")
+                        
+                        let image = UIImage(data: imageData)!
+                        self.images.append(image)
+                        self.collectionView.reloadData()
+                    }else{
+                        print("sem imagem")
+                    }
+                }
+                
+            }
+        }else{
+            print("erro na imagem")
         }
     }
 }

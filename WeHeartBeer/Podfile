@@ -7,5 +7,9 @@ target 'BeerLove' do
 
 pod 'MVCarouselCollectionView', '~> 1.0.5'
 
+pod 'Fabric'
+
+pod 'Crashlytics'
+
 end
 
