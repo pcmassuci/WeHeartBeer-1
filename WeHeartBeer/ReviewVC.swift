@@ -188,7 +188,7 @@ class ReviewVC: UIViewController {
                         if let imageData = imageData {
                             let image = UIImage(data:imageData)
                             facebookSheet.setInitialText("Frango")
-                            facebookSheet.addURL(<#T##url: NSURL!##NSURL!#>)
+                            //facebookSheet.addURL(<#T##url: NSURL!##NSURL!#>)
                             facebookSheet.addImage(image)
                             
                             self.presentViewController(facebookSheet, animated: true, completion: nil)
