@@ -13,9 +13,9 @@ import Foundation
 
 class CarouselVC: UIViewController, MVCarouselCollectionViewDelegate{
     
-    
+    @IBOutlet weak var image: UIImageView!
     let imagePaths = [ "beer1", "beer2", "beer3" ] // Local images
-    var imageArray: [UIImage]! // Array images from parse.
+    var imageArray: [UIImage]! = [] // Array images from parse.
     
     
     // Closure to load local images with UIImage.named
@@ -39,7 +39,7 @@ class CarouselVC: UIViewController, MVCarouselCollectionViewDelegate{
         
         self.pageControl.numberOfPages = imagePaths.count
         
-        //configureCollectionView(false)
+        configureCollectionView(false)
         
     }
     
@@ -49,9 +49,9 @@ class CarouselVC: UIViewController, MVCarouselCollectionViewDelegate{
         // NOTE: the collectionView IBOutlet class must be declared as MVCarouselCollectionView in Interface Builder, otherwise this will crash.
         collectionView.selectDelegate = self
         if parseLoad {
-        collectionView.imagePaths = imagePaths
+            collectionView.imagePaths = imagePaths
         }else{
-        collectionView.imagePaths = imagePaths
+            collectionView.imagePaths = imagePaths
         }
         collectionView.commonImageLoader = self.imageLoader
         //collectionView.maximumZoom = 0
@@ -111,7 +111,7 @@ extension CarouselVC {
                         
                         print(object.valueForKey("beer")?.objectId)
                         
-                      self.queryBeer((object.valueForKey("beer")?.objectId)!)
+                        self.queryBeer((object.valueForKey("beer")?.objectId)!)
                         
                     }
                     self.configureCollectionView(true)
@@ -121,7 +121,7 @@ extension CarouselVC {
                 print("Error: \(error!) \(error!.userInfo)")
             }
         }
-
+        
     }
     
     //Query return every data
@@ -152,30 +152,49 @@ extension CarouselVC {
         }
         
     }
-
     
+    //updateData Photo
     func updateData(beer: PFObject?){
         
+//        // pegando a foto do parse
+//        if beer?.objectForKey("Photo") != nil {
+//            let imageArray = beer?.objectForKey("Photo") as! PFFile
+//            
+//        //    imageFile.getDataInBackgroundWithBlock {
         // pegando a foto do parse
-        if beer?.objectForKey("photo") != nil {
+        if beer?.objectForKey("Photo") != nil {
             let imageArray = beer?.objectForKey("Photo") as! PFFile
             
-            imageArray.getDataInBackgroundWithBlock ({
-                (imageData: NSData?, error: NSError?) -> Void in
-                if error == nil {
-                    if let imageData = imageData {
-                        
-                        let imageArray = UIImage(data:imageData)
-                        self.imageArray.append(imageArray!)
-                        
-                        print("Aeee foi!!!!!")
-                    
-                        
-                    }else{
-                        print("sem imagem")
-                    }
-                }
-            })
+//            imageFile.getDataInBackgroundWithBlock {
+//                (imageData: NSData?, error: NSError?) -> Void in
+//                if error == nil {
+//                    if let imageData = imageData {
+//                        let image = UIImage(data:imageData)
+//                        print("Foi!!!", image)
+//                        
+//                        let images = UIImage(data:imageData)
+//                        
+//                        print("Aeee foi!!!!! \(images)")
+//                        
+//                        if images != nil {
+//                            self.imageArray.append(images!)
+//                            print(self.imageArray)
+//
+//                        }
+//                    
+//                        
+//                    }else{
+//                        print("Sem imagem")
+//                    }
+//                }
+//                
+//            }
+//        }else{
+//            print("erro na imagem")
+//        }
+//        
+//        
+        
         }
-      }
     }
+}

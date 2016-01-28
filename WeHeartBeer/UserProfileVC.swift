@@ -32,55 +32,14 @@ class UserProfileVC: UIViewController {
             performSegueWithIdentifier("segueFacebookCheckin", sender: nil)
         }
     }
-    
-    
 
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
         
-        let parameters = ["fields": "id,birthday,location,locale,hometown,gender, name, picture.type(large), email,friends"]
-        
-        
-        let graphRequest : FBSDKGraphRequest = FBSDKGraphRequest(graphPath: "me",     parameters: parameters)
-        graphRequest.startWithCompletionHandler { (connection, result:AnyObject!, error) -> Void in
-            
-            
-            if ((error) != nil)
-            {
-                // Process error
-                print("Error: \(error)")
-            }
-            else
-            {
-                //get Facebook ID
-                let faceBookID: NSString = result.valueForKey("id") as! NSString
-//                let userFriends = result.valueForKey("friends")
-//                print(userFriends)
-                //get username
-                // let userName : NSString = result.valueForKey("name") as! NSString
-                //get facebook friends who use app
-                if result.valueForKey("friends") != nil {
-                    
-                
-                let friendlist: AnyObject = (result.valueForKey("friends")! as AnyObject)
-                print(friendlist)
-                print(faceBookID)
-                //print(friendlist)
-            }
-                else{
-                    print("sem amigos")
-                }
-            }
-            
-        }
-    
-
-        
-        if UserServices.loggedUser(){
-            self.navigationController?.navigationBar.hidden = false
+            if UserServices.loggedUser(){
             self.navigationItem.hidesBackButton =  true
-            self.navigationController?.navigationBar.barTintColor = UIColor(red: 255.0/255.0, green: 192.0/255.0, blue: 3.0/255.0, alpha: 1.0)
+            self.navigationController?.navigationBar.barTintColor = UIColor(red: 250.0/255.0, green: 170.0/255.0, blue: 0.0/255.0, alpha: 1.0)
             
             print("deu certo userprofile")
                   //  getFBAppFriends(nil, failureHandler: {(error)
@@ -104,12 +63,7 @@ class UserProfileVC: UIViewController {
             performSegueWithIdentifier("segueFacebookCheckin", sender: nil)
         }
     }
-    
-    
-    
-    
-    
-    
+
     
     func beersTapped(img:AnyObject){
         self.performSegueWithIdentifier("segueUserBeers", sender: nil)
@@ -126,33 +80,23 @@ class UserProfileVC: UIViewController {
         self.performSegueWithIdentifier("segueUserFriends", sender: nil)
     }
     
-    
-    
-    
     func updateData(){
         let user = User.currentUser()
         self.displayName.text = user!.objectForKey("name") as? String
+        let pffile = user!.objectForKey("photo") as! PFFile
         
-        if user!.objectForKey("photo") != nil{
-            
-            let userImageFile = user!.objectForKey("photo") as! PFFile
-            
-            userImageFile.getDataInBackgroundWithBlock {
-                
-                (imageData: NSData?, error: NSError?) -> Void in
-                
-                if error == nil {
-                    if let imageData = imageData {
-                        let image = UIImage(data:imageData)
-                        self.displayPicture.image = image
-                    }else{
-                        print("sem imagem")
-                    }
+        ImageDAO.getImageFromParse(pffile) { (image, success) -> Void in
+            if success{
+                if image != nil{
+                     self.displayPicture.image = image
+                    
+                }else{
+                    //user without Image
                 }
+            }else{
+                // error to get image
             }
             
-        }else{
-            print("erro na imagem")
         }
     }
     

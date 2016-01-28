@@ -19,6 +19,11 @@ class FacebookCheckinVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.navigationBar.hidden = true
+//        let loginButton = FBSDKLoginButton()
+//        loginButton.center = self.view.center
+//        self.view.addSubview(loginButton)
+//        
+        
     }
     
     

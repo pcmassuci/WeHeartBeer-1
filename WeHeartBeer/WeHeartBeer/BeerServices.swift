@@ -40,6 +40,7 @@ class BeerServices {
         
         // call BeerDAO
         
+        
         BeerDAO.findBeer(beer) { (beerCH, success) -> Void in
             
             if success {

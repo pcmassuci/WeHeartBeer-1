@@ -47,7 +47,7 @@ class BeerProfileVC: UIViewController {
         
         
         self.navigationController?.navigationBar.hidden = false
-        self.navigationController?.navigationBar.barTintColor = UIColor(red: 255.0/255.0, green: 192.0/255.0, blue: 3.0/255.0, alpha: 1.0)
+        self.navigationController?.navigationBar.barTintColor = UIColor(red: 250.0/255.0, green: 170.0/255.0, blue: 0.0/255.0, alpha: 1.0)
 
     }
     
@@ -77,27 +77,46 @@ class BeerProfileVC: UIViewController {
 
         
         // pegando a foto do parse
-        
-        if beer!.objectForKey("Photo") != nil{
-            let userImageFile = beer!.objectForKey("Photo") as! PFFile
-            
-            userImageFile.getDataInBackgroundWithBlock {
-                (imageData: NSData?, error: NSError?) -> Void in
-                if error == nil {
-                    if let imageData = imageData {
-                        let image = UIImage(data:imageData)
-                        self.photo.image = image
+        let beerImage = beer!.objectForKey("Photo") as? PFFile
+        if beerImage != nil{
+            ImageDAO.getImageFromParse(beerImage, ch: { (image, success) -> Void in
+                if success{
+                    if image != nil {
+                         self.photo.image = image
+                        
                     }else{
-                        print("sem imagem")
+                        print("Nao tem imagem")
+                        // não tem imagem
                     }
+                    
+                }else{
+                    //erro ao obter imagem
                 }
-                
-            }
+            })
         }else{
-            print("erro na imagem")
+            print("imagem generica")
         }
         
-        
+//        if beer!.objectForKey("Photo") != nil{
+//            let userImageFile = beer!.objectForKey("Photo") as! PFFile
+//            
+//            userImageFile.getDataInBackgroundWithBlock {
+//                (imageData: NSData?, error: NSError?) -> Void in
+//                if error == nil {
+//                    if let imageData = imageData {
+//                        let image = UIImage(data:imageData)
+//                        self.photo.image = image
+//                    }else{
+//                        print("sem imagem")
+//                    }
+//                }
+//                
+//            }
+//        }else{
+//            print("erro na imagem")
+//        }
+//        
+//        
     }
     
     @IBAction func callBrewery(sender: AnyObject) {

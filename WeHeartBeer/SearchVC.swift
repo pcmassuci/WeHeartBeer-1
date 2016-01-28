@@ -30,12 +30,21 @@ class SearchVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.controller.searchBar.barTintColor = UIColor(red: 255.0/255.0, green: 192.0/255.0, blue: 3.0/255.0, alpha: 1.0)
+        self.controller.searchBar.barTintColor = UIColor(red: 250.0/255.0, green: 170.0/255.0, blue: 0.0/255.0, alpha: 1.0)
         self.controller.searchBar.tintColor = UIColor(white: 1, alpha: 1)
         
         let view: UIView = self.controller.searchBar.subviews[0]
         let subViewsArray = view.subviews
-        self.navigationController?.navigationBar.barTintColor = UIColor(red: 255.0/255.0, green: 192.0/255.0, blue: 3.0/255.0, alpha: 1.0)
+        
+        let view2 = UIView(frame:
+            CGRect(x: 0.0, y: 0.0, width: UIScreen.mainScreen().bounds.size.width, height: UIApplication.sharedApplication().statusBarFrame.size.height)
+        )
+        view2.backgroundColor = UIColor(red: 250.0/255.0, green: 170.0/255.0, blue: 0.0/255.0, alpha: 1.0)
+        
+        self.view.addSubview(view2)
+        
+        
+        self.navigationController?.navigationBar.barTintColor = UIColor(red: 250.0/255.0, green: 170.0/255.0, blue: 0.0/255.0, alpha: 1.0)
 
         
         //  searchTypeText.hidden = false
@@ -73,7 +82,7 @@ class SearchVC: UIViewController {
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         //Hide NavigationController
-        self.navigationController?.navigationBar.hidden = false
+        self.navigationController?.navigationBar.hidden = true
         
        // self.controller.searchBar.text = ""
         controller.searchBar.resignFirstResponder()
@@ -141,7 +150,6 @@ extension SearchVC: UITableViewDelegate, UITableViewDataSource{
             count += 1
             
             
-            
             return count
             
             
@@ -178,16 +186,36 @@ extension SearchVC: UITableViewDelegate, UITableViewDataSource{
             
             
             if self.resultsList.objectAtIndex(indexPath.row).objectForKey("Photo") != nil{
+                let imageBeer = resultsList.objectAtIndex(indexPath.row).objectForKey("Photo") as! PFFile
+                ImageDAO.getImageFromParse(imageBeer, ch: { (image, success) -> Void in
+                    if success{
+                        if image != nil{
+                            
+                             cell.searchImage.image = image
+                            
+                        }else{
+                            //imagem generica
+                            cell.searchImage.image = UIImage(contentsOfFile: "mug")
+                        }
+                        
+                    }else{
+                        //error tratar
+                        cell.searchImage.image = UIImage(contentsOfFile: "mug")
+                    }
+                })
                 
-                let userImageFile = resultsList.objectAtIndex(indexPath.row).objectForKey("Photo") as! PFFile
-                
-                userImageFile.getDataInBackgroundWithBlock {
-                    (imageData: NSData?, error: NSError?) -> Void in
-                    if error == nil {
-                        if let imageData = imageData {
-                            let image = UIImage(data:imageData)
-                            cell.searchImage.image = image
-                        }}}}
+//                let userImageFile = resultsList.objectAtIndex(indexPath.row).objectForKey("Photo") as! PFFile
+//                
+//                userImageFile.getDataInBackgroundWithBlock {
+//                    (imageData: NSData?, error: NSError?) -> Void in
+//                    if error == nil {
+//                        if let imageData = imageData {
+//                            let image = UIImage(data:imageData)
+//                            cell.searchImage.image = image
+//                        }}}
+            }else{
+                 cell.searchImage.image = UIImage(contentsOfFile: "mug")
+            }
             
            // cell.searchImage.image = self.resultsList.objectAtIndex(indexPath.row).
             

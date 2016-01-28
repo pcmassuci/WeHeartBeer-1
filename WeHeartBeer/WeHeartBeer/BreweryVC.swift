@@ -46,7 +46,7 @@ class BreweryVC: UIViewController {
         listOfProducts.delegate = self
         listOfProducts.dataSource = self
         listOfProducts.tableFooterView = UIView(frame: CGRect.zero)
-        self.navigationController?.navigationBar.barTintColor = UIColor(red: 255.0/255.0, green: 192.0/255.0, blue: 3.0/255.0, alpha: 1.0)
+        self.navigationController?.navigationBar.barTintColor = UIColor(red: 250.0/255.0, green: 170.0/255.0, blue: 0.0/255.0, alpha: 1.0)
         
         // Do any additional setup after loading the view.
     }
@@ -152,7 +152,7 @@ extension BreweryVC: UITableViewDataSource, UITableViewDelegate {
         let label: UILabel = UILabel()
         label.text = "Cervejas"
         label.textColor = UIColor.blackColor()
-        label.backgroundColor = UIColor(red: 255.0/255.0, green: 192.0/255.0, blue: 3.0/255.0, alpha: 1.0)
+        label.backgroundColor = UIColor(red: 250.0/255.0, green: 170.0/255.0, blue: 0.0/255.0, alpha: 1.0)
         
         return label
     }
