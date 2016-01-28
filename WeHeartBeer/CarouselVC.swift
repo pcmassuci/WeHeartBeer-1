@@ -11,14 +11,15 @@ import MVCarouselCollectionView
 import Foundation
 
 
-class CarouselVC: UIViewController, MVCarouselCollectionViewDelegate{
-    
-    typealias FindObjectsCompletionHandler = (beer:[PFObject]?,success:Bool) -> Void
-    typealias FindObjectCompletionHandler = (obj:PFObject?,success:Bool) -> Void
+typealias FindObjectsCompletionHandler = (beer:[PFObject]?,success:Bool) -> Void
+typealias FindObjectCompletionHandler = (obj:PFObject?,success:Bool) -> Void
+
+
+class CarouselVC: UIViewController, MVCarouselCollectionViewDelegate {
     
     // Local images
-    
     //let imagePaths = [ "beer1", "beer2", "beer3" ]
+    
     var images : [UIImage] = []
     
     
@@ -43,8 +44,6 @@ class CarouselVC: UIViewController, MVCarouselCollectionViewDelegate{
         
         self.pageControl.numberOfPages = images.count
         
-        configureCollectionView(false)
-        
     }
     
     // Function CollectionView
@@ -58,8 +57,10 @@ class CarouselVC: UIViewController, MVCarouselCollectionViewDelegate{
             collectionView.images = self.images
         }
         collectionView.commonImageLoader = self.imageLoader
-        //collectionView.maximumZoom = 0
-        collectionView.reloadData()
+    
+        self.collectionView.reloadData()
+        
+        
     }
     
     
@@ -75,7 +76,6 @@ class CarouselVC: UIViewController, MVCarouselCollectionViewDelegate{
     func carousel(carousel: MVCarouselCollectionView, didScrollToCellAtIndex cellIndex : NSInteger) {
         
         // Page changed, can use this to update page control
-        
         self.pageControl.currentPage = cellIndex
     }
     
@@ -91,7 +91,7 @@ class CarouselVC: UIViewController, MVCarouselCollectionViewDelegate{
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         self.queryCarousel()
-        collectionView.reloadData()
+        
         
     }
     
@@ -116,6 +116,7 @@ class CarouselVC: UIViewController, MVCarouselCollectionViewDelegate{
     
 }
 
+//Query Carousel
 extension CarouselVC {
     
     // Query return if Featured Beer.
@@ -128,7 +129,7 @@ extension CarouselVC {
             
             if error == nil {
                 // The find succeeded.
-                print("Successfully retrieved \(objects!.count) scores.")
+                print("Sucesso ao recuperar \(objects!.count) pontuação.")
                 // Do something with the found objects
                 if let objects = objects {
                     for object in objects {
@@ -149,7 +150,7 @@ extension CarouselVC {
         
     }
     
-    
+    //Query Beer
     func queryBeer (featuredId: String) {
         
         let query = PFQuery(className:"Beer")
@@ -178,7 +179,7 @@ extension CarouselVC {
         
     }
     
-    
+    //Query updateData
     func updateData(beer: PFObject?){
         
         // pegando a foto do parse
@@ -189,12 +190,11 @@ extension CarouselVC {
                 (imageData: NSData?, error: NSError?) -> Void in
                 if error == nil {
                     if let imageData = imageData {
-                        
-                        print("Pc que fez!!!!!")
-                        
-                        let image = UIImage(data: imageData)!
+                        let image = UIImage(data:imageData)!
                         self.images.append(image)
-                        self.collectionView.reloadData()
+                        print("Imagem Foiiii !!!", self.images)
+                        self.configureCollectionView(true)
+                        
                     }else{
                         print("sem imagem")
                     }

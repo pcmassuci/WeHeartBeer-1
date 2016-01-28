@@ -25,6 +25,7 @@ import UIKit
 public class MVCarouselCell: UICollectionViewCell {
     
     @IBOutlet weak var scrollView : MVCarouselCellScrollView!
+    @IBOutlet var imageView : UIImageView!
     var cellSize : CGSize {
         get {
             return scrollView.cellSize
