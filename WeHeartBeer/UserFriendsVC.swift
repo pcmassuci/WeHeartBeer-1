@@ -21,12 +21,20 @@ class UserFriendsVC: UIViewController {
     var requests:[PFObject?] = [PFObject]()
     var myFriends: [PFObject?] = [PFObject]()
     var waitingFriends:[PFObject?] = [PFObject]()
-    let testView: UIView = UIView(frame: CGRectMake(0, 0, 320, 568))
+    //let testView: UIView = UIView(frame: CGRectMake(0, 0, 320, 320))
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        let check = self.internetCheck()
+        if check{
+            
+        }
         self.tableView.dataSource = self
         self.tableView.delegate = self
+        self.navigationController?.navigationBar.hidden = false
+        //self.navigationController?.navigationBar.barTintColor = UIColor(red: 250.0/255.0, green: 170.0/255.0, blue: 0.0/255.0, alpha: 1.0)
+        changeColor()
+        // self.navigationController?.navigationController = true
     }
     
 
@@ -212,36 +220,59 @@ extension UserFriendsVC: UITableViewDataSource , UITableViewDelegate{
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         print("section:\(indexPath.section) , row: \(indexPath.row)")
-        if indexPath.section == 0 {
+        
+        switch indexPath.section{
+        case 0:
             if indexPath.row == (self.requests.count){
                 performSegueWithIdentifier("segueToAddFriend", sender: nil)
-
+                
             }else{
                 print(self.requests[indexPath.row])
             }
+            break
+        case 1:
+             performSegueWithIdentifier("segueToFriendProfile", sender: nil)
+            break
+        case 2:
+             performSegueWithIdentifier("segueToFriendProfile", sender: nil)
+            break
+
+    default:
+            break
+            
         }
     }
     
-    
-    
+        
+        
+        
+        
+        
 }
 
 extension UserFriendsVC {
-    
+
     
     func loadingView(option:Bool){
-        if option{
-    
-            //let testView: UIView = UIView(frame: CGRectMake(0, 0, 320, 568))
-            self.testView.backgroundColor = UIColor.blueColor()
-            self.testView.alpha = 0.5
-            self.testView.tag = 100
-            super.view.userInteractionEnabled = false
-            self.view.userInteractionEnabled = true
-            self.view.addSubview(testView)
-        }else{
-            self.testView.removeFromSuperview()
-        }
+//        let screenSize: CGRect = UIScreen.mainScreen().bounds
+//
+//        let screenWidth = (screenSize.width/2)
+//        let screenHeight = (screenSize.height/2)
+//        let size = CGRectMake(screenWidth, screenHeight, 700, 700)
+//        let testView: UIView = UIView(frame: size)
+//       // let testView: UIView = UIView(frame: CGRectMake(0, 0, 320, 568))
+//        if option{
+//    
+//        
+//            testView.backgroundColor = UIColor.blackColor()
+//            testView.alpha = 0.5
+//            testView.tag = 100
+//            self.view.userInteractionEnabled = false
+//            self.view.userInteractionEnabled = true
+//            self.view.addSubview(testView)
+//        }else{
+//            testView.removeFromSuperview()
+//        }
     }
     
 

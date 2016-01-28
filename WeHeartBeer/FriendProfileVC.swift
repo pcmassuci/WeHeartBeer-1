@@ -21,6 +21,7 @@ class FriendProfileVC: UIViewController {
        
         
         super.viewDidLoad()
+        self.internetCheck()
         
         // Do any additional setup after loading the view.
     }
@@ -77,29 +78,14 @@ extension FriendProfileVC {
     }
    
     func addOrAcceptFriend(){
-        print(currentRequest)
         
-        if currentRequest == nil {
-            let user = User.currentUser()
-            let friendList = PFObject(className:"Friends")
-            friendList["user1"] = user
-            friendList["name1"] = user?.name
-            friendList["id1"] = user?.faceID
-            friendList["accepted"] = false
-            friendList["user2"] = self.friend!
-            friendList["name2"] = self.friend!.objectForKey("name")
-            friendList["id2"] = self.friend?.valueForKey("faceID")
-            friendList.saveInBackgroundWithBlock {
-                (success: Bool, error: NSError?) -> Void in
-                if (success) {
-                    print("PEDIDO deu Certo")
-                    // The object has been saved.
-                } else {
-                    print("PEDIDO DEU ERRADO")
-                    // There was a problem, check error.description
-                }
-            }
-            
+    FriendsDAO.friendReques(self.friend, currentRequest: self.currentRequest) { (success) -> Void in
+        if success{
+            print("pedido feito")
+        }else{
+            print("error")
+        }
+        
         }
     
         
@@ -110,4 +96,5 @@ extension FriendProfileVC {
     func updateData(){
         self.friendName.text = (self.friend!.valueForKey("name") as! String)
     }
+
 }
