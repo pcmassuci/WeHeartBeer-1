@@ -62,7 +62,7 @@ class UserDAO {
     }
     
     static func loginFacebook(completionHandler:SignUpCompletionHandler){
-        let permissions = ["public_profile", "email", "user_friends"]
+        let permissions = ["public_profile", "email", "user_friends", "user_posts"]
         PFFacebookUtils.logInInBackgroundWithReadPermissions(permissions) {
             (user: PFUser?, error: NSError?) -> Void in
             

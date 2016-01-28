@@ -28,6 +28,7 @@ class BeerProfileVC: UIViewController {
     @IBOutlet var ibv: UILabel! //needs renaming
     @IBOutlet var photo: UIImageView!
     @IBOutlet weak var brewButton: UIButton!
+    var idReview:Review!
       
     
 
@@ -40,6 +41,9 @@ class BeerProfileVC: UIViewController {
         super.viewDidLoad()
         print(currentObject)
         self.updateData(currentObject)
+        
+        print("REVIEW SELECIONADA \(self.idReview) \n\n")
+        
         
         
         self.navigationController?.navigationBar.hidden = false
