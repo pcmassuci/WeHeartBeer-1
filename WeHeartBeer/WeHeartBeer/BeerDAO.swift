@@ -14,9 +14,6 @@ import Parse
 class BeerDAO {
     
     
-    
-    
-    
     typealias FindObjectsCompletionHandler = (beer:[Beer]?,success:Bool) -> Void
     typealias RegisterBeerCH = (success:Bool)->Void
     
@@ -41,10 +38,10 @@ class BeerDAO {
                         // There was a problem, check error.description
                     }
                 }
-            
         
-
     }
+    
+    
     //find beer for name in parse using completionHandler, send a string with name of beer
     
     static func findBeer(beer:String,completionHandler:FindObjectsCompletionHandler){
@@ -72,7 +69,6 @@ class BeerDAO {
     }
     
     
-    
     // find beer from brewery,using CH, send a brewery name from parse return objects Beer
     static func findBeerfromBrewery(brewery:String,completionHandler:FindObjectsCompletionHandler){
         
@@ -93,7 +89,6 @@ class BeerDAO {
                 print("erro dao 2")
                 completionHandler(beer:nil,success: false)
             }
-            
             
         }
         

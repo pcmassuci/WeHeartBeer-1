@@ -44,13 +44,6 @@ class FriendsDAO {
             
         }
         
-        
-        
-        
-        
-        
-        
-        
     }
     
     
@@ -77,7 +70,7 @@ class FriendsDAO {
                         }
                     }
                 }
-                 completionHandler(requests: requests, waitingFriends: waitingFriends, myFriends: myFriends, success: true)
+                completionHandler(requests: requests, waitingFriends: waitingFriends, myFriends: myFriends, success: true)
             }else{
                 completionHandler(requests: nil, waitingFriends: nil, myFriends: nil, success:
                     false)
@@ -85,10 +78,10 @@ class FriendsDAO {
             }
             
         }
-}
+    }
     
     
-private  static func queryId1(userFBID:String,ch:FindObjsCH){
+    private  static func queryId1(userFBID:String,ch:FindObjsCH){
         let query = PFQuery(className: "Friends")
         query.whereKey("id1", equalTo: userFBID)
         query.findObjectsInBackgroundWithBlock {
@@ -116,8 +109,9 @@ private  static func queryId1(userFBID:String,ch:FindObjsCH){
         
         
     }
-
-private static func queryId2(userFBID:String, ch:FindObjsCH){
+    
+    
+    private static func queryId2(userFBID:String, ch:FindObjsCH){
         
         let query = PFQuery(className: "Friends")
         query.whereKey("id2", equalTo: userFBID)

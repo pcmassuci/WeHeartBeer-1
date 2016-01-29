@@ -43,7 +43,6 @@
 		67E8776D1C567AA60065B8E8 /* ImageServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67E8776C1C567AA60065B8E8 /* ImageServices.swift */; };
 		67E8776F1C567ABA0065B8E8 /* ImageDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67E8776E1C567ABA0065B8E8 /* ImageDAO.swift */; };
 		67EBCCE11C4D1F0700073A08 /* HeaderSectionFriends.xib in Resources */ = {isa = PBXBuildFile; fileRef = 67EBCCE01C4D1F0700073A08 /* HeaderSectionFriends.xib */; };
-		67EE50991C1703F600AAA599 /* PagedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67EE50981C1703F600AAA599 /* PagedViewController.swift */; };
 		67FB0C121C0F6C8700122314 /* SearchTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67FB0C111C0F6C8700122314 /* SearchTVCell.swift */; };
 		67FB0C141C11D31500122314 /* AddBreweryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67FB0C131C11D31500122314 /* AddBreweryVC.swift */; };
 		70794EFE88F3435C95EB3404 /* Pods_BeerLove.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 79DE8135A326FB90FEA7034F /* Pods_BeerLove.framework */; };
@@ -118,6 +117,7 @@
 		D246342D1BEBAFBF00CF605D /* FloatRatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D246342C1BEBAFBF00CF605D /* FloatRatingView.swift */; };
 		D24634331BEBC93300CF605D /* BeerProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D24634321BEBC93300CF605D /* BeerProfileVC.swift */; };
 		D2526D7B1BDA56C9003953F9 /* HomepageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2526D7A1BDA56C9003953F9 /* HomepageVC.swift */; };
+		D27892811C5A5C87003620D0 /* FeaturedDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = D27892801C5A5C87003620D0 /* FeaturedDAO.swift */; };
 		D28691DE1C3D5DD300A1BCE4 /* MVCarouselPageControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28691DD1C3D5DD300A1BCE4 /* MVCarouselPageControl.swift */; };
 		D2BAC5E51C3BF2E8006981A2 /* CarouselVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2BAC5E41C3BF2E8006981A2 /* CarouselVC.swift */; };
 		D2D88DA11BFB95B6002C8EF5 /* UserFBUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D88DA01BFB95B6002C8EF5 /* UserFBUtil.swift */; };
@@ -179,7 +179,6 @@
 		67E8776C1C567AA60065B8E8 /* ImageServices.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageServices.swift; sourceTree = "<group>"; };
 		67E8776E1C567ABA0065B8E8 /* ImageDAO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageDAO.swift; sourceTree = "<group>"; };
 		67EBCCE01C4D1F0700073A08 /* HeaderSectionFriends.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HeaderSectionFriends.xib; sourceTree = "<group>"; };
-		67EE50981C1703F600AAA599 /* PagedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PagedViewController.swift; sourceTree = "<group>"; };
 		67FB0C111C0F6C8700122314 /* SearchTVCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchTVCell.swift; sourceTree = "<group>"; };
 		67FB0C131C11D31500122314 /* AddBreweryVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddBreweryVC.swift; sourceTree = "<group>"; };
 		79DE8135A326FB90FEA7034F /* Pods_BeerLove.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BeerLove.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -262,6 +261,7 @@
 		D246342C1BEBAFBF00CF605D /* FloatRatingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FloatRatingView.swift; sourceTree = "<group>"; };
 		D24634321BEBC93300CF605D /* BeerProfileVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeerProfileVC.swift; sourceTree = "<group>"; };
 		D2526D7A1BDA56C9003953F9 /* HomepageVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HomepageVC.swift; path = WeHeartBeer/HomepageVC.swift; sourceTree = "<group>"; };
+		D27892801C5A5C87003620D0 /* FeaturedDAO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeaturedDAO.swift; sourceTree = "<group>"; };
 		D28691DD1C3D5DD300A1BCE4 /* MVCarouselPageControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MVCarouselPageControl.swift; sourceTree = "<group>"; };
 		D2BAC5E41C3BF2E8006981A2 /* CarouselVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarouselVC.swift; sourceTree = "<group>"; };
 		D2D88DA01BFB95B6002C8EF5 /* UserFBUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserFBUtil.swift; sourceTree = "<group>"; };
@@ -320,7 +320,6 @@
 				674127931C189F0200016D52 /* CountriesSearch.swift */,
 				D28691DD1C3D5DD300A1BCE4 /* MVCarouselPageControl.swift */,
 				D2BAC5E41C3BF2E8006981A2 /* CarouselVC.swift */,
-				67EE50981C1703F600AAA599 /* PagedViewController.swift */,
 				677924B11BFA064600B8092B /* RegisterBeerVC.swift */,
 				85C9957F1C45241A00EBEEBF /* GuidesVC.swift */,
 				672C62F81BEA5E7200E667C8 /* BreweryVC.swift */,
@@ -367,6 +366,7 @@
 				676250731BF1759300F3BB0D /* BreweryDAO.swift */,
 				676250761BF373AF00F3BB0D /* UserDAO.swift */,
 				858A7E201BF4AD050070E844 /* BeerDAO.swift */,
+				D27892801C5A5C87003620D0 /* FeaturedDAO.swift */,
 				63D37B411C43D0E50040CC52 /* ReviewDAO.swift */,
 				673504301C501E0500D7A8A6 /* FriendsDAO.swift */,
 				67E8776A1C532C100065B8E8 /* FacebookDAO.swift */,
@@ -806,10 +806,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				67E8776F1C567ABA0065B8E8 /* ImageDAO.swift in Sources */,
-				67EE50991C1703F600AAA599 /* PagedViewController.swift in Sources */,
 				85FC937A1C190B9400CF59C7 /* UserBeersVC.swift in Sources */,
 				676250791BF3757300F3BB0D /* UserValidation.swift in Sources */,
 				63F668AC1BD9165800172050 /* ChallengeVC.swift in Sources */,
+				D27892811C5A5C87003620D0 /* FeaturedDAO.swift in Sources */,
 				85FC93801C190BE900CF59C7 /* UserFriendsVC.swift in Sources */,
 				6701DE0A1C4686F600F25FC2 /* UserAddAppFriendsVC.swift in Sources */,
 				858A7E211BF4AD050070E844 /* BeerDAO.swift in Sources */,
