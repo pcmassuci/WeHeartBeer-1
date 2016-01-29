@@ -17,7 +17,7 @@ class SearchVC: UIViewController {
     
     
     @IBOutlet weak var resultsTable: UITableView!
-    @IBOutlet weak var searchTypeText: UILabel!
+    @IBOutlet weak var name: UILabel!
     
     @IBOutlet weak var beerStyle: UILabel!
     let controller = UISearchController(searchResultsController: nil)
@@ -86,6 +86,7 @@ class SearchVC: UIViewController {
         
        // self.controller.searchBar.text = ""
         controller.searchBar.resignFirstResponder()
+       
 
     }
     
@@ -171,9 +172,17 @@ extension SearchVC: UITableViewDelegate, UITableViewDataSource{
         
         let cell =  resultsTable.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as! ResultsTableViewCell
         
+        
+        //cell.searchImage.layer.borderWidth = 1
+        //cell.searchImage.layer.masksToBounds = false
+       // cell.searchImage.layer.borderColor = UIColor.blackColor().CGColor
+        //cell.searchImage.layer.cornerRadius = cell.searchImage.frame.height/2
+        //cell.searchImage.clipsToBounds = true
+        
         let count = self.resultsList.count
         if indexPath.row < count{
             
+            cell.backgroundColor = UIColor.whiteColor()
             //Debug
             //print(self.resultsList.objectAtIndex(indexPath.row).name)
             //print(resultsList)
@@ -182,25 +191,21 @@ extension SearchVC: UITableViewDelegate, UITableViewDataSource{
             
             cell.brewery?.text = self.resultsList.objectAtIndex(indexPath.row).objectForKey("brewName")! as? String
             
-            cell.beerStyle?.text = self.resultsList.objectAtIndex(indexPath.row).objectForKey("Style") as? String
+            var styleTemp = self.resultsList.objectAtIndex(indexPath.row).objectForKey("Style") as! String
+            
+            cell.beerStyle?.text = "Estilo: \(styleTemp) "
             
             
             if self.resultsList.objectAtIndex(indexPath.row).objectForKey("Photo") != nil{
                 let imageBeer = resultsList.objectAtIndex(indexPath.row).objectForKey("Photo") as! PFFile
                 ImageDAO.getImageFromParse(imageBeer, ch: { (image, success) -> Void in
                     if success{
-                        if image != nil{
-                            
+                        
                              cell.searchImage.image = image
-                            
-                        }else{
-                            //imagem generica
-                            cell.searchImage.image = UIImage(contentsOfFile: "mug")
-                        }
                         
                     }else{
                         //error tratar
-                        cell.searchImage.image = UIImage(contentsOfFile: "mug")
+                        cell.searchImage.image = UIImage(named:"mug.png")
                     }
                 })
                 
@@ -214,7 +219,7 @@ extension SearchVC: UITableViewDelegate, UITableViewDataSource{
 //                            cell.searchImage.image = image
 //                        }}}
             }else{
-                 cell.searchImage.image = UIImage(contentsOfFile: "mug")
+                cell.searchImage.image = UIImage(named: "mug")
             }
             
            // cell.searchImage.image = self.resultsList.objectAtIndex(indexPath.row).
@@ -239,8 +244,9 @@ extension SearchVC: UITableViewDelegate, UITableViewDataSource{
             
             cell.addBeerLabel.hidden = false
             
-            cell.searchImage.image = UIImage(named:"BeerAdd")
-            //cell.searchImage.sizeToFit()
+            cell.backgroundColor = UIColor(red: 231.0/255.0, green: 230.0/255.0, blue: 228.0/255.0, alpha: 1.0)
+
+            cell.searchImage.image = UIImage(named:"cerva_add")
 
             cell.addBeerLabel?.text = "Não achou a cerveja que estava procurando? Você pode adicioná-la agora!"
         }

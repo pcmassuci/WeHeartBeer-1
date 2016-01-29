@@ -48,6 +48,21 @@ class BeerProfileVC: UIViewController {
         
         self.navigationController?.navigationBar.hidden = false
         self.navigationController?.navigationBar.barTintColor = UIColor(red: 250.0/255.0, green: 170.0/255.0, blue: 0.0/255.0, alpha: 1.0)
+        
+        
+        brewButton.titleLabel?.numberOfLines = 0
+        brewButton.titleLabel?.preferredMaxLayoutWidth = 250
+        brewButton.titleLabel?.lineBreakMode = NSLineBreakMode.ByWordWrapping
+        brewButton.titleLabel?.sizeToFit()
+        
+        photo.layer.borderWidth = 1
+        photo.layer.masksToBounds = false
+        photo.layer.borderColor = UIColor.blackColor().CGColor
+        photo.layer.cornerRadius = 60
+        print(photo.layer.cornerRadius)
+        photo.clipsToBounds = true
+        
+        
 
     }
     
@@ -69,8 +84,12 @@ class BeerProfileVC: UIViewController {
         print(beer?.objectForKey("brewery")?.objectId)
         self.name.text = beer!.objectForKey("name") as? String
         self.style.text = beer!.objectForKey("Style") as? String
-        self.ibv.text = beer!.objectForKey("ABV") as? String
-       let nameOfBrew = beer!.objectForKey("brewName") as? String
+        
+        let abv = beer!.objectForKey("ABV") as! String
+        self.ibv.text = "\(abv)%"
+        
+        
+        let nameOfBrew = beer!.objectForKey("brewName") as? String
         self.brewButton.setTitle(nameOfBrew, forState: UIControlState.Normal)
       
         

@@ -20,4 +20,6 @@ class ResultsTableViewCell: UITableViewCell{
     @IBOutlet weak var addBeerLabel: UILabel!
     
     
+    
+    
 }

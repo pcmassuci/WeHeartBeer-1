@@ -11,18 +11,24 @@ import MVCarouselCollectionView
 import Foundation
 
 
-class CarouselVC: UIViewController, MVCarouselCollectionViewDelegate{
+typealias FindObjectsCompletionHandler = (beer:[PFObject]?,success:Bool) -> Void
+typealias FindObjectCompletionHandler = (obj:PFObject?,success:Bool) -> Void
+
+
+class CarouselVC: UIViewController, MVCarouselCollectionViewDelegate {
     
-    @IBOutlet weak var image: UIImageView!
-    let imagePaths = [ "beer1", "beer2", "beer3" ] // Local images
-    var imageArray: [UIImage]! = [] // Array images from parse.
+    // Local images
+    //let imagePaths = [ "beer1", "beer2", "beer3" ]
+    
+    var images : [UIImage] = []
+    var features:[PFObject?] = [PFObject?]()
     
     
     // Closure to load local images with UIImage.named
-    let imageLoader: ((imageView: UIImageView, imagePath : String, completion: (newImage: Bool) -> ()) -> ()) = {
-        (imageView: UIImageView, imagePath : String, completion: (newImage: Bool) -> ()) in
+    let imageLoader: ((imageView: UIImageView, image : UIImage, completion: (newImage: Bool) -> ()) -> ()) = {
+        (imageView: UIImageView, image : UIImage, completion: (newImage: Bool) -> ()) in
         
-        imageView.image = UIImage(named:imagePath)
+        imageView.image = image
         completion(newImage: imageView.image != nil)
     }
     
@@ -34,13 +40,15 @@ class CarouselVC: UIViewController, MVCarouselCollectionViewDelegate{
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // let tapGestureRecognizer = UITapGestureRecognizer(target:self, action:Selector("imageTapped:"))
+        // self.image.userInteractionEnabled = true
+        // self.image.addGestureRecognizer(tapGestureRecognizer)
+        
         // Do any additional setup after loading the view.
-        view.translatesAutoresizingMaskIntoConstraints = false
+        //view.translatesAutoresizingMaskIntoConstraints = false
         
-        self.pageControl.numberOfPages = imagePaths.count
-        
-        configureCollectionView(false)
-        
+        self.pageControl.numberOfPages = images.count
+        self.images.removeAll()
     }
     
     // Function CollectionView
@@ -48,14 +56,12 @@ class CarouselVC: UIViewController, MVCarouselCollectionViewDelegate{
         
         // NOTE: the collectionView IBOutlet class must be declared as MVCarouselCollectionView in Interface Builder, otherwise this will crash.
         collectionView.selectDelegate = self
-        if parseLoad {
-            collectionView.imagePaths = imagePaths
-        }else{
-            collectionView.imagePaths = imagePaths
-        }
+        collectionView.images = self.images
         collectionView.commonImageLoader = self.imageLoader
-        //collectionView.maximumZoom = 0
-        collectionView.reloadData()
+        
+        self.collectionView.reloadData()
+        
+        
     }
     
     
@@ -71,7 +77,6 @@ class CarouselVC: UIViewController, MVCarouselCollectionViewDelegate{
     func carousel(carousel: MVCarouselCollectionView, didScrollToCellAtIndex cellIndex : NSInteger) {
         
         // Page changed, can use this to update page control
-        
         self.pageControl.currentPage = cellIndex
     }
     
@@ -85,46 +90,37 @@ class CarouselVC: UIViewController, MVCarouselCollectionViewDelegate{
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
+        
+        //Remove all images after change view
+        self.images.removeAll()
         self.queryCarousel()
+        
     }
 }
 
 
-
+//Query Carousel
 extension CarouselVC {
     
     // Query return if Featured Beer.
     func queryCarousel () {
         
-        let query = PFQuery(className:"Featured")
-        query.whereKey("active", equalTo: true)
-        query.findObjectsInBackgroundWithBlock {
-            (objects: [PFObject]?, error: NSError?) -> Void in
-            
-            if error == nil {
-                // The find succeeded.
-                print("Successfully \(objects!.count).")
-                // Do something with the found objects
-                if let objects = objects {
-                    for object in objects {
-                        print(object.objectId)
-                        
-                        print(object.valueForKey("beer")?.objectId)
-                        
-                        self.queryBeer((object.valueForKey("beer")?.objectId)!)
-                        
-                    }
-                    self.configureCollectionView(true)
+        FeaturedDAO.queryFeatured { (objs, success) -> Void in
+            if success {
+                for obj in objs!{
+                    self.features.append(obj)
+                    self.queryBeer((obj.valueForKey("beer")?.objectId)!)
+                    self.configureCollectionView(false)
                 }
-            } else {
-                // Log details of the failure
-                print("Error: \(error!) \(error!.userInfo)")
+                
+            }else{
+                //tratar error
             }
         }
         
     }
     
-    //Query return every data
+    //Query Beer
     func queryBeer (featuredId: String) {
         
         let query = PFQuery(className:"Beer")
@@ -134,7 +130,7 @@ extension CarouselVC {
             
             if error == nil {
                 // The find succeeded.
-                print("Successfully \(objects!.count).")
+                print("Successfully retrieved \(objects!.count) scores.")
                 // Do something with the found objects
                 if let objects = objects {
                     for object in objects {
@@ -153,48 +149,25 @@ extension CarouselVC {
         
     }
     
-    //updateData Photo
+    //Query updateData
     func updateData(beer: PFObject?){
         
-//        // pegando a foto do parse
-//        if beer?.objectForKey("Photo") != nil {
-//            let imageArray = beer?.objectForKey("Photo") as! PFFile
-//            
-//        //    imageFile.getDataInBackgroundWithBlock {
         // pegando a foto do parse
-        if beer?.objectForKey("Photo") != nil {
-            let imageArray = beer?.objectForKey("Photo") as! PFFile
+        if beer!.objectForKey("Photo") != nil{
+            let imageFile = beer!.objectForKey("Photo") as! PFFile
+            ImageDAO.getImageFromParse(imageFile, ch: { (image, success) -> Void in
+                if success{
+                    self.images.append(image!)
+                    self.configureCollectionView(true)
+                    print(self.images.count)
+                    
+                }else{
+                    // carregar imagem away
+                }
+            })
             
-//            imageFile.getDataInBackgroundWithBlock {
-//                (imageData: NSData?, error: NSError?) -> Void in
-//                if error == nil {
-//                    if let imageData = imageData {
-//                        let image = UIImage(data:imageData)
-//                        print("Foi!!!", image)
-//                        
-//                        let images = UIImage(data:imageData)
-//                        
-//                        print("Aeee foi!!!!! \(images)")
-//                        
-//                        if images != nil {
-//                            self.imageArray.append(images!)
-//                            print(self.imageArray)
-//
-//                        }
-//                    
-//                        
-//                    }else{
-//                        print("Sem imagem")
-//                    }
-//                }
-//                
-//            }
-//        }else{
-//            print("erro na imagem")
-//        }
-//        
-//        
-        
+        }else {
+            // carrega image away
         }
     }
 }

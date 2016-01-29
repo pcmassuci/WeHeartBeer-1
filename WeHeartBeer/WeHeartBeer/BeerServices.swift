@@ -77,12 +77,3 @@ class BeerServices {
     
 }
 
-
-
-
-
-
-
-
-
-

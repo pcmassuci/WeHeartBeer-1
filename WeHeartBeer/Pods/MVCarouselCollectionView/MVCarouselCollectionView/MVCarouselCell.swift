@@ -23,8 +23,9 @@
 import UIKit
 
 public class MVCarouselCell: UICollectionViewCell {
- 
+    
     @IBOutlet weak var scrollView : MVCarouselCellScrollView!
+    @IBOutlet var imageView : UIImageView!
     var cellSize : CGSize {
         get {
             return scrollView.cellSize
@@ -41,12 +42,12 @@ public class MVCarouselCell: UICollectionViewCell {
             scrollView.maximumZoom = newValue
         }
     }
-    var imagePath : String {
+    var image : UIImage {
         get {
-            return scrollView.imagePath
+            return scrollView.image
         }
         set {
-            scrollView.imagePath = newValue
+            scrollView.image = newValue
         }
     }
     
@@ -58,7 +59,7 @@ public class MVCarouselCell: UICollectionViewCell {
             scrollView.imageLoader = newValue
         }
     }
-
+    
     func resetZoom() {
         scrollView.resetZoom()
     }
