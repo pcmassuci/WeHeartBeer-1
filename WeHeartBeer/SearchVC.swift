@@ -86,6 +86,7 @@ class SearchVC: UIViewController {
         
        // self.controller.searchBar.text = ""
         controller.searchBar.resignFirstResponder()
+       
 
     }
     
@@ -170,6 +171,13 @@ extension SearchVC: UITableViewDelegate, UITableViewDataSource{
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         let cell =  resultsTable.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as! ResultsTableViewCell
+        
+        
+        //cell.searchImage.layer.borderWidth = 1
+        //cell.searchImage.layer.masksToBounds = false
+       // cell.searchImage.layer.borderColor = UIColor.blackColor().CGColor
+        //cell.searchImage.layer.cornerRadius = cell.searchImage.frame.height/2
+        //cell.searchImage.clipsToBounds = true
         
         let count = self.resultsList.count
         if indexPath.row < count{
