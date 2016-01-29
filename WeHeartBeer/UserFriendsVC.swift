@@ -98,6 +98,15 @@ class UserFriendsVC: UIViewController {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+        if (segue.identifier == "segueToFriendVC") {
+            if let destination = segue.destinationViewController  as? FriendProfileVC{
+                if let row = tableView.indexPathForSelectedRow?.row{
+                let id = (self.requests[row]!.objectForKey("id1") as! String)
+                destination.currentFriend = id
+            }
+            }
+        }
+
         if (segue.identifier == "segueToAddFriend") {
             if let destination = segue.destinationViewController  as? UserAddAppFriendsVC{
                 print(self.idsFace)
@@ -227,7 +236,7 @@ extension UserFriendsVC: UITableViewDataSource , UITableViewDelegate{
                 performSegueWithIdentifier("segueToAddFriend", sender: nil)
                 
             }else{
-                print(self.requests[indexPath.row])
+                performSegueWithIdentifier("segueToFriendVC", sender: indexPath.row)
             }
             break
         case 1:

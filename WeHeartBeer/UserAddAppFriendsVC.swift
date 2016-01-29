@@ -48,10 +48,14 @@ class UserAddAppFriendsVC: UIViewController {
 
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "segueToFriendProfile"{
+            
             if let destination = segue.destinationViewController  as? FriendProfileVC{
                 if let indexPath = tableView.indexPathForSelectedRow?.row{
                     //envia o fbid para a tela de amigo
-                    destination.currentFriend = self.friends[indexPath].fBiD
+                    print("valor de referencia \(self.friends[indexPath].fBiD)")
+                    let id = self.friends[indexPath].fBiD
+                    destination.currentFriend = id
+                    destination.delegate = self
                     
                 }
             }
@@ -106,6 +110,10 @@ extension UserAddAppFriendsVC: UITableViewDataSource , UITableViewDelegate{
     }
     
 }
+
+
+
+///fbmethods
 extension UserAddAppFriendsVC{
     
     func getFBAppFriends(nextCursor : String?, failureHandler: (error: NSError) -> Void) {
@@ -183,7 +191,21 @@ extension UserAddAppFriendsVC{
     
 }
 
-extension UserAddAppFriendsVC {
+extension UserAddAppFriendsVC: FriendProfileVCDelegate {
+    
+    func addIdFriend(id: String){
+        self.fbIDCheck.append(id)
+    }
+//    extension BeerProfileVC: BreweryVCDelegate{
+//        func newBeer(objIDbeer:PFObject?) {
+//            self.currentObject = objIDbeer
+//            print("passou o dado")
+//            print(self.currentObject)
+//            self.updateData(objIDbeer)
+//        }
+//        
+//        
+//    }
 
     
 }

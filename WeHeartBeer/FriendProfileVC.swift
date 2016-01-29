@@ -8,11 +8,17 @@
 
 import UIKit
 
+protocol FriendProfileVCDelegate{
+     func addIdFriend(id: String)
+}
 class FriendProfileVC: UIViewController {
-
+    
+    var delegate: FriendProfileVCDelegate?
+    @IBOutlet weak var addButton: UIButton!
     @IBOutlet weak var friendName: UILabel!
     var currentRequest: PFObject?
-    var currentFriend: String?
+    var currentFriend: String? = ""
+    var choice:Int?
    // var check: Bool
     var friend: PFObject?
     
@@ -27,7 +33,23 @@ class FriendProfileVC: UIViewController {
     }
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        self.loadUser()
+        print(self.currentFriend)
+        if self.currentFriend != nil{
+ //Request to server Frienduser data
+            FriendsDAO.findUser(self.currentFriend!, ch: { (object, success) -> Void in
+                if success{
+                    self.updateData(object!)
+                    self.friend = object 
+                    
+                    
+                }else{
+                    //error to download a friend
+                }
+            })
+        }else{
+            //erro de encontrar o usuario
+        }
+       
         
     }
 
@@ -50,37 +72,15 @@ class FriendProfileVC: UIViewController {
 //Parse
 extension FriendProfileVC {
 
-    func loadUser() {
-        if self.currentFriend != nil {
-            let query = PFQuery(className: "_User")
-            query.whereKey("faceID", equalTo: self.currentFriend!)
-            query.getFirstObjectInBackgroundWithBlock({ (obj: PFObject?, error: NSError?) -> Void in
-                if error == nil{
-                    if obj != nil{
-                        print(obj)
-                    self.friend  = obj!
-                    self.updateData()
-                        
-                        print(self.friend)
-                    } else {
-                        print("erro Usuario não encontrado")
-                    }
-                    
-                }else{
-                    print("erro ao baixar usuário")
-                }
-            })
-            
-        }else{
-            print("ERRO AO PASSAR USUÁRIO")
-        }
-        
-    }
    
     func addOrAcceptFriend(){
         
+        
     FriendsDAO.friendReques(self.friend, currentRequest: self.currentRequest) { (success) -> Void in
         if success{
+            
+            self.addButton.hidden = true
+            self.delegate?.addIdFriend(self.currentFriend!)
             print("pedido feito")
         }else{
             print("error")
@@ -93,8 +93,9 @@ extension FriendProfileVC {
 }
 
 extension FriendProfileVC {
-    func updateData(){
-        self.friendName.text = (self.friend!.valueForKey("name") as! String)
+    func updateData(friend:PFObject){
+        print(friend)
+        self.friendName.text = (friend.valueForKey("name") as! String)
     }
 
 }
