@@ -21,6 +21,7 @@ class CarouselVC: UIViewController, MVCarouselCollectionViewDelegate {
     //let imagePaths = [ "beer1", "beer2", "beer3" ]
     
     var images : [UIImage] = []
+    var features:[PFObject?] = [PFObject?]()
     
     
     // Closure to load local images with UIImage.named
@@ -39,11 +40,15 @@ class CarouselVC: UIViewController, MVCarouselCollectionViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // let tapGestureRecognizer = UITapGestureRecognizer(target:self, action:Selector("imageTapped:"))
+        // self.image.userInteractionEnabled = true
+        // self.image.addGestureRecognizer(tapGestureRecognizer)
+        
         // Do any additional setup after loading the view.
-        view.translatesAutoresizingMaskIntoConstraints = false
+        //view.translatesAutoresizingMaskIntoConstraints = false
         
         self.pageControl.numberOfPages = images.count
-        
+        self.images.removeAll()
     }
     
     // Function CollectionView
@@ -51,13 +56,9 @@ class CarouselVC: UIViewController, MVCarouselCollectionViewDelegate {
         
         // NOTE: the collectionView IBOutlet class must be declared as MVCarouselCollectionView in Interface Builder, otherwise this will crash.
         collectionView.selectDelegate = self
-        if parseLoad {
-            collectionView.images = self.images
-        }else{
-            collectionView.images = self.images
-        }
+        collectionView.images = self.images
         collectionView.commonImageLoader = self.imageLoader
-    
+        
         self.collectionView.reloadData()
         
         
@@ -87,34 +88,16 @@ class CarouselVC: UIViewController, MVCarouselCollectionViewDelegate {
     }
     
     
-    
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
+        
+        //Remove all images after change view
+        self.images.removeAll()
         self.queryCarousel()
         
-        
     }
-    
-    //    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-    //
-    //        if segue.identifier == "FullScreenSegue" {
-    //
-    //            let nc = segue.destinationViewController as? UINavigationController
-    //            let vc = nc?.viewControllers[0] as? MVFullScreenCarouselViewController
-    //
-    //            if let vc = vc {
-    //                vc.imageLoader = self.imageLoader
-    //                vc.imagePaths = self.imagePaths
-    //                vc.delegate = self
-    //                vc.title = self.parentViewController?.navigationItem.title
-    //                if let indexPath = sender as? NSIndexPath {
-    //                    vc.initialViewIndex = indexPath.row
-    //                }
-    //            }
-    //        }
-    //    }
-    
 }
+
 
 //Query Carousel
 extension CarouselVC {
@@ -122,29 +105,16 @@ extension CarouselVC {
     // Query return if Featured Beer.
     func queryCarousel () {
         
-        let query = PFQuery(className:"Featured")
-        query.whereKey("active", equalTo: true)
-        query.findObjectsInBackgroundWithBlock {
-            (objects: [PFObject]?, error: NSError?) -> Void in
-            
-            if error == nil {
-                // The find succeeded.
-                print("Sucesso ao recuperar \(objects!.count) pontuação.")
-                // Do something with the found objects
-                if let objects = objects {
-                    for object in objects {
-                        print(object.objectId)
-                        
-                        print(object.valueForKey("beer")?.objectId)
-                        
-                        self.queryBeer((object.valueForKey("beer")?.objectId)!)
-                        
-                    }
-                    //self.configureCollectionView(true)
+        FeaturedDAO.queryFeatured { (objs, success) -> Void in
+            if success {
+                for obj in objs!{
+                    self.features.append(obj)
+                    self.queryBeer((obj.valueForKey("beer")?.objectId)!)
+                    self.configureCollectionView(false)
                 }
-            } else {
-                // Log details of the failure
-                print("Error: \(error!) \(error!.userInfo)")
+                
+            }else{
+                //tratar error
             }
         }
         
@@ -184,25 +154,20 @@ extension CarouselVC {
         
         // pegando a foto do parse
         if beer!.objectForKey("Photo") != nil{
-            let userImageFile = beer!.objectForKey("Photo") as! PFFile
-            
-            userImageFile.getDataInBackgroundWithBlock {
-                (imageData: NSData?, error: NSError?) -> Void in
-                if error == nil {
-                    if let imageData = imageData {
-                        let image = UIImage(data:imageData)!
-                        self.images.append(image)
-                        print("Imagem Foiiii !!!", self.images)
-                        self.configureCollectionView(true)
-                        
-                    }else{
-                        print("sem imagem")
-                    }
+            let imageFile = beer!.objectForKey("Photo") as! PFFile
+            ImageDAO.getImageFromParse(imageFile, ch: { (image, success) -> Void in
+                if success{
+                    self.images.append(image!)
+                    self.configureCollectionView(true)
+                    print(self.images.count)
+                    
+                }else{
+                    // carregar imagem away
                 }
-                
-            }
-        }else{
-            print("erro na imagem")
+            })
+            
+        }else {
+            // carrega image away
         }
     }
 }

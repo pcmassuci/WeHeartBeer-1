@@ -76,7 +76,7 @@ class MVCarouselCellScrollView: UIScrollView, UIScrollViewDelegate {
         // If image is taller, then make edge to edge height, else make edge to edge width
         let zoom = cellAspectRatioWiderThanImage ? cellSize.height / imageSize.height : cellSize.width / imageSize.width
         
-        self.maximumZoomScale = zoom * CGFloat(zoomToUse())
+        //self.maximumZoomScale = zoom * CGFloat(zoomToUse())
         self.minimumZoomScale = zoom
         self.zoomScale = zoom
         
