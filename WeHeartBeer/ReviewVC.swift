@@ -27,7 +27,7 @@ class ReviewVC: UIViewController {
     var reviewObject = PFObject(className:"Review")
     
 
-    let actionSheet = UIAlertController(title: "Teste", message: "My custom Share", preferredStyle: UIAlertControllerStyle.ActionSheet)
+//    let actionSheet = UIAlertController(title: "Teste", message: "My custom Share", preferredStyle: UIAlertControllerStyle.ActionSheet)
     
     var state = false
 
@@ -179,30 +179,29 @@ class ReviewVC: UIViewController {
             query.whereKey("beer", equalTo:review!)
             print(review)
             
+            
+            
             if review!.objectForKey("Photo") != nil{
-                let userImageFile = review!.objectForKey("Photo") as! PFFile
-                
-                userImageFile.getDataInBackgroundWithBlock {
-                    (imageData: NSData?, error: NSError?) -> Void in
-                    if error == nil {
-                        if let imageData = imageData {
-                            let image = UIImage(data:imageData)
-                            facebookSheet.setInitialText("Frango")
-                            //facebookSheet.addURL(<#T##url: NSURL!##NSURL!#>)
-                            facebookSheet.addImage(image)
-                            
-                            self.presentViewController(facebookSheet, animated: true, completion: nil)
-                        }else{
-                            print("erro na imagem")
-                        }
-                    }
+
+                let imageFile = review!.objectForKey("Photo") as! PFFile
+                ImageDAO.getImageFromParse(imageFile, ch: { (image, success) -> Void in
                     
-                }
+                    if success{
+                        facebookSheet.addImage(image)
+                        
+                        
+                        self.presentViewController(facebookSheet, animated: true, completion: nil)
+                        
+                    }else{
+                        //carregar imagem qualquer
+                    }
+                })
+
             }else{
                 print("sem imagem")
             }
             
-            
+             //self.presentViewController(facebookSheet, animated: true, completion: nil)
             
             
         }
