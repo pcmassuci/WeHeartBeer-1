@@ -236,7 +236,7 @@ extension UserFriendsVC: UITableViewDataSource , UITableViewDelegate{
                 performSegueWithIdentifier("segueToAddFriend", sender: nil)
                 
             }else{
-                performSegueWithIdentifier("segueToFriendVC", sender: indexPath.row)
+                performSegueWithIdentifier("segueToFriendVC", sender: nil)
             }
             break
         case 1:
