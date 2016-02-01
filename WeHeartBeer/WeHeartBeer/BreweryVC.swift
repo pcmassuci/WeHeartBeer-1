@@ -41,14 +41,10 @@ class BreweryVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        print(currentBrewery)
-        print(currentBrewery?.objectId)
         listOfProducts.delegate = self
         listOfProducts.dataSource = self
         listOfProducts.tableFooterView = UIView(frame: CGRect.zero)
         self.navigationController?.navigationBar.barTintColor = UIColor(red: 250.0/255.0, green: 170.0/255.0, blue: 0.0/255.0, alpha: 1.0)
-        
-        // Do any additional setup after loading the view.
     }
     
     
@@ -62,17 +58,12 @@ class BreweryVC: UIViewController {
         print(pointer)
         self.activityIndicator.startAnimating()
         BreweryServices.findBreweryObjectID(pointer) { (brewery, success) -> Void in
-            //BreweryServices.findBreweryName(pointerReceive) { (brewery, success) -> Void in
             self.activityIndicator.stopAnimating()
             if success {
                 
                 self.brewery = brewery
-                
-                
-                print(self.brewery.objectForKey("local") )
                 self.updateData(self.brewery)
-                
-                
+
             }else{
                 //colocar aviso de erro para o usuário
             }
@@ -90,36 +81,27 @@ class BreweryVC: UIViewController {
         
         linkBrewery.text = brewery.objectForKey("contact") as? String
         
-        //logoBrewery.image = brewery.objectForKey("photo") as? UIImage
         if brewery.objectForKey("photo") != nil{
-            let userImageFile = brewery.objectForKey("photo") as! PFFile
-            
-            userImageFile.getDataInBackgroundWithBlock {
-                (imageData: NSData?, error: NSError?) -> Void in
-                if error == nil {
-                    if let imageData = imageData {
-                        let image = UIImage(data:imageData)
-                        self.logoBrewery.image = image
-                    }else{
-                        print("sem imagem")
-                    }
+            let imageFile = brewery.objectForKey("photo") as! PFFile
+            ImageDAO.getImageFromParse(imageFile, ch: { (image, success) -> Void in
+                if success{
+                     self.logoBrewery.image = image
+                }else{
+                    //carregar imagem cervejaria away
                 }
-                
-            }
-        }else{
-            print("erro na imagem")
+            })
+                }else{
+         // imagem nula carregar imagem away
         }
         
-        print(self.currentBrewery?.objectId)
         BeerServices.findBeerFromBrewery(self.currentBrewery?.objectId) { (beer, success) -> Void in
             
             if success{
                 self.beers = beer
-                print(self.beers)
                 self.listOfProducts.reloadData()
                 
             }else{
-                print("não conseguiu conectar")
+                //checar internet e alertar erro
             }
         }
         
@@ -142,8 +124,6 @@ extension BreweryVC: UITableViewDataSource, UITableViewDelegate {
     
     
     func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        
-        
         return 35
     }
     
@@ -209,11 +189,7 @@ extension BreweryVC: UITableViewDataSource, UITableViewDelegate {
     
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        //            print("valor do obejto")
-        //            print(self.beers[indexPath.row])
         
-        print(self.cellControl)
-        print(indexPath.row)
         if (indexPath.row == cellControl) {
             self.performSegueWithIdentifier("segueToAddBeer", sender: self)
             
@@ -223,19 +199,10 @@ extension BreweryVC: UITableViewDataSource, UITableViewDelegate {
             if let navController = self.navigationController {
                 navController.popViewControllerAnimated(true)
             }else{
-                
                 print("optional value")
-                
-                
             }
         }
-        //        if let del = delegate{
-        //
-        //            del.newBeer(self.beers[indexPath.row])
-        //
-        //        }else{
-        //            print("erro no delegate")
-        //        }
+
     }
     
     // MARK: - Send to ADDBeer
@@ -243,12 +210,8 @@ extension BreweryVC: UITableViewDataSource, UITableViewDelegate {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "segueToAddBeer"{
             if let destination = segue.destinationViewController  as? AddBeer  {
-                
-                //
                 destination.brewery = self.brewery
-                //destination.objectID = self.currentBrewery?.objectId
-                
-                //
+
             }
         }
         

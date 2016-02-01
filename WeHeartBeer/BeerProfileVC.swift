@@ -69,7 +69,7 @@ class BeerProfileVC: UIViewController {
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        
+       // navigationCollor()
         // Check if user is logged in
         if UserServices.loggedUser() {
             self.ratingButton.hidden = false

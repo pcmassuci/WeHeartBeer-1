@@ -45,10 +45,10 @@ class CarouselVC: UIViewController, MVCarouselCollectionViewDelegate {
         // self.image.addGestureRecognizer(tapGestureRecognizer)
         
         // Do any additional setup after loading the view.
-        //view.translatesAutoresizingMaskIntoConstraints = false
+        view.translatesAutoresizingMaskIntoConstraints = false
         
         self.pageControl.numberOfPages = images.count
-        self.images.removeAll()
+        
     }
     
     // Function CollectionView
@@ -67,11 +67,12 @@ class CarouselVC: UIViewController, MVCarouselCollectionViewDelegate {
     
     // MARK:  MVCarouselCollectionViewDelegate
     func carousel(carousel: MVCarouselCollectionView, didSelectCellAtIndexPath indexPath: NSIndexPath) {
+        print("index: \(indexPath.row)")
         
         // Do something with cell selection
         // Send indexPath.row as index to use
         //
-        //self.performSegueWithIdentifier("FullScreenSegue", sender:indexPath);
+        self.performSegueWithIdentifier("segueDestaqueBeer", sender:indexPath);
     }
     
     func carousel(carousel: MVCarouselCollectionView, didScrollToCellAtIndex cellIndex : NSInteger) {
@@ -96,7 +97,18 @@ class CarouselVC: UIViewController, MVCarouselCollectionViewDelegate {
         self.queryCarousel()
         
     }
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if (segue.identifier == "segueDestaqueBeer") {
+            if let destination = segue.destinationViewController  as? BeerProfileVC{
+                print(self.features[(sender?.row)!])
+               destination.currentObject = self.features[(sender?.row)!]
+            }
+        }
+    }
+    
 }
+
+
 
 
 //Query Carousel
@@ -108,7 +120,7 @@ extension CarouselVC {
         FeaturedDAO.queryFeatured { (objs, success) -> Void in
             if success {
                 for obj in objs!{
-                    self.features.append(obj)
+//                    self.features.append(obj)
                     self.queryBeer((obj.valueForKey("beer")?.objectId)!)
                     self.configureCollectionView(false)
                 }
@@ -130,11 +142,10 @@ extension CarouselVC {
             
             if error == nil {
                 // The find succeeded.
-                print("Successfully retrieved \(objects!.count) scores.")
                 // Do something with the found objects
                 if let objects = objects {
                     for object in objects {
-                        print(object)
+                        self.features.append(object)
                         
                         //print(object.valueForKey("Photo"))
                         self.updateData(object)
