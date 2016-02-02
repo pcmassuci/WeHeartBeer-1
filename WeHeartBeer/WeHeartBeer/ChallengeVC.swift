@@ -22,7 +22,7 @@ class ChallengeVC: UIViewController {
         self.challengeImage.image = UIImage(named:"now-pouring")
         self.view.addSubview(challengeImage)
         
-        challengeTitle.text = "Challenge 1"
+        challengeTitle.text = "Primeiro Desafio Beer Love!"
         challengeDescription.text = "Para participar desse challenge você deve experimentar e compartilhar na nossa página 10 estilos diferentes de cerveja. O ganhador irá ganhar uma camiseta exlusiva do BeerLove"
         //challengeDescription.adjustsFontSizeToFitWidth = true
         challengeDescription.sizeToFit()
