@@ -54,9 +54,8 @@ class BeerProfileVC: UIViewController {
         photo.layer.borderWidth = 1
         photo.layer.masksToBounds = false
         photo.layer.borderColor = UIColor.blackColor().CGColor
-        photo.layer.cornerRadius = 60
-        print(photo.layer.cornerRadius)
         photo.clipsToBounds = true
+
         
         
 
@@ -74,6 +73,13 @@ class BeerProfileVC: UIViewController {
         }
         
            }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        
+        photo.layer.cornerRadius = photo.frame.height/2
+        
+    }
     
     // update informations
     func updateData(beer: PFObject?){
