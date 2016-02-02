@@ -24,12 +24,12 @@
             <string>Lato-Bold</string>
             <string>Lato-Bold</string>
             <string>Lato-Bold</string>
+            <string>Lato-Bold</string>
         </mutableArray>
         <mutableArray key="Lato-Medium.ttf">
             <string>Lato-Medium</string>
         </mutableArray>
         <mutableArray key="Lato-Regular.ttf">
-            <string>Lato-Regular</string>
             <string>Lato-Regular</string>
             <string>Lato-Regular</string>
             <string>Lato-Regular</string>
@@ -2804,12 +2804,13 @@
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Challenge" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xXC-A7-xzW" userLabel="challengeName">
                                 <rect key="frame" x="-42" y="-21" width="42" height="21"/>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.7016205658783784" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.98039215686274506" green="0.66666666666666663" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="qwR-r5-yt4"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="32"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <edgeInsets key="layoutMargins" top="8" left="19" bottom="8" right="8"/>
+                                <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="32"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                                 <variation key="default">
                                     <mask key="constraints">
@@ -2922,7 +2923,7 @@
                             <constraint firstItem="xXC-A7-xzW" firstAttribute="leading" secondItem="IYt-aL-hIQ" secondAttribute="leading" id="kX9-8K-PQp"/>
                             <constraint firstItem="RQT-Bf-nFl" firstAttribute="centerY" secondItem="fAL-7u-Rk6" secondAttribute="centerY" id="lyH-XO-MQu"/>
                             <constraint firstItem="IYt-aL-hIQ" firstAttribute="bottom" secondItem="xXC-A7-xzW" secondAttribute="bottom" id="mCy-zj-RMF">
-                                <variation key="heightClass=regular-widthClass=compact" constant="-17"/>
+                                <variation key="heightClass=regular-widthClass=compact" constant="-18"/>
                             </constraint>
                             <constraint firstItem="SNh-wR-GSp" firstAttribute="width" secondItem="BHH-QH-cH0" secondAttribute="width" multiplier="0.15" id="nhk-NT-zMa"/>
                             <constraint firstItem="5no-rE-ZqS" firstAttribute="centerX" secondItem="bqT-N1-0WV" secondAttribute="centerX" id="q5A-gm-GzF"/>
