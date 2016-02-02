@@ -20,6 +20,10 @@ class Beer: PFObject, PFSubclassing {
     var Photo: PFFile!
     var ABV: String!
     var brewName: String!
+    var note: NSNumber?
+    var qntyUsr: NSNumber?
+    
+    
 
     
     

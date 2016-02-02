@@ -185,6 +185,7 @@ class BeerProfileVC: UIViewController {
     
 }
 
+
 extension BeerProfileVC: BreweryVCDelegate{
     func newBeer(objIDbeer:PFObject?) {
         self.currentObject = objIDbeer

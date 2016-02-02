@@ -91,21 +91,18 @@ extension UserBeersVC: UITableViewDataSource, UITableViewDelegate {
  
         
         if self.beers[indexPath.row].objectForKey("Photo") != nil{
-            let userImageFile = self.beers[indexPath.row].objectForKey("Photo")
-            
-            userImageFile!.getDataInBackgroundWithBlock {
-                (imageData: NSData?, error: NSError?) -> Void in
-                if error == nil {
-                    if let imageData = imageData {
-                        let image = UIImage(data:imageData)
-                        cell.imageBeersFromUser.image = image
-                    }else{
-                        print("sem imagem")
-                        cell.imageBeersFromUser.image = nil
-                    }
-                }
+            let imageFile = self.beers[indexPath.row].objectForKey("Photo") as! PFFile
+            ImageDAO.getImageFromParse(imageFile, ch: { (image, success) -> Void in
+                if success{
+                    cell.imageBeersFromUser.image = image
                 
-            }
+                }else{
+                    print("sem imagem")
+                    cell.imageBeersFromUser.image = nil
+                    
+                }
+            })
+            
         }else{
             print("erro na imagem")
             cell.imageBeersFromUser.image = nil
