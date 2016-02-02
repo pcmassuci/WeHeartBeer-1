@@ -28,7 +28,7 @@ class SearchBreweryVC: UIViewController {
         
         override func viewDidLoad() {
             super.viewDidLoad()
-            self.controller.searchBar.barTintColor = UIColor(red: 250.0/255.0, green: 170.0/255.0, blue: 0.0/255.0, alpha: 1.0)
+            self.controller.searchBar.barTintColor = UIColor(red: 250.0/255.0, green: 170.0/255.0, blue: 4.0/255.0, alpha: 1.0)
             self.controller.searchBar.tintColor = UIColor(white: 1, alpha: 1)
             
             let view: UIView = self.controller.searchBar.subviews[0]

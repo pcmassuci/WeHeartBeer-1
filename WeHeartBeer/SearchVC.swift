@@ -39,7 +39,7 @@ class SearchVC: UIViewController {
         let view2 = UIView(frame:
             CGRect(x: 0.0, y: 0.0, width: UIScreen.mainScreen().bounds.size.width, height: UIApplication.sharedApplication().statusBarFrame.size.height)
         )
-        view2.backgroundColor = UIColor(red: 250.0/255.0, green: 170.0/255.0, blue: 0.0/255.0, alpha: 1.0)
+        view2.backgroundColor = UIColor(red: 250.0/255.0, green: 170.0/255.0, blue: 4.0/255.0, alpha: 1.0)
         
         self.view.addSubview(view2)
         
@@ -245,7 +245,7 @@ extension SearchVC: UITableViewDelegate, UITableViewDataSource{
             
             cell.addBeerLabel.hidden = false
             
-            cell.backgroundColor = UIColor(red: 231.0/255.0, green: 230.0/255.0, blue: 228.0/255.0, alpha: 1.0)
+            cell.backgroundColor = UIColor(red: 220.0/255.0, green: 220.0/255.0, blue: 220.0/255.0, alpha: 0.8)
             
             cell.searchImage.layer.borderWidth = 0
             cell.searchImage.layer.masksToBounds = false
