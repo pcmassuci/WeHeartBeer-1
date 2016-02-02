@@ -20,8 +20,10 @@ class ChallengeVC: UIViewController {
         super.viewDidLoad()
         
         self.challengeImage.image = UIImage(named:"now-pouring")
-        self.view.addSubview(challengeImage)
+        //self.view.addSubview(challengeImage)
         
+        challengeTitle.text = "Challenge"
+        challengeDescription.text = "Carregando"
         challengeTitle.text = "1º Desafio Beer Love!"
         challengeDescription.text = "Para participar desse challenge você deve experimentar e compartilhar na nossa página 10 estilos diferentes de cerveja. O ganhador irá ganhar uma camiseta exlusiva do BeerLove"
         //challengeDescription.adjustsFontSizeToFitWidth = true
@@ -34,6 +36,54 @@ class ChallengeVC: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        ChallengeDAO.getChallengeforParse { (challenge, success) -> Void in
+            if success{
+                
+                let chDescrition = challenge?.objectForKey("description") as! String
+                let chTitle = challenge?.objectForKey("name") as! String
+                
+                let getImage = challenge?.objectForKey("image") as? PFFile
+                if getImage != nil{
+                    ImageDAO.getImageFromParse(getImage, ch: { (image, success) -> Void in
+                        if success{
+                            if image != nil {
+                               self.challengeImage.image = image
+                                
+                            }else{
+                                print("Nao tem imagem")
+                                self.challengeImage.image = UIImage(named:"now-pouring")
+                                // não tem imagem
+                            }
+                            
+                        }else{
+                            //erro ao obter imagem
+                            self.challengeImage.image = UIImage(named:"now-pouring")
+                        }
+                    })
+                }else{
+                    print("imagem generica")
+                    self.challengeImage.image = UIImage(named:"now-pouring")
+                }
+
+                
+
+                
+                self.challengeTitle.text = chDescrition
+                self.challengeDescription.text = chTitle
+                
+            }else{
+                self.challengeImage.image = UIImage(named:"now-pouring")
+                //self.view.addSubself.self.view(challengeImage)
+                
+                self.challengeTitle.text = "Challenge"
+                self.challengeDescription.text = "erro ao carregar"
+            }
+        }
+        
+        
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
