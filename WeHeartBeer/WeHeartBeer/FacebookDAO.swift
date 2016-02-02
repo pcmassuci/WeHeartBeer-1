@@ -12,6 +12,65 @@ import Foundation
 class FacebookDAO{
     
     
+//    func facebooShare(review:PFObject?){
+//        
+//        
+//        
+//        
+//        if SLComposeViewController.isAvailableForServiceType(SLServiceTypeFacebook){
+//            let facebookSheet:SLComposeViewController = SLComposeViewController(forServiceType: SLServiceTypeFacebook)
+//            
+//            
+//            
+//            let query = PFQuery(className:"Review")
+//            query.whereKey("user", equalTo:user!)
+//            query.whereKey("beer", equalTo:review!)
+//            print(review)
+//            
+//            if review!.objectForKey("Photo") != nil{
+//                ImageDAO.getImageFromParse(review, ch: { (image, success) -> Void in
+//                    if success{
+//                        
+//                        
+//                    }else{
+//                        print("erro ao Obter imagem")
+//                    }
+//                })
+//                
+//                
+//                
+//                let userImageFile = review!.objectForKey("Photo") as! PFFile
+//                
+//                userImageFile.getDataInBackgroundWithBlock {
+//                    (imageData: NSData?, error: NSError?) -> Void in
+//                    if error == nil {
+//                        if let imageData = imageData {
+//                            let image = UIImage(data:imageData)
+//                            facebookSheet.setInitialText("Frango")
+//                            //facebookSheet.addURL(<#T##url: NSURL!##NSURL!#>)
+//                            facebookSheet.addImage(image)
+//                            
+//                            self.presentViewController(facebookSheet, animated: true, completion: nil)
+//                        }else{
+//                            print("erro na imagem")
+//                        }
+//                    }
+//                    
+//                }
+//            }else{
+//                print("sem imagem")
+//            }
+//            
+//            
+//            
+//            
+//        }
+//    }
+//
+//    
+//        
+//    }
+    
     func getFBAppFriends(nextCursor : String?, failureHandler: (error: NSError) -> Void) {
 //        
         var obj:[String] = [String]()

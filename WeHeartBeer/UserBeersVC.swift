@@ -19,8 +19,9 @@ class UserBeersVC: UIViewController {
 
     @IBOutlet weak var listOfBeers: UITableView!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
-    var currentReview: PFObject?
-    var beers:[Beer]! = [Beer]()
+    var reviews: [Review]!
+    var beers: [Beer]!
+    var cellControl: Int = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,20 +29,19 @@ class UserBeersVC: UIViewController {
         self.navigationController?.navigationBar.barTintColor = UIColor(red: 250.0/255.0, green: 170.0/255.0, blue: 0.0/255.0, alpha: 1.0)
         
         self.beers = [Beer]()
+        self.reviews = [Review]()
+
         ReviewServices.findReviewfromUser(User.currentUser()!) { (reviews, success) -> Void in
             for i in 0..<reviews!.count {
                 let review = reviews![i]
+                self.reviews.append(review)
+
                 let beer = review.objectForKey("beer") as! Beer
-                //let brewery = beer.objectForKey("brewName")
-                //let image = beer.objectForKey("Photo") as! UIImageView
                 self.beers.append(beer)
-                
             }
             self.listOfBeers.reloadData()
         }
-    
-        print(currentReview)
-        print(currentReview?.objectId)
+        
         listOfBeers.delegate = self
         listOfBeers.dataSource = self
         listOfBeers.tableHeaderView = UIView(frame: CGRect.zero)
@@ -61,7 +61,7 @@ class UserBeersVC: UIViewController {
 // MARK: - TableView
 extension UserBeersVC: UITableViewDataSource, UITableViewDelegate {
     func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 10
+        return 20
     }
     
     func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
@@ -82,11 +82,14 @@ extension UserBeersVC: UITableViewDataSource, UITableViewDelegate {
         return 1
     }
     
+    
     //Sets the tableview cell and change its info to the correspondent object
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell =  listOfBeers.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as! ReviewVCCell
+        let cell = listOfBeers.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as! ReviewVCCell
         
  
+ 
+        
         if self.beers[indexPath.row].objectForKey("Photo") != nil{
             let userImageFile = self.beers[indexPath.row].objectForKey("Photo")
             
@@ -98,25 +101,45 @@ extension UserBeersVC: UITableViewDataSource, UITableViewDelegate {
                         cell.imageBeersFromUser.image = image
                     }else{
                         print("sem imagem")
+                        cell.imageBeersFromUser.image = nil
                     }
                 }
                 
             }
         }else{
             print("erro na imagem")
+            cell.imageBeersFromUser.image = nil
         }
         
-        //cell.imageBeersFromUser. = self.beers[indexPath.row].objectForKey("Photo") as? PFFile
+        
         cell.beersFromUser?.text = self.beers[indexPath.row].objectForKey("name") as? String
         cell.breweryFromUser?.text = self.beers[indexPath.row].objectForKey("brewName") as? String
-        //cell.ratingFromUser?.text = self.currentReview!.valueForKey("rating")
+        
+        if let rating = self.reviews[indexPath.row].valueForKey("rating") {
+            cell.ratingFromUser?.text = "\(rating)"
+        } else {
+            cell.ratingFromUser?.text = "No rating available"
+        }
+        
         
         return cell
     }
     
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        if indexPath.row < self.beers.count {
+            performSegueWithIdentifier("segueBeerReviewToBeer", sender: indexPath)
+        }
+    }
     
-    
-    
-    
-    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "segueBeerReviewToBeer" {
+            let destination = segue.destinationViewController as! BeerProfileVC
+            let indexPath = sender as! NSIndexPath
+            let review = self.reviews[indexPath.row]
+            let beer = self.beers[indexPath.row]
+            
+            destination.idReview = review
+            destination.currentObject = beer
+        }
+    }
 }

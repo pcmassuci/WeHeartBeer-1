@@ -11,12 +11,53 @@ import Foundation
 import Parse
 
 class FriendsDAO {
+  
     
     typealias FindObjectsCompletionHandler = (requests:[PFObject]?, waitingFriends:[PFObject]?, myFriends:[PFObject]? ,success:Bool) -> Void
     
     typealias FindObjsCH = (object:[PFObject]?, success: Bool) -> Void
+    typealias FindObjCH = (object:PFObject?, success: Bool) -> Void
     
     typealias CompleteCH =  (success:Bool) -> Void
+    
+    static func findUser(currentFriend:String, ch:FindObjCH){
+        
+                print("enter here?")
+                let query = PFQuery(className: "_User")
+                query.whereKey("faceID", equalTo: currentFriend)
+                query.getFirstObjectInBackgroundWithBlock({ (obj: PFObject?, error: NSError?) -> Void in
+                    if error == nil{
+                        if obj != nil{
+                            print(obj)
+                            ch(object: obj, success: true)
+                            
+                        } else {
+                            print("erro Step 1")
+                            //"error, user not found
+                            ch(object: nil, success: false)
+                           
+                        }
+                        
+                    }else{
+                        print("erroStep 2")
+                        //"error to request friend"
+
+                        ch(object: nil, success: false)
+                    }
+                })
+    }
+
+
+
+        
+            
+        
+    
+    
+    
+    
+    
+    
     
     static func friendReques(friend:PFObject?, currentRequest: PFObject?, ch: CompleteCH){
         if currentRequest == nil {
