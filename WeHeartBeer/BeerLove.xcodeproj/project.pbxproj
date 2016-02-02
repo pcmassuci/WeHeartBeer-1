@@ -38,6 +38,7 @@
 		677924B01BF6B9F700B8092B /* SearchVCCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 677924AF1BF6B9F700B8092B /* SearchVCCellTableViewCell.swift */; };
 		677924B21BFA064600B8092B /* RegisterBeerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 677924B11BFA064600B8092B /* RegisterBeerVC.swift */; };
 		6793D0091C5A3D65009D9CBD /* UIViewController+Actions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6793D0081C5A3D65009D9CBD /* UIViewController+Actions.swift */; };
+		679D99971C612FEB001163AD /* ChallengeDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 679D99961C612FEB001163AD /* ChallengeDAO.swift */; };
 		67B50AB41C0F0D010032CCCD /* SearchBreweryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67B50AB31C0F0D010032CCCD /* SearchBreweryVC.swift */; };
 		67E8776B1C532C100065B8E8 /* FacebookDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67E8776A1C532C100065B8E8 /* FacebookDAO.swift */; };
 		67E8776D1C567AA60065B8E8 /* ImageServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67E8776C1C567AA60065B8E8 /* ImageServices.swift */; };
@@ -174,6 +175,7 @@
 		677924AF1BF6B9F700B8092B /* SearchVCCellTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SearchVCCellTableViewCell.swift; path = ../SearchVCCellTableViewCell.swift; sourceTree = "<group>"; };
 		677924B11BFA064600B8092B /* RegisterBeerVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterBeerVC.swift; sourceTree = "<group>"; };
 		6793D0081C5A3D65009D9CBD /* UIViewController+Actions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Actions.swift"; sourceTree = "<group>"; };
+		679D99961C612FEB001163AD /* ChallengeDAO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChallengeDAO.swift; sourceTree = "<group>"; };
 		67B50AB31C0F0D010032CCCD /* SearchBreweryVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchBreweryVC.swift; sourceTree = "<group>"; };
 		67E8776A1C532C100065B8E8 /* FacebookDAO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FacebookDAO.swift; sourceTree = "<group>"; };
 		67E8776C1C567AA60065B8E8 /* ImageServices.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageServices.swift; sourceTree = "<group>"; };
@@ -371,6 +373,7 @@
 				673504301C501E0500D7A8A6 /* FriendsDAO.swift */,
 				67E8776A1C532C100065B8E8 /* FacebookDAO.swift */,
 				67E8776E1C567ABA0065B8E8 /* ImageDAO.swift */,
+				679D99961C612FEB001163AD /* ChallengeDAO.swift */,
 			);
 			name = DAO;
 			sourceTree = "<group>";
@@ -851,6 +854,7 @@
 				D246342D1BEBAFBF00CF605D /* FloatRatingView.swift in Sources */,
 				6739E6E71C591369009644B3 /* Reachability.swift in Sources */,
 				67155D461C46E60000A63B06 /* FBUser.swift in Sources */,
+				679D99971C612FEB001163AD /* ChallengeDAO.swift in Sources */,
 				D2D88DA11BFB95B6002C8EF5 /* UserFBUtil.swift in Sources */,
 				D2526D7B1BDA56C9003953F9 /* HomepageVC.swift in Sources */,
 				677924B01BF6B9F700B8092B /* SearchVCCellTableViewCell.swift in Sources */,
