@@ -27,6 +27,8 @@ class UserBeersVC: UIViewController {
         super.viewDidLoad()
         self.navigationController?.navigationBar.hidden = false
         self.navigationController?.navigationBar.barTintColor = UIColor(red: 250.0/255.0, green: 170.0/255.0, blue: 0.0/255.0, alpha: 1.0)
+        self.navigationController?.navigationBar.tintColor = UIColor.whiteColor()
+
         
         self.beers = [Beer]()
         self.reviews = [Review]()
@@ -45,7 +47,7 @@ class UserBeersVC: UIViewController {
         listOfBeers.delegate = self
         listOfBeers.dataSource = self
         listOfBeers.tableHeaderView = UIView(frame: CGRect.zero)
-        self.navigationController?.navigationBar.barTintColor = UIColor(red: 255.0/255.0, green: 192.0/255.0, blue: 3.0/255.0, alpha: 1.0)
+        self.navigationController?.navigationBar.barTintColor = UIColor(red: 255.0/255.0, green: 170.0/255.0, blue: 0.0/255.0, alpha: 1.0)
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -68,7 +70,7 @@ extension UserBeersVC: UITableViewDataSource, UITableViewDelegate {
         let label: UILabel = UILabel()
         label.text = "Cervejas"
         label.textColor = UIColor.blackColor()
-        label.backgroundColor = UIColor(red: 255.0/255.0, green: 192.0/255.0, blue: 3.0/255.0, alpha: 1.0)
+        label.backgroundColor = UIColor(red: 255.0/255.0, green: 170.0/255.0, blue: 0.0/255.0, alpha: 1.0)
         
         return label
     }
@@ -91,21 +93,18 @@ extension UserBeersVC: UITableViewDataSource, UITableViewDelegate {
  
         
         if self.beers[indexPath.row].objectForKey("Photo") != nil{
-            let userImageFile = self.beers[indexPath.row].objectForKey("Photo")
-            
-            userImageFile!.getDataInBackgroundWithBlock {
-                (imageData: NSData?, error: NSError?) -> Void in
-                if error == nil {
-                    if let imageData = imageData {
-                        let image = UIImage(data:imageData)
-                        cell.imageBeersFromUser.image = image
-                    }else{
-                        print("sem imagem")
-                        cell.imageBeersFromUser.image = nil
-                    }
-                }
+            let imageFile = self.beers[indexPath.row].objectForKey("Photo") as! PFFile
+            ImageDAO.getImageFromParse(imageFile, ch: { (image, success) -> Void in
+                if success{
+                    cell.imageBeersFromUser.image = image
                 
-            }
+                }else{
+                    print("sem imagem")
+                    cell.imageBeersFromUser.image = nil
+                    
+                }
+            })
+            
         }else{
             print("erro na imagem")
             cell.imageBeersFromUser.image = nil

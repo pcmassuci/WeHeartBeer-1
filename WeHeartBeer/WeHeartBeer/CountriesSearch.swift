@@ -22,6 +22,8 @@ class CountriesSearch: UITableViewController {
         self.navigationController?.navigationBar.hidden = false
         
         self.navigationController?.navigationBar.barTintColor = UIColor(red: 250.0/255.0, green: 170.0/255.0, blue: 0.0/255.0, alpha: 1.0)
+        self.navigationController?.navigationBar.tintColor = UIColor.whiteColor()
+
         
         var aux: [String] = []
         for code in NSLocale.ISOCountryCodes() as [String] {

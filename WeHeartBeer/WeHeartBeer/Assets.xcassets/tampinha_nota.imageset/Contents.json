@@ -2,17 +2,15 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "notaBotão.png",
+      "filename" : "tampinha_nota.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "notaBotão-1.png",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
-      "filename" : "notaBotão-2.png",
       "scale" : "3x"
     }
   ],
