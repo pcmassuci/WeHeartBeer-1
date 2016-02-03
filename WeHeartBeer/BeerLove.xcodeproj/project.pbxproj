@@ -324,12 +324,12 @@
 				85C9957F1C45241A00EBEEBF /* GuidesVC.swift */,
 				854542EB1C105F1900AC2A0B /* ReviewVC.swift */,
 				6701DE081C4686AC00F25FC2 /* User */,
+				D2526D7A1BDA56C9003953F9 /* HomepageVC.swift */,
 				D24634321BEBC93300CF605D /* BeerProfileVC.swift */,
 				672C62F81BEA5E7200E667C8 /* BreweryVC.swift */,
 				85C9957D1C45239400EBEEBF /* ConfigVC.swift */,
 				63F668AB1BD9165800172050 /* ChallengeVC.swift */,
 				851EEE191C4E6721008FF6C5 /* MoreNavContainerVC.swift */,
-				D2526D7A1BDA56C9003953F9 /* HomepageVC.swift */,
 				85C9957B1C45230900EBEEBF /* MoreVC.swift */,
 				851EEE171C4E5912008FF6C5 /* ContactVC.swift */,
 				854AAC8D1BEB8CCE002F405B /* SearchVC.swift */,
@@ -355,7 +355,6 @@
 				6333567E1BED154C00A71155 /* UserProfileVC.swift */,
 				85FC937F1C190BE900CF59C7 /* UserFriendsVC.swift */,
 				67E877701C568E420065B8E8 /* FriendProfile */,
-				6746518B1C4D295E00C464F3 /* FriendProfileVC.swift */,
 			);
 			name = User;
 			sourceTree = "<group>";
@@ -378,6 +377,7 @@
 		67E877701C568E420065B8E8 /* FriendProfile */ = {
 			isa = PBXGroup;
 			children = (
+				6746518B1C4D295E00C464F3 /* FriendProfileVC.swift */,
 			);
 			name = FriendProfile;
 			sourceTree = "<group>";
