@@ -41,6 +41,7 @@
             <string>Lato-Regular</string>
             <string>Lato-Regular</string>
             <string>Lato-Regular</string>
+            <string>Lato-Regular</string>
         </mutableArray>
     </customFonts>
     <scenes>
@@ -286,17 +287,51 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ecF-II-kJg" userLabel="Initial Label">
+                                <rect key="frame" x="-42" y="-21" width="42" height="21"/>
+                                <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="22"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="0.796875" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="0.0" y="378" width="400" height="44"/>
+                                </variation>
+                            </label>
+                            <imageView userInteractionEnabled="NO" alpha="0.5" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo_cevada_preto" translatesAutoresizingMaskIntoConstraints="NO" id="fai-CI-f2i">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="fai-CI-f2i" secondAttribute="height" multiplier="1:1" id="Qn7-EO-xh2"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="Qn7-EO-xh2"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=regular-widthClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="Qn7-EO-xh2"/>
+                                    </mask>
+                                </variation>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="fai-CI-f2i" firstAttribute="centerY" secondItem="soB-JS-mNL" secondAttribute="centerY" id="7U1-Wz-5qi"/>
+                            <constraint firstItem="fai-CI-f2i" firstAttribute="height" secondItem="soB-JS-mNL" secondAttribute="height" multiplier="0.35" id="EBk-Fg-cRt"/>
+                            <constraint firstItem="ecF-II-kJg" firstAttribute="centerX" secondItem="fai-CI-f2i" secondAttribute="centerX" id="HXV-oo-ZRB"/>
                             <constraint firstAttribute="leadingMargin" secondItem="431-dg-w7a" secondAttribute="leading" id="Ldw-Ud-TBf">
                                 <variation key="heightClass=regular-widthClass=compact" constant="20"/>
                             </constraint>
                             <constraint firstItem="431-dg-w7a" firstAttribute="top" secondItem="Eeo-LB-Fo5" secondAttribute="bottom" constant="-64" id="OIh-IH-IoC">
                                 <variation key="heightClass=regular-widthClass=compact" constant="0.0"/>
                             </constraint>
+                            <constraint firstItem="ecF-II-kJg" firstAttribute="top" secondItem="fai-CI-f2i" secondAttribute="bottom" constant="15" id="Pw6-Gm-w9P"/>
+                            <constraint firstItem="ecF-II-kJg" firstAttribute="width" secondItem="fai-CI-f2i" secondAttribute="width" multiplier="1.2" id="U0C-gK-t21"/>
                             <constraint firstItem="Oai-e9-LC9" firstAttribute="top" secondItem="431-dg-w7a" secondAttribute="bottom" constant="64" id="UBm-D5-pnN">
                                 <variation key="heightClass=regular-widthClass=compact" constant="0.0"/>
+                            </constraint>
+                            <constraint firstItem="fai-CI-f2i" firstAttribute="centerX" secondItem="soB-JS-mNL" secondAttribute="centerX" id="YcW-SH-5oW"/>
+                            <constraint firstItem="fai-CI-f2i" firstAttribute="top" secondItem="Eeo-LB-Fo5" secondAttribute="bottom" constant="196" id="c9U-n4-1Fy">
+                                <variation key="heightClass=regular-widthClass=compact" constant="115"/>
                             </constraint>
                             <constraint firstAttribute="trailingMargin" secondItem="431-dg-w7a" secondAttribute="trailing" id="cbU-3I-NhZ">
                                 <variation key="heightClass=regular-widthClass=compact" constant="-20"/>
@@ -305,28 +340,48 @@
                         <variation key="default">
                             <mask key="subviews">
                                 <exclude reference="431-dg-w7a"/>
+                                <exclude reference="ecF-II-kJg"/>
+                                <exclude reference="fai-CI-f2i"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="UBm-D5-pnN"/>
                                 <exclude reference="Ldw-Ud-TBf"/>
                                 <exclude reference="OIh-IH-IoC"/>
                                 <exclude reference="cbU-3I-NhZ"/>
+                                <exclude reference="7U1-Wz-5qi"/>
+                                <exclude reference="EBk-Fg-cRt"/>
+                                <exclude reference="YcW-SH-5oW"/>
+                                <exclude reference="c9U-n4-1Fy"/>
+                                <exclude reference="HXV-oo-ZRB"/>
+                                <exclude reference="Pw6-Gm-w9P"/>
+                                <exclude reference="U0C-gK-t21"/>
+                                <exclude reference="UBm-D5-pnN"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
                             <mask key="subviews">
                                 <include reference="431-dg-w7a"/>
+                                <include reference="ecF-II-kJg"/>
+                                <include reference="fai-CI-f2i"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="UBm-D5-pnN"/>
                                 <include reference="Ldw-Ud-TBf"/>
                                 <include reference="OIh-IH-IoC"/>
                                 <include reference="cbU-3I-NhZ"/>
+                                <exclude reference="7U1-Wz-5qi"/>
+                                <include reference="EBk-Fg-cRt"/>
+                                <include reference="YcW-SH-5oW"/>
+                                <include reference="c9U-n4-1Fy"/>
+                                <include reference="HXV-oo-ZRB"/>
+                                <include reference="Pw6-Gm-w9P"/>
+                                <include reference="U0C-gK-t21"/>
+                                <include reference="UBm-D5-pnN"/>
                             </mask>
                         </variation>
                     </view>
                     <navigationItem key="navigationItem" title="Busca" id="5AD-ZA-skJ"/>
                     <connections>
+                        <outlet property="initialImage" destination="fai-CI-f2i" id="JmN-ee-AdJ"/>
+                        <outlet property="initialLabel" destination="ecF-II-kJg" id="NtP-kX-dPs"/>
                         <outlet property="resultsTable" destination="431-dg-w7a" id="XCI-4N-L9Y"/>
                         <outlet property="searchDisplayController" destination="mG7-oI-67U" id="rqT-wS-ASm"/>
                         <segue destination="2Fh-ah-yXo" kind="show" identifier="segueFoundBrewery" id="5j8-Cq-QP6"/>
@@ -1198,7 +1253,7 @@
                                     </mask>
                                 </variation>
                                 <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="12" y="309" width="25" height="25"/>
+                                    <rect key="frame" x="12" y="308.5" width="25" height="25"/>
                                     <mask key="constraints">
                                         <include reference="88J-Tx-3SE"/>
                                         <include reference="KPh-f2-Dgf"/>
@@ -1237,7 +1292,7 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                                 <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="50" y="283" width="345" height="21"/>
+                                    <rect key="frame" x="50" y="283" width="345" height="20.5"/>
                                 </variation>
                             </label>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="pdI-NI-EoT">
@@ -1252,7 +1307,7 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                                 <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="50" y="314" width="345" height="20"/>
+                                    <rect key="frame" x="50" y="313.5" width="345" height="20.5"/>
                                 </variation>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="wIp-DJ-9Je">
@@ -1370,7 +1425,7 @@
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                                 <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="52" y="344" width="65" height="20"/>
+                                    <rect key="frame" x="52" y="343.5" width="65" height="20.5"/>
                                 </variation>
                             </label>
                         </subviews>
@@ -1651,7 +1706,7 @@
                                     </mask>
                                 </variation>
                                 <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="20" y="470" width="360" height="271"/>
+                                    <rect key="frame" x="20" y="469.5" width="360" height="271.5"/>
                                     <mask key="constraints">
                                         <exclude reference="1X2-mF-Ea0"/>
                                     </mask>
@@ -1664,7 +1719,7 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                                 <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="0.0" y="411" width="400" height="47"/>
+                                    <rect key="frame" x="0.0" y="410.5" width="400" height="47"/>
                                 </variation>
                             </label>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Np4-OY-nSX">
@@ -2395,9 +2450,6 @@
                                 <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="17"/>
                                 <color key="textColor" red="0.98039215690000003" green="0.66666666669999997" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
-                                <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="136" y="365" width="40" height="20"/>
-                                </variation>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="              Reviews" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dCK-jr-EIk">
                                 <rect key="frame" x="-42" y="-21" width="42" height="21"/>
@@ -4439,7 +4491,7 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                                 <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="12" y="100" width="336" height="143"/>
+                                    <rect key="frame" x="12" y="100" width="336" height="142.5"/>
                                 </variation>
                             </label>
                         </subviews>
@@ -5122,6 +5174,7 @@
         <image name="infoBox" width="160" height="125"/>
         <image name="link" width="75" height="75"/>
         <image name="localizacao" width="75" height="75"/>
+        <image name="logo_cevada_preto" width="509" height="400"/>
         <image name="lupulofundoamarelo" width="70" height="70"/>
         <image name="notaBotão" width="159" height="124"/>
         <image name="now-pouring" width="1800" height="1200"/>
@@ -5131,8 +5184,8 @@
         <image name="user_ativo" width="37" height="37"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="ZKS-H1-FU2"/>
+        <segue reference="Bfm-Ni-xVL"/>
+        <segue reference="1ft-IH-Bmr"/>
         <segue reference="i0O-fM-R0U"/>
-        <segue reference="CDH-Xp-Ux3"/>
     </inferredMetricsTieBreakers>
 </document>
