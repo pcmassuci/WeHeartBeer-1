@@ -70,8 +70,8 @@ class ChallengeVC: UIViewController {
                 
 
                 
-                self.challengeTitle.text = chDescrition
-                self.challengeDescription.text = chTitle
+                self.challengeTitle.text = chTitle
+                self.challengeDescription.text = chDescrition
                 
             }else{
                 self.challengeImage.image = UIImage(named:"now-pouring")

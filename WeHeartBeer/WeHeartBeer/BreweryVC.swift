@@ -125,19 +125,19 @@ extension BreweryVC: UITableViewDataSource, UITableViewDelegate {
     // Sets number of rows in tableview
     
     
-    func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 35
-    }
+//    func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+//        return 35
+//    }
     
     
-    func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let label: UILabel = UILabel()
-        label.text = "Cervejas"
-        label.textColor = UIColor.blackColor()
-        label.backgroundColor = UIColor(red: 250.0/255.0, green: 170.0/255.0, blue: 0.0/255.0, alpha: 1.0)
-        
-        return label
-    }
+//    func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+//        let label: UILabel = UILabel()
+//        label.text = "Cervejas"
+//        label.textColor = UIColor.blackColor()
+//        label.backgroundColor = UIColor(red: 250.0/255.0, green: 170.0/255.0, blue: 0.0/255.0, alpha: 1.0)
+//        
+//        return label
+//    }
     
     
     // Number of Rows in sections
