@@ -16,6 +16,8 @@ class SearchVC: UIViewController {
     
     
     
+    @IBOutlet weak var initialLabel: UILabel!
+    @IBOutlet weak var initialImage: UIImageView!
     @IBOutlet weak var resultsTable: UITableView!
     @IBOutlet weak var name: UILabel!
     
@@ -35,6 +37,11 @@ class SearchVC: UIViewController {
         
         let view: UIView = self.controller.searchBar.subviews[0]
         let subViewsArray = view.subviews
+        
+        initialImage.hidden = false
+        initialLabel.hidden = false
+        initialLabel.text = "Aqui você pode procurar e adicionar cervejas no nosso banco de dados!"
+        
         
         let view2 = UIView(frame:
             CGRect(x: 0.0, y: 0.0, width: UIScreen.mainScreen().bounds.size.width, height: UIApplication.sharedApplication().statusBarFrame.size.height)
@@ -269,6 +276,10 @@ extension SearchVC:  UISearchResultsUpdating, UISearchBarDelegate, UISearchContr
     //behaviour when search starts
     func searchBarTextDidBeginEditing(searchBar: UISearchBar) {
         
+        initialImage.hidden = true
+        initialLabel.hidden = true
+
+        
         // searchTypeText.hidden = true //hides default message
         controller.searchBar.showsCancelButton = true //enable cancel button
         controller.searchBar.hidden = false //keep search up
@@ -280,6 +291,7 @@ extension SearchVC:  UISearchResultsUpdating, UISearchBarDelegate, UISearchContr
     
     // stop editing behaviour
     func searchBarTextDidEndEditing(searchBar: UISearchBar) {
+        
         
         controller.searchBar.showsCancelButton = false //dismiss cancel button
         controller.searchBar.resignFirstResponder() //dismiss keyboard
@@ -306,6 +318,10 @@ extension SearchVC:  UISearchResultsUpdating, UISearchBarDelegate, UISearchContr
         
         //  searchTypeText.hidden = false //shows default text
         
+        
+        initialImage.hidden = false
+        initialLabel.hidden = false
+
         // Clear any search criteria
         controller.searchBar.text = ""
         
