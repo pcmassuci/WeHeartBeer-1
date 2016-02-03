@@ -134,7 +134,7 @@ extension CarouselVC {
     
     //Query Beer
     func queryBeer (featuredId: String) {
-        
+         
         let query = PFQuery(className:"Beer")
         query.whereKey("objectId", equalTo: featuredId  )
         query.findObjectsInBackgroundWithBlock {
