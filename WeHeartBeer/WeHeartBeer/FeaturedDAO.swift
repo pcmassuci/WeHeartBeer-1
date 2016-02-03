@@ -11,11 +11,11 @@ import UIKit
 
 class FeaturedDAO{
     
-typealias FindObjectsCompletionHandler = (objs:[PFObject]?,success:Bool) -> Void
-   
+    typealias FindObjectsCompletionHandler = (objs:[PFObject]?,success:Bool) -> Void
+    typealias FindBrsAndImgCompletionHandler = (dict:[String:UIImage], success: Bool) -> Void
     
     
-    static func queryFeatured(ch:FindObjectsCompletionHandler){
+private static func queryFeatured(ch:FindObjectsCompletionHandler){
         let query = PFQuery(className:"Featured")
         query.whereKey("active", equalTo: true)
         query.findObjectsInBackgroundWithBlock {
@@ -48,4 +48,60 @@ typealias FindObjectsCompletionHandler = (objs:[PFObject]?,success:Bool) -> Void
         
     }
     
+
+
+
+    static func getDictBeerAndImage(ch:FindBrsAndImgCompletionHandler){
+        var dict = [String:UIImage]()
+        self.queryFeatured { (objs, success) -> Void in
+            if success {
+                for obj in objs!{
+                    let be = obj.objectForKey("beer") as! PFObject
+                    let id = be.objectId!
+                    print(id)
+                    BeerDAO.queryBeerFromObjectID(id, ch: { (beer, success) -> Void in
+                        if success{
+                            let bimg = beer?.objectForKey("Photo") as? PFFile
+                            if bimg != nil {
+                                ImageDAO.getImageFromParse(bimg, ch: { (image, success) -> Void in
+                                    if success{
+                                        let sbeer = beer?.objectId
+                                        print(sbeer)
+                                        dict[sbeer!] = image
+                                        print(dict)
+                                        
+                                    }else{
+                                        print("Erro ao pegar Imagem")
+                                    }
+                                })
+                                
+                            }else{
+                                print("sem imagem")
+                            }
+                            
+                        }else{
+                            print("nao conseguiu pegar a beer")
+                        }
+                    })
+                }
+                print(dict)
+                ch(dict: dict, success: true)
+            }else{
+                    print("Nao pegou o challenge")
+                ch(dict: dict, success: false)
+                }
+            
+            
+        }
+    }
+    
+                    
+                    
+                    
+    
+    
+
+
 }
+
+

@@ -16,7 +16,7 @@ class BeerDAO {
     
     typealias FindObjectsCompletionHandler = (beer:[Beer]?,success:Bool) -> Void
     typealias RegisterBeerCH = (success:Bool)->Void
-    
+    typealias FindObj = (beer:PFObject?, success:Bool) -> Void
     //typealias CreateCompletionHaldler = (beer:Beer?,success:Bool) -> Void
     
     
@@ -139,7 +139,31 @@ class BeerDAO {
         }
         
     }
+
+    static func queryBeerFromObjectID(objectID:String, ch:FindObj){
+        let query = PFQuery(className: "Beer")
+        query.whereKey("objectId", equalTo: objectID)
+        query.getFirstObjectInBackgroundWithBlock { (obj, error ) -> Void in
+            if error == nil{
+                //print(obj)
+                let b = obj
+                print(b!.objectForKey("name"))
+                
+                ch(beer: obj, success: true)
+                
+                
+            } else{
+                print("ta dando errado")
+                ch(beer: nil, success: false)
+            }
+        }
+        
+        
+    }
+    
     
 }
+
+
 
 
