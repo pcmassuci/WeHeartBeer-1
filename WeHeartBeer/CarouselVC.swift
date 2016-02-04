@@ -11,16 +11,15 @@
 //import Foundation
 //
 //
-<<<<<<< HEAD
 
 import UIKit
 import MVCarouselCollectionView
 import Foundation
 
 
-typealias FindObjectsCompletionHandler = (beer:[PFObject]?,success:Bool) -> Void
-typealias FindObjectCompletionHandler = (obj:PFObject?,success:Bool) -> Void
-
+//typealias FindObjectsCompletionHandler = (beer:[PFObject]?,success:Bool) -> Void
+//typealias FindObjectCompletionHandler = (obj:PFObject?,success:Bool) -> Void
+//
 
 class CarouselVC: UIViewController, MVCarouselCollectionViewDelegate {
     
@@ -101,7 +100,7 @@ class CarouselVC: UIViewController, MVCarouselCollectionViewDelegate {
         
         //Remove all images after change view
         self.images.removeAll()
-        self.queryCarousel()
+        //self.queryCarousel()
         
     }
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -121,23 +120,23 @@ class CarouselVC: UIViewController, MVCarouselCollectionViewDelegate {
 //Query Carousel
 extension CarouselVC {
     
-    // Query return if Featured Beer.
-    func queryCarousel () {
-        
-        FeaturedDAO.queryFeatured { (objs, success) -> Void in
-            if success {
-                for obj in objs!{
-//                    self.features.append(obj)
-                    self.queryBeer((obj.valueForKey("beer")?.objectId)!)
-                    self.configureCollectionView(false)
-                }
-                
-            }else{
-                //tratar error
-            }
-        }
-        
-    }
+//    // Query return if Featured Beer.
+//    func queryCarousel () {
+//        
+////        FeaturedDAO.queryFeatured { (objs, success) -> Void in
+////            if success {
+////                for obj in objs!{
+//////                    self.features.append(obj)
+////                    self.queryBeer((obj.valueForKey("beer")?.objectId)!)
+////                    self.configureCollectionView(false)
+//                }
+//                
+//            }else{
+//                //tratar error
+//            }
+//        }
+//        
+//    }
     
     //Query Beer
     func queryBeer (featuredId: String) {
@@ -189,7 +188,6 @@ extension CarouselVC {
         }
     }
 }
-=======
 //typealias FindObjectsCompletionHandler = (beer:[PFObject]?,success:Bool) -> Void
 //typealias FindObjectCompletionHandler = (obj:PFObject?,success:Bool) -> Void
 //
@@ -361,4 +359,3 @@ extension CarouselVC {
 //        }
 //    }
 //}
->>>>>>> 55632c12ead1c5ae2a9537988362da295b5f9056
