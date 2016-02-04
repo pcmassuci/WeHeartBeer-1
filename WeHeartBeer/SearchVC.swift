@@ -42,6 +42,20 @@ class SearchVC: UIViewController {
         initialLabel.hidden = false
         initialLabel.text = "Aqui você pode procurar e adicionar cervejas no nosso banco de dados!"
         
+        let screenHeight = UIScreen.mainScreen().bounds.height
+        print(screenHeight)
+        
+        switch screenHeight {
+        case 480:
+            
+            self.initialLabel.font = UIFont(name: "Lato", size: 14)
+            
+            
+        default: // rest of screen sizes
+            break
+        }
+        
+
         
         let view2 = UIView(frame:
             CGRect(x: 0.0, y: 0.0, width: UIScreen.mainScreen().bounds.size.width, height: UIApplication.sharedApplication().statusBarFrame.size.height)
