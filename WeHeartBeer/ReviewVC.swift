@@ -42,7 +42,13 @@ class ReviewVC: UIViewController {
     
     @IBOutlet weak var shareFacebook: UISwitch!
     
+    @IBOutlet weak var giveScore: UILabel!
     
+    @IBOutlet weak var commentTite: UILabel!
+    
+    @IBOutlet weak var introText: UILabel!
+    
+    @IBOutlet weak var shareText: UILabel!
     
     var beer : [Beer]! = [Beer]()
     
@@ -80,7 +86,23 @@ class ReviewVC: UIViewController {
         
         self.navigationController?.navigationBar.tintColor = UIColor.whiteColor()
         
+     
+        let screenHeight = UIScreen.mainScreen().bounds.height
+        print(screenHeight)
         
+        switch screenHeight {
+        case 480:
+            
+            self.introText.font = UIFont(name: "Lato", size: 14)
+            self.shareText.font = UIFont(name: "Lato", size: 12)
+            self.commentTite.font = UIFont(name: "Lato", size: 12)
+            self.shareText.font = UIFont(name: "Lato", size: 12)
+            self.giveScore.font = UIFont(name: "Lato", size: 12)
+            
+        
+        default: // rest of screen sizes
+            break
+        }
         
         
         

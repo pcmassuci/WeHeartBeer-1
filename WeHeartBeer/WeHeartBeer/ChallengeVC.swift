@@ -25,13 +25,28 @@ class ChallengeVC: UIViewController {
         challengeTitle.text = "Challenge"
         challengeDescription.text = "Carregando"
         challengeTitle.text = "1º Desafio Beer Love!"
-        challengeDescription.text = "Para participar desse challenge você deve experimentar e compartilhar na nossa página 10 estilos diferentes de cerveja. O ganhador irá ganhar uma camiseta exlusiva do BeerLove"
+        challengeDescription.text = "Para participar desse challenge você deve experimentar e compartilhar na nossa página 10 estilos diferentes de cerveja."
         //challengeDescription.adjustsFontSizeToFitWidth = true
         challengeDescription.sizeToFit()
         
         self.navigationController?.navigationBarHidden = false
 
         self.navigationController?.navigationBar.barTintColor = UIColor(red: 250.0/255.0, green: 170.0/255.0, blue: 0.0/255.0, alpha: 1.0)
+        
+        let screenHeight = UIScreen.mainScreen().bounds.height
+        print(screenHeight)
+        
+        switch screenHeight {
+        case 480:
+            
+            self.challengeTitle.font = UIFont(name: "Lato", size: 20)
+            self.challengeDescription.font = UIFont(name: "Lato", size: 14)
+            
+            
+        default: // rest of screen sizes
+            break
+        }
+
         
         // Do any additional setup after loading the view.
     }
