@@ -14,7 +14,7 @@ protocol BreweryVCDelegate{
 }
 
 
-class BreweryVC: UIViewController {
+class BreweryVC: UIViewController, UIWebViewDelegate {
     var delegate: BreweryVCDelegate?
     
     
@@ -25,7 +25,7 @@ class BreweryVC: UIViewController {
     
     @IBOutlet weak var placeBrewery: UILabel!
     
-    @IBOutlet weak var linkBrewery: UILabel!
+    @IBOutlet weak var linkBrewery: UIButton!
     
     @IBOutlet weak var listOfProducts: UITableView!
     
@@ -72,6 +72,29 @@ class BreweryVC: UIViewController {
         }
     }
     
+    @IBAction func linkBrewery(sender: AnyObject) {
+        var url = self.brewery.objectForKey("contact") as? NSURL
+        url = NSURL(string: "http://www.apple.com")
+        UIApplication.sharedApplication().openURL(url!)
+        
+    }
+
+    
+    // MARK : UIWeb View, NSURL.
+    func webView(webView: UIWebView, didFailLoadWithError error: NSError?) {
+        print("Webview fail with error \(error)");
+    }
+    func webView(webView: UIWebView, shouldStartLoadWithRequest request: NSURLRequest, navigationType: UIWebViewNavigationType) -> Bool {
+        return true;
+    }
+    func webViewDidStartLoad(webView: UIWebView) {
+        print("Webview started Loading")
+    }
+    func webViewDidFinishLoad(webView: UIWebView) {
+        print("Webview did finish load")
+    }
+
+    
     
     // update labels
     func updateData(brewery: Brewery){
@@ -81,7 +104,7 @@ class BreweryVC: UIViewController {
         
         placeBrewery.text = brewery.objectForKey("local") as? String
         
-        linkBrewery.text = brewery.objectForKey("contact") as? String
+        //linkBrewery.textInputContextIdentifier = brewery.objectForKey("contact") as? String
         
         if brewery.objectForKey("photo") != nil{
             let imageFile = brewery.objectForKey("photo") as! PFFile
