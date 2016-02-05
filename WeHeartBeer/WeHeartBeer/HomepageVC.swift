@@ -38,7 +38,9 @@ class HomepageVC: UIViewController {
     
     override func viewWillAppear(animated: Bool) {
         self.navigationController?.navigationBarHidden = true
-           self.queryImages()
+        self.images.removeAll()
+        self.features.removeAll()
+        self.queryImages()
     }
 
     // MARK: - ChallengeLink
@@ -78,19 +80,27 @@ extension HomepageVC: UICollectionViewDataSource{
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("colCell", forIndexPath: indexPath) as! HomeCollectionViewCell
         let control = self.images.count
         if control != 0 {
-        cell.featureImage.image = self.images[indexPath.row]
+            cell.featureImage.image = self.images[indexPath.row]
+            self.collectionView.layoutIfNeeded()
+            self.collectionView.layoutIfNeeded()
+            self.collectionView.reloadInputViews()
+            self.collectionView.setNeedsLayout()
         }
+        cell.backgroundColor = (indexPath.row % 2 == 0) ? UIColor.redColor() : UIColor.blueColor()
         return cell
     }
-    
 }
-extension HomepageVC:UICollectionViewDelegate{
+
+extension HomepageVC: UICollectionViewDelegateFlowLayout {
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         performSegueWithIdentifier("segueDestaqueBeer", sender: indexPath.row)
-        
     }
     
-    
+    func collectionView(collectionView: UICollectionView,
+        layout collectionViewLayout: UICollectionViewLayout,
+        sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
+        return collectionView.frame.size
+    }
 }
 
 //Query Carousel
@@ -108,6 +118,10 @@ extension HomepageVC {
                     //self.configureCollectionView(true)
                 }
                 self.collectionView.reloadData()
+                self.collectionView.layoutIfNeeded()
+                self.collectionView.reloadInputViews()
+                self.collectionView.setNeedsLayout()    
+                
             }else{
                 //imagem generica
             }
