@@ -13,9 +13,10 @@ class FeaturedDAO{
     
     typealias FindObjectsCompletionHandler = (objs:[PFObject]?,success:Bool) -> Void
     typealias FindBrsAndImgCompletionHandler = (dict:[PFObject:UIImage],array:[PFObject] ,success: Bool) -> Void
+    typealias FindFeaturesCompletionHandler = (dict:[PFObject:UIImage]?,success:Bool) -> Void
     
     
-private static func queryFeatured(ch:FindObjectsCompletionHandler){
+static func queryFeatured(ch:FindObjectsCompletionHandler){
         let query = PFQuery(className:"Featured")
         query.whereKey("active", equalTo: true)
         query.findObjectsInBackgroundWithBlock {
@@ -37,6 +38,38 @@ private static func queryFeatured(ch:FindObjectsCompletionHandler){
     }
     
 
+    static func getDicFeaturesAndImages(ch:FindFeaturesCompletionHandler ){
+        
+        self.queryFeatured { (objs, success) -> Void in
+            if success{
+                var dict = [PFObject:UIImage]()
+                let i = objs?.count
+                var j = 0
+                for obj in objs!{
+                
+                    let fImage = obj.objectForKey("photo") as! PFFile
+                    ImageDAO.getImageFromParse(fImage, ch: { (image, success) -> Void in
+                        if success{
+                            
+                            dict[obj] = image
+                            j += 1
+                            if j == i{
+                                ch(dict: dict, success: true)
+                            }
+                            
+                        }else{
+//                            erro ao pegar imagem
+                        }
+                    })
+                }
+                
+            }else{
+                ch(dict: nil, success: false)
+                ///nao pegou as features
+            }
+        }
+        
+    }
 
 
     static func getDictBeerAndImage(ch:FindBrsAndImgCompletionHandler){
@@ -93,7 +126,9 @@ private static func queryFeatured(ch:FindObjectsCompletionHandler){
         }
     }
     
-                    
+    
+    
+
                     
                     
     
