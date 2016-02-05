@@ -34,6 +34,10 @@ class HomepageVC: UIViewController {
         self.collectionView.delegate = self
         self.navigationController?.navigationBar.barTintColor = UIColor(red: 250.0/255.0, green: 170.0/255.0, blue: 0.0/255.0, alpha: 1.0)
         self.navigationController?.navigationBar.tintColor = UIColor.whiteColor()
+
+        //view.translatesAutoresizingMaskIntoConstraints = true
+        
+        
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -47,6 +51,25 @@ class HomepageVC: UIViewController {
     func imageTapped(img: AnyObject){
         performSegueWithIdentifier("challengeSegue", sender: nil)
     }
+    
+    // Closure to load local images with UIImage.named
+    let imageLoader: ((imageView: UIImageView, image : UIImage, completion: (newImage: Bool) -> ()) -> ()) = {
+        (imageView: UIImageView, image : UIImage, completion: (newImage: Bool) -> ()) in
+        
+        imageView.image = image
+        completion(newImage: imageView.image != nil)
+    }
+    
+    
+   
+    
+    // MARK: IBActions
+    @IBAction func pageControlEventChanged(sender: UIPageControl) {
+        
+       // self.collectionView.setCurrentPageIndex(sender.currentPage, animated: true)
+        
+    }
+    
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if (segue.identifier == "segueDestaqueBeer") {

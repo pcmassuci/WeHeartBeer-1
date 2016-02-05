@@ -19,6 +19,9 @@ class BeerProfileVC: UIViewController {
 
     @IBOutlet weak var commentText: UITextField!
     
+    @IBOutlet weak var reviewsTable: UITableView!
+    @IBOutlet weak var reviewsImg: UIImageView!
+    @IBOutlet weak var reviewsLabel: UILabel!
     @IBOutlet weak var ratingButton: UIButton!
     @IBOutlet var liveLabel: UILabel!
     @IBOutlet var updatedLabel: UILabel!
@@ -51,6 +54,20 @@ class BeerProfileVC: UIViewController {
             getRantingAndReviews(self.currentObject!)
         }
         
+        let screenHeight = UIScreen.mainScreen().bounds.height
+        print(screenHeight)
+        
+        switch screenHeight {
+        case 480:
+            
+            self.reviewsImg.hidden = true
+            self.reviewsLabel.hidden = true
+            self.reviewsTable.hidden = true
+            
+            
+        default: // rest of screen sizes
+            break
+        }
         
         self.navigationController?.navigationBar.hidden = false
         self.navigationController?.navigationBar.barTintColor = UIColor(red: 250.0/255.0, green: 170.0/255.0, blue: 0.0/255.0, alpha: 1.0)

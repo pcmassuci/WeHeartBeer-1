@@ -15,6 +15,7 @@ class ChallengeVC: UIViewController {
     @IBOutlet weak var challengeDescription: UILabel!
     @IBOutlet weak var challengeFb: UIButton!
     
+    @IBOutlet weak var challengePrize: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,7 +42,7 @@ class ChallengeVC: UIViewController {
             
             self.challengeTitle.font = UIFont(name: "Lato", size: 20)
             self.challengeDescription.font = UIFont(name: "Lato", size: 14)
-            
+            self.challengePrize.font = UIFont(name: "Lato", size: 14)
             
         default: // rest of screen sizes
             break
