@@ -11,17 +11,18 @@ import Foundation
 
 
 
-class HomepageVC: UIViewController {
+class HomepageVC: UIViewController, UIPageViewControllerDelegate {
     
     
     // MARK: - IBOutlets
     
-  
+    
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet var challengeLink: UIImageView!
     var images : [UIImage] = []
     var features:[PFObject?] = [PFObject?]()
-  
+    
+    @IBOutlet weak var pageControl: UIPageControl!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,7 +35,7 @@ class HomepageVC: UIViewController {
         self.collectionView.delegate = self
         self.navigationController?.navigationBar.barTintColor = UIColor(red: 250.0/255.0, green: 170.0/255.0, blue: 0.0/255.0, alpha: 1.0)
         self.navigationController?.navigationBar.tintColor = UIColor.whiteColor()
-
+        
         //view.translatesAutoresizingMaskIntoConstraints = true
         
         
@@ -46,7 +47,7 @@ class HomepageVC: UIViewController {
         self.features.removeAll()
         self.queryImages()
     }
-
+    
     // MARK: - ChallengeLink
     func imageTapped(img: AnyObject){
         performSegueWithIdentifier("challengeSegue", sender: nil)
@@ -61,12 +62,12 @@ class HomepageVC: UIViewController {
     }
     
     
-   
+    
     
     // MARK: IBActions
     @IBAction func pageControlEventChanged(sender: UIPageControl) {
         
-       // self.collectionView.setCurrentPageIndex(sender.currentPage, animated: true)
+         self.collectionView.setCurrentPageIndex(sender.currentPage, animated: true)
         
     }
     
@@ -74,7 +75,7 @@ class HomepageVC: UIViewController {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if (segue.identifier == "segueDestaqueBeer") {
             if let destination = segue.destinationViewController  as? BeerProfileVC{
-                let row = sender as! Int 
+                let row = sender as! Int
                 print(self.features[row])
                 destination.currentObject = self.features[row]
             }
@@ -95,7 +96,7 @@ extension HomepageVC: UICollectionViewDataSource{
         if itens == 0 {
             return 1
         } else {
-        return itens
+            return itens
         }
     }
     
@@ -104,12 +105,8 @@ extension HomepageVC: UICollectionViewDataSource{
         let control = self.images.count
         if control != 0 {
             cell.featureImage.image = self.images[indexPath.row]
-            self.collectionView.layoutIfNeeded()
-            self.collectionView.layoutIfNeeded()
-            self.collectionView.reloadInputViews()
-            self.collectionView.setNeedsLayout()
+            cell.layoutIfNeeded()
         }
-        cell.backgroundColor = (indexPath.row % 2 == 0) ? UIColor.redColor() : UIColor.blueColor()
         return cell
     }
 }
@@ -122,7 +119,7 @@ extension HomepageVC: UICollectionViewDelegateFlowLayout {
     func collectionView(collectionView: UICollectionView,
         layout collectionViewLayout: UICollectionViewLayout,
         sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
-        return collectionView.frame.size
+            return collectionView.frame.size
     }
 }
 
@@ -133,7 +130,7 @@ extension HomepageVC {
     func queryImages () {
         FeaturedDAO.getDictBeerAndImage { (dict, array, success) -> Void in
             if success{
-            
+                
                 for (key, value) in dict{
                     self.images.append(value)
                     self.features.append(key)
@@ -143,14 +140,14 @@ extension HomepageVC {
                 self.collectionView.reloadData()
                 self.collectionView.layoutIfNeeded()
                 self.collectionView.reloadInputViews()
-                self.collectionView.setNeedsLayout()    
+                self.collectionView.setNeedsLayout()
                 
             }else{
                 //imagem generica
             }
         }
     }
-
-
-
+    
+    
+    
 }

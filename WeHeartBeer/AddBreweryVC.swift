@@ -47,8 +47,7 @@ class AddBreweryVC: UIViewController, UITextFieldDelegate {
         let bounds = UIScreen.mainScreen().bounds
         let width = bounds.size.width
         let height = bounds.size.height
-        print(width)
-        print(height)
+        
 
         // Do any additional setup after loading the view.
     }
@@ -160,10 +159,9 @@ extension AddBreweryVC{
     }
     
     func keyboardWillHide(sender: NSNotification) {
-        //let userInfo: [NSObject : AnyObject] = sender.userInfo!
-        //let keyboardSize: CGSize = userInfo[UIKeyboardFrameBeginUserInfoKey]!.CGRectValue.size
+      
         self.view.frame.origin.y = 0
-            //keyboardSize.height
+            
     }
     func keyboardWillShow(sender: NSNotification) {
         let userInfo: [NSObject : AnyObject] = sender.userInfo!
@@ -173,7 +171,6 @@ extension AddBreweryVC{
         
         
         let bounds = UIScreen.mainScreen().bounds
-        let width = bounds.size.width
         let height = bounds.size.height
             
         if (height - keyboardSize.height) <= self.textFieldHeightSize {
