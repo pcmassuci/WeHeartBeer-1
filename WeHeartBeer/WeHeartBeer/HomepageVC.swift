@@ -33,7 +33,7 @@ class HomepageVC: UIViewController {
         self.navigationController?.navigationBar.barTintColor = UIColor(red: 250.0/255.0, green: 170.0/255.0, blue: 0.0/255.0, alpha: 1.0)
         self.navigationController?.navigationBar.tintColor = UIColor.whiteColor()
 
-        view.translatesAutoresizingMaskIntoConstraints = false
+        //view.translatesAutoresizingMaskIntoConstraints = true
         
         
     }
@@ -53,8 +53,6 @@ class HomepageVC: UIViewController {
     func challengeLinkClicked(){
         performSegueWithIdentifier("challengeSegue", sender: nil)
     }
-    
-    //
     
     // Closure to load local images with UIImage.named
     let imageLoader: ((imageView: UIImageView, image : UIImage, completion: (newImage: Bool) -> ()) -> ()) = {
