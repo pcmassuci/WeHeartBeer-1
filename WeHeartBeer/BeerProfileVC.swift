@@ -45,8 +45,12 @@ class BeerProfileVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print(self.currentObject)
+        //print(self.currentObject)
        
+        if self.currentObject != nil{
+            getRantingAndReviews(self.currentObject!)
+        }
+        
         
         self.navigationController?.navigationBar.hidden = false
         self.navigationController?.navigationBar.barTintColor = UIColor(red: 250.0/255.0, green: 170.0/255.0, blue: 0.0/255.0, alpha: 1.0)
@@ -71,6 +75,10 @@ class BeerProfileVC: UIViewController {
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
+        self.navigationController?.setNavigationBarHidden(false, animated: true)
+
+        self.navigationController?.navigationBar.hidden = false
+
        // navigationCollor()
         // Check if user is logged in
         
@@ -263,6 +271,19 @@ extension BeerProfileVC: UITableViewDataSource, UITableViewDelegate {
 //        }
 //    }
 }
+// MARK:- get ratting and Review
+extension BeerProfileVC{
+    
+    private func getRantingAndReviews(beer:PFObject){
+        ReviewDAO.findReviewAndRating(beer) { (reviews, rate, success) -> Void in
+            if success{
+                print("salvar array e preencher tabela")
+            }
+        }
+    }
+    
+}
+
 
 extension BeerProfileVC: BreweryVCDelegate{
     func newBeer(objIDbeer:PFObject?) {

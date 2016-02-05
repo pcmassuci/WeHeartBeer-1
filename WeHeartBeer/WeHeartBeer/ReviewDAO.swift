@@ -11,7 +11,8 @@ import Foundation
 import Parse
 
 class ReviewDAO {
-
+    
+    typealias FindRatingAndReviewsCompletionHandler = (reviews:[PFObject]?,rate:Float, success:Bool) -> Void
     typealias FindObjectsCompletionHandler = (reviews:[Review]?,success:Bool) -> Void
     typealias RegisterReviewCH = (success:Bool)->Void
     typealias CreateCompletionHaldler = (beer:Beer?,success:Bool) -> Void
@@ -61,6 +62,48 @@ class ReviewDAO {
                 print("Successfully retrieved que eu qeri \(objects!.count) scores.")
             }else{
                ch(beer: nil, success: false)
+            }
+        }
+    }
+    
+    
+    static func findReviewAndRating(beer:PFObject,ch:FindRatingAndReviewsCompletionHandler){
+        
+        let query = PFQuery(className: "Review")
+         query.whereKey("beer", equalTo: beer)
+        query.findObjectsInBackgroundWithBlock { (objs:[PFObject]?, error) -> Void in
+            if error == nil{
+            let rating = self.calculateRate(objs)
+                print("a média: \(rating)")
+                ch(reviews: objs, rate: rating, success: true)
+                
+            }else{
+                ch(reviews: nil, rate: 0, success: false)
+            }
+        }
+    }
+    
+    
+    private static func calculateRate(objs:[PFObject]?) -> Float
+    {
+        if objs == nil{
+           
+            return 0
+        } else {
+//             let objects = objs!
+            let cnt = objs!.count
+            if cnt == 0{
+                return 0
+            }else
+            {
+                var plus = 0 as Float
+                for obj in objs!{
+                    let alpha = obj.valueForKey("rating") as! Float
+                 plus += alpha
+                }
+                
+                plus = (plus / Float(cnt))
+                return plus
             }
         }
     }

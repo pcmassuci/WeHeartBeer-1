@@ -40,6 +40,7 @@
 		6793D0091C5A3D65009D9CBD /* UIViewController+Actions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6793D0081C5A3D65009D9CBD /* UIViewController+Actions.swift */; };
 		679D99971C612FEB001163AD /* ChallengeDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 679D99961C612FEB001163AD /* ChallengeDAO.swift */; };
 		67B50AB41C0F0D010032CCCD /* SearchBreweryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67B50AB31C0F0D010032CCCD /* SearchBreweryVC.swift */; };
+		67DF669B1C63C708001C6FAC /* HomeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67DF669A1C63C708001C6FAC /* HomeCollectionViewCell.swift */; };
 		67E8776B1C532C100065B8E8 /* FacebookDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67E8776A1C532C100065B8E8 /* FacebookDAO.swift */; };
 		67E8776D1C567AA60065B8E8 /* ImageServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67E8776C1C567AA60065B8E8 /* ImageServices.swift */; };
 		67E8776F1C567ABA0065B8E8 /* ImageDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67E8776E1C567ABA0065B8E8 /* ImageDAO.swift */; };
@@ -166,7 +167,7 @@
 		6739E6E61C591369009644B3 /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
 		674127931C189F0200016D52 /* CountriesSearch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CountriesSearch.swift; path = WeHeartBeer/CountriesSearch.swift; sourceTree = "<group>"; };
 		674127971C18A20700016D52 /* CountryCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountryCell.swift; sourceTree = "<group>"; };
-		674651891C4D290500C464F3 /* UserFriendAddTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserFriendAddTableViewController.swift; sourceTree = "<group>"; };
+		674651891C4D290500C464F3 /* UserFriendAddTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserFriendAddTableViewController.swift; path = WeHeartBeer/UserFriendAddTableViewController.swift; sourceTree = "<group>"; };
 		6746518B1C4D295E00C464F3 /* FriendProfileVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendProfileVC.swift; sourceTree = "<group>"; };
 		676250731BF1759300F3BB0D /* BreweryDAO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BreweryDAO.swift; sourceTree = "<group>"; };
 		676250761BF373AF00F3BB0D /* UserDAO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDAO.swift; sourceTree = "<group>"; };
@@ -177,6 +178,7 @@
 		6793D0081C5A3D65009D9CBD /* UIViewController+Actions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Actions.swift"; sourceTree = "<group>"; };
 		679D99961C612FEB001163AD /* ChallengeDAO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChallengeDAO.swift; sourceTree = "<group>"; };
 		67B50AB31C0F0D010032CCCD /* SearchBreweryVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchBreweryVC.swift; sourceTree = "<group>"; };
+		67DF669A1C63C708001C6FAC /* HomeCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeCollectionViewCell.swift; sourceTree = "<group>"; };
 		67E8776A1C532C100065B8E8 /* FacebookDAO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FacebookDAO.swift; sourceTree = "<group>"; };
 		67E8776C1C567AA60065B8E8 /* ImageServices.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageServices.swift; sourceTree = "<group>"; };
 		67E8776E1C567ABA0065B8E8 /* ImageDAO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageDAO.swift; sourceTree = "<group>"; };
@@ -319,6 +321,7 @@
 		63F668AA1BD915F400172050 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				674651891C4D290500C464F3 /* UserFriendAddTableViewController.swift */,
 				674127931C189F0200016D52 /* CountriesSearch.swift */,
 				D28691DD1C3D5DD300A1BCE4 /* MVCarouselPageControl.swift */,
 				D2BAC5E41C3BF2E8006981A2 /* CarouselVC.swift */,
@@ -559,7 +562,7 @@
 				8518D1541BD7B7BD00499ACA /* LaunchScreen.storyboard */,
 				674127971C18A20700016D52 /* CountryCell.swift */,
 				67FB0C111C0F6C8700122314 /* SearchTVCell.swift */,
-				674651891C4D290500C464F3 /* UserFriendAddTableViewController.swift */,
+				67DF669A1C63C708001C6FAC /* HomeCollectionViewCell.swift */,
 				8529E59A1C467DFD00433054 /* MoreVCCell.swift */,
 				677924AF1BF6B9F700B8092B /* SearchVCCellTableViewCell.swift */,
 				672C62FA1BEAD2F700E667C8 /* BreweryVCCell.swift */,
@@ -843,6 +846,7 @@
 				D24634331BEBC93300CF605D /* BeerProfileVC.swift in Sources */,
 				673504331C501EF100D7A8A6 /* Friends.swift in Sources */,
 				851EEE181C4E5912008FF6C5 /* ContactVC.swift in Sources */,
+				67DF669B1C63C708001C6FAC /* HomeCollectionViewCell.swift in Sources */,
 				67B50AB41C0F0D010032CCCD /* SearchBreweryVC.swift in Sources */,
 				6701DE0C1C46943400F25FC2 /* UserInviteFBFriendsVC.swift in Sources */,
 				6701DE111C4694AF00F25FC2 /* UserAppCell.swift in Sources */,
