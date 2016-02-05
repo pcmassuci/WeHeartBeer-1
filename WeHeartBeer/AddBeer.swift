@@ -18,6 +18,11 @@
         @IBOutlet weak var style: UITextField!
         @IBOutlet weak var ibu: UITextField!
         
+        @IBOutlet weak var abvLabel: UILabel!
+        @IBOutlet weak var IBULabel: UILabel!
+        @IBOutlet weak var styleLabel: UILabel!
+        @IBOutlet weak var nameLabel: UILabel!
+        @IBOutlet weak var introText: UILabel!
        // var objectID:String!
         var brewery:Brewery!
         var pickOptionParse:[PFObject]? = [PFObject]()
@@ -46,6 +51,23 @@
             let height = bounds.size.height
             print(width)
             print(height)
+            
+            let screenHeight = UIScreen.mainScreen().bounds.height
+            print(screenHeight)
+            
+            switch screenHeight {
+            case 480:
+                
+                self.introText.hidden = true
+                self.nameLabel.font = UIFont(name: "Lato", size: 13)
+                self.IBULabel.font = UIFont(name: "Lato", size: 13)
+                self.abvLabel.font = UIFont(name: "Lato", size: 13)
+                self.styleLabel.font = UIFont(name: "Lato", size: 14)
+
+                
+            default: // rest of screen sizes
+                break
+            }
         
         }
         

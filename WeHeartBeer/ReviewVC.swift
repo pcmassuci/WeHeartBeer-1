@@ -24,6 +24,10 @@ import ParseFacebookUtilsV4
 
 import Social
 
+import FBSDKCoreKit
+import FBSDKLoginKit
+import FBSDKShareKit
+
 
 
 class ReviewVC: UIViewController {
@@ -58,6 +62,7 @@ class ReviewVC: UIViewController {
     
     var reviewObject = PFObject(className:"Review")
     
+    var textFieldHeightSize = 0.0 as CGFloat
     
     
     
@@ -143,45 +148,61 @@ class ReviewVC: UIViewController {
         
         
         let alert = UIAlertController(title: "Save Review?", message: "Beer Love", preferredStyle: UIAlertControllerStyle.Alert)
-        
         alert.addAction(UIAlertAction(title: "Yes", style: UIAlertActionStyle.Default, handler: { (action) -> Void in
             
-            
-            
             if self.state == false {
-                
                 self.saveData(self.currentObjectReview)
-                
-                
-                
             }else{
-                
                 self.updateData(self.currentObjectReview)
-                
             }
-            
-            
-            
             
             
             if self.shareFacebook.on{
                 
-                self.fbShare(self.currentObjectReview)
                 
+                let query = PFQuery(className:"Review")
+                query.whereKey("user", equalTo:self.user!)
+                query.whereKey("beer", equalTo:self.currentObjectReview!)
+                
+                if self.currentObjectReview!.objectForKey("Photo") != nil{
+                    
+                    let imageFile = self.currentObjectReview!.objectForKey("Photo") as! PFFile
+                    ImageDAO.getImageFromParse(imageFile, ch: { (image, success) -> Void in
+                        
+                        if success{
+                            let content:FBSDKShareLinkContent = FBSDKShareLinkContent()
+                            
+                            content.contentURL = NSURL(string: "https://www.facebook.com")
+                            content.contentTitle = "Cerveja tal"
+                            content.contentDescription = "Cervejaria tal"
+                            content.imageURL = NSURL(string:"http://files.parsetfss.com/f0fa3f24-4ced-49ca-bfaf-47bfe806aa21/tfss-51f46925-f0a0-41cc-83ec-d019bc60f6a1-SWB-HashBrown-PostCard-4x6-Thumb.jpg")
+                            
+                            
+                            let teste : FBSDKShareDialog = FBSDKShareDialog()
+                            teste.shareContent = content
+                            teste.show()
+                            
+                            self.navigationController?.popViewControllerAnimated(true)
+                            
+                            
+                        }else{
+                            //carregar imagem qualquer
+                        }
+                    })
+                    
+                }else{
+                    print("sem imagem")
+                    
+                }
             }
-            
-            
             
         }))
         
         
-        
         alert.addAction(UIAlertAction(title: "Cancelar", style: UIAlertActionStyle.Cancel, handler: nil))
-        
         self.presentViewController(alert, animated: true, completion: nil)
         
     }
-    
     
     
     
@@ -309,7 +330,15 @@ class ReviewVC: UIViewController {
     }
     
     
-    
+    func textFieldDidBeginEditing(textField: UITextField) {
+        self.textFieldHeightSize =  textField.frame.origin.y
+        
+        
+        //var x = textField.frame.origin.x;
+        
+        //NSLog("x Position is :%f , y position is : %f",x,y);
+    }
+
     
     
     
@@ -329,226 +358,54 @@ class ReviewVC: UIViewController {
         reviewObject.saveInBackground()
         
     }
-    
-    
-    
-    
-    
-    //MARK: - faceShare
-    
-    
-    
-    
-    
-    func fbShare(review: AnyObject?){
-        
-        //        let content : FBSDKShareLinkContent = FBSDKShareLinkContent()
-        
-        //        content.contentTitle = "I have seconds"
-        
-        //        content.contentDescription = "City Defender News"
-        
-        //        content.contentURL = NSURL(string: "https://www.facebook.com/Matheusfccfaj")
-        
-        //
-        
-        //
-        
-        //        FBSDKShareDialog.showFromViewController(self, withContent: content, delegate: nil)
-        
-        
-        
-        
-        
-        
-        
-        if SLComposeViewController.isAvailableForServiceType(SLServiceTypeFacebook){
-            
-            let facebookSheet:SLComposeViewController = SLComposeViewController(forServiceType: SLServiceTypeFacebook)
-            
-            
-            
-            
-            
-            let query = PFQuery(className:"Review")
-            
-            query.whereKey("user", equalTo:user!)
-            
-            query.whereKey("beer", equalTo:review!)
-            
-            
-            
-            
-            
-            
-            
-            if review!.objectForKey("Photo") != nil{
-                
-                
-                
-                let imageFile = review!.objectForKey("Photo") as! PFFile
-                
-                ImageDAO.getImageFromParse(imageFile, ch: { (image, success) -> Void in
-                    
-                    
-                    
-                    if success{
-                        
-                        
-                        
-                        //facebookSheet.setInitialText("teste inicial")
-                        
-                        facebookSheet.addImage(image)
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        self.presentViewController(facebookSheet, animated: true, completion: nil)
-                        
-                        facebookSheet.completionHandler = {
-                            
-                            success in
-                            
-                            self.navigationController?.popViewControllerAnimated(true)
-                            
-                        }
-                        
-                        
-                        
-                    }else{
-                        
-                        //carregar imagem qualquer
-                        
-                    }
-                    
-                })
-                
-                
-                
-            }else{
-                
-                print("sem imagem")
-                
-            }
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            //self.presentViewController(facebookSheet, animated: false, completion: nil)
-            
-            
-            
-        }
-        
-        
-        
-        
-        
-    }
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+
 }
-
-
-
-
-
-
-
-
-
+    
 //MARK: - KEYBOARDS METHODS
-
 extension ReviewVC{
-    
+        
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
-        
         self.view.endEditing(true)
-        
     }
-    
-    
-    
     
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {
-        
         self.view.endEditing(true)
-        
-        return false
-        
+        return true
     }
-    
-    
     
     func keyboardWillHide(sender: NSNotification) {
-        
+        //let userInfo: [NSObject : AnyObject] = sender.userInfo!
+        //let keyboardSize: CGSize = userInfo[UIKeyboardFrameBeginUserInfoKey]!.CGRectValue.size
         self.view.frame.origin.y = 0
-        
+        //keyboardSize.height
     }
-    
-    
-    
     func keyboardWillShow(sender: NSNotification) {
-        
         let userInfo: [NSObject : AnyObject] = sender.userInfo!
         
-        
-        
         let keyboardSize: CGSize = userInfo[UIKeyboardFrameBeginUserInfoKey]!.CGRectValue.size
-        
         let offset: CGSize = userInfo[UIKeyboardFrameEndUserInfoKey]!.CGRectValue.size
         
         
+        let bounds = UIScreen.mainScreen().bounds
+        let width = bounds.size.width
+        let height = bounds.size.height
         
-        if keyboardSize.height == offset.height {
+        if (height - keyboardSize.height) <= self.textFieldHeightSize {
             
-            if self.view.frame.origin.y == 0 {
-                
+            if keyboardSize.height == offset.height {
+                if self.view.frame.origin.y == 0 {
+                    UIView.animateWithDuration(0.1, animations: { () -> Void in
+                        self.view.frame.origin.y -= keyboardSize.height - 60
+                    })
+                }
+            } else {
                 UIView.animateWithDuration(0.1, animations: { () -> Void in
-                    
-                    self.view.frame.origin.y -= keyboardSize.height - 70
-                    
+                    self.view.frame.origin.y = keyboardSize.height - offset.height - 60
                 })
-                
             }
-            
-        } else {
-            
-            UIView.animateWithDuration(0.1, animations: { () -> Void in
-                
-                self.view.frame.origin.y += keyboardSize.height - offset.height - 70
-                
-            })
-            
-        }
-        
-        print(self.view.frame.origin.y)        }
-    
-    
-    
+            print(self.view.frame.origin.y)        }
+    }
 }
 
+   

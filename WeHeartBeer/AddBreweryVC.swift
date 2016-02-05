@@ -10,6 +10,11 @@ import UIKit
 
 class AddBreweryVC: UIViewController, UITextFieldDelegate {
 
+    @IBOutlet weak var addressLabel: UILabel!
+    @IBOutlet weak var linkLabel: UILabel!
+    @IBOutlet weak var countryLabel: UILabel!
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var introLabel: UILabel!
     @IBOutlet weak var nameTextField: UITextField!
    // @IBOutlet weak var countryTextField: UITextField!
     @IBOutlet weak var contactTex: UITextField!
@@ -37,7 +42,22 @@ class AddBreweryVC: UIViewController, UITextFieldDelegate {
         }
         
       
+        let screenHeight = UIScreen.mainScreen().bounds.height
+        print(screenHeight)
         
+        switch screenHeight {
+        case 480:
+            
+            self.introLabel.font = UIFont(name: "Lato", size: 0)
+            self.nameLabel.font = UIFont(name: "Lato", size: 13)
+            self.addressLabel.font = UIFont(name: "Lato", size: 13)
+            self.countryLabel.font = UIFont(name: "Lato", size: 13)
+            self.linkLabel.font = UIFont(name: "Lato", size: 13)
+
+        default: // rest of screen sizes
+            break
+        }
+
         
 
         
@@ -50,6 +70,7 @@ class AddBreweryVC: UIViewController, UITextFieldDelegate {
         print(width)
         print(height)
 
+        
         // Do any additional setup after loading the view.
     }
 
