@@ -330,7 +330,15 @@ class ReviewVC: UIViewController {
     }
     
     
-    
+    func textFieldDidBeginEditing(textField: UITextField) {
+        self.textFieldHeightSize =  textField.frame.origin.y
+        
+        
+        //var x = textField.frame.origin.x;
+        
+        //NSLog("x Position is :%f , y position is : %f",x,y);
+    }
+
     
     
     
