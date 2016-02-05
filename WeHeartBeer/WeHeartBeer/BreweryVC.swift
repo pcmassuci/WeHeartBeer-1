@@ -8,6 +8,7 @@
 
 import UIKit
 import Parse
+import SafariServices
 
 protocol BreweryVCDelegate{
     func newBeer(objIDbeer:PFObject?)
@@ -73,10 +74,11 @@ class BreweryVC: UIViewController, UIWebViewDelegate {
     }
     
     @IBAction func linkBrewery(sender: AnyObject) {
-        var url = self.brewery.objectForKey("contact") as? NSURL
-        url = NSURL(string: "http://www.apple.com")
-        UIApplication.sharedApplication().openURL(url!)
         
+        //let url = self.brewery.objectForKey("contact") as? String
+        
+        let url = SFSafariViewController(URL: NSURL(string: ("contact"))!, entersReaderIfAvailable: true)
+        self.presentViewController(url, animated: true, completion: nil)
     }
 
     
@@ -104,7 +106,7 @@ class BreweryVC: UIViewController, UIWebViewDelegate {
         
         placeBrewery.text = brewery.objectForKey("local") as? String
         
-        //linkBrewery.textInputContextIdentifier = brewery.objectForKey("contact") as? String
+        //linkBrewery = brewery.objectForKey("contact") as? String
         
         if brewery.objectForKey("photo") != nil{
             let imageFile = brewery.objectForKey("photo") as! PFFile
