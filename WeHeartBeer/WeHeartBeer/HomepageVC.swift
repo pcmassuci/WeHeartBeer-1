@@ -64,7 +64,7 @@ class HomepageVC: UIViewController {
     // MARK: IBActions
     @IBAction func pageControlEventChanged(sender: UIPageControl) {
         
-        self.collectionView.setCurrentPageIndex(sender.currentPage, animated: true)
+       // self.collectionView.setCurrentPageIndex(sender.currentPage, animated: true)
         
     }
     
