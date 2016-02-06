@@ -17,6 +17,12 @@ class ChallengeVC: UIViewController {
     
     @IBOutlet weak var challengePrize: UILabel!
     
+    @IBOutlet weak var separatorA: UIImageView!
+    
+    @IBOutlet weak var separatorB: UIImageView!
+    
+    @IBOutlet weak var prizeIcon: UIImageView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -42,7 +48,10 @@ class ChallengeVC: UIViewController {
             
             self.challengeTitle.font = UIFont(name: "Lato", size: 20)
             self.challengeDescription.font = UIFont(name: "Lato", size: 14)
-            self.challengePrize.font = UIFont(name: "Lato", size: 14)
+            self.challengePrize.font = UIFont(name: "Lato", size: 0)
+            self.separatorA.hidden = true
+            self.prizeIcon.hidden = true
+            
             
         default: // rest of screen sizes
             break
