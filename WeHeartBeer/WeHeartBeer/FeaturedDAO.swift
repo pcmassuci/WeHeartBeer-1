@@ -12,19 +12,21 @@ import UIKit
 class FeaturedDAO{
     
     typealias FindObjectsCompletionHandler = (objs:[PFObject]?,success:Bool) -> Void
-    typealias FindBrsAndImgCompletionHandler = (dict:[PFObject:UIImage],array:[PFObject] ,success: Bool) -> Void
-    typealias FindFeaturesCompletionHandler = (dict:[PFObject:UIImage]?,success:Bool) -> Void
+    typealias FindBrsAndImgCompletionHandler = (dict:[Int:[PFObject:UIImage]],array:[PFObject] ,success: Bool) -> Void
+    typealias FindFeaturesCompletionHandler = (dict:[PFObject:UIImage?]?,success:Bool) -> Void
     
     
 static func queryFeatured(ch:FindObjectsCompletionHandler){
         let query = PFQuery(className:"Featured")
         query.whereKey("active", equalTo: true)
+        query.orderByAscending("order")
         query.findObjectsInBackgroundWithBlock {
             (objects: [PFObject]?, error: NSError?) -> Void in
             
             if error == nil {
                 // The find succeeded.
                 print("Sucesso ao recuperar \(objects!.count) pontuação.")
+    
                 ch(objs: objects, success: true)
 
             } else {
@@ -42,7 +44,8 @@ static func queryFeatured(ch:FindObjectsCompletionHandler){
         
         self.queryFeatured { (objs, success) -> Void in
             if success{
-                var dict = [PFObject:UIImage]()
+                
+                var dict = [PFObject:UIImage?]()
                 let i = objs?.count
                 var j = 0
                 for obj in objs!{
@@ -74,10 +77,11 @@ static func queryFeatured(ch:FindObjectsCompletionHandler){
 
     static func getDictBeerAndImage(ch:FindBrsAndImgCompletionHandler){
         var dict = [PFObject:UIImage]()
+        var dictFinal = [Int:[PFObject:UIImage]]()
         var feat = [PFObject]()
         var j = 0
         self.queryFeatured { (objs, success) -> Void in
-            if success {
+            if success{
                 let i = objs?.count
                 for obj in objs!{
                     let be = obj.objectForKey("beer") as! PFObject
@@ -95,8 +99,9 @@ static func queryFeatured(ch:FindObjectsCompletionHandler){
                                         dict[sbeer] = image
                                         j += 1
                                         if j == i {
-                                         print(dict)
-                                            ch(dict: dict, array: feat, success: true)
+                                        // print(dict)
+                                            dictFinal = self.controlDict(objs!, dict: dict)
+                                            ch(dict: dictFinal, array: feat, success: true)
                                         }
                                         
                                         
@@ -119,22 +124,37 @@ static func queryFeatured(ch:FindObjectsCompletionHandler){
 //                ch(dict: dict, success: true)
             }else{
                     print("Nao pegou o challenge")
-                ch(dict: dict, array: feat, success: false)
+                ch(dict: dictFinal, array: feat, success: false)
                 }
             
             
         }
     }
     
+static func controlDict(array:[PFObject],dict:[PFObject:UIImage]) -> [Int:[PFObject:UIImage]]
+{
+    var dictB = [Int:[PFObject:UIImage]]()
     
-    
-
+            for a in array{
+            for (key, value) in dict{
+                let controlA = key.objectId
+                print(controlA)
+                let controlB = (a.objectForKey("beer")?.objectId)! as String
+                print(controlB)
+                if controlA == controlB{
+                    let x = a.objectForKey("order") as! Int
+                    dictB[x] = [key:value]
                     
-                    
+                }
+            }
+    }
+
+    
+    print("maldito dict: \(dictB)")
+    
+    return dictB
+    }
     
     
-
-
 }
-
 
