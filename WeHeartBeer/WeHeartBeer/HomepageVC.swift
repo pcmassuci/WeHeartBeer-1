@@ -129,28 +129,7 @@ extension HomepageVC {
     // Query return if Featured Beer.
     func queryImages () {
         
-        
-//        FeaturedDAO.getDicFeaturesAndImages { (dict, success) -> Void in
-//            if success{
-//                
-//                for (key, value) in dict!{
-//                    self.images.append(value!)
-//                    self.features.append(key)
-//                    //print("\(key) -> \(value)")
-//                    //self.configureCollectionView(true)
-//                }
-//                self.collectionView.reloadData()
-//                //                self.collectionView.layoutIfNeeded()
-//                //                self.collectionView.reloadInputViews()
-//                //                self.collectionView.setNeedsLayout()
-//                
-//
-//                
-//            }else{
-//              
-//                
-//            }
-//        }
+
         FeaturedDAO.getDictBeerAndImage { (dict, array, success) -> Void in
             if success{
                // var dictA = [PFObject:UIImage]()
@@ -165,12 +144,7 @@ extension HomepageVC {
                     
                 }
             
-                
-                
                 self.collectionView.reloadData()
-//                self.collectionView.layoutIfNeeded()
-//                self.collectionView.reloadInputViews()
-//                self.collectionView.setNeedsLayout()
                 
             }else{
                 //imagem generica
