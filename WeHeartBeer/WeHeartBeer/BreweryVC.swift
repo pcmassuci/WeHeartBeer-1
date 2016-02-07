@@ -88,7 +88,7 @@ class BreweryVC: UIViewController, UIWebViewDelegate {
         let url = SFSafariViewController(URL: NSURL(string: (brewery.objectForKey("contact") as? String)!)!, entersReaderIfAvailable: true)
         self.presentViewController(url, animated: true, completion: nil)
         
-    }
+        }}
     
     
     // update labels and button
@@ -135,6 +135,8 @@ class BreweryVC: UIViewController, UIWebViewDelegate {
     
     
 }
+    
+    
 
 
 // MARK: - TableView
