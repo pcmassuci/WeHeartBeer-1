@@ -174,9 +174,6 @@ class ReviewVC: UIViewController {
                             shareDialog.shareContent = content
                             shareDialog.show()
                             
-                            self.navigationController?.popViewControllerAnimated(true)
-                            
-                            
                         }else{
                             //carregar imagem qualquer
                         }
@@ -188,11 +185,11 @@ class ReviewVC: UIViewController {
                 }
             }
             
+            self.navigationController?.popViewControllerAnimated(true)
         }))
-        
-        
         alert.addAction(UIAlertAction(title: "Cancelar", style: UIAlertActionStyle.Cancel, handler: nil))
         self.presentViewController(alert, animated: true, completion: nil)
+       
         
     }
     
