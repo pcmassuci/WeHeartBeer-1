@@ -18,9 +18,13 @@ class UserProfileVC: UIViewController {
     @IBOutlet weak var displayPicture: UIImageView!
     @IBOutlet weak var displayName: UILabel!
     @IBOutlet var userBeerLink: UIImageView!
-    @IBOutlet var userTrophiesLink: UIImageView!
     @IBOutlet var userFriendsLink: UIImageView!
-    @IBOutlet var userPlacesLink: UIImageView!
+    @IBOutlet weak var backImage: UIImageView!
+    @IBOutlet weak var beerLabel: UILabel!
+    @IBOutlet weak var friendsLabel: UILabel!
+    @IBOutlet weak var separatorB: UIImageView!
+    @IBOutlet weak var beerNumber: UILabel!
+    @IBOutlet weak var friendsNumber: UILabel!
     
     
     let layer:CGFloat = 7
@@ -32,6 +36,18 @@ class UserProfileVC: UIViewController {
             performSegueWithIdentifier("segueFacebookCheckin", sender: nil)
         }
     }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        
+        displayPicture.layer.borderWidth = 1
+        displayPicture.layer.masksToBounds = false
+        displayPicture.layer.borderColor = UIColor.blackColor().CGColor
+        displayPicture.clipsToBounds = true
+        
+        displayPicture.layer.cornerRadius = displayPicture.frame.height/2
+        
+    }
 
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
@@ -41,26 +57,43 @@ class UserProfileVC: UIViewController {
             self.navigationItem.hidesBackButton =  true
             self.navigationController?.navigationBar.barTintColor = UIColor(red: 250.0/255.0, green: 170.0/255.0, blue: 0.0/255.0, alpha: 1.0)
             self.navigationController?.navigationBar.tintColor = UIColor.whiteColor()
-
-            
+                
+                
             print("deu certo userprofile")
                   //  getFBAppFriends(nil, failureHandler: {(error)
                    //     in print(error)});
+            let screenHeight = UIScreen.mainScreen().bounds.height
+                print(screenHeight)
+                
+            switch screenHeight {
+                
+            case 480:
                     
+                self.displayName.font = UIFont(name: "Lato-Heavy", size: 18)
+                self.beerLabel.font = UIFont(name: "Lato-Heavy", size: 16)
+                self.friendsLabel.font = UIFont(name: "Lato-Heavy", size: 16)
+                self.beerNumber.font = UIFont(name: "Lato-Heavy", size: 20)
+                self.friendsNumber.font = UIFont(name: "Lato-Heavy", size: 20)
+
+                self.separatorB.hidden = true
+                
+            case 568:
+                self.beerNumber.font = UIFont(name: "Lato-Heavy", size: 28)
+                self.friendsNumber.font = UIFont(name: "Lato-Heavy", size: 28)
+                
+            default: // rest of screen sizes
+                break
+            }
+
 
             self.updateData()
             let tapGesture1 = UITapGestureRecognizer(target: self, action: Selector("beersTapped:"))
-            let tapGesture2 = UITapGestureRecognizer(target: self, action: Selector("imageTapped:"))
-            let tapGesture3 = UITapGestureRecognizer(target: self, action: Selector("imageTapped:"))
-            let tapGesture4 = UITapGestureRecognizer(target: self, action: Selector("friendsTapped:"))
+
+            let tapGesture2 = UITapGestureRecognizer(target: self, action: Selector("friendsTapped:"))
             self.userBeerLink.userInteractionEnabled = true
             self.userBeerLink.addGestureRecognizer(tapGesture1)
-            self.userTrophiesLink.userInteractionEnabled = true
-            self.userTrophiesLink.addGestureRecognizer(tapGesture2)
-            self.userFriendsLink.userInteractionEnabled = true
-            self.userFriendsLink.addGestureRecognizer(tapGesture3)
-            self.userPlacesLink.userInteractionEnabled  = true
-            self.userPlacesLink.addGestureRecognizer(tapGesture4)
+            self.userFriendsLink.userInteractionEnabled  = true
+            self.userFriendsLink.addGestureRecognizer(tapGesture2)
         }else{
             performSegueWithIdentifier("segueFacebookCheckin", sender: nil)
         }
@@ -70,13 +103,6 @@ class UserProfileVC: UIViewController {
     func beersTapped(img:AnyObject){
         self.performSegueWithIdentifier("segueUserBeers", sender: nil)
     }
-    
-    
-    func imageTapped(img:AnyObject){
-        self.performSegueWithIdentifier("underConstruction", sender: nil)
-    }
-    
-    
     
     func friendsTapped(img:AnyObject){
         self.performSegueWithIdentifier("segueUserFriends", sender: nil)

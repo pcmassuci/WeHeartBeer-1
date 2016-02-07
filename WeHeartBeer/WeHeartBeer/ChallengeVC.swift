@@ -22,6 +22,7 @@ class ChallengeVC: UIViewController {
     @IBOutlet weak var separatorB: UIImageView!
     
     @IBOutlet weak var prizeIcon: UIImageView!
+    @IBOutlet weak var fbImg: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -60,6 +61,20 @@ class ChallengeVC: UIViewController {
         
         // Do any additional setup after loading the view.
     }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        
+        challengeFb.layer.masksToBounds = false
+
+        challengeFb.clipsToBounds = true
+        
+        challengeFb.layer.cornerRadius = challengeFb.frame.height/5
+        
+        
+        
+    }
+
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
