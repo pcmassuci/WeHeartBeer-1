@@ -25,6 +25,7 @@ class HomepageVC: UIViewController, UIPageViewControllerDelegate {
     
     @IBOutlet weak var pageControl: UIPageControl!
     
+    @IBOutlet weak var challengeName: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
         
