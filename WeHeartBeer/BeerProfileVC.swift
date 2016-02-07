@@ -204,6 +204,10 @@ extension BeerProfileVC: UITableViewDataSource{
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if self.rev != nil {
+           return (self.rev?.count)!
+        }
+        
         return 3
     }
     
