@@ -89,6 +89,7 @@ class BreweryVC: UIViewController, UIWebViewDelegate {
         
     }
     }
+        }}
     
     
     // update labels and button
@@ -136,6 +137,8 @@ class BreweryVC: UIViewController, UIWebViewDelegate {
     
     
 }
+    
+    
 
 
 // MARK: - TableView
