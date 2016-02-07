@@ -2372,6 +2372,7 @@
                     <navigationItem key="navigationItem" title="Destaques" id="ph1-ue-tAu"/>
                     <connections>
                         <outlet property="challengeLink" destination="qNt-ch-jXF" id="zgv-Lu-2QF"/>
+                        <outlet property="challengeName" destination="2jm-bd-Rq3" id="gce-gX-KXz"/>
                         <outlet property="collectionView" destination="WYI-k5-MYX" id="PtF-lU-jyo"/>
                         <segue destination="MDe-Oa-RwL" kind="show" identifier="challengeSegue" id="N2v-wG-3mq"/>
                         <segue destination="VcN-tL-zUt" kind="show" identifier="segueDestaqueBeer" id="ZKS-H1-FU2"/>
