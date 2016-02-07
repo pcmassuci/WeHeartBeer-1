@@ -49,6 +49,7 @@ class HomepageVC: UIViewController, UIPageViewControllerDelegate {
         self.images.removeAll()
         self.features.removeAll()
         self.queryImages()
+        self.challengeImage()
     }
     
     // MARK: - ChallengeLink
@@ -160,7 +161,45 @@ extension HomepageVC {
 
 extension HomepageVC {
     
+    func challengeImage(){
+        ChallengeDAO.getChallengeforParse { (challenge, success) -> Void in
+            if success{
+                
+                let chDescrition = challenge?.objectForKey("description") as! String
+                let chTitle = challenge?.objectForKey("name") as! String
+                
+                let getImage = challenge?.objectForKey("image") as? PFFile
+                if getImage != nil{
+                    ImageDAO.getImageFromParse(getImage, ch: { (image, success) -> Void in
+                        if success{
+                            if image != nil {
+                                self.challengeLink.image = image
+                                
+                            }else{
+                                print("Nao tem imagem")
+                                self.challengeLink.image = UIImage(named:"now-pouring")
+                                // não tem imagem
+                            }
+                            
+                        }else{
+                            //erro ao obter imagem
+                            self.challengeLink.image = UIImage(named:"now-pouring")
+                        }
+                    })
+                }else{
+                    print("imagem generica")
+                    self.challengeLink.image = UIImage(named:"now-pouring")
+                }
+                
+                
+//                
+//                
+                self.challengeName.text = chTitle
+
+//
+    }
     
-    
-    
+        }
+    }
 }
+
