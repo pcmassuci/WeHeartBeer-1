@@ -81,6 +81,8 @@ class ReviewVC: UIViewController {
         
         super.viewDidLoad()
         
+        self.tintBarUp(self.view)
+        
         print("review VC")
         
         print(currentObjectReview)

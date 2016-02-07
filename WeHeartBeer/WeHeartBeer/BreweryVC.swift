@@ -26,12 +26,14 @@ class BreweryVC: UIViewController, UIWebViewDelegate {
     
     @IBOutlet weak var placeBrewery: UILabel!
     
-    @IBOutlet weak var linkBrewery: UILabel!
+    @IBOutlet weak var linkBrewery: UIButton!
     
     @IBOutlet weak var listOfProducts: UITableView!
     
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
+    @IBOutlet weak var linkLabel: UILabel!
+   
     
     var brewery :Brewery!
     var currentBrewery: PFObject?
@@ -41,6 +43,8 @@ class BreweryVC: UIViewController, UIWebViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.tintBarUp(self.view)
         
         listOfProducts.delegate = self
         listOfProducts.dataSource = self
@@ -81,6 +85,7 @@ class BreweryVC: UIViewController, UIWebViewDelegate {
         
         let url = SFSafariViewController(URL: NSURL(string: (brewery.objectForKey("contact") as? String)!)!, entersReaderIfAvailable: true)
         self.presentViewController(url, animated: true, completion: nil)
+        
     }
     
     
@@ -92,7 +97,7 @@ class BreweryVC: UIViewController, UIWebViewDelegate {
         
         placeBrewery.text = brewery.objectForKey("local") as? String
         
-        //linkBrewery.text = brewery.objectForKey("contact") as? String
+        linkLabel.text = brewery.objectForKey("contact") as? String
         
         if brewery.objectForKey("photo") != nil{
             let imageFile = brewery.objectForKey("photo") as! PFFile

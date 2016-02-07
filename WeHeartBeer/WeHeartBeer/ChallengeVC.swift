@@ -58,7 +58,7 @@ class ChallengeVC: UIViewController {
             break
         }
 
-        
+        self.tintBarUp(self.view)
         // Do any additional setup after loading the view.
     }
     

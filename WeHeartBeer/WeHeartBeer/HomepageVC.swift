@@ -11,6 +11,7 @@ import Foundation
 
 
 
+
 class HomepageVC: UIViewController, UIPageViewControllerDelegate {
     
     
@@ -27,6 +28,7 @@ class HomepageVC: UIViewController, UIPageViewControllerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.tintBarUp(self.view)
         
         let tapGestureRecognizer = UITapGestureRecognizer(target:self, action:Selector("imageTapped:"))
         self.challengeLink.userInteractionEnabled = true

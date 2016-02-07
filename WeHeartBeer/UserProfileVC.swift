@@ -40,6 +40,7 @@ class UserProfileVC: UIViewController {
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         
+        self.tintBarUp(self.view)
         displayPicture.layer.borderWidth = 1
         displayPicture.layer.masksToBounds = false
         displayPicture.layer.borderColor = UIColor.blackColor().CGColor
