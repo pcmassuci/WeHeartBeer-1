@@ -2171,7 +2171,7 @@
                                                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                     <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                                        <rect key="frame" x="0.0" y="234" width="400" height="47"/>
+                                                        <rect key="frame" x="0.0" y="232" width="400" height="47"/>
                                                     </variation>
                                                 </label>
                                             </subviews>
@@ -2226,7 +2226,7 @@
                                                 <include reference="NXx-gs-JpI"/>
                                                 <include reference="neY-Wi-JZl"/>
                                                 <include reference="7Mo-Cd-Q1s"/>
-                                                <exclude reference="M3C-8s-h5s"/>
+                                                <include reference="M3C-8s-h5s"/>
                                                 <exclude reference="MO6-AD-nLi"/>
                                                 <exclude reference="SJg-Ro-w73"/>
                                                 <exclude reference="p8T-CA-eY3"/>
@@ -3515,7 +3515,6 @@
                         <outlet property="brewButton" destination="1SG-YO-REY" id="cMj-Ke-zVd"/>
                         <outlet property="ibuLabel" destination="dbZ-EA-Pzh" id="ByM-7a-nlr"/>
                         <outlet property="ibv" destination="mnj-BU-qku" id="cHK-AC-shP"/>
-                        <outlet property="listOfBeers" destination="7jo-Oi-26z" id="UZi-To-tuC"/>
                         <outlet property="name" destination="oaD-DN-gur" id="mR1-Jp-ura"/>
                         <outlet property="photo" destination="yZN-cf-htQ" id="LXT-Ud-Zwq"/>
                         <outlet property="rateLabel" destination="EZ0-ae-oCa" id="RXx-HQ-HUX"/>
