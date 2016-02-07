@@ -26,7 +26,7 @@ class BreweryVC: UIViewController, UIWebViewDelegate {
     
     @IBOutlet weak var placeBrewery: UILabel!
     
-    @IBOutlet weak var linkBrewery: UILabel!
+    @IBOutlet weak var linkBrewery: UIButton!
     
     @IBOutlet weak var listOfProducts: UITableView!
     
@@ -92,7 +92,7 @@ class BreweryVC: UIViewController, UIWebViewDelegate {
         
         placeBrewery.text = brewery.objectForKey("local") as? String
         
-        //linkBrewery.text = brewery.objectForKey("contact") as? String
+        linkBrewery = self.brewery.objectForKey("contact") as? UIButton
         
         if brewery.objectForKey("photo") != nil{
             let imageFile = brewery.objectForKey("photo") as! PFFile
