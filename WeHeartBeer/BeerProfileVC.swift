@@ -45,16 +45,14 @@ class BeerProfileVC: UIViewController {
     //copiado d frango
     @IBOutlet weak var listOfBeers: UITableView!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
-    var reviews = [PFObject]?()
+    var rev:[PFObject]? = [PFObject]()
     var beers: [Beer]!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-       
-//        if self.currentObject != nil{
-//            getRantingAndReviews(self.currentObject!)
-//        }
+       //self.listOfBeers.delegate = self
+        //self.listOfBeers.dataSource = self
         
         let screenHeight = UIScreen.mainScreen().bounds.height
         print(screenHeight)
@@ -96,7 +94,7 @@ class BeerProfileVC: UIViewController {
 
         
         // Check if user is logged in
-        self.reviews?.removeAll()
+        self.rev?.removeAll()
         
         self.getRantingAndReviews(self.currentObject!)
         self.updateData(self.currentObject)
@@ -125,7 +123,7 @@ class BeerProfileVC: UIViewController {
         self.name.text = beer!.objectForKey("name") as? String
         self.style.text = beer!.objectForKey("Style") as? String
         
-        let abv = beer!.objectForKey("ABV") as? String
+        let abv = beer!.objectForKey("ABV") as! String
         self.ibv.text = "\(abv)%"
         
         
@@ -207,6 +205,11 @@ extension BeerProfileVC: UITableViewDataSource{
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if self.rev != nil {
+            print(self.rev?.count)
+           return (self.rev?.count)!
+        }
+        
         return 3
     }
     
@@ -225,18 +228,22 @@ extension BeerProfileVC{
         ReviewDAO.findReviewAndRating(beer) { (reviews, rate, success) -> Void in
             print(reviews)
             if success{
-                print("aqui?")
-                if rate == 0 {
-                    self.rateLabel.text = "S/N"
-                } else {
-                    self.rateLabel.text = NSString(format: "%.1f", rate) as String
-                    
-                }
+                
+                
+//                if rate == 0 {
+//                    self.rateLabel.text = "S/N"
+//                } else {
+//                    self.rateLabel.text = NSString(format: "%.1f", rate) as String
+//                    
+//                }
+                if reviews != nil{
                 for r in reviews!{
-                    print(r)
-                    self.reviews?.append(r)
+                     print(r)
+                  
+                    self.rev?.append(r)
                 }
-                print("meus rev:\(self.reviews)")
+                }
+                print("meus rev:\(self.rev)")
                 self.reviewsTable.reloadData()
             }
         }
