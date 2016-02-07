@@ -304,6 +304,10 @@ extension SearchVC:  UISearchResultsUpdating, UISearchBarDelegate, UISearchContr
     // Search button clicked
     func searchBarSearchButtonClicked(searchBar: UISearchBar) {
         
+        if self.controller.searchBar.text == "" {
+            initialImage.hidden = false
+            initialLabel.hidden = false
+        }
         controller.searchBar.showsCancelButton = false //dismiss cancel button
         //controller.searchBar.text = ""  //clears text field
         
