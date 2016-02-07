@@ -26,7 +26,7 @@ class BreweryVC: UIViewController, UIWebViewDelegate {
     
     @IBOutlet weak var placeBrewery: UILabel!
     
-    @IBOutlet weak var linkBrewery: UILabel!
+    @IBOutlet weak var linkBrewery: UIButton!
     
     @IBOutlet weak var listOfProducts: UITableView!
     
@@ -77,14 +77,21 @@ class BreweryVC: UIViewController, UIWebViewDelegate {
     
     @IBAction func linkBrewery(sender: AnyObject) {
         
-       //self.brewery.objectForKey("contact") as? String
+       self.brewery.objectForKey("contact") as? String
         
+        if brewery.objectForKey("photo") != nil{
+            
         let url = SFSafariViewController(URL: NSURL(string: (brewery.objectForKey("contact") as? String)!)!, entersReaderIfAvailable: true)
         self.presentViewController(url, animated: true, completion: nil)
+        
+        }else{
+            
+            self.linkBrewery.hidden = true
+        }
     }
     
     
-    // update labels
+    // update labels and button
     func updateData(brewery: Brewery){
         
         
@@ -92,7 +99,9 @@ class BreweryVC: UIViewController, UIWebViewDelegate {
         
         placeBrewery.text = brewery.objectForKey("local") as? String
         
-        //linkBrewery.text = brewery.objectForKey("contact") as? String
+        //link brewery appear
+        let nameOfBrewery = brewery.objectForKey("contact") as? String
+        self.linkBrewery.setTitle(nameOfBrewery, forState: UIControlState.Normal)
         
         if brewery.objectForKey("photo") != nil{
             let imageFile = brewery.objectForKey("photo") as! PFFile
