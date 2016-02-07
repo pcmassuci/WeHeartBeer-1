@@ -34,7 +34,6 @@ class BreweryVC: UIViewController, UIWebViewDelegate {
     
     @IBOutlet weak var linkLabel: UILabel!
    
-    
     var brewery :Brewery!
     var currentBrewery: PFObject?
     var beers:[Beer]! = [Beer]()
@@ -64,10 +63,10 @@ class BreweryVC: UIViewController, UIWebViewDelegate {
         let pointer :String = (currentBrewery?.objectId)! as String
         print(pointer)
         self.activityIndicator.startAnimating()
+        
         BreweryServices.findBreweryObjectID(pointer) { (brewery, success) -> Void in
             self.activityIndicator.stopAnimating()
             if success {
-                
                 self.brewery = brewery
                 self.updateData(self.brewery)
 
@@ -88,6 +87,7 @@ class BreweryVC: UIViewController, UIWebViewDelegate {
         let url = SFSafariViewController(URL: NSURL(string: (brewery.objectForKey("contact") as? String)!)!, entersReaderIfAvailable: true)
         self.presentViewController(url, animated: true, completion: nil)
         
+    }
     }
     
     
@@ -126,6 +126,7 @@ class BreweryVC: UIViewController, UIWebViewDelegate {
         }
         
     }
+
     
     
     override func didReceiveMemoryWarning() {

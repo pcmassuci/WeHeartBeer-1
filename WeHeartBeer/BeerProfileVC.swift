@@ -57,7 +57,7 @@ class BeerProfileVC: UIViewController {
         print("beerProfile")
         print(self.currentObject)
        //self.listOfBeers.delegate = self
-        //self.listOfBeers.dataSource = self
+        self.listOfBeers.dataSource = self
         
         let screenHeight = UIScreen.mainScreen().bounds.height
         print(screenHeight)
@@ -130,9 +130,22 @@ class BeerProfileVC: UIViewController {
         self.name.text = beer!.objectForKey("name") as? String
         self.style.text = beer!.objectForKey("Style") as? String
         
-        let abv = beer!.objectForKey("ABV") as! String
-        self.ibv.text = "\(abv)%"
+        if beer?.objectForKey("ibu") == nil{
+            self.ibuLabel.text = "NC"
+        }else{
+          let  ibu = beer?.objectForKey("ubu") as! String
+            self.ibuLabel.text = ibu
+        }
         
+        
+      
+        
+        if beer?.objectForKey("abv") == nil{
+         self.ibv.text = "NC"
+        }else{
+        let abv = beer!.objectForKey("abv") as! String
+        self.ibv.text = "\(abv)%"
+        }
         
         let nameOfBrew = beer!.objectForKey("brewName") as? String
         self.brewButton.setTitle(nameOfBrew, forState: UIControlState.Normal)
@@ -217,13 +230,18 @@ extension BeerProfileVC: UITableViewDataSource{
            return (self.rev?.count)!
         }
         
-        return 3
+        return 1
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
-        
-        let cell = UITableViewCell()
+        let cell = self.listOfBeers.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as! ReviewFromBeerTableViewCell
+        if self.rev == nil {
+            cell.reviews.text = "ainda nao foram feitas"
+        }else{
+            cell.reviews.text = self.rev![indexPath.row].objectForKey("comment") as? String
+        }
+
         return cell
     }
     
@@ -236,13 +254,14 @@ extension BeerProfileVC{
             print(reviews)
             if success{
                 
-//                
-//                if rate == 0 {
-//                    self.rateLabel.text = "S/N"
-//                } else {
-//                    self.rateLabel.text = NSString(format: "%.1f", rate) as String
-//                    
-//                }
+                
+                if rate == 0 {
+                    self.rateLabel.text = "S/N"
+                } else {
+                    self.rateLabel.text = NSString(format: "%.1f", rate) as String
+                    
+                }
+                
                 if reviews != nil{
                 for r in reviews!{
                      print(r)
