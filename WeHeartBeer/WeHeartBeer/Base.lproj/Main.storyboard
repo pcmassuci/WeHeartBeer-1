@@ -2170,6 +2170,9 @@
                                                     <fontDescription key="fontDescription" name="Lato-Medium" family="Lato" pointSize="39"/>
                                                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
+                                                    <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                                        <rect key="frame" x="0.0" y="232" width="400" height="47"/>
+                                                    </variation>
                                                 </label>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -2369,6 +2372,7 @@
                     <navigationItem key="navigationItem" title="Destaques" id="ph1-ue-tAu"/>
                     <connections>
                         <outlet property="challengeLink" destination="qNt-ch-jXF" id="zgv-Lu-2QF"/>
+                        <outlet property="challengeName" destination="2jm-bd-Rq3" id="gce-gX-KXz"/>
                         <outlet property="collectionView" destination="WYI-k5-MYX" id="PtF-lU-jyo"/>
                         <segue destination="MDe-Oa-RwL" kind="show" identifier="challengeSegue" id="N2v-wG-3mq"/>
                         <segue destination="VcN-tL-zUt" kind="show" identifier="segueDestaqueBeer" id="ZKS-H1-FU2"/>
@@ -3038,7 +3042,7 @@
                                     <constraint firstAttribute="width" constant="400" id="PyL-dg-7Cw"/>
                                 </constraints>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="66" id="GoC-cy-DdQ" customClass="ReviewFromBeerTableViewCell" customModule="BeerLove" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" rowHeight="66" id="GoC-cy-DdQ" customClass="ReviewFromBeerTableViewCell" customModule="BeerLove" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="GoC-cy-DdQ" id="GOb-FB-Tb5">
