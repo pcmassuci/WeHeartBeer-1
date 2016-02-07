@@ -126,12 +126,12 @@ extension UserBeersVC: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         if indexPath.row < self.beers.count {
-            performSegueWithIdentifier("segueBeerReviewToBeer", sender: indexPath)
+            performSegueWithIdentifier("SegueBeerReviewToBeer", sender: indexPath)
         }
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == "segueBeerReviewToBeer" {
+        if segue.identifier == "SegueBeerReviewToBeer" {
             let destination = segue.destinationViewController as! BeerProfileVC
             let indexPath = sender as! NSIndexPath
             let review = self.reviews[indexPath.row]
