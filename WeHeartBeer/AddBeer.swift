@@ -17,6 +17,7 @@
         @IBOutlet weak var abv: UITextField!
         @IBOutlet weak var style: UITextField!
         @IBOutlet weak var ibu: UITextField!
+        var textFieldHeightSize = 0.0 as CGFloat
         
         @IBOutlet weak var abvLabel: UILabel!
         @IBOutlet weak var IBULabel: UILabel!
@@ -49,6 +50,7 @@
             let bounds = UIScreen.mainScreen().bounds
             let width = bounds.size.width
             let height = bounds.size.height
+           
             print(width)
             print(height)
             
@@ -197,30 +199,37 @@
         }
         
         func keyboardWillHide(sender: NSNotification) {
-//            let userInfo: [NSObject : AnyObject] = sender.userInfo!
-//            let keyboardSize: CGSize = userInfo[UIKeyboardFrameBeginUserInfoKey]!.CGRectValue.size
+
             self.view.frame.origin.y = 0
-                //keyboardSize.height
+            
         }
+        
         func keyboardWillShow(sender: NSNotification) {
             let userInfo: [NSObject : AnyObject] = sender.userInfo!
             
             let keyboardSize: CGSize = userInfo[UIKeyboardFrameBeginUserInfoKey]!.CGRectValue.size
             let offset: CGSize = userInfo[UIKeyboardFrameEndUserInfoKey]!.CGRectValue.size
             
-            if keyboardSize.height == offset.height {
-                if self.view.frame.origin.y == 0 {
+            
+            let bounds = UIScreen.mainScreen().bounds
+            let height = bounds.size.height
+            
+            if (height - keyboardSize.height) <= self.textFieldHeightSize {
+                
+                if keyboardSize.height == offset.height {
+                    if self.view.frame.origin.y == 0 {
+                        UIView.animateWithDuration(0.1, animations: { () -> Void in
+                            self.view.frame.origin.y -= keyboardSize.height - 60
+                        })
+                    }
+                } else {
                     UIView.animateWithDuration(0.1, animations: { () -> Void in
-                        self.view.frame.origin.y -= keyboardSize.height - 70
+                        self.view.frame.origin.y = keyboardSize.height - offset.height - 60
                     })
                 }
-            } else {
-                UIView.animateWithDuration(0.1, animations: { () -> Void in
-                    self.view.frame.origin.y += keyboardSize.height - offset.height - 70
-                })
-            }
-            print(self.view.frame.origin.y)        }
-        
+                print(self.view.frame.origin.y)        }
+        }
+
     }
 //
     //MARK: - PARSE Methods

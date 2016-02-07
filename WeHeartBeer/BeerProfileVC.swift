@@ -32,7 +32,10 @@ class BeerProfileVC: UIViewController {
     @IBOutlet var photo: UIImageView!
     @IBOutlet weak var brewButton: UIButton!
     var idReview:Review!
-      
+    
+    
+    // fernado ligar esse aqui meu filho
+    @IBOutlet var rateLabel: UILabel!
     
 
   //  var beer : [Beer]! = [Beer]()
@@ -42,17 +45,16 @@ class BeerProfileVC: UIViewController {
     //copiado d frango
     @IBOutlet weak var listOfBeers: UITableView!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
-    var reviews: [PFObject]? = [PFObject]?()
+    var reviews = [PFObject]?()
     var beers: [Beer]!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //print(self.currentObject)
        
-        if self.currentObject != nil{
-            getRantingAndReviews(self.currentObject!)
-        }
+//        if self.currentObject != nil{
+//            getRantingAndReviews(self.currentObject!)
+//        }
         
         let screenHeight = UIScreen.mainScreen().bounds.height
         print(screenHeight)
@@ -84,35 +86,27 @@ class BeerProfileVC: UIViewController {
         photo.layer.borderColor = UIColor.blackColor().CGColor
         photo.clipsToBounds = true
 
-        
-        
-
     }
     
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.setNavigationBarHidden(false, animated: true)
-
         self.navigationController?.navigationBar.hidden = false
 
-       // navigationCollor()
-        // Check if user is logged in
         
+        // Check if user is logged in
+        self.reviews?.removeAll()
+        
+        self.getRantingAndReviews(self.currentObject!)
         self.updateData(self.currentObject)
-        ReviewDAO.findReviewsFromBeer(self.currentObject) { (beer, success) -> Void in
-            if success{
-                for b in beer!{
-                    self.reviews?.append(b)
-                }
-            }else{
-                //tratar erro
-            }
-        }
+
+        
+        //change button image
         if UserServices.loggedUser() {
-            self.ratingButton.hidden = false
+            //self.ratingButton.hidden = false
         }else{
-            self.ratingButton.hidden = true
+            //self.ratingButton.hidden = true
         }
         
            }
@@ -124,13 +118,14 @@ class BeerProfileVC: UIViewController {
         
     }
     
+    
     // update informations
     func updateData(beer: PFObject?){
         print(beer?.objectForKey("brewery")?.objectId)
         self.name.text = beer!.objectForKey("name") as? String
         self.style.text = beer!.objectForKey("Style") as? String
         
-        let abv = beer!.objectForKey("ABV") as! String
+        let abv = beer!.objectForKey("ABV") as? String
         self.ibv.text = "\(abv)%"
         
         
@@ -160,9 +155,8 @@ class BeerProfileVC: UIViewController {
         }else{
             print("imagem generica")
         }
-        
-       
     }
+    
     
     @IBAction func callBrewery(sender: AnyObject) {
         performSegueWithIdentifier("segueBeer", sender: nil)
@@ -176,23 +170,22 @@ class BeerProfileVC: UIViewController {
     
     
     @IBAction func reviewButton(sender: AnyObject) {
+        
+        if UserServices.loggedUser(){
         self.performSegueWithIdentifier("segueReview", sender: nil)
+        }else{
+           self.alert("Atenção", message: "Você precisa estar logado para fazer isso", option: false, action: nil)
+            
+        }
     }
     
-    
-    // Segue
+
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        
-        
-        
         if segue.identifier == "segueBeer"{
             if let destination = segue.destinationViewController  as? BreweryVC{
                
                 destination.delegate = self
 
-//                _ = self.currentObject?.objectForKey("brewery")?.objectID
-                
-                print(self.currentObject?.objectForKey("brewery"))
                 
                 destination.currentBrewery = self.currentObject?.objectForKey("brewery") as? PFObject
             }
@@ -207,98 +200,48 @@ class BeerProfileVC: UIViewController {
     
 }
 
-extension BeerProfileVC: UITableViewDataSource, UITableViewDelegate {
-    func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 20
-    }
-    
-    func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let label: UILabel = UILabel()
-        label.text = "Cervejas"
-        label.textColor = UIColor.blackColor()
-        label.backgroundColor = UIColor(red: 255.0/255.0, green: 192.0/255.0, blue: 3.0/255.0, alpha: 1.0)
-        
-        return label
-    }
-    
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.beers.count
-    }
-    
-    // Number of sections in tableview - not used
+extension BeerProfileVC: UITableViewDataSource{
+
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
     }
     
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 3
+    }
     
-    //Sets the tableview cell and change its info to the correspondent object
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = listOfBeers.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as! ReviewVCCell
         
         
-        
-        
-        if self.beers[indexPath.row].objectForKey("Photo") != nil{
-            let imageFile = self.beers[indexPath.row].objectForKey("Photo") as! PFFile
-            ImageDAO.getImageFromParse(imageFile, ch: { (image, success) -> Void in
-                if success{
-                    cell.imageBeersFromUser.image = image
-                    
-                }else{
-                    print("sem imagem")
-                    cell.imageBeersFromUser.image = nil
-                    
-                }
-            })
-            
-        }else{
-            print("erro na imagem")
-            cell.imageBeersFromUser.image = nil
-        }
-        
-        
-        cell.beersFromUser?.text = self.beers[indexPath.row].objectForKey("name") as? String
-        cell.breweryFromUser?.text = self.beers[indexPath.row].objectForKey("brewName") as? String
-        
-        if let rating = self.reviews![indexPath.row].valueForKey("rating") {
-            cell.ratingFromUser?.text = "\(rating)"
-        } else {
-            cell.ratingFromUser?.text = "No rating available"
-        }
-        
-        
+        let cell = UITableViewCell()
         return cell
     }
     
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        if indexPath.row < self.beers.count {
-            performSegueWithIdentifier("segueBeerReviewToBeer", sender: indexPath)
-        }
-    }
-    
-//    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-//        if segue.identifier == "segueBeerReviewToBeer" {
-//            let destination = segue.destinationViewController as! BeerProfileVC
-//            let indexPath = sender as! NSIndexPath
-//            let review = self.reviews[indexPath.row]
-//            let beer = self.beers[indexPath.row]
-//            
-//            destination.idReview = review
-//            destination.currentObject = beer
-//        }
-//    }
 }
 // MARK:- get ratting and Review
 extension BeerProfileVC{
     
     private func getRantingAndReviews(beer:PFObject){
         ReviewDAO.findReviewAndRating(beer) { (reviews, rate, success) -> Void in
+            print(reviews)
             if success{
-                print("salvar array e preencher tabela")
+                print("aqui?")
+                if rate == 0 {
+                    self.rateLabel.text = "S/N"
+                } else {
+                    self.rateLabel.text = NSString(format: "%.1f", rate) as String
+                    
+                }
+                for r in reviews!{
+                    print(r)
+                    self.reviews?.append(r)
+                }
+                print("meus rev:\(self.reviews)")
+                self.reviewsTable.reloadData()
             }
         }
     }
-    
+
 }
 
 
