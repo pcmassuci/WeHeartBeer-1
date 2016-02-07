@@ -22,6 +22,8 @@ class FacebookCheckinVC: UIViewController {
 //        let loginButton = FBSDKLoginButton()
 //        loginButton.center = self.view.center
 //        self.view.addSubview(loginButton)
+        
+        self.tintBarUp(self.view)
 //        
         
     }

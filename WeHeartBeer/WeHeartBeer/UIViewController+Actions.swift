@@ -20,6 +20,18 @@ extension UIViewController{
 
         
     }
+    
+    func tintBarUp (view: UIView) -> Void{
+        
+        let view2 = UIView(frame:
+            CGRect(x: 0.0, y: 0.0, width: UIScreen.mainScreen().bounds.size.width, height: UIApplication.sharedApplication().statusBarFrame.size.height)
+        )
+        view2.backgroundColor = UIColor(red: 250.0/255.0, green: 170.0/255.0, blue: 4.0/255.0, alpha: 1.0)
+        
+        view.addSubview(view2)
+        
+    }
+
 
     func internetCheck() -> Bool{
         if Reachability.isConnectedToNetwork() == true {

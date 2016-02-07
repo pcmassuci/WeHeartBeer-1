@@ -21,6 +21,7 @@ class UserAddAppFriendsVC: UIViewController {
   
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.tintBarUp(self.view)
         self.tableView.delegate = self
         self.tableView.dataSource = self
         //self.userFriends()

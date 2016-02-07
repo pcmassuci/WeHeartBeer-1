@@ -31,6 +31,9 @@ class BeerProfileVC: UIViewController {
     @IBOutlet var ibv: UILabel! //needs renaming
     @IBOutlet var photo: UIImageView!
     @IBOutlet weak var brewButton: UIButton!
+    @IBOutlet weak var ibuLabel: UILabel!
+    
+    
     var idReview:Review!
     
     
@@ -85,6 +88,8 @@ class BeerProfileVC: UIViewController {
         photo.layer.masksToBounds = false
         photo.layer.borderColor = UIColor.blackColor().CGColor
         photo.clipsToBounds = true
+        
+        self.tintBarUp(self.view)
 
     }
     

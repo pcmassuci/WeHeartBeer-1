@@ -32,6 +32,7 @@ class SearchVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
         self.controller.searchBar.barTintColor = UIColor(red: 250.0/255.0, green: 170.0/255.0, blue: 0.0/255.0, alpha: 1.0)
         self.controller.searchBar.tintColor = UIColor(white: 1, alpha: 1)
         
@@ -304,6 +305,10 @@ extension SearchVC:  UISearchResultsUpdating, UISearchBarDelegate, UISearchContr
     // Search button clicked
     func searchBarSearchButtonClicked(searchBar: UISearchBar) {
         
+        if self.controller.searchBar.text == "" {
+            initialImage.hidden = false
+            initialLabel.hidden = false
+        }
         controller.searchBar.showsCancelButton = false //dismiss cancel button
         //controller.searchBar.text = ""  //clears text field
         
