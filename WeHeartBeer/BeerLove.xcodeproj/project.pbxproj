@@ -96,6 +96,7 @@
 		8520EAF91C57A71B003CD9AD /* Lato-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8520EADE1C57A40F003CD9AD /* Lato-Italic.ttf */; };
 		8529AFFC1C10787800A0AAC3 /* ListHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8529AFFB1C10787800A0AAC3 /* ListHeaderCell.swift */; };
 		8529E59B1C467DFD00433054 /* MoreVCCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8529E59A1C467DFD00433054 /* MoreVCCell.swift */; };
+		853771731C67BF9F0054B7FB /* tintBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853771721C67BF9E0054B7FB /* tintBar.swift */; };
 		854542EC1C105F1900AC2A0B /* ReviewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 854542EB1C105F1900AC2A0B /* ReviewVC.swift */; };
 		854AAC8E1BEB8CCE002F405B /* SearchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 854AAC8D1BEB8CCE002F405B /* SearchVC.swift */; };
 		854AAC901BEB8FAA002F405B /* ResultsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 854AAC8F1BEB8FAA002F405B /* ResultsTableViewCell.swift */; };
@@ -239,6 +240,7 @@
 		8520EAE71C57A40F003CD9AD /* Lato-ThinItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-ThinItalic.ttf"; sourceTree = "<group>"; };
 		8529AFFB1C10787800A0AAC3 /* ListHeaderCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListHeaderCell.swift; sourceTree = "<group>"; };
 		8529E59A1C467DFD00433054 /* MoreVCCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoreVCCell.swift; sourceTree = "<group>"; };
+		853771721C67BF9E0054B7FB /* tintBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = tintBar.swift; sourceTree = "<group>"; };
 		854542EB1C105F1900AC2A0B /* ReviewVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReviewVC.swift; sourceTree = "<group>"; };
 		854AAC8D1BEB8CCE002F405B /* SearchVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchVC.swift; sourceTree = "<group>"; };
 		854AAC8F1BEB8FAA002F405B /* ResultsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultsTableViewCell.swift; sourceTree = "<group>"; };
@@ -507,6 +509,7 @@
 			isa = PBXGroup;
 			children = (
 				6739E6E61C591369009644B3 /* Reachability.swift */,
+				853771721C67BF9E0054B7FB /* tintBar.swift */,
 				676250751BF3737E00F3BB0D /* DAO */,
 				D25499C21BF1769300D38C88 /* Parse Services */,
 			);
@@ -748,6 +751,7 @@
 				674127981C18A20700016D52 /* CountryCell.swift in Sources */,
 				67FB0C141C11D31500122314 /* AddBreweryVC.swift in Sources */,
 				677924B21BFA064600B8092B /* RegisterBeerVC.swift in Sources */,
+				853771731C67BF9F0054B7FB /* tintBar.swift in Sources */,
 				854AAF4F1BF0BE8F002F405B /* BeerServices.swift in Sources */,
 				8518D1511BD7B7BD00499ACA /* WeHeartBeer.xcdatamodeld in Sources */,
 				6746518C1C4D295E00C464F3 /* FriendProfileVC.swift in Sources */,

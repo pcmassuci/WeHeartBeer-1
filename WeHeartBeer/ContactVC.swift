@@ -23,6 +23,7 @@ class ContactVC: UIViewController {
         self.navigationController?.navigationBar.barTintColor = UIColor(red: 250.0/255.0, green: 170.0/255.0, blue: 0.0/255.0, alpha: 1.0)
         self.navigationController?.navigationBar.tintColor = UIColor.whiteColor()
 
+        self.tintBarUp(self.view)
         
         self.animateButton()
         
