@@ -22,7 +22,7 @@ class AddBreweryVC: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var countryBut: UIButton!
     var country:String? = ""
     var textFieldHeightSize = 0.0 as CGFloat
-    
+     var dictBrew = [String:String?]()
     
     override func viewDidLoad() {
        super.viewDidLoad()
@@ -99,46 +99,86 @@ class AddBreweryVC: UIViewController, UITextFieldDelegate {
     
     
     @IBAction func saveObject(sender: AnyObject) {
+        
         if self.nameTextField.text != ""{
             if self.country != ""{
-                    BreweryServices.saveNewBrewery(self.nameTextField.text, local: self.country, contact: self.contactTex.text, address: self.addressText.text!, completionHandler: { (mensage, success) -> Void in
-                    
-                        if success{
-                            let query = PFQuery(className:"Brewery")
-                            query.whereKey("name", equalTo:self.nameTextField.text!)
-                            query.findObjectsInBackgroundWithBlock {
-                                (objects: [PFObject]?, error: NSError?) -> Void in
-                                
-                                if error == nil {
-                                    // The find succeeded.
-                                    print("Successfully retrieved \(objects!.count) scores.")
-                                    // Do something with the found objects
-                                    if let objects = objects {
-                                        for object in objects {
-                                            print(object.objectId)
-                                        self.performSegueWithIdentifier("addBrewToAddBeer", sender:object)
-                                            
-                                        }
-                                    }
-                                } else {
-                                    // Log details of the failure
-                                    print("Error: \(error!) \(error!.userInfo)")
-                                }
-                            }
-                       
+               
+                
+    
+                BreweryDAO.checkBrewery(self.nameTextField.text!, ch: { (exist, success) -> Void in
+                    if success{
+                        if exist{
+                        self.alert("Atenção", message: "Cervejaria já cadastrada em nosso banco de dados", option: false, action: nil)
                         }else{
-                            self.alertForUser(mensage)
+                            
+                            
+                            
+                            
+                            
+                            self.dictBrew["name"] = self.nameTextField.text
+                            self.dictBrew["country"] = self.country
+                            self.dictBrew["contact"] = self.contactTex.text
+                            self.dictBrew["address"] = self.addressText.text
+                            self.performSegueWithIdentifier("addBrewToAddBeer", sender:nil)
+                            
+                
                         }
-                    })
-                
-                }else{
-                    self.alertForUser("Digite o País de origem")
-                }
-                
-            }else{
-                self.alertForUser("Digite o nome da cervejaria")
+                    }
+            
+                })
+                    }else{
+                self.alertForUser("Digite o País de origem")
             }
             
+        }else{
+            self.alertForUser("Digite o nome da cervejaria")
+        }
+        
+        //////////////////
+//        if self.nameTextField.text != ""{
+//            if self.country != ""{
+//                    self.dictBrew["name"] = self.nameTextField.text
+//                    self.dictBrew["country"] = self.country
+//                    self.dictBrew["contact"] = self.contactTex.text
+//                
+//                    BreweryServices.saveNewBrewery(self.nameTextField.text, local: self.country, contact: self.contactTex.text, address: self.addressText.text!, completionHandler: { (mensage, success) -> Void in
+//                    
+//                        if success{
+//                            let query = PFQuery(className:"Brewery")
+//                            query.whereKey("name", equalTo:self.nameTextField.text!)
+//                            query.findObjectsInBackgroundWithBlock {
+//                                (objects: [PFObject]?, error: NSError?) -> Void in
+//                                
+//                                if error == nil {
+//                                    // The find succeeded.
+//                                    print("Successfully retrieved \(objects!.count) scores.")
+//                                    // Do something with the found objects
+//                                    if let objects = objects {
+//                                        for object in objects {
+//                                            print(object.objectId)
+//                                        self.performSegueWithIdentifier("addBrewToAddBeer", sender:object)
+//                                            
+//                                        }
+//                                    }
+//                                } else {
+//                                    // Log details of the failure
+//                                    print("Error: \(error!) \(error!.userInfo)")
+//                                }
+//                            }
+//                       
+//                        }else{
+//                            self.alertForUser(mensage)
+//                        }
+//                    })
+//                
+//                }else{
+//                    self.alertForUser("Digite o País de origem")
+//                }
+//                
+//            }else{
+//                self.alertForUser("Digite o nome da cervejaria")
+//            }
+//            
         
     }
 
@@ -154,7 +194,8 @@ class AddBreweryVC: UIViewController, UITextFieldDelegate {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "addBrewToAddBeer"{
             if let destination = segue.destinationViewController  as?  AddBeer  {
-               destination.brewery = (sender) as? Brewery
+               destination.breweryDict = self.dictBrew
+                
                 }
             }
         if segue.identifier == "segueCountry"{

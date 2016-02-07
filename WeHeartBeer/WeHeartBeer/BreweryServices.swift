@@ -21,7 +21,7 @@ class BreweryServices {
     typealias CreateCompletionHaldler = (mensage:String,success:Bool) -> Void
 
     
-    static func saveNewBrewery(name:String!, local:String!, contact:String!, address:String, completionHandler: CreateCompletionHaldler){
+    static func saveNewBrewery(name:String!, local:String!, contact:String?, address:String?, completionHandler: CreateCompletionHaldler){
         BreweryDAO.createBrewery(name, contact: contact, local: local, address: address) { (mensage, success) -> Void in
             if success {
                 

@@ -51,6 +51,8 @@ class BeerProfileVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        print("beerProfile")
+        print(self.currentObject)
        //self.listOfBeers.delegate = self
         //self.listOfBeers.dataSource = self
         
@@ -229,7 +231,7 @@ extension BeerProfileVC{
             print(reviews)
             if success{
                 
-                
+//                
 //                if rate == 0 {
 //                    self.rateLabel.text = "S/N"
 //                } else {

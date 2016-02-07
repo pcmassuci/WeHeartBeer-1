@@ -15,8 +15,8 @@ class Brewery: PFObject, PFSubclassing
 {
     var name: String!
     var beers:PFObject!
-    var photo:UIImage!
-    var contact: String!
+    var photo:UIImage?
+    var contact: String?
     var local: String!
     var objectID:String!
     

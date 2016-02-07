@@ -25,9 +25,10 @@
         @IBOutlet weak var nameLabel: UILabel!
         @IBOutlet weak var introText: UILabel!
        // var objectID:String!
-        var brewery:Brewery!
+        var brewery:Brewery?
         var pickOptionParse:[PFObject]? = [PFObject]()
         var i:Int = 0
+        var breweryDict = [String:String?]()
         
         override func viewDidLoad() {
             super.viewDidLoad()
@@ -91,45 +92,16 @@
         }
 
         @IBAction func saveObject(sender: AnyObject) {
+            
             if self.nameBeer.text != ""{
                     if self.abv.text != ""{
                         if self.style.text != ""{
                             
-
-                            BeerServices.saveNewBeer(self.nameBeer.text, abv: self.abv.text, brewery: self.brewery, style: self.style.text, ibu: self.ibu.text, completionHandler: {  (success) -> Void in
-                                
-                                
-                                    if success{
-                                        print("Salvo")
-                                        let query = PFQuery(className:"Beer")
-                                        query.whereKey("name", equalTo:self.nameBeer.text!)
-                                        query.findObjectsInBackgroundWithBlock {
-                                            (objects: [PFObject]?, error: NSError?) -> Void in
-                                            
-                                            if error == nil {
-                                                // The find succeeded.
-                                                print("Successfully retrieved \(objects!.count) scores.")
-                                                // Do something with the found objects
-                                                if let objects = objects {
-                                                    for object in objects {
-                                                        print(object.objectId)
-                                                        self.performSegueWithIdentifier("successCreate", sender:object)
-                                                        
-                                                    }
-                                                }
-                                            } else {
-                                                // Log details of the failure
-                                                print("Error: \(error!) \(error!.userInfo)")
-                                            }
-                                        }
-                                        
-
-                                        //self.alertForUser("Parabéns, cerveja cadastrada com sucesso")
-                                    }else{
-                                        self.alertForUser("ERRO, CERVEJA NAO CADASTRADA")
-                                    }
-                                    })
-                           
+                            if self.brewery == nil{
+                                saveBrew()  
+                            }else{
+                                self.saveBeer(self.brewery)
+                            }
                             
                         }else{
                             self.alertForUser("Digite o estilo!")
@@ -266,7 +238,57 @@
   //MARK: - ALERT
     
     extension AddBeer{
+       
+        func saveBrew(){
+            let name = self.breweryDict["name"]! as String!
+            let country = self.breweryDict["country"]! as String!
+            let contact = self.breweryDict["contact"]
+            let address = self.breweryDict["address"]
+            BreweryServices.saveNewBrewery(name, local: country, contact: contact!, address: address!) { (mensage, success) -> Void in
         
+                if success{
+                    let query = PFQuery(className:"Brewery")
+                    query.whereKey("name", equalTo:name)
+                    query.getFirstObjectInBackgroundWithBlock({ (object, error) -> Void in
+                            if error == nil {
+                                print(object)
+                                self.saveBeer(object as? Brewery)
+        
+                            }else{
+                                print(error)
+                        }
+                    })
+                }
+            }
+        }
+        
+        
+        
+        
+        
+        
+        func saveBeer(brewery:Brewery!){
+            print("chamou")
+            BeerServices.saveNewBeer(self.nameBeer.text, abv: self.abv.text, brewery: brewery, style: self.style.text, ibu: self.ibu.text, completionHandler: {  (success) -> Void in
+        
+        
+                    if success{
+                    print("Salvo")
+                    let query = PFQuery(className:"Beer")
+                    query.whereKey("name", equalTo:self.nameBeer.text!)
+                    query.getFirstObjectInBackgroundWithBlock({ (object, erro) -> Void in
+                        if object != nil {
+                            self.performSegueWithIdentifier("successCreate", sender:object)
+                        }else{
+                            //erro ao salvar
+                        }
+                    })
+                }
+            })
+
+            }
+    
+            
         func alertForUser(message:String){
             let alert = UIAlertController(title: "Atenção", message:message, preferredStyle:UIAlertControllerStyle.Alert)
             alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
