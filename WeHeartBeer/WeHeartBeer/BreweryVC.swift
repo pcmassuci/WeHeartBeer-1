@@ -81,15 +81,17 @@ class BreweryVC: UIViewController, UIWebViewDelegate {
     
     @IBAction func linkBrewery(sender: AnyObject) {
         
-       //self.brewery.objectForKey("contact") as? String
+       self.brewery.objectForKey("contact") as? String
         
+        if brewery.objectForKey("photo") != nil{
+            
         let url = SFSafariViewController(URL: NSURL(string: (brewery.objectForKey("contact") as? String)!)!, entersReaderIfAvailable: true)
         self.presentViewController(url, animated: true, completion: nil)
         
     }
     
     
-    // update labels
+    // update labels and button
     func updateData(brewery: Brewery){
         
         
