@@ -36,7 +36,7 @@ class SearchVC: UIViewController {
         self.controller.searchBar.tintColor = UIColor(white: 1, alpha: 1)
         
         let view: UIView = self.controller.searchBar.subviews[0]
-        let subViewsArray = view.subviews
+        _ = view.subviews
         
         initialImage.hidden = false
         initialLabel.hidden = false
@@ -68,7 +68,6 @@ class SearchVC: UIViewController {
         self.navigationController?.navigationBar.barTintColor = UIColor(red: 250.0/255.0, green: 170.0/255.0, blue: 0.0/255.0, alpha: 1.0)
 
         
-        //  searchTypeText.hidden = false
         
         
         //setting delegates
@@ -207,7 +206,7 @@ extension SearchVC: UITableViewDelegate, UITableViewDataSource{
             
             cell.brewery?.text = self.resultsList.objectAtIndex(indexPath.row).objectForKey("brewName")! as? String
             
-            var styleTemp = self.resultsList.objectAtIndex(indexPath.row).objectForKey("Style") as! String
+            let styleTemp = self.resultsList.objectAtIndex(indexPath.row).objectForKey("Style") as! String
             
             cell.beerStyle?.text = "Estilo: \(styleTemp) "
             
@@ -231,15 +230,6 @@ extension SearchVC: UITableViewDelegate, UITableViewDataSource{
                     }
                 })
                 
-//                let userImageFile = resultsList.objectAtIndex(indexPath.row).objectForKey("Photo") as! PFFile
-//                
-//                userImageFile.getDataInBackgroundWithBlock {
-//                    (imageData: NSData?, error: NSError?) -> Void in
-//                    if error == nil {
-//                        if let imageData = imageData {
-//                            let image = UIImage(data:imageData)
-//                            cell.searchImage.image = image
-//                        }}}
             }else{
                 
             }
