@@ -114,29 +114,17 @@ class ReviewVC: UIViewController {
         NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("keyboardWillShow:"), name:UIKeyboardWillShowNotification, object: self.view.window)
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("keyboardWillHide:"), name:UIKeyboardWillHideNotification, object: self.view.window)
-        
     }
     
     
     
     override func viewWillAppear(animated: Bool) {
-        
         super.viewWillAppear(animated)
-        
-        
-        
     }
     
-    
-    
-    
-    
     override func viewWillDisappear(animated: Bool) {
-        
         NSNotificationCenter.defaultCenter().removeObserver(self, name: UIKeyboardWillShowNotification, object: self.view.window)
-        
         NSNotificationCenter.defaultCenter().removeObserver(self, name: UIKeyboardWillHideNotification, object: self.view.window)
-        
     }
     
     
@@ -170,17 +158,19 @@ class ReviewVC: UIViewController {
                     ImageDAO.getImageFromParse(imageFile, ch: { (image, success) -> Void in
                         
                         if success{
+                            
+                            
                             let content:FBSDKShareLinkContent = FBSDKShareLinkContent()
                             
                             content.contentURL = NSURL(string: "https://www.facebook.com")
-                            content.contentTitle = "Cerveja tal"
-                            content.contentDescription = "Cervejaria tal"
-                            content.imageURL = NSURL(string:"http://files.parsetfss.com/f0fa3f24-4ced-49ca-bfaf-47bfe806aa21/tfss-51f46925-f0a0-41cc-83ec-d019bc60f6a1-SWB-HashBrown-PostCard-4x6-Thumb.jpg")
+                            content.contentTitle = self.currentObjectReview!.objectForKey("name") as? String
+                            content.contentDescription = self.currentObjectReview!.objectForKey("brewName") as? String
+                            content.imageURL = NSURL(string: imageFile.url!)
                             
-                            
-                            let teste : FBSDKShareDialog = FBSDKShareDialog()
-                            teste.shareContent = content
-                            teste.show()
+                            let shareDialog : FBSDKShareDialog = FBSDKShareDialog()
+                            shareDialog.mode = FBSDKShareDialogMode.FeedWeb
+                            shareDialog.shareContent = content
+                            shareDialog.show()
                             
                             self.navigationController?.popViewControllerAnimated(true)
                             
@@ -204,159 +194,83 @@ class ReviewVC: UIViewController {
         
     }
     
-    
-    
-    
     @IBAction func sliderControl(sender: UISlider) {
-        
         let currentValue = roundf(sender.value / 0.2) * 0.25
-        
         updatedLabel.text = String(format: "%.2f", currentValue)
-        
         self.floatRatingView.rating = Float(currentValue)
-        
     }
     
-    
-    
-    
-    
-    
-    
+
     func findReview (review: PFObject?) -> Bool {
-        
-        
-        
         let query = PFQuery(className:"Review")
-        
         query.whereKey("user", equalTo:user!)
-        
         query.whereKey("beer", equalTo:review!)
         
-        print(review)
-        
         self.state = false
-        
-        
         
         query.findObjectsInBackgroundWithBlock {
             
             (objects: [PFObject]?, error: NSError?) -> Void in
-            
-            
-            
+
             if error == nil {
-                
+     
                 // The find succeeded.
-                
                 print("Successfully retrieved \(objects!.count) scores.")
                 
                 if objects!.count > 0 {
                     
                     self.reviewObject = objects![0]
-                    
-                    
-                    
                     self.commentText.text = self.reviewObject["comment"] as? String
-                    
                     self.floatRatingView.rating = (self.reviewObject["rating"] as? Float)!
-                    
                     self.sliderControl.value = (self.reviewObject["rating"] as? Float)!
-                    
                     self.updatedLabel.text = String(self.reviewObject["rating"])
-                    
-                    
-                    
                     self.state = true
-                    
                     print(self.state)
                     
                 }
-                
             }
-            
         }
         
         return state
-        
     }
     
     //
     
-    
-    
-    
-    
-    
-    
-    
-    
+
     // update informations
     
     func saveData(beer: PFObject?){
-        
-        
-        
         reviewObject["user"] = user
-        
         reviewObject["beer"] = currentObjectReview
-        
         reviewObject["rating"] = Double(updatedLabel.text!)
-        
         reviewObject["comment"] = commentText.text
-        
         reviewObject.saveInBackgroundWithBlock {
             
             (success: Bool, error: NSError?) -> Void in
-            
             if (success) {
-                
                 // The object has been saved.
-                
                 self.state = true
-                
             }else{
-                
                 print("Erro ao salvar dados")
-                
             }
-            
-            
-            
         }
-        
-        
-        
     }
     
     
     func textFieldDidBeginEditing(textField: UITextField) {
         self.textFieldHeightSize =  textField.frame.origin.y
-        
-        
         //var x = textField.frame.origin.x;
-        
         //NSLog("x Position is :%f , y position is : %f",x,y);
     }
 
     
-    
-    
-    
     // update informations
-    
     func updateData(review: PFObject?){
-        
         reviewObject["user"] = self.user
-        
         reviewObject["beer"] = self.currentObjectReview
-        
         reviewObject["rating"] = Double(self.updatedLabel.text!)
-        
         reviewObject["comment"] = self.commentText.text
-        
         reviewObject.saveInBackground()
-        
     }
 
 }
