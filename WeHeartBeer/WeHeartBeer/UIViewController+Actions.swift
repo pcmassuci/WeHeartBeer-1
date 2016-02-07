@@ -76,7 +76,8 @@ extension UIViewController{
 
         
     }
-    func loadingView(){
+    
+        func loadingView(){
         
     }
     

@@ -20,9 +20,9 @@ class BreweryDAO {
     typealias FindObjectsCompletionHandler = (brewery:[Brewery]?,success:Bool) -> Void
     typealias FindObjIDCompletionHandler = (brewery:Brewery?,success:Bool) -> Void
     typealias RegisterBeerCH = (success:Bool)->Void
-
+    typealias CheckBrewery = (exist:Bool,success:Bool) -> Void
     
-    static func createBrewery(name:String, contact:String,local:String,address:String, completionHandler: createBreweryCH){
+    static func createBrewery(name:String, contact:String?,local:String,address:String?, completionHandler: createBreweryCH){
 
         self.findBrewery(name) { (brewery, success) -> Void in
             print(brewery?.count)
@@ -109,6 +109,20 @@ class BreweryDAO {
             
             
             
+        }
+    }
+    
+    
+static func checkBrewery(name:String, ch:CheckBrewery){
+        let query = PFQuery(className:"Brewery")
+        query.whereKey("name", equalTo:name)
+        query.getFirstObjectInBackgroundWithBlock { (object, error) -> Void in
+            if object == nil{
+                ch(exist: false, success: true)
+                
+            }else{
+                ch(exist: true, success: true)
+            }
         }
     }
 }
