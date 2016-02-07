@@ -51,7 +51,8 @@ class BeerProfileVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-       
+       //self.listOfBeers.delegate = self
+        //self.listOfBeers.dataSource = self
         
         let screenHeight = UIScreen.mainScreen().bounds.height
         print(screenHeight)
@@ -122,7 +123,7 @@ class BeerProfileVC: UIViewController {
         self.name.text = beer!.objectForKey("name") as? String
         self.style.text = beer!.objectForKey("Style") as? String
         
-        let abv = beer!.objectForKey("ABV") as? String
+        let abv = beer!.objectForKey("ABV") as! String
         self.ibv.text = "\(abv)%"
         
         
@@ -205,6 +206,7 @@ extension BeerProfileVC: UITableViewDataSource{
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if self.rev != nil {
+            print(self.rev?.count)
            return (self.rev?.count)!
         }
         
@@ -242,7 +244,7 @@ extension BeerProfileVC{
                 }
                 }
                 print("meus rev:\(self.rev)")
-                //self.reviewsTable.reloadData()
+                self.reviewsTable.reloadData()
             }
         }
     }
