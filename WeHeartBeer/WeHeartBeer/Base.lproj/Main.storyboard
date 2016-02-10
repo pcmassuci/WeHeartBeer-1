@@ -620,7 +620,7 @@
                                     <rect key="frame" x="254" y="394" width="36" height="38"/>
                                 </variation>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="40" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Me-bK-kMW">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Me-bK-kMW">
                                 <rect key="frame" x="-42" y="-21" width="42" height="21"/>
                                 <fontDescription key="fontDescription" name="Lato-Heavy" family="Lato" pointSize="32"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -2278,7 +2278,7 @@
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Destaque" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YYu-H8-ZGg">
                                                     <rect key="frame" x="87" y="0.0" width="152" height="283"/>
                                                     <color key="backgroundColor" red="0.95294117649999999" green="0.59999999999999998" blue="0.070588235289999995" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="39"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="36"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                     <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
@@ -2387,15 +2387,22 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Challenge" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2jm-bd-Rq3" userLabel="challengeLabel">
                                 <rect key="frame" x="639" y="0.0" width="174" height="283"/>
                                 <color key="backgroundColor" red="0.72745028410000001" green="0.72745028410000001" blue="0.72745028410000001" alpha="0.80400126689999996" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" name="Lato-Medium" family="Lato" pointSize="39"/>
+                                <fontDescription key="fontDescription" name="Lato-Medium" family="Lato" pointSize="36"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
+                                <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="0.0" y="411" width="400" height="47"/>
+                                </variation>
                             </label>
+                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="g7m-8e-DM9">
+                                <rect key="frame" x="-19" y="-18" width="39" height="37"/>
+                            </pageControl>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="WYI-k5-MYX" firstAttribute="leading" secondItem="K2f-5d-tao" secondAttribute="leadingMargin" constant="-20" id="0g9-d3-G8H"/>
                             <constraint firstAttribute="trailingMargin" secondItem="WYI-k5-MYX" secondAttribute="trailing" id="2OL-Bw-WGC"/>
+                            <constraint firstItem="g7m-8e-DM9" firstAttribute="centerX" secondItem="WYI-k5-MYX" secondAttribute="centerX" id="Ddk-wZ-4te"/>
                             <constraint firstItem="qNt-ch-jXF" firstAttribute="top" secondItem="WYI-k5-MYX" secondAttribute="bottom" constant="-33" id="HQI-vQ-Ihv">
                                 <variation key="heightClass=regular-widthClass=compact" constant="0.0"/>
                             </constraint>
@@ -2411,6 +2418,9 @@
                                 <variation key="heightClass=regular-widthClass=compact" constant="20"/>
                             </constraint>
                             <constraint firstItem="qNt-ch-jXF" firstAttribute="centerX" secondItem="K2f-5d-tao" secondAttribute="centerX" id="UQz-bF-MJ8"/>
+                            <constraint firstItem="g7m-8e-DM9" firstAttribute="centerY" secondItem="WYI-k5-MYX" secondAttribute="centerY" id="UaB-yi-bJv">
+                                <variation key="heightClass=regular-widthClass=compact" constant="90"/>
+                            </constraint>
                             <constraint firstItem="WYI-k5-MYX" firstAttribute="top" secondItem="KcG-9G-QfJ" secondAttribute="bottom" constant="26" id="UaQ-Gz-6mY">
                                 <variation key="heightClass=regular-widthClass=compact" constant="0.0"/>
                             </constraint>
@@ -2437,6 +2447,7 @@
                                 <exclude reference="WYI-k5-MYX"/>
                                 <exclude reference="qNt-ch-jXF"/>
                                 <exclude reference="2jm-bd-Rq3"/>
+                                <exclude reference="g7m-8e-DM9"/>
                             </mask>
                             <mask key="constraints">
                                 <exclude reference="0g9-d3-G8H"/>
@@ -2449,16 +2460,18 @@
                                 <exclude reference="gTZ-Pw-ALM"/>
                                 <exclude reference="m5h-gA-p7z"/>
                                 <exclude reference="yc5-UF-mQJ"/>
-                                <exclude reference="dxg-ew-JMW"/>
-                                <exclude reference="ejd-C9-m7h"/>
-                                <exclude reference="faG-GR-bMd"/>
-                                <exclude reference="qHt-dg-hEC"/>
                                 <exclude reference="HQI-vQ-Ihv"/>
                                 <exclude reference="L83-XP-2Vs"/>
                                 <exclude reference="TB4-GN-c6T"/>
                                 <exclude reference="UQz-bF-MJ8"/>
                                 <exclude reference="ZSe-hB-bbI"/>
                                 <exclude reference="snI-3w-D6O"/>
+                                <exclude reference="dxg-ew-JMW"/>
+                                <exclude reference="ejd-C9-m7h"/>
+                                <exclude reference="faG-GR-bMd"/>
+                                <exclude reference="qHt-dg-hEC"/>
+                                <exclude reference="Ddk-wZ-4te"/>
+                                <exclude reference="UaB-yi-bJv"/>
                                 <exclude reference="Psj-qY-Pun"/>
                             </mask>
                         </variation>
@@ -2467,6 +2480,7 @@
                                 <include reference="WYI-k5-MYX"/>
                                 <include reference="qNt-ch-jXF"/>
                                 <include reference="2jm-bd-Rq3"/>
+                                <include reference="g7m-8e-DM9"/>
                             </mask>
                             <mask key="constraints">
                                 <exclude reference="0g9-d3-G8H"/>
@@ -2479,16 +2493,18 @@
                                 <exclude reference="gTZ-Pw-ALM"/>
                                 <include reference="m5h-gA-p7z"/>
                                 <exclude reference="yc5-UF-mQJ"/>
-                                <exclude reference="dxg-ew-JMW"/>
-                                <include reference="ejd-C9-m7h"/>
-                                <exclude reference="faG-GR-bMd"/>
-                                <include reference="qHt-dg-hEC"/>
                                 <include reference="HQI-vQ-Ihv"/>
                                 <include reference="L83-XP-2Vs"/>
                                 <include reference="TB4-GN-c6T"/>
                                 <exclude reference="UQz-bF-MJ8"/>
                                 <include reference="ZSe-hB-bbI"/>
                                 <include reference="snI-3w-D6O"/>
+                                <exclude reference="dxg-ew-JMW"/>
+                                <include reference="ejd-C9-m7h"/>
+                                <exclude reference="faG-GR-bMd"/>
+                                <include reference="qHt-dg-hEC"/>
+                                <include reference="Ddk-wZ-4te"/>
+                                <include reference="UaB-yi-bJv"/>
                                 <include reference="Psj-qY-Pun"/>
                             </mask>
                         </variation>
