@@ -2396,6 +2396,8 @@
                             </label>
                             <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="g7m-8e-DM9">
                                 <rect key="frame" x="-19" y="-18" width="39" height="37"/>
+                                <color key="pageIndicatorTintColor" red="1" green="0.66666666669999997" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="currentPageIndicatorTintColor" red="0.84705882349999995" green="0.43529411759999997" blue="0.047058823530000002" alpha="1" colorSpace="calibratedRGB"/>
                             </pageControl>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -2419,7 +2421,7 @@
                             </constraint>
                             <constraint firstItem="qNt-ch-jXF" firstAttribute="centerX" secondItem="K2f-5d-tao" secondAttribute="centerX" id="UQz-bF-MJ8"/>
                             <constraint firstItem="g7m-8e-DM9" firstAttribute="centerY" secondItem="WYI-k5-MYX" secondAttribute="centerY" id="UaB-yi-bJv">
-                                <variation key="heightClass=regular-widthClass=compact" constant="90"/>
+                                <variation key="heightClass=regular-widthClass=compact" constant="70"/>
                             </constraint>
                             <constraint firstItem="WYI-k5-MYX" firstAttribute="top" secondItem="KcG-9G-QfJ" secondAttribute="bottom" constant="26" id="UaQ-Gz-6mY">
                                 <variation key="heightClass=regular-widthClass=compact" constant="0.0"/>
@@ -5849,8 +5851,8 @@
         <image name="user_ativo" width="37" height="37"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="cVS-cp-fur"/>
-        <segue reference="i0O-fM-R0U"/>
+        <segue reference="ZKS-H1-FU2"/>
         <segue reference="gJz-WE-NEo"/>
+        <segue reference="i0O-fM-R0U"/>
     </inferredMetricsTieBreakers>
 </document>
