@@ -60,7 +60,7 @@ class UserProfileVC: UIViewController {
             self.navigationItem.hidesBackButton =  true
             self.navigationController?.navigationBar.barTintColor = UIColor(red: 250.0/255.0, green: 170.0/255.0, blue: 0.0/255.0, alpha: 1.0)
             self.navigationController?.navigationBar.tintColor = UIColor.whiteColor()
-                
+            self.navigationController?.navigationBar.hidden = true
                 
             print("deu certo userprofile")
                   //  getFBAppFriends(nil, failureHandler: {(error)

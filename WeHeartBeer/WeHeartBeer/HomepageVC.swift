@@ -43,6 +43,19 @@ class HomepageVC: UIViewController, UIPageViewControllerDelegate {
         
         //view.translatesAutoresizingMaskIntoConstraints = true
         
+        let screenHeight = UIScreen.mainScreen().bounds.height
+        print(screenHeight)
+        
+        switch screenHeight {
+        case 480:
+            
+            self.challengeName.font = UIFont(name: "Lato", size: 24)
+            
+        default: // rest of screen sizes
+            break
+        }
+        
+
         
     }
     
@@ -100,6 +113,7 @@ extension HomepageVC: UICollectionViewDataSource{
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("colCell", forIndexPath: indexPath) as! HomeCollectionViewCell
         let control = self.images.count
         if control != 0 {
+            
             cell.featureImage.image = self.images[indexPath.row]
             cell.layoutIfNeeded()
         }

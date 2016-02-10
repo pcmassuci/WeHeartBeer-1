@@ -69,8 +69,8 @@ extension UserBeersVC: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let label: UILabel = UILabel()
-        label.text = "Cervejas"
-        label.textColor = UIColor.blackColor()
+        label.text = "      Cervejas"
+        label.tintColor = UIColor.whiteColor()
         label.backgroundColor = UIColor(red: 255.0/255.0, green: 170.0/255.0, blue: 0.0/255.0, alpha: 1.0)
         
         return label
@@ -90,25 +90,47 @@ extension UserBeersVC: UITableViewDataSource, UITableViewDelegate {
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = listOfBeers.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as! ReviewVCCell
         
- 
+        
  
         
         if self.beers[indexPath.row].objectForKey("Photo") != nil{
             let imageFile = self.beers[indexPath.row].objectForKey("Photo") as! PFFile
             ImageDAO.getImageFromParse(imageFile, ch: { (image, success) -> Void in
                 if success{
+                    
                     cell.imageBeersFromUser.image = image
+                    
+                    
+                    cell.imageBeersFromUser.layer.borderWidth = 1
+                    cell.imageBeersFromUser.layer.masksToBounds = false
+                    cell.imageBeersFromUser.layer.borderColor = UIColor.blackColor().CGColor
+                    cell.imageBeersFromUser.clipsToBounds = true
+                    cell.imageBeersFromUser.layer.cornerRadius = cell.imageBeersFromUser.frame.height/2
+
                 
                 }else{
                     print("sem imagem")
-                    cell.imageBeersFromUser.image = nil
+                    
+                    
+                    cell.imageBeersFromUser.layer.borderWidth = 1
+                    cell.imageBeersFromUser.layer.masksToBounds = false
+                    cell.imageBeersFromUser.layer.borderColor = UIColor.blackColor().CGColor
+                    cell.imageBeersFromUser.clipsToBounds = true
+                    cell.imageBeersFromUser.image = UIImage(named: "caneca.png")
                     
                 }
             })
             
         }else{
             print("erro na imagem")
-            cell.imageBeersFromUser.image = nil
+            
+            
+            cell.imageBeersFromUser.layer.borderWidth = 0
+            cell.imageBeersFromUser.layer.masksToBounds = false
+            cell.imageBeersFromUser.layer.borderColor = UIColor.blackColor().CGColor
+            cell.imageBeersFromUser.clipsToBounds = true
+            cell.imageBeersFromUser.image = UIImage(named:"caneca.png")
+
         }
         
         
