@@ -27,7 +27,6 @@ class ChallengeVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.challengeImage.image = UIImage(named:"now-pouring")
         //self.view.addSubview(challengeImage)
         
         challengeTitle.text = "Challenge"
