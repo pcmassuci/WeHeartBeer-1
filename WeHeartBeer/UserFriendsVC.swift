@@ -43,7 +43,7 @@ class UserFriendsVC: UIViewController {
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         let usr = User.currentUser()
-        self.loadingView(true)
+        //self.loadingView(true)
         self.requests.removeAll()
         self.waitingFriends.removeAll()
         self.myFriends.removeAll()

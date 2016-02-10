@@ -154,9 +154,9 @@
 		63F668AB1BD9165800172050 /* ChallengeVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ChallengeVC.swift; path = WeHeartBeer/ChallengeVC.swift; sourceTree = "<group>"; };
 		6701DE091C4686F600F25FC2 /* UserAddAppFriendsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserAddAppFriendsVC.swift; sourceTree = "<group>"; };
 		6701DE0B1C46943400F25FC2 /* UserInviteFBFriendsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserInviteFBFriendsVC.swift; sourceTree = "<group>"; };
-		6701DE0E1C46949600F25FC2 /* UserInviteCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserInviteCell.swift; path = WeHeartBeer/UserInviteCell.swift; sourceTree = "<group>"; };
-		6701DE101C4694AF00F25FC2 /* UserAppCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserAppCell.swift; path = WeHeartBeer/UserAppCell.swift; sourceTree = "<group>"; };
-		6701DE121C4694C500F25FC2 /* UserFriendsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserFriendsCell.swift; path = WeHeartBeer/UserFriendsCell.swift; sourceTree = "<group>"; };
+		6701DE0E1C46949600F25FC2 /* UserInviteCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserInviteCell.swift; sourceTree = "<group>"; };
+		6701DE101C4694AF00F25FC2 /* UserAppCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserAppCell.swift; sourceTree = "<group>"; };
+		6701DE121C4694C500F25FC2 /* UserFriendsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserFriendsCell.swift; sourceTree = "<group>"; };
 		67155D451C46E60000A63B06 /* FBUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FBUser.swift; sourceTree = "<group>"; };
 		672C62F81BEA5E7200E667C8 /* BreweryVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BreweryVC.swift; path = WeHeartBeer/BreweryVC.swift; sourceTree = "<group>"; };
 		672C62FA1BEAD2F700E667C8 /* BreweryVCCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BreweryVCCell.swift; path = ../BreweryVCCell.swift; sourceTree = "<group>"; };
@@ -345,9 +345,6 @@
 		6701DE081C4686AC00F25FC2 /* User */ = {
 			isa = PBXGroup;
 			children = (
-				6701DE121C4694C500F25FC2 /* UserFriendsCell.swift */,
-				6701DE101C4694AF00F25FC2 /* UserAppCell.swift */,
-				6701DE0E1C46949600F25FC2 /* UserInviteCell.swift */,
 				85FC93791C190B9400CF59C7 /* UserBeersVC.swift */,
 				85FC937D1C190BCE00CF59C7 /* UserTrophiesVC.swift */,
 				6701DE0B1C46943400F25FC2 /* UserInviteFBFriendsVC.swift */,
@@ -555,6 +552,9 @@
 				672C62FA1BEAD2F700E667C8 /* BreweryVCCell.swift */,
 				D246342C1BEBAFBF00CF605D /* FloatRatingView.swift */,
 				63E504B41C45490200671168 /* ReviewVCCell.swift */,
+				6701DE121C4694C500F25FC2 /* UserFriendsCell.swift */,
+				6701DE101C4694AF00F25FC2 /* UserAppCell.swift */,
+				6701DE0E1C46949600F25FC2 /* UserInviteCell.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";

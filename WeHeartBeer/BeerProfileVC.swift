@@ -133,7 +133,7 @@ class BeerProfileVC: UIViewController {
         if beer?.objectForKey("ibu") == nil{
             self.ibuLabel.text = "NC"
         }else{
-          let  ibu = beer?.objectForKey("ubu") as! String
+          let  ibu = beer?.objectForKey("ibu") as! String
             self.ibuLabel.text = ibu
         }
         

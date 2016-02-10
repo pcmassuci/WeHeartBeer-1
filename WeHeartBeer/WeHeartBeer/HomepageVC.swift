@@ -58,15 +58,6 @@ class HomepageVC: UIViewController, UIPageViewControllerDelegate {
         performSegueWithIdentifier("challengeSegue", sender: nil)
     }
     
-    // Closure to load local images with UIImage.named
-    let imageLoader: ((imageView: UIImageView, image : UIImage, completion: (newImage: Bool) -> ()) -> ()) = {
-        (imageView: UIImageView, image : UIImage, completion: (newImage: Bool) -> ()) in
-        
-        imageView.image = image
-        completion(newImage: imageView.image != nil)
-    }
-    
-    
     
     
     // MARK: IBActions
@@ -118,7 +109,12 @@ extension HomepageVC: UICollectionViewDataSource{
 
 extension HomepageVC: UICollectionViewDelegateFlowLayout {
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-        performSegueWithIdentifier("segueDestaqueBeer", sender: indexPath.row)
+        
+        if self.features.count != 0 {
+            performSegueWithIdentifier("segueDestaqueBeer", sender: indexPath.row)
+            
+        }
+        
     }
     
     func collectionView(collectionView: UICollectionView,
