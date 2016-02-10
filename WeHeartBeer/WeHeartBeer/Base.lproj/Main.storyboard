@@ -4178,9 +4178,6 @@
                                 <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
-                                <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="20" y="191" width="51" height="20"/>
-                                </variation>
                             </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zVV-ST-Mzz" userLabel="nameInput">
                                 <rect key="frame" x="-25" y="-30" width="97" height="30"/>
@@ -4203,9 +4200,6 @@
                                 <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
-                                <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="20" y="352" width="162" height="20"/>
-                                </variation>
                             </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Yzp-Kl-yx4" userLabel="abvInput">
                                 <rect key="frame" x="-25" y="-30" width="97" height="30"/>
@@ -4232,18 +4226,12 @@
                                 <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
-                                <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="70" y="377" width="20" height="21"/>
-                                </variation>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="IBU:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UJD-3r-zfo" userLabel="ibu">
                                 <rect key="frame" x="-42" y="-21" width="42" height="21"/>
                                 <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
-                                <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="20" y="432" width="32" height="21"/>
-                                </variation>
                             </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dEG-3f-l3O" userLabel="ibuInput">
                                 <rect key="frame" x="-25" y="-30" width="97" height="30"/>
@@ -4271,7 +4259,7 @@
                                 <constraints>
                                     <constraint firstAttribute="width" constant="223" id="9xX-kQ-nBg"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="20"/>
+                                <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="18"/>
                                 <inset key="contentEdgeInsets" minX="10" minY="10" maxX="10" maxY="10"/>
                                 <state key="normal" title="Salvar Cerveja">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -4283,7 +4271,7 @@
                                 </variation>
                                 <variation key="heightClass=regular-widthClass=compact">
                                     <mask key="constraints">
-                                        <include reference="9xX-kQ-nBg"/>
+                                        <exclude reference="9xX-kQ-nBg"/>
                                     </mask>
                                 </variation>
                                 <connections>
@@ -4293,15 +4281,12 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rrt-0S-dRP">
                                 <rect key="frame" x="-23" y="-15" width="46" height="30"/>
                                 <color key="backgroundColor" red="0.98039215686274506" green="0.66666666666666663" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="20"/>
+                                <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="18"/>
                                 <inset key="contentEdgeInsets" minX="10" minY="10" maxX="10" maxY="10"/>
                                 <size key="titleShadowOffset" width="2.2250738585072014e-308" height="0.0"/>
                                 <state key="normal" title="Cancelar">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
-                                <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="20" y="532" width="100" height="44"/>
-                                </variation>
                                 <connections>
                                     <action selector="cancelButton:" destination="0KM-tW-l55" eventType="touchUpInside" id="tuC-zV-kkc"/>
                                 </connections>
@@ -4313,6 +4298,7 @@
                                 <variation key="heightClass=regular-widthClass=compact" constant="0.0"/>
                             </constraint>
                             <constraint firstAttribute="leadingMargin" secondItem="zVV-ST-Mzz" secondAttribute="leading" id="18d-kN-seZ"/>
+                            <constraint firstItem="ePU-fG-C9x" firstAttribute="width" secondItem="EIQ-I9-b1x" secondAttribute="width" multiplier="0.4" id="6dk-PT-7ow"/>
                             <constraint firstItem="FHO-pg-PlN" firstAttribute="top" secondItem="9XX-Aw-7BD" secondAttribute="bottom" constant="8" id="9Yu-wT-JD7">
                                 <variation key="heightClass=regular-widthClass=compact" constant="0.0"/>
                             </constraint>
@@ -4334,12 +4320,13 @@
                             <constraint firstAttribute="leadingMargin" secondItem="Yzp-Kl-yx4" secondAttribute="leading" id="Fur-9v-TO3"/>
                             <constraint firstAttribute="leadingMargin" secondItem="Rrt-0S-dRP" secondAttribute="leading" id="HF6-v3-C8a"/>
                             <constraint firstItem="Rrt-0S-dRP" firstAttribute="top" secondItem="dEG-3f-l3O" secondAttribute="bottom" constant="95" id="JP5-LY-RhG">
-                                <variation key="heightClass=regular-widthClass=compact" constant="50"/>
+                                <variation key="heightClass=regular-widthClass=compact" constant="35"/>
                             </constraint>
                             <constraint firstAttribute="trailingMargin" secondItem="FHO-pg-PlN" secondAttribute="trailing" id="Jz9-i0-g0o"/>
                             <constraint firstItem="dGl-YJ-yIB" firstAttribute="leading" secondItem="EIQ-I9-b1x" secondAttribute="leadingMargin" constant="-4" id="Lzn-Iu-V9r">
                                 <variation key="heightClass=regular-widthClass=compact" constant="0.0"/>
                             </constraint>
+                            <constraint firstItem="Rrt-0S-dRP" firstAttribute="width" secondItem="EIQ-I9-b1x" secondAttribute="width" multiplier="0.25" id="MGE-Iq-nh9"/>
                             <constraint firstAttribute="leadingMargin" secondItem="xAy-Rj-4DQ" secondAttribute="leading" id="TAx-UA-BSA"/>
                             <constraint firstItem="9XX-Aw-7BD" firstAttribute="top" secondItem="zVV-ST-Mzz" secondAttribute="bottom" constant="39" id="TON-N4-cy2">
                                 <variation key="heightClass=regular-widthClass=compact" constant="30"/>
@@ -4387,33 +4374,35 @@
                                 <exclude reference="Rrt-0S-dRP"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="9Yu-wT-JD7"/>
-                                <exclude reference="Jz9-i0-g0o"/>
-                                <exclude reference="rWn-cF-AYb"/>
-                                <exclude reference="Fur-9v-TO3"/>
-                                <exclude reference="u9B-EE-KkW"/>
-                                <exclude reference="0v0-Se-eHe"/>
-                                <exclude reference="9cU-U9-9fL"/>
-                                <exclude reference="18d-kN-seZ"/>
-                                <exclude reference="TtE-a4-34P"/>
-                                <exclude reference="l2j-zZ-hTQ"/>
-                                <exclude reference="HF6-v3-C8a"/>
-                                <exclude reference="JP5-LY-RhG"/>
-                                <exclude reference="qNY-nZ-Rka"/>
-                                <exclude reference="za8-Hx-Fc2"/>
-                                <exclude reference="9iH-WY-6Gk"/>
-                                <exclude reference="TON-N4-cy2"/>
-                                <exclude reference="Dld-F8-OCg"/>
-                                <exclude reference="zGu-Ja-Rgd"/>
-                                <exclude reference="csq-Dk-AA1"/>
-                                <exclude reference="zVo-NL-rgU"/>
-                                <exclude reference="Ash-uo-1Xn"/>
-                                <exclude reference="Lzn-Iu-V9r"/>
                                 <exclude reference="BSW-e5-o8A"/>
                                 <exclude reference="Zbp-tg-Ong"/>
                                 <exclude reference="zXz-IL-uSZ"/>
                                 <exclude reference="TAx-UA-BSA"/>
                                 <exclude reference="mj8-Mi-kbI"/>
+                                <exclude reference="18d-kN-seZ"/>
+                                <exclude reference="TtE-a4-34P"/>
+                                <exclude reference="l2j-zZ-hTQ"/>
+                                <exclude reference="9iH-WY-6Gk"/>
+                                <exclude reference="TON-N4-cy2"/>
+                                <exclude reference="9Yu-wT-JD7"/>
+                                <exclude reference="Jz9-i0-g0o"/>
+                                <exclude reference="rWn-cF-AYb"/>
+                                <exclude reference="Ash-uo-1Xn"/>
+                                <exclude reference="Lzn-Iu-V9r"/>
+                                <exclude reference="Fur-9v-TO3"/>
+                                <exclude reference="u9B-EE-KkW"/>
+                                <exclude reference="Dld-F8-OCg"/>
+                                <exclude reference="zGu-Ja-Rgd"/>
+                                <exclude reference="csq-Dk-AA1"/>
+                                <exclude reference="zVo-NL-rgU"/>
+                                <exclude reference="0v0-Se-eHe"/>
+                                <exclude reference="9cU-U9-9fL"/>
+                                <exclude reference="HF6-v3-C8a"/>
+                                <exclude reference="JP5-LY-RhG"/>
+                                <exclude reference="MGE-Iq-nh9"/>
+                                <exclude reference="6dk-PT-7ow"/>
+                                <exclude reference="qNY-nZ-Rka"/>
+                                <exclude reference="za8-Hx-Fc2"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
@@ -4432,42 +4421,49 @@
                                 <include reference="Rrt-0S-dRP"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="9Yu-wT-JD7"/>
-                                <include reference="Jz9-i0-g0o"/>
-                                <include reference="rWn-cF-AYb"/>
-                                <include reference="Fur-9v-TO3"/>
-                                <include reference="u9B-EE-KkW"/>
-                                <include reference="0v0-Se-eHe"/>
-                                <include reference="9cU-U9-9fL"/>
-                                <include reference="18d-kN-seZ"/>
-                                <include reference="TtE-a4-34P"/>
-                                <include reference="l2j-zZ-hTQ"/>
-                                <include reference="HF6-v3-C8a"/>
-                                <include reference="JP5-LY-RhG"/>
-                                <include reference="qNY-nZ-Rka"/>
-                                <include reference="za8-Hx-Fc2"/>
-                                <include reference="9iH-WY-6Gk"/>
-                                <include reference="TON-N4-cy2"/>
-                                <include reference="Dld-F8-OCg"/>
-                                <include reference="zGu-Ja-Rgd"/>
-                                <include reference="csq-Dk-AA1"/>
-                                <include reference="zVo-NL-rgU"/>
-                                <include reference="Ash-uo-1Xn"/>
-                                <include reference="Lzn-Iu-V9r"/>
                                 <include reference="BSW-e5-o8A"/>
                                 <include reference="Zbp-tg-Ong"/>
                                 <include reference="zXz-IL-uSZ"/>
                                 <include reference="TAx-UA-BSA"/>
                                 <include reference="mj8-Mi-kbI"/>
+                                <include reference="18d-kN-seZ"/>
+                                <include reference="TtE-a4-34P"/>
+                                <include reference="l2j-zZ-hTQ"/>
+                                <include reference="9iH-WY-6Gk"/>
+                                <include reference="TON-N4-cy2"/>
+                                <include reference="9Yu-wT-JD7"/>
+                                <include reference="Jz9-i0-g0o"/>
+                                <include reference="rWn-cF-AYb"/>
+                                <include reference="Ash-uo-1Xn"/>
+                                <include reference="Lzn-Iu-V9r"/>
+                                <include reference="Fur-9v-TO3"/>
+                                <include reference="u9B-EE-KkW"/>
+                                <include reference="Dld-F8-OCg"/>
+                                <include reference="zGu-Ja-Rgd"/>
+                                <include reference="csq-Dk-AA1"/>
+                                <include reference="zVo-NL-rgU"/>
+                                <include reference="0v0-Se-eHe"/>
+                                <include reference="9cU-U9-9fL"/>
+                                <include reference="HF6-v3-C8a"/>
+                                <include reference="JP5-LY-RhG"/>
+                                <include reference="MGE-Iq-nh9"/>
+                                <include reference="6dk-PT-7ow"/>
+                                <include reference="qNY-nZ-Rka"/>
+                                <include reference="za8-Hx-Fc2"/>
                             </mask>
                         </variation>
                     </view>
                     <navigationItem key="navigationItem" id="BFh-z2-PR8"/>
                     <connections>
+                        <outlet property="IBULabel" destination="UJD-3r-zfo" id="AGO-4B-j7s"/>
                         <outlet property="abv" destination="Yzp-Kl-yx4" id="IFc-4F-m5T"/>
+                        <outlet property="abvLabel" destination="dGl-YJ-yIB" id="lzs-5J-8PQ"/>
                         <outlet property="ibu" destination="dEG-3f-l3O" id="UxG-aT-zHs"/>
+                        <outlet property="introText" destination="ggR-Jd-Klp" id="Drq-ny-zZD"/>
                         <outlet property="nameBeer" destination="zVV-ST-Mzz" id="qIl-0h-r0K"/>
+                        <outlet property="nameLabel" destination="xAy-Rj-4DQ" id="KsO-SN-Dlf"/>
                         <outlet property="style" destination="FHO-pg-PlN" id="eaO-3v-TdL"/>
+                        <outlet property="styleLabel" destination="9XX-Aw-7BD" id="wMS-1G-4Rz"/>
                         <segue destination="VcN-tL-zUt" kind="show" identifier="successCreate" id="WFq-x6-VBz"/>
                     </connections>
                 </viewController>
