@@ -9,6 +9,12 @@
 import Foundation
 import UIKit
 
-class ConfigVC: UIViewController {
+class ConfigVC: UITableViewController {
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        
+    }
     
 }

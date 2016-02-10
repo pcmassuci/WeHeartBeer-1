@@ -97,6 +97,7 @@
 		8529AFFC1C10787800A0AAC3 /* ListHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8529AFFB1C10787800A0AAC3 /* ListHeaderCell.swift */; };
 		8529E59B1C467DFD00433054 /* MoreVCCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8529E59A1C467DFD00433054 /* MoreVCCell.swift */; };
 		853771731C67BF9F0054B7FB /* tintBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853771721C67BF9E0054B7FB /* tintBar.swift */; };
+		853771751C6BC5C20054B7FB /* NavConfigVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 853771741C6BC5C20054B7FB /* NavConfigVC.swift */; };
 		854542EC1C105F1900AC2A0B /* ReviewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 854542EB1C105F1900AC2A0B /* ReviewVC.swift */; };
 		854AAC8E1BEB8CCE002F405B /* SearchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 854AAC8D1BEB8CCE002F405B /* SearchVC.swift */; };
 		854AAC901BEB8FAA002F405B /* ResultsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 854AAC8F1BEB8FAA002F405B /* ResultsTableViewCell.swift */; };
@@ -241,6 +242,7 @@
 		8529AFFB1C10787800A0AAC3 /* ListHeaderCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListHeaderCell.swift; sourceTree = "<group>"; };
 		8529E59A1C467DFD00433054 /* MoreVCCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoreVCCell.swift; sourceTree = "<group>"; };
 		853771721C67BF9E0054B7FB /* tintBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = tintBar.swift; sourceTree = "<group>"; };
+		853771741C6BC5C20054B7FB /* NavConfigVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavConfigVC.swift; sourceTree = "<group>"; };
 		854542EB1C105F1900AC2A0B /* ReviewVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReviewVC.swift; sourceTree = "<group>"; };
 		854AAC8D1BEB8CCE002F405B /* SearchVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchVC.swift; sourceTree = "<group>"; };
 		854AAC8F1BEB8FAA002F405B /* ResultsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultsTableViewCell.swift; sourceTree = "<group>"; };
@@ -331,6 +333,7 @@
 				85C9957D1C45239400EBEEBF /* ConfigVC.swift */,
 				63F668AB1BD9165800172050 /* ChallengeVC.swift */,
 				851EEE191C4E6721008FF6C5 /* MoreNavContainerVC.swift */,
+				853771741C6BC5C20054B7FB /* NavConfigVC.swift */,
 				85C9957B1C45230900EBEEBF /* MoreVC.swift */,
 				851EEE171C4E5912008FF6C5 /* ContactVC.swift */,
 				854AAC8D1BEB8CCE002F405B /* SearchVC.swift */,
@@ -755,6 +758,7 @@
 				854AAF4F1BF0BE8F002F405B /* BeerServices.swift in Sources */,
 				8518D1511BD7B7BD00499ACA /* WeHeartBeer.xcdatamodeld in Sources */,
 				6746518C1C4D295E00C464F3 /* FriendProfileVC.swift in Sources */,
+				853771751C6BC5C20054B7FB /* NavConfigVC.swift in Sources */,
 				672C62F91BEA5E7200E667C8 /* BreweryVC.swift in Sources */,
 				D28691DE1C3D5DD300A1BCE4 /* MVCarouselPageControl.swift in Sources */,
 				673504311C501E0500D7A8A6 /* FriendsDAO.swift in Sources */,
