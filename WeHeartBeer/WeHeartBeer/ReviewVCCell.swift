@@ -23,7 +23,16 @@ class ReviewVCCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        
+        
+        imageBeersFromUser.layer.borderWidth = 1
+        imageBeersFromUser.layer.masksToBounds = false
+        imageBeersFromUser.layer.borderColor = UIColor.blackColor().CGColor
+        imageBeersFromUser.clipsToBounds = true
+        
     }
+    
+    
     
     override func setSelected(selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
