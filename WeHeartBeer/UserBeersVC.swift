@@ -116,8 +116,8 @@ extension UserBeersVC: UITableViewDataSource, UITableViewDelegate {
                     cell.imageBeersFromUser.layer.masksToBounds = false
                     cell.imageBeersFromUser.layer.borderColor = UIColor.blackColor().CGColor
                     cell.imageBeersFromUser.clipsToBounds = true
-                    cell.imageBeersFromUser.image = UIImage(contentsOfFile:"caneca.png")
-                    cell.imageBeersFromUser.layer.cornerRadius = cell.imageBeersFromUser.frame.height/2
+                    cell.imageBeersFromUser.image = UIImage(named: "caneca.png")
+                    
                 }
             })
             
@@ -125,12 +125,12 @@ extension UserBeersVC: UITableViewDataSource, UITableViewDelegate {
             print("erro na imagem")
             
             
-            cell.imageBeersFromUser.layer.borderWidth = 1
+            cell.imageBeersFromUser.layer.borderWidth = 0
             cell.imageBeersFromUser.layer.masksToBounds = false
             cell.imageBeersFromUser.layer.borderColor = UIColor.blackColor().CGColor
             cell.imageBeersFromUser.clipsToBounds = true
-            cell.imageBeersFromUser.image = UIImage(contentsOfFile:"caneca.png")
-            cell.imageBeersFromUser.layer.cornerRadius = cell.imageBeersFromUser.frame.height/2
+            cell.imageBeersFromUser.image = UIImage(named:"caneca.png")
+
         }
         
         
