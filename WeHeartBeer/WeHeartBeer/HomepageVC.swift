@@ -28,6 +28,8 @@ class HomepageVC: UIViewController, UIPageViewControllerDelegate {
     @IBOutlet weak var challengeName: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.challengeImage()
+
         
         self.tintBarUp(self.view)
         
@@ -155,6 +157,51 @@ extension HomepageVC {
         }
     }
     
-    
-    
 }
+
+
+extension HomepageVC {
+    
+    func challengeImage(){
+        ChallengeDAO.getChallengeforParse { (challenge, success) -> Void in
+            if success{
+                
+                
+                if challenge?.objectForKey("name") != nil{
+                    self.challengeName.text = challenge?.objectForKey("name") as! String
+                    print(challenge?.objectForKey("name"))
+                }
+                let getImage = challenge?.objectForKey("image") as? PFFile
+                if getImage != nil{
+                    ImageDAO.getImageFromParse(getImage, ch: { (image, success) -> Void in
+                        if success{
+                            if image != nil {
+                                self.challengeLink.image = image
+                            }else{
+                                print("Nao tem imagem")
+                                self.challengeLink.image = UIImage(named:"now-pouring")
+                                // não tem imagem
+                            }
+                            
+                        }else{
+                            //erro ao obter imagem
+                            self.challengeLink.image = UIImage(named:"now-pouring")
+                        }
+                    })
+                }else{
+                    print("imagem generica")
+                    self.challengeLink.image = UIImage(named:"now-pouring")
+                }
+                
+                
+//                
+//                
+//                self.challengeName.text = chTitle
+
+//
+    }
+    
+        }
+    }
+}
+
