@@ -31,7 +31,7 @@ class BeerProfileVC: UIViewController {
     @IBOutlet var photo: UIImageView!
     @IBOutlet weak var brewButton: UIButton!
     @IBOutlet weak var ibuLabel: UILabel!
-    
+    @IBOutlet weak var rateUser: UILabel!
     
     var idReview:Review!
     
@@ -129,6 +129,7 @@ class BeerProfileVC: UIViewController {
         self.name.text = beer!.objectForKey("name") as? String
         self.style.text = beer!.objectForKey("Style") as? String
         
+
         if beer?.objectForKey("ibu") == nil{
             self.ibuLabel.text = "NC"
         }else{
@@ -213,7 +214,7 @@ class BeerProfileVC: UIViewController {
             if let destination = segue.destinationViewController as? ReviewVC {
                 destination.currentObjectReview = (currentObject as? PFObject?)!
             }
-            }
+        }
     }
     
     
@@ -246,15 +247,39 @@ extension BeerProfileVC: UITableViewDataSource{
             if self.rev![indexPath.row].objectForKey("user") != nil{
                     
                 let user = rev![indexPath.row].objectForKey("user") as! PFUser
+
+                
+                
+                if user.objectForKey("photo") != nil{
+                    let imageUser = user.objectForKey("photo") as! PFFile
+                    ImageDAO.getImageFromParse(imageUser, ch: { (image, success) -> Void in
+                        if success{
+                           cell.userPhotoReview.image = image
+                        }else{
+                            //carregar imagem cervejaria away
+                        }
+                    })
+                }else{
+                    // imagem nula carregar imagem away
+                }
+                
              
-                cell.userPhotoReview.image = user.objectForKey("photo") as? UIImage
                 cell.userNameReview.text = user.objectForKey("name") as? String
                 cell.commentReview.text = self.rev![indexPath.row].objectForKey("comment") as? String
+                
+                let rate = self.rev![indexPath.row].objectForKey("rating") as? Float
+        
+                    if user == User.currentUser() {
+                        cell.rateReview.text =  String(format: "= %.2f", rate!)
+                        self.rateUser.text =  String(format: "= %.2f", rate!)
+                    }else{
+                        cell.rateReview.text =  String(format: "= %.2f", rate!)
+                    }
+                
             } else {
                  
             }
         }
-
         return cell
     }
     
