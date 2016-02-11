@@ -94,6 +94,7 @@
             <string>Lato-Regular</string>
             <string>Lato-Regular</string>
             <string>Lato-Regular</string>
+            <string>Lato-Regular</string>
         </mutableArray>
     </customFonts>
     <scenes>
@@ -1130,9 +1131,12 @@
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H0A-hh-aoY">
                                                     <rect key="frame" x="-42" y="-21" width="42" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
+                                                    <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                                        <rect key="frame" x="8" y="8" width="351" height="28"/>
+                                                    </variation>
                                                 </label>
                                             </subviews>
                                             <constraints>
@@ -1169,9 +1173,6 @@
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
-                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="20" y="72" width="367" height="671"/>
-                                </variation>
                                 <connections>
                                     <outlet property="dataSource" destination="6y3-Yj-Avu" id="zGj-q2-LnI"/>
                                     <outlet property="delegate" destination="6y3-Yj-Avu" id="EkU-qJ-CPd"/>
@@ -1179,14 +1180,38 @@
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="0f5-t0-Cw9" firstAttribute="top" secondItem="DLD-pL-oFR" secondAttribute="bottom" constant="52" id="KtT-ly-31z">
+                                <variation key="heightClass=regular-widthClass=compact" constant="10"/>
+                            </constraint>
+                            <constraint firstAttribute="trailingMargin" secondItem="0f5-t0-Cw9" secondAttribute="trailing" constant="-7" id="das-Fu-f2r">
+                                <variation key="heightClass=regular-widthClass=compact" constant="0.0"/>
+                            </constraint>
+                            <constraint firstAttribute="leadingMargin" secondItem="0f5-t0-Cw9" secondAttribute="leading" id="m5l-xJ-DE5"/>
+                            <constraint firstItem="bqk-DW-E5Q" firstAttribute="top" secondItem="0f5-t0-Cw9" secondAttribute="bottom" constant="57" id="y0q-pq-KqC">
+                                <variation key="heightClass=regular-widthClass=compact" constant="0.0"/>
+                            </constraint>
+                        </constraints>
                         <variation key="default">
                             <mask key="subviews">
                                 <exclude reference="0f5-t0-Cw9"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="KtT-ly-31z"/>
+                                <exclude reference="das-Fu-f2r"/>
+                                <exclude reference="m5l-xJ-DE5"/>
+                                <exclude reference="y0q-pq-KqC"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
                             <mask key="subviews">
                                 <include reference="0f5-t0-Cw9"/>
+                            </mask>
+                            <mask key="constraints">
+                                <include reference="KtT-ly-31z"/>
+                                <include reference="das-Fu-f2r"/>
+                                <include reference="m5l-xJ-DE5"/>
+                                <include reference="y0q-pq-KqC"/>
                             </mask>
                         </variation>
                     </view>
@@ -5760,8 +5785,7 @@
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="KBx-31-QlS">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
-                                <color key="backgroundColor" red="0.87843143940000001" green="0.082352943720000002" blue="0.18823531269999999" alpha="1" colorSpace="deviceRGB"/>
-                                <color key="sectionIndexBackgroundColor" red="0.87843143940000001" green="0.082352943720000002" blue="0.18823531269999999" alpha="1" colorSpace="deviceRGB"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="0i1-tb-Niu" customClass="UserAppCell" customModule="BeerLove" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -5811,9 +5835,6 @@
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
-                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="20" y="84" width="360" height="696"/>
-                                </variation>
                                 <connections>
                                     <outlet property="dataSource" destination="gPr-wX-9FK" id="fOR-9c-pUo"/>
                                     <outlet property="delegate" destination="gPr-wX-9FK" id="HIr-13-yII"/>
@@ -5821,14 +5842,36 @@
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="leadingMargin" secondItem="KBx-31-QlS" secondAttribute="leading" id="9gg-7W-3uj"/>
+                            <constraint firstItem="KBx-31-QlS" firstAttribute="top" secondItem="Vo3-Dn-U6S" secondAttribute="bottom" constant="64" id="Dea-xz-W25">
+                                <variation key="heightClass=regular-widthClass=compact" constant="0.0"/>
+                            </constraint>
+                            <constraint firstItem="Jal-qU-Y5M" firstAttribute="top" secondItem="KBx-31-QlS" secondAttribute="bottom" constant="20" id="esE-8J-Uyq">
+                                <variation key="heightClass=regular-widthClass=compact" constant="0.0"/>
+                            </constraint>
+                            <constraint firstAttribute="trailingMargin" secondItem="KBx-31-QlS" secondAttribute="trailing" id="u9g-8P-j3l"/>
+                        </constraints>
                         <variation key="default">
                             <mask key="subviews">
                                 <exclude reference="KBx-31-QlS"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="9gg-7W-3uj"/>
+                                <exclude reference="Dea-xz-W25"/>
+                                <exclude reference="u9g-8P-j3l"/>
+                                <exclude reference="esE-8J-Uyq"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
                             <mask key="subviews">
                                 <include reference="KBx-31-QlS"/>
+                            </mask>
+                            <mask key="constraints">
+                                <include reference="9gg-7W-3uj"/>
+                                <include reference="Dea-xz-W25"/>
+                                <include reference="u9g-8P-j3l"/>
+                                <include reference="esE-8J-Uyq"/>
                             </mask>
                         </variation>
                     </view>
@@ -6297,6 +6340,6 @@
         <segue reference="WFq-x6-VBz"/>
         <segue reference="CDH-Xp-Ux3"/>
         <segue reference="i0O-fM-R0U"/>
-        <segue reference="Bgw-8d-CGA"/>
+        <segue reference="DPl-9F-OZh"/>
     </inferredMetricsTieBreakers>
 </document>

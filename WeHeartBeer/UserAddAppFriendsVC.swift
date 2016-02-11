@@ -24,6 +24,9 @@ class UserAddAppFriendsVC: UIViewController {
         self.tintBarUp(self.view)
         self.tableView.delegate = self
         self.tableView.dataSource = self
+        
+        tableView.tableFooterView = UIView()
+
         //self.userFriends()
 
         // Do any additional setup after loading the view.
