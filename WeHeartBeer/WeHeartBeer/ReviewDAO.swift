@@ -71,6 +71,8 @@ class ReviewDAO {
         
         let query = PFQuery(className: "Review")
          query.whereKey("beer", equalTo: beer)
+        query.includeKey("user")
+        query.includeKey("photo")
         query.findObjectsInBackgroundWithBlock { (objs:[PFObject]?, error) -> Void in
             if error == nil{
             let rating = self.calculateRate(objs)

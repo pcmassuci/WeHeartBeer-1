@@ -17,7 +17,6 @@ class BeerProfileVC: UIViewController {
     
     @IBOutlet weak var saveBeerProfile: UIButton!
 
-    @IBOutlet weak var commentText: UITextField!
     
     @IBOutlet weak var reviewsTable: UITableView!
     @IBOutlet weak var reviewsImg: UIImageView!
@@ -239,21 +238,35 @@ extension BeerProfileVC: UITableViewDataSource{
         
         let cell = self.listOfBeers.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as! ReviewFromBeerTableViewCell
         if self.rev == nil {
-            cell.reviews.text = "ainda nao foram feitas"
+            cell.commentReview.text = "Sem nota"
+            
         }else{
-            cell.reviews.text = self.rev![indexPath.row].objectForKey("comment") as? String
+            
+            
+            if self.rev![indexPath.row].objectForKey("user") != nil{
+                    
+                let user = rev![indexPath.row].objectForKey("user") as! PFUser
+             
+                cell.userPhotoReview.image = user.objectForKey("photo") as? UIImage
+                cell.userNameReview.text = user.objectForKey("name") as? String
+                cell.commentReview.text = self.rev![indexPath.row].objectForKey("comment") as? String
+            } else {
+                 
+            }
         }
 
         return cell
     }
     
 }
+    
+    
 // MARK:- get ratting and Review
 extension BeerProfileVC{
     
     private func getRantingAndReviews(beer:PFObject){
         ReviewDAO.findReviewAndRating(beer) { (reviews, rate, success) -> Void in
-            print(reviews)
+            //print(reviews)
             if success{
                 
                 
@@ -266,16 +279,22 @@ extension BeerProfileVC{
                 
                 if reviews != nil{
                 for r in reviews!{
-                     print(r)
+                     //print(r)
                   
                     self.rev?.append(r)
                 }
                 }
-                print("meus rev:\(self.rev)")
-                self.reviewsTable.reloadData()
+                //print("meus rev:\(self.rev)")
+                NSOperationQueue.mainQueue().addOperationWithBlock({ () -> Void in
+                    self.reviewsTable.reloadData()
+                })
+                
             }
         }
     }
+    
+    
+
 
 }
 
