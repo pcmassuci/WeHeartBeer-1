@@ -75,7 +75,34 @@ class FriendsDAO {
         }
     }
     
-    
+    static func friendsQuery(user1:PFObject?, user2:PFObject?,check:Bool,ch:FindObjsCH){
+        let query = PFQuery(className: "Friends")
+        if user1 != nil{
+        query.whereKey("user1", equalTo:user1!)
+        }
+        if user2 != nil {
+        query.whereKey("user2", equalTo:user2!)
+        }
+        query.findObjectsInBackgroundWithBlock { (objects, error) -> Void in
+         
+            if error == nil{
+                ch(object: objects, success: true)
+            }else{
+                if check{
+                    self.friendQuery(nil, user2: user1, check: false, ch: { (object, success) -> Void in
+                        if success{
+                            ch(object: object, success: true)
+                        }else{
+                            ch(object: nil, success: false)
+                        }
+                    })
+                }else{
+                    ch(object: nil, success: false)
+                }
+            }
+        }
+    }
+ 
     
     
     
