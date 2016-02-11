@@ -30,6 +30,7 @@ class HomepageVC: UIViewController, UIPageViewControllerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.challengeImage()
+        self.configurePageControl() 
 
         
         self.tintBarUp(self.view)
@@ -180,6 +181,9 @@ extension HomepageVC {
 
 
 extension HomepageVC {
+    private func configurePageControl() {
+        self.pageControl.numberOfPages = self.features.count
+    }
     
     func challengeImage(){
         ChallengeDAO.getChallengeforParse { (challenge, success) -> Void in

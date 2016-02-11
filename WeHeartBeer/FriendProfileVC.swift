@@ -90,7 +90,7 @@ extension FriendProfileVC {
    
     func addOrAcceptFriend(){
         
-        
+        if self.kindOfFriend == nil {
     FriendsDAO.friendReques(self.friend, currentRequest: self.currentRequest) { (success) -> Void in
         if success{
             
@@ -102,7 +102,12 @@ extension FriendProfileVC {
         }
         
         }
-    
+        } else {
+            self.kindOfFriend?.setValue(true, forKey: "accepted")
+            self.kindOfFriend?.saveInBackground()
+            
+        }
+        
         
     }
 }
