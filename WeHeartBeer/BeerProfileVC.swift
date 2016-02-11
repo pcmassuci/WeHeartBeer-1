@@ -88,7 +88,13 @@ class BeerProfileVC: UIViewController {
         photo.layer.borderColor = UIColor.blackColor().CGColor
         photo.clipsToBounds = true
         
+        reviewsImg.layer.borderWidth = 1
+        reviewsImg.layer.masksToBounds = false
+        reviewsImg.layer.borderColor = UIColor.blackColor().CGColor
+        reviewsImg.clipsToBounds = true
+        
         self.tintBarUp(self.view)
+        
 
     }
     
@@ -119,6 +125,7 @@ class BeerProfileVC: UIViewController {
         super.viewDidLayoutSubviews()
         
         photo.layer.cornerRadius = photo.frame.height/2
+        reviewsImg.layer.cornerRadius = photo.frame.height/2
         
     }
     
