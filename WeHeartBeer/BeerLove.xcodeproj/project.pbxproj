@@ -548,8 +548,8 @@
 				8518D1541BD7B7BD00499ACA /* LaunchScreen.storyboard */,
 				674127971C18A20700016D52 /* CountryCell.swift */,
 				67DF669E1C66531D001C6FAC /* ReviewFromBeerTableViewCell.swift */,
-				67FB0C111C0F6C8700122314 /* SearchTVCell.swift */,
 				67DF669A1C63C708001C6FAC /* HomeCollectionViewCell.swift */,
+				67FB0C111C0F6C8700122314 /* SearchTVCell.swift */,
 				8529E59A1C467DFD00433054 /* MoreVCCell.swift */,
 				677924AF1BF6B9F700B8092B /* SearchVCCellTableViewCell.swift */,
 				672C62FA1BEAD2F700E667C8 /* BreweryVCCell.swift */,
@@ -660,6 +660,7 @@
 				TargetAttributes = {
 					8518D1441BD7B7BD00499ACA = {
 						CreatedOnToolsVersion = 7.0.1;
+						DevelopmentTeam = 2MSKV8WUR9;
 					};
 					8518D15B1BD7B7BD00499ACA = {
 						CreatedOnToolsVersion = 7.0.1;
@@ -955,6 +956,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -963,8 +966,9 @@
 				);
 				INFOPLIST_FILE = WeHeartBeer/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = bepid.WeHeartBeer;
+				PRODUCT_BUNDLE_IDENTIFIER = br.beerlove;
 				PRODUCT_NAME = BeerLove;
+				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "WeHeartBeer/Header-WeHeartBeer.h";
 			};
 			name = Debug;
@@ -973,6 +977,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -981,8 +987,9 @@
 				);
 				INFOPLIST_FILE = WeHeartBeer/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = bepid.WeHeartBeer;
+				PRODUCT_BUNDLE_IDENTIFIER = br.beerlove;
 				PRODUCT_NAME = BeerLove;
+				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "WeHeartBeer/Header-WeHeartBeer.h";
 			};
 			name = Release;

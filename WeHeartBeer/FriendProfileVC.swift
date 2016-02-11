@@ -40,6 +40,26 @@ class FriendProfileVC: UIViewController {
         
         // Do any additional setup after loading the view.
     }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        
+        self.tintBarUp(self.view)
+        profileImage.layer.borderWidth = 1
+        profileImage.layer.masksToBounds = false
+        profileImage.layer.borderColor = UIColor.blackColor().CGColor
+        profileImage.clipsToBounds = true
+        
+        profileImage.layer.cornerRadius = profileImage.frame.height/2
+        
+        addButton.layer.masksToBounds = false
+        
+        addButton.clipsToBounds = true
+        
+        addButton.layer.cornerRadius = addButton.frame.height/5
+        
+    }
+
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         if self.currentFriend != nil{
@@ -52,7 +72,7 @@ class FriendProfileVC: UIViewController {
                     self.friend = object 
                     //chamar
                     self.checkFriend()
-                    
+                    self.countFriends()
                 }else{
                     //error to download a friend
                 }
@@ -136,6 +156,21 @@ extension FriendProfileVC {
             }
         })
 
+    }
+    
+    func countFriends(){
+        FriendsDAO.friendsQuery(self.friend!) { (object, success) -> Void in
+            if success{
+                if object != nil{
+                    self.numberOfFriends.text = "0"
+                }else{
+                    self.numberOfFriends.text = ("\(object!.count)")
+                }
+                
+            }else{
+                self.numberOfFriends.text = "0"
+            }
+        }
     }
     
     func updateData(friend:PFObject){

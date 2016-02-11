@@ -88,13 +88,23 @@ class BeerProfileVC: UIViewController {
         photo.layer.borderColor = UIColor.blackColor().CGColor
         photo.clipsToBounds = true
         
+        reviewsImg.layer.borderWidth = 1
+        reviewsImg.layer.masksToBounds = false
+        reviewsImg.layer.borderColor = UIColor.blackColor().CGColor
+        reviewsImg.clipsToBounds = true
+        
         self.tintBarUp(self.view)
+        
 
     }
     
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
+        if self.internetCheck() {
+        }else{
+           self.alert("Atenção", message: "verifique sua conexão com a Internet", option: false, action: nil)
+        }
         self.navigationController?.setNavigationBarHidden(false, animated: true)
         self.navigationController?.navigationBar.hidden = false
 
@@ -119,6 +129,7 @@ class BeerProfileVC: UIViewController {
         super.viewDidLayoutSubviews()
         
         photo.layer.cornerRadius = photo.frame.height/2
+        reviewsImg.layer.cornerRadius = photo.frame.height/2
         
     }
     
