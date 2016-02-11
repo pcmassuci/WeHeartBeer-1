@@ -101,6 +101,10 @@ class BeerProfileVC: UIViewController {
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
+        if self.internetCheck() {
+        }else{
+           self.alert("Atenção", message: "verifique sua conexão com a Internet", option: false, action: nil)
+        }
         self.navigationController?.setNavigationBarHidden(false, animated: true)
         self.navigationController?.navigationBar.hidden = false
 
