@@ -43,7 +43,7 @@ class UserFriendsVC: UIViewController {
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         let usr = User.currentUser()
-        self.loadingView(true)
+        //self.loadingView(true)
         self.requests.removeAll()
         self.waitingFriends.removeAll()
         self.myFriends.removeAll()
@@ -100,12 +100,34 @@ class UserFriendsVC: UIViewController {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
-        if (segue.identifier == "segueToFriendVC") {
+        if (segue.identifier == "segueToFriendProfile") {
             if let destination = segue.destinationViewController  as? FriendProfileVC{
-                if let row = tableView.indexPathForSelectedRow?.row{
-                let id = (self.requests[row]!.objectForKey("id1") as! String)
-                destination.currentFriend = id
-            }
+                if let indexPath = tableView.indexPathForSelectedRow{
+                    switch indexPath.section{
+                    case 0:
+                        let id = (self.requests[indexPath.row]!.objectForKey("id1") as! String)
+                        destination.currentFriend = id
+                        break
+                    case 1:
+                        let id = (self.waitingFriends[indexPath.row]!.objectForKey("id2") as! String)
+                        destination.currentFriend = id
+                        break
+                    case 2:
+                        if (sender as! Bool){
+                            let id = (self.myFriends[indexPath.row]!.objectForKey("id1") as! String)
+                            destination.currentFriend = id
+                        }else{
+                            let id = (self.myFriends[indexPath.row]!.objectForKey("id2") as! String)
+                            destination.currentFriend = id
+                        }
+                        
+                        break
+                    default:
+                        break
+                        
+                    }
+              
+                }
             }
         }
 
@@ -238,15 +260,29 @@ extension UserFriendsVC: UITableViewDataSource , UITableViewDelegate{
                 performSegueWithIdentifier("segueToAddFriend", sender: nil)
                 
             }else{
-                performSegueWithIdentifier("segueToFriendVC", sender: nil)
+                performSegueWithIdentifier("segueToFriendProfile", sender: nil)
             }
             break
         case 1:
              performSegueWithIdentifier("segueToFriendProfile", sender: nil)
             break
         case 2:
-             performSegueWithIdentifier("segueToFriendProfile", sender: nil)
-            break
+            
+            if 0 == (self.myFriends.count){
+                //do nothing
+            }else{
+                let id = self.myFriends[indexPath.row]!.objectForKey("id1") as? String
+                let user = User.currentUser()
+                if user?.faceID == id {
+                    performSegueWithIdentifier("segueToFriendProfile", sender: false)
+                    break
+                    
+                }else{
+                   performSegueWithIdentifier("segueToFriendProfile", sender: true)
+                    break
+                    
+                }
+            }
 
     default:
             break

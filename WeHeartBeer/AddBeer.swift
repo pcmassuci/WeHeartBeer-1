@@ -61,7 +61,7 @@
             switch screenHeight {
             case 480:
                 
-                self.introText.hidden = true
+                self.introText.font = UIFont(name: "Lato", size: 0)
                 self.nameLabel.font = UIFont(name: "Lato", size: 13)
                 self.IBULabel.font = UIFont(name: "Lato", size: 13)
                 self.abvLabel.font = UIFont(name: "Lato", size: 13)

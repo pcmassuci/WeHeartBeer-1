@@ -22,9 +22,9 @@ class UserProfileVC: UIViewController {
     @IBOutlet weak var backImage: UIImageView!
     @IBOutlet weak var beerLabel: UILabel!
     @IBOutlet weak var friendsLabel: UILabel!
-    @IBOutlet weak var separatorB: UIImageView!
     @IBOutlet weak var beerNumber: UILabel!
     @IBOutlet weak var friendsNumber: UILabel!
+    
     
     
     let layer:CGFloat = 7
@@ -53,12 +53,13 @@ class UserProfileVC: UIViewController {
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
-        
+
             if UserServices.loggedUser(){
+                self.checkFriends()
             self.navigationItem.hidesBackButton =  true
             self.navigationController?.navigationBar.barTintColor = UIColor(red: 250.0/255.0, green: 170.0/255.0, blue: 0.0/255.0, alpha: 1.0)
             self.navigationController?.navigationBar.tintColor = UIColor.whiteColor()
-                
+            self.navigationController?.navigationBar.hidden = true
                 
             print("deu certo userprofile")
                   //  getFBAppFriends(nil, failureHandler: {(error)
@@ -76,7 +77,6 @@ class UserProfileVC: UIViewController {
                 self.beerNumber.font = UIFont(name: "Lato-Heavy", size: 20)
                 self.friendsNumber.font = UIFont(name: "Lato-Heavy", size: 20)
 
-                self.separatorB.hidden = true
                 
             case 568:
                 self.beerNumber.font = UIFont(name: "Lato-Heavy", size: 28)
@@ -109,6 +109,7 @@ class UserProfileVC: UIViewController {
         self.performSegueWithIdentifier("segueUserFriends", sender: nil)
     }
     
+       
     func updateData(){
         let user = User.currentUser()
         self.displayName.text = user!.objectForKey("name") as? String
@@ -131,5 +132,32 @@ class UserProfileVC: UIViewController {
     
 }
 
+
+extension UserProfileVC{
+    
+    func checkFriends(){
+        FriendsDAO.queryFriends { (requests, waitingFriends, myFriends, success) -> Void in
+            if success{
+                
+              
+                
+                if myFriends != nil {
+                    
+                    self.friendsNumber.text = "\(myFriends!.count)"
+
+                    
+                } else {
+                    self.friendsNumber.text = "0"
+                }
+            } else{
+                //naoDeuCerto
+                
+            }
+        }
+        
+    }
+    
+    
+}
 
 

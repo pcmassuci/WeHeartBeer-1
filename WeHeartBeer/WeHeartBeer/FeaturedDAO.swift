@@ -89,7 +89,9 @@ static func queryFeatured(ch:FindObjectsCompletionHandler){
                     //print(id)
                     BeerDAO.queryBeerFromObjectID(id, ch: { (beer, success) -> Void in
                         if success{
-                            let bimg = beer?.objectForKey("Photo") as? PFFile
+                            
+                            //let bimg = beer?.objectForKey("Photo") as? PFFile
+                            let bimg = obj.objectForKey("photo") as? PFFile
                             if bimg != nil {
                                 ImageDAO.getImageFromParse(bimg, ch: { (image, success) -> Void in
                                     if success{

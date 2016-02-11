@@ -22,7 +22,6 @@ class FriendsDAO {
     
     static func findUser(currentFriend:String, ch:FindObjCH){
         
-                print("enter here?")
                 let query = PFQuery(className: "_User")
                 query.whereKey("faceID", equalTo: currentFriend)
                 query.getFirstObjectInBackgroundWithBlock({ (obj: PFObject?, error: NSError?) -> Void in
@@ -53,7 +52,28 @@ class FriendsDAO {
             
         
     
-    
+    static func friendQuery(user1:PFObject, user2:PFObject,check:Bool,ch:FindObjCH){
+        let query = PFQuery(className: "Friends")
+        query.whereKey("user1", equalTo:user1)
+        query.whereKey("user2", equalTo:user2)
+        query.getFirstObjectInBackgroundWithBlock { (object, error) -> Void in
+            if error == nil{
+              ch(object: object, success: true)
+            }else{
+                if check{
+                    self.friendQuery(user2, user2: user1, check: false, ch: { (object, success) -> Void in
+                        if success{
+                           ch(object: object, success: true)
+                        }else{
+                          ch(object: nil, success: false)
+                        }
+                    })
+                }else{
+                    ch(object: nil, success: false)
+                }
+            }
+        }
+    }
     
     
     

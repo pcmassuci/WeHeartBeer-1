@@ -15,32 +15,37 @@ class FriendProfileVC: UIViewController {
     
     var delegate: FriendProfileVCDelegate?
     @IBOutlet weak var addButton: UIButton!
+    
     @IBOutlet weak var friendName: UILabel!
     var currentRequest: PFObject?
     var currentFriend: String? = ""
     var choice:Int?
-   // var check: Bool
+    var kindOfFriend:PFObject?
     var friend: PFObject?
+    @IBOutlet weak var profileImage: UIImageView!
+    @IBOutlet weak var numberOfBeers: UILabel!
     
+    @IBOutlet weak var numberOfFriends: UILabel!
+    @IBOutlet weak var tip: UILabel!
     
     override func viewDidLoad() {
-       
-        
-        super.viewDidLoad()
+       super.viewDidLoad()
         self.internetCheck()
         
         // Do any additional setup after loading the view.
     }
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        print(self.currentFriend)
         if self.currentFriend != nil{
  //Request to server Frienduser data
             FriendsDAO.findUser(self.currentFriend!, ch: { (object, success) -> Void in
                 if success{
+                    
+                    
                     self.updateData(object!)
                     self.friend = object 
-                    
+                    //chamar
+                    self.checkFriend()
                     
                 }else{
                     //error to download a friend
@@ -59,6 +64,10 @@ class FriendProfileVC: UIViewController {
     }
     
 
+    
+    
+    
+    
     @IBAction func addFriend(sender: AnyObject) {
         self.addOrAcceptFriend()
         
@@ -93,9 +102,49 @@ extension FriendProfileVC {
 }
 
 extension FriendProfileVC {
+    
+    func checkFriend(){
+        let user1 = User.currentUser()
+        let user2 = self.friend
+        FriendsDAO.friendQuery(user1!, user2: user2!, check: true, ch: { (object, success) -> Void in
+            if success{
+                print("leia")
+                self.kindOfFriend = object
+                let user = user1?.faceID
+                let id = object?.objectForKey("id1") as! String?
+                if id == user{
+                    self.addButton.setTitle("", forState: .Normal)
+                    self.addButton.hidden = true
+                    
+                }else{
+                    print("solo")
+                     self.addButton.setTitle("Aceitar", forState: .Normal)
+                
+                }
+                
+                
+            }else{
+              
+                self.addButton.hidden = false
+                self.addButton.setTitle("Adicionar", forState: .Normal)
+            }
+        })
+
+    }
+    
     func updateData(friend:PFObject){
         print(friend)
         self.friendName.text = (friend.valueForKey("name") as! String)
+        let pfImage = friend.objectForKey("photo") as? PFFile
+        ImageDAO.getImageFromParse(pfImage) { (image, success) -> Void in
+            if success{
+                self.profileImage.image = image
+                
+            }else{
+                ///colocar imagem random
+                
+            }
+        }
     }
 
 }

@@ -28,6 +28,8 @@ class HomepageVC: UIViewController, UIPageViewControllerDelegate {
     @IBOutlet weak var challengeName: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.challengeImage()
+
         
         self.tintBarUp(self.view)
         
@@ -41,6 +43,19 @@ class HomepageVC: UIViewController, UIPageViewControllerDelegate {
         
         //view.translatesAutoresizingMaskIntoConstraints = true
         
+        let screenHeight = UIScreen.mainScreen().bounds.height
+        print(screenHeight)
+        
+        switch screenHeight {
+        case 480:
+            
+            self.challengeName.font = UIFont(name: "Lato", size: 24)
+            
+        default: // rest of screen sizes
+            break
+        }
+        
+
         
     }
     
@@ -55,15 +70,6 @@ class HomepageVC: UIViewController, UIPageViewControllerDelegate {
     func imageTapped(img: AnyObject){
         performSegueWithIdentifier("challengeSegue", sender: nil)
     }
-    
-    // Closure to load local images with UIImage.named
-    let imageLoader: ((imageView: UIImageView, image : UIImage, completion: (newImage: Bool) -> ()) -> ()) = {
-        (imageView: UIImageView, image : UIImage, completion: (newImage: Bool) -> ()) in
-        
-        imageView.image = image
-        completion(newImage: imageView.image != nil)
-    }
-    
     
     
     
@@ -107,6 +113,7 @@ extension HomepageVC: UICollectionViewDataSource{
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("colCell", forIndexPath: indexPath) as! HomeCollectionViewCell
         let control = self.images.count
         if control != 0 {
+            
             cell.featureImage.image = self.images[indexPath.row]
             cell.layoutIfNeeded()
         }
@@ -116,7 +123,12 @@ extension HomepageVC: UICollectionViewDataSource{
 
 extension HomepageVC: UICollectionViewDelegateFlowLayout {
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-        performSegueWithIdentifier("segueDestaqueBeer", sender: indexPath.row)
+        
+        if self.features.count != 0 {
+            performSegueWithIdentifier("segueDestaqueBeer", sender: indexPath.row)
+            
+        }
+        
     }
     
     func collectionView(collectionView: UICollectionView,
@@ -155,6 +167,51 @@ extension HomepageVC {
         }
     }
     
-    
-    
 }
+
+
+extension HomepageVC {
+    
+    func challengeImage(){
+        ChallengeDAO.getChallengeforParse { (challenge, success) -> Void in
+            if success{
+                
+                
+                if challenge?.objectForKey("name") != nil{
+                    self.challengeName.text = challenge?.objectForKey("name") as! String
+                    print(challenge?.objectForKey("name"))
+                }
+                let getImage = challenge?.objectForKey("image") as? PFFile
+                if getImage != nil{
+                    ImageDAO.getImageFromParse(getImage, ch: { (image, success) -> Void in
+                        if success{
+                            if image != nil {
+                                self.challengeLink.image = image
+                            }else{
+                                print("Nao tem imagem")
+                                self.challengeLink.image = UIImage(named:"now-pouring")
+                                // não tem imagem
+                            }
+                            
+                        }else{
+                            //erro ao obter imagem
+                            self.challengeLink.image = UIImage(named:"now-pouring")
+                        }
+                    })
+                }else{
+                    print("imagem generica")
+                    self.challengeLink.image = UIImage(named:"now-pouring")
+                }
+                
+                
+//                
+//                
+//                self.challengeName.text = chTitle
+
+//
+    }
+    
+        }
+    }
+}
+

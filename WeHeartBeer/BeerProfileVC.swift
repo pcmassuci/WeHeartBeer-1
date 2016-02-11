@@ -133,7 +133,7 @@ class BeerProfileVC: UIViewController {
         if beer?.objectForKey("ibu") == nil{
             self.ibuLabel.text = "NC"
         }else{
-          let  ibu = beer?.objectForKey("ubu") as! String
+          let  ibu = beer?.objectForKey("ibu") as! String
             self.ibuLabel.text = ibu
         }
         
@@ -171,6 +171,8 @@ class BeerProfileVC: UIViewController {
                 }
             })
         }else{
+            self.photo.image = UIImage(named:"DefaultBeer.png")
+
             print("imagem generica")
         }
     }
