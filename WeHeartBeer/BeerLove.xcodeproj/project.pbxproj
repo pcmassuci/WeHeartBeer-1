@@ -963,7 +963,7 @@
 				);
 				INFOPLIST_FILE = WeHeartBeer/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = bepid.WeHeartBeer;
+				PRODUCT_BUNDLE_IDENTIFIER = br.beerlove;
 				PRODUCT_NAME = BeerLove;
 				SWIFT_OBJC_BRIDGING_HEADER = "WeHeartBeer/Header-WeHeartBeer.h";
 			};
@@ -981,7 +981,7 @@
 				);
 				INFOPLIST_FILE = WeHeartBeer/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = bepid.WeHeartBeer;
+				PRODUCT_BUNDLE_IDENTIFIER = br.beerlove;
 				PRODUCT_NAME = BeerLove;
 				SWIFT_OBJC_BRIDGING_HEADER = "WeHeartBeer/Header-WeHeartBeer.h";
 			};

@@ -26,6 +26,8 @@ class UserFriendsVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        tableView.tableFooterView = UIView()
+
         self.tintBarUp(self.view)
         let check = self.internetCheck()
         if check{
