@@ -35,6 +35,8 @@ class SearchVC: UIViewController {
         
         self.controller.searchBar.barTintColor = UIColor(red: 250.0/255.0, green: 170.0/255.0, blue: 0.0/255.0, alpha: 1.0)
         self.controller.searchBar.tintColor = UIColor(white: 1, alpha: 1)
+        controller.searchBar.subviews[0].subviews.flatMap(){ $0 as? UITextField }.first?.tintColor = UIColor(red: 250.0/255.0, green: 170.0/255.0, blue: 0.0/255.0, alpha: 1.0)
+
         
         let view: UIView = self.controller.searchBar.subviews[0]
         _ = view.subviews
@@ -226,13 +228,29 @@ extension SearchVC: UITableViewDelegate, UITableViewDataSource{
                         cell.searchImage.image = image
                         
                     }else{
-                        //error tratar
-                        cell.searchImage.image = UIImage(named:"mug.png")
+                        cell.layoutIfNeeded()
+                        
+                        cell.searchImage.image = UIImage(named:"DefaultBeer.png")
+                        
+                        cell.searchImage.layer.borderWidth = 1
+                        cell.searchImage.layer.masksToBounds = false
+                        cell.searchImage.layer.borderColor = UIColor.blackColor().CGColor
+                        cell.searchImage.clipsToBounds = true
+                        cell.searchImage.layer.cornerRadius = cell.searchImage.frame.height/2
+
                     }
                 })
                 
             }else{
+                cell.layoutIfNeeded()
                 
+                cell.searchImage.image = UIImage(named:"DefaultBeer.png")
+                
+                cell.searchImage.layer.borderWidth = 1
+                cell.searchImage.layer.masksToBounds = false
+                cell.searchImage.layer.borderColor = UIColor.blackColor().CGColor
+                cell.searchImage.clipsToBounds = true
+                cell.searchImage.layer.cornerRadius = cell.searchImage.frame.height/2
             }
             
            // cell.searchImage.image = self.resultsList.objectAtIndex(indexPath.row).

@@ -55,6 +55,13 @@ class UserBeersVC: UIViewController {
         super.viewWillAppear(animated)
     }
     
+    override func viewWillLayoutSubviews() {
+   
+
+
+    }
+    
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -70,6 +77,7 @@ extension UserBeersVC: UITableViewDataSource, UITableViewDelegate {
     func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let label: UILabel = UILabel()
         label.text = "      Cervejas"
+        label.textColor = UIColor.whiteColor()
         label.tintColor = UIColor.whiteColor()
         label.backgroundColor = UIColor(red: 255.0/255.0, green: 170.0/255.0, blue: 0.0/255.0, alpha: 1.0)
         
@@ -111,12 +119,15 @@ extension UserBeersVC: UITableViewDataSource, UITableViewDelegate {
                 }else{
                     print("sem imagem")
                     
-                    
+                    cell.layoutIfNeeded()
+
                     cell.imageBeersFromUser.layer.borderWidth = 1
                     cell.imageBeersFromUser.layer.masksToBounds = false
                     cell.imageBeersFromUser.layer.borderColor = UIColor.blackColor().CGColor
                     cell.imageBeersFromUser.clipsToBounds = true
-                    cell.imageBeersFromUser.image = UIImage(named: "caneca.png")
+                    cell.imageBeersFromUser.layer.cornerRadius = cell.imageBeersFromUser.frame.height/2
+
+                    cell.imageBeersFromUser.image = UIImage(named: "DefaultBeer.png")
                     
                 }
             })
@@ -124,12 +135,16 @@ extension UserBeersVC: UITableViewDataSource, UITableViewDelegate {
         }else{
             print("erro na imagem")
             
+            cell.layoutIfNeeded()
+
+            cell.imageBeersFromUser.image = UIImage(named:"DefaultBeer.png")
             
-            cell.imageBeersFromUser.layer.borderWidth = 0
+            cell.imageBeersFromUser.layer.borderWidth = 1
             cell.imageBeersFromUser.layer.masksToBounds = false
             cell.imageBeersFromUser.layer.borderColor = UIColor.blackColor().CGColor
             cell.imageBeersFromUser.clipsToBounds = true
-            cell.imageBeersFromUser.image = UIImage(named:"caneca.png")
+            cell.imageBeersFromUser.layer.cornerRadius = cell.imageBeersFromUser.frame.height/2
+            
 
         }
         

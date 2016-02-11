@@ -29,6 +29,8 @@ class ReviewVCCell: UITableViewCell {
         imageBeersFromUser.layer.masksToBounds = false
         imageBeersFromUser.layer.borderColor = UIColor.blackColor().CGColor
         imageBeersFromUser.clipsToBounds = true
+        imageBeersFromUser.layer.cornerRadius = imageBeersFromUser.frame.height/2
+
         
     }
     
