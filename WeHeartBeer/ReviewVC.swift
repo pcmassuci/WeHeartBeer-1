@@ -164,13 +164,13 @@ class ReviewVC: UIViewController {
                             
                             let content:FBSDKShareLinkContent = FBSDKShareLinkContent()
                             
-                            content.contentURL = NSURL(string: "https://www.facebook.com")
+                            content.contentURL = NSURL(string: "https://www.beerlove.wix.com/commingsoon")
                             content.contentTitle = self.currentObjectReview!.objectForKey("name") as? String
                             content.contentDescription = self.currentObjectReview!.objectForKey("brewName") as? String
-                            content.imageURL = NSURL(string: imageFile.url!)
+                            content.imageURL = NSURL(string: "http://files.parsetfss.com/f0fa3f24-4ced-49ca-bfaf-47bfe806aa21/tfss-ae855a52-5476-4594-99e0-69a4f5bc20fe-beer_love_2_1301%20copy%202.png")
                             
                             let shareDialog : FBSDKShareDialog = FBSDKShareDialog()
-                            shareDialog.mode = FBSDKShareDialogMode.FeedWeb
+                            shareDialog.mode = FBSDKShareDialogMode.Automatic
                             shareDialog.shareContent = content
                             shareDialog.show()
                             
