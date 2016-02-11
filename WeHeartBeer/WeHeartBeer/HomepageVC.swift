@@ -18,6 +18,7 @@ class HomepageVC: UIViewController, UIPageViewControllerDelegate {
     // MARK: - IBOutlets
     
     
+    @IBOutlet weak var activeIndicator: UIActivityIndicatorView!
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet var challengeLink: UIImageView!
     var images : [UIImage] = []
@@ -60,6 +61,11 @@ class HomepageVC: UIViewController, UIPageViewControllerDelegate {
     }
     
     override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        if self.internetCheck(){
+        }else{
+            self.alert("Atenção!", message: "Verifique sua conexão com a Internet", option: false, action: nil)
+        }
         self.navigationController?.navigationBarHidden = true
         self.images.removeAll()
         self.features.removeAll()
@@ -127,7 +133,8 @@ extension HomepageVC: UICollectionViewDelegateFlowLayout {
         
         if self.features.count != 0 {
             performSegueWithIdentifier("segueDestaqueBeer", sender: indexPath.row)
-            
+        }else{
+            self.alert("Por Favor Aguarde!", message: "Estamos carregando dos nossos servidores nossos destaques", option:false, action: nil)
         }
         
     }
@@ -144,8 +151,8 @@ extension HomepageVC {
     
     // Query return if Featured Beer.
     func queryImages () {
-        
-
+        self.activeIndicator.hidden = false
+        self.activeIndicator.startAnimating()
         FeaturedDAO.getDictBeerAndImage { (dict, array, success) -> Void in
             if success{
                // var dictA = [PFObject:UIImage]()
@@ -159,7 +166,8 @@ extension HomepageVC {
                     }
                     
                 }
-            
+                self.activeIndicator.stopAnimating()
+                self.activeIndicator.hidden = true
                 self.collectionView.reloadData()
                 
             }else{
@@ -179,7 +187,7 @@ extension HomepageVC {
                 
                 
                 if challenge?.objectForKey("name") != nil{
-                    self.challengeName.text = challenge?.objectForKey("name") as! String
+                    self.challengeName.text = (challenge?.objectForKey("name") as! String)
                     print(challenge?.objectForKey("name"))
                 }
                 let getImage = challenge?.objectForKey("image") as? PFFile
