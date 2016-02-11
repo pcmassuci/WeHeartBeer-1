@@ -65,9 +65,9 @@ class BeerProfileVC: UIViewController {
         switch screenHeight {
         case 480:
             
-            self.reviewsImg.hidden = true
-            self.reviewsLabel.hidden = true
-            self.reviewsTable.hidden = true
+            self.reviewsImg.hidden = false
+            self.reviewsLabel.hidden = false
+            self.reviewsTable.hidden = false
             
             
         default: // rest of screen sizes

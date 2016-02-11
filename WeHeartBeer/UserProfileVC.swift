@@ -22,7 +22,6 @@ class UserProfileVC: UIViewController {
     @IBOutlet weak var backImage: UIImageView!
     @IBOutlet weak var beerLabel: UILabel!
     @IBOutlet weak var friendsLabel: UILabel!
-    @IBOutlet weak var separatorB: UIImageView!
     @IBOutlet weak var beerNumber: UILabel!
     @IBOutlet weak var friendsNumber: UILabel!
     
@@ -78,7 +77,6 @@ class UserProfileVC: UIViewController {
                 self.beerNumber.font = UIFont(name: "Lato-Heavy", size: 20)
                 self.friendsNumber.font = UIFont(name: "Lato-Heavy", size: 20)
 
-                self.separatorB.hidden = true
                 
             case 568:
                 self.beerNumber.font = UIFont(name: "Lato-Heavy", size: 28)
