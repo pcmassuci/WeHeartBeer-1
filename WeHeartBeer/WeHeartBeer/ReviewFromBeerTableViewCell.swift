@@ -10,8 +10,9 @@ import UIKit
 
 class ReviewFromBeerTableViewCell: UITableViewCell {
     
-     @IBOutlet weak var reviews: UILabel!
-//     @IBOutlet weak var rate: UILabel!
-//     @IBOutlet weak var userImage: UIImage!
+    @IBOutlet weak var userPhotoReview: UIImageView!
+    @IBOutlet weak var userNameReview: UILabel!
+     @IBOutlet weak var commentReview: UILabel!
+    @IBOutlet weak var rateUserReview: FloatRatingView!
     
 }
