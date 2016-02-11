@@ -88,11 +88,7 @@ class BeerProfileVC: UIViewController {
         photo.layer.borderColor = UIColor.blackColor().CGColor
         photo.clipsToBounds = true
         
-        reviewsImg.layer.borderWidth = 1
-        reviewsImg.layer.masksToBounds = false
-        reviewsImg.layer.borderColor = UIColor.blackColor().CGColor
-        reviewsImg.clipsToBounds = true
-        
+                
         self.tintBarUp(self.view)
         
 
@@ -266,6 +262,13 @@ extension BeerProfileVC: UITableViewDataSource{
                     ImageDAO.getImageFromParse(imageUser, ch: { (image, success) -> Void in
                         if success{
                            cell.userPhotoReview.image = image
+                            
+                            cell.layoutIfNeeded()
+                            cell.userPhotoReview.layer.borderWidth = 1
+                            cell.userPhotoReview.layer.masksToBounds = false
+                            cell.userPhotoReview.layer.borderColor = UIColor.blackColor().CGColor
+                            cell.userPhotoReview.clipsToBounds = true
+                            cell.userPhotoReview.layer.cornerRadius = cell.userPhotoReview.frame.height/2
                         }else{
                             //carregar imagem cervejaria away
                         }
