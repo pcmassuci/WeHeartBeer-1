@@ -108,6 +108,7 @@ extension FriendProfileVC {
         let user2 = self.friend
         FriendsDAO.friendQuery(user1!, user2: user2!, check: true, ch: { (object, success) -> Void in
             if success{
+                print("leia")
                 self.kindOfFriend = object
                 let user = user1?.faceID
                 let id = object?.objectForKey("id1") as! String?
@@ -116,13 +117,16 @@ extension FriendProfileVC {
                     self.addButton.hidden = true
                     
                 }else{
+                    print("solo")
                      self.addButton.setTitle("Aceitar", forState: .Normal)
                 
                 }
                 
                 
             }else{
-                self.addButton.setTitle("+", forState: .Normal)
+              
+                self.addButton.hidden = false
+                self.addButton.setTitle("Adicionar", forState: .Normal)
             }
         })
 
