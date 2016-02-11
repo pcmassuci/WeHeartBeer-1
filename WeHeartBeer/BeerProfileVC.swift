@@ -17,7 +17,6 @@ class BeerProfileVC: UIViewController {
     
     @IBOutlet weak var saveBeerProfile: UIButton!
 
-    @IBOutlet weak var commentText: UITextField!
     
     @IBOutlet weak var reviewsTable: UITableView!
     @IBOutlet weak var reviewsImg: UIImageView!
