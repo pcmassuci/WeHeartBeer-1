@@ -15,6 +15,7 @@ class FriendProfileVC: UIViewController {
     
     var delegate: FriendProfileVCDelegate?
     @IBOutlet weak var addButton: UIButton!
+    
     @IBOutlet weak var friendName: UILabel!
     var currentRequest: PFObject?
     var currentFriend: String? = ""
@@ -22,7 +23,9 @@ class FriendProfileVC: UIViewController {
     var kindOfFriend:PFObject?
     var friend: PFObject?
     @IBOutlet weak var profileImage: UIImageView!
+    @IBOutlet weak var numberOfBeers: UILabel!
     
+    @IBOutlet weak var numberOfFriends: UILabel!
     @IBOutlet weak var tip: UILabel!
     
     override func viewDidLoad() {
@@ -105,6 +108,7 @@ extension FriendProfileVC {
         let user2 = self.friend
         FriendsDAO.friendQuery(user1!, user2: user2!, check: true, ch: { (object, success) -> Void in
             if success{
+                print("leia")
                 self.kindOfFriend = object
                 let user = user1?.faceID
                 let id = object?.objectForKey("id1") as! String?
@@ -113,13 +117,16 @@ extension FriendProfileVC {
                     self.addButton.hidden = true
                     
                 }else{
+                    print("solo")
                      self.addButton.setTitle("Aceitar", forState: .Normal)
                 
                 }
                 
                 
             }else{
-                self.addButton.setTitle("+", forState: .Normal)
+              
+                self.addButton.hidden = false
+                self.addButton.setTitle("Adicionar", forState: .Normal)
             }
         })
 
