@@ -115,6 +115,7 @@ extension HomepageVC: UICollectionViewDataSource{
         if control != 0 {
             
             cell.featureImage.image = self.images[indexPath.row]
+            cell.featuredName.text = (self.features[indexPath.row]?.objectForKey("name") as! String)
             cell.layoutIfNeeded()
         }
         return cell
@@ -188,7 +189,7 @@ extension HomepageVC {
                             if image != nil {
                                 self.challengeLink.image = image
                             }else{
-                                print("Nao tem imagem")
+                        
                                 self.challengeLink.image = UIImage(named:"now-pouring")
                                 // não tem imagem
                             }
@@ -199,7 +200,7 @@ extension HomepageVC {
                         }
                     })
                 }else{
-                    print("imagem generica")
+                
                     self.challengeLink.image = UIImage(named:"now-pouring")
                 }
                 
