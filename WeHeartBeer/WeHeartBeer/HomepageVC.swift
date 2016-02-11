@@ -24,13 +24,14 @@ class HomepageVC: UIViewController, UIPageViewControllerDelegate {
     var images : [UIImage] = []
     var features:[PFObject?] = [PFObject?]()
     
-    @IBOutlet weak var pageControl: UIPageControl!
+   @IBOutlet weak var pageControl: UIPageControl!
     
     @IBOutlet weak var challengeName: UILabel!
+  
     override func viewDidLoad() {
         super.viewDidLoad()
         self.challengeImage()
-        self.configurePageControl() 
+        //self.configurePageControl()
 
         
         self.tintBarUp(self.view)
