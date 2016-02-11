@@ -39,7 +39,9 @@ class UserProfileVC: UIViewController {
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        
+        if UserServices.loggedUser() == false{
+            performSegueWithIdentifier("segueFacebookCheckin", sender: nil)
+        }
         self.tintBarUp(self.view)
         displayPicture.layer.borderWidth = 1
         displayPicture.layer.masksToBounds = false
