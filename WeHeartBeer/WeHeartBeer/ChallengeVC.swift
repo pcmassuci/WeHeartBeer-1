@@ -83,6 +83,8 @@ class ChallengeVC: UIViewController {
                 let chDescrition = challenge?.objectForKey("description") as! String
                 let chTitle = challenge?.objectForKey("name") as! String
                 
+                let chPrize = challenge?.objectForKey("prize") as! String
+                
                 let getImage = challenge?.objectForKey("image") as? PFFile
                 if getImage != nil{
                     ImageDAO.getImageFromParse(getImage, ch: { (image, success) -> Void in
@@ -108,7 +110,7 @@ class ChallengeVC: UIViewController {
 
                 
 
-                
+                self.challengePrize.text = chPrize
                 self.challengeTitle.text = chTitle
                 self.challengeDescription.text = chDescrition
                 
