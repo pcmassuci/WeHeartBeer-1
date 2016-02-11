@@ -12,6 +12,6 @@ class ReviewFromBeerTableViewCell: UITableViewCell {
     
     @IBOutlet weak var userPhotoReview: UIImageView!
     @IBOutlet weak var userNameReview: UILabel!
-     @IBOutlet weak var commentReview: UILabel!
-        
+    @IBOutlet weak var commentReview: UILabel!
+    @IBOutlet weak var rateReview: UILabel!
 }
