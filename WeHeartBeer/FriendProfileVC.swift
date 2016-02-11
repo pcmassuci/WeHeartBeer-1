@@ -15,6 +15,7 @@ class FriendProfileVC: UIViewController {
     
     var delegate: FriendProfileVCDelegate?
     @IBOutlet weak var addButton: UIButton!
+    
     @IBOutlet weak var friendName: UILabel!
     var currentRequest: PFObject?
     var currentFriend: String? = ""
@@ -22,7 +23,9 @@ class FriendProfileVC: UIViewController {
     var kindOfFriend:PFObject?
     var friend: PFObject?
     @IBOutlet weak var profileImage: UIImageView!
+    @IBOutlet weak var numberOfBeers: UILabel!
     
+    @IBOutlet weak var numberOfFriends: UILabel!
     @IBOutlet weak var tip: UILabel!
     
     override func viewDidLoad() {
