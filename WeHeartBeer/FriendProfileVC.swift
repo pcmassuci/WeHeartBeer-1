@@ -16,16 +16,22 @@ class FriendProfileVC: UIViewController {
     var delegate: FriendProfileVCDelegate?
     @IBOutlet weak var addButton: UIButton!
     
+    @IBOutlet weak var friendsIcone: UIImageView!
+    @IBOutlet weak var beerIcone: UIImageView!
+    @IBOutlet weak var profileImage: UIImageView!
+  //labels
     @IBOutlet weak var friendName: UILabel!
+    @IBOutlet weak var numberOfBeers: UILabel!
+    @IBOutlet weak var numberOfFriends: UILabel!
+    
+    var kindOfFriend:PFObject?
+    var friend: PFObject?
     var currentRequest: PFObject?
     var currentFriend: String? = ""
     var choice:Int?
-    var kindOfFriend:PFObject?
-    var friend: PFObject?
-    @IBOutlet weak var profileImage: UIImageView!
-    @IBOutlet weak var numberOfBeers: UILabel!
+   
     
-    @IBOutlet weak var numberOfFriends: UILabel!
+   
     @IBOutlet weak var tip: UILabel!
     
     override func viewDidLoad() {

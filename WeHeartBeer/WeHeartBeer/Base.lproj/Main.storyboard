@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="7Kz-mP-eSq">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="7Kz-mP-eSq">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -817,7 +817,7 @@
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                     <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                                        <rect key="frame" x="110" y="64" width="477" height="16"/>
+                                                        <rect key="frame" x="110" y="63" width="477" height="17"/>
                                                     </variation>
                                                 </label>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="9Na-df-Bdc">
@@ -975,6 +975,120 @@
             </objects>
             <point key="canvasLocation" x="-1488" y="2421.75"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="QH0-iS-KMx">
+            <objects>
+                <viewController id="2ow-dp-6WQ" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="sHc-Gb-uGr"/>
+                        <viewControllerLayoutGuide type="bottom" id="59g-mU-Tek"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Pba-gK-Rce">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="V08-a9-UyP">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="V08-a9-UyP" secondAttribute="height" multiplier="1:1" id="fJF-ML-fbG"/>
+                                    <constraint firstAttribute="height" constant="148" id="pgE-ds-X5e"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="fJF-ML-fbG"/>
+                                        <exclude reference="pgE-ds-X5e"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=regular-widthClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="fJF-ML-fbG"/>
+                                        <include reference="pgE-ds-X5e"/>
+                                    </mask>
+                                </variation>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ITg-O0-eEi">
+                                <rect key="frame" x="-42" y="-21" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sHe-bT-FRC">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <state key="normal" title="Button"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TpP-CV-0Ih">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <state key="normal" title="Button"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tSs-SZ-tQT">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <state key="normal" title="Button"/>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="sHe-bT-FRC" firstAttribute="top" secondItem="ITg-O0-eEi" secondAttribute="bottom" constant="64" id="DS1-9J-gXt"/>
+                            <constraint firstItem="ITg-O0-eEi" firstAttribute="top" secondItem="V08-a9-UyP" secondAttribute="bottom" constant="21" id="Epy-eQ-QfL"/>
+                            <constraint firstItem="ITg-O0-eEi" firstAttribute="leading" secondItem="Pba-gK-Rce" secondAttribute="leadingMargin" constant="16" id="Fv6-hS-PQy"/>
+                            <constraint firstItem="sHe-bT-FRC" firstAttribute="centerX" secondItem="ITg-O0-eEi" secondAttribute="centerX" id="GT2-SI-rjH"/>
+                            <constraint firstItem="V08-a9-UyP" firstAttribute="centerX" secondItem="Pba-gK-Rce" secondAttribute="centerX" id="O9d-ci-w0e"/>
+                            <constraint firstItem="TpP-CV-0Ih" firstAttribute="top" secondItem="sHe-bT-FRC" secondAttribute="bottom" constant="67" id="SC9-DJ-Zee"/>
+                            <constraint firstItem="V08-a9-UyP" firstAttribute="top" secondItem="sHc-Gb-uGr" secondAttribute="bottom" constant="61" id="Xlc-QF-TQC"/>
+                            <constraint firstItem="TpP-CV-0Ih" firstAttribute="centerX" secondItem="sHe-bT-FRC" secondAttribute="centerX" id="cHj-Gv-bLs"/>
+                            <constraint firstItem="tSs-SZ-tQT" firstAttribute="leading" secondItem="V08-a9-UyP" secondAttribute="trailing" constant="25" id="hby-U5-LcH"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="ITg-O0-eEi" secondAttribute="trailing" constant="24" id="n2H-wS-cRB"/>
+                            <constraint firstItem="ITg-O0-eEi" firstAttribute="top" secondItem="tSs-SZ-tQT" secondAttribute="bottom" constant="27" id="tcU-HG-uz8"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="V08-a9-UyP"/>
+                                <exclude reference="ITg-O0-eEi"/>
+                                <exclude reference="sHe-bT-FRC"/>
+                                <exclude reference="TpP-CV-0Ih"/>
+                                <exclude reference="tSs-SZ-tQT"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="SC9-DJ-Zee"/>
+                                <exclude reference="cHj-Gv-bLs"/>
+                                <exclude reference="DS1-9J-gXt"/>
+                                <exclude reference="GT2-SI-rjH"/>
+                                <exclude reference="hby-U5-LcH"/>
+                                <exclude reference="Epy-eQ-QfL"/>
+                                <exclude reference="Fv6-hS-PQy"/>
+                                <exclude reference="n2H-wS-cRB"/>
+                                <exclude reference="tcU-HG-uz8"/>
+                                <exclude reference="O9d-ci-w0e"/>
+                                <exclude reference="Xlc-QF-TQC"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular-widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="V08-a9-UyP"/>
+                                <include reference="ITg-O0-eEi"/>
+                                <include reference="sHe-bT-FRC"/>
+                                <include reference="TpP-CV-0Ih"/>
+                                <include reference="tSs-SZ-tQT"/>
+                            </mask>
+                            <mask key="constraints">
+                                <include reference="SC9-DJ-Zee"/>
+                                <include reference="cHj-Gv-bLs"/>
+                                <include reference="DS1-9J-gXt"/>
+                                <include reference="GT2-SI-rjH"/>
+                                <include reference="hby-U5-LcH"/>
+                                <include reference="Epy-eQ-QfL"/>
+                                <include reference="Fv6-hS-PQy"/>
+                                <include reference="n2H-wS-cRB"/>
+                                <include reference="tcU-HG-uz8"/>
+                                <include reference="O9d-ci-w0e"/>
+                                <include reference="Xlc-QF-TQC"/>
+                            </mask>
+                        </variation>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="oqY-KQ-8X9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-507" y="2737.5"/>
+        </scene>
         <!--User FriendsVC-->
         <scene sceneID="J3e-V3-llk">
             <objects>
@@ -1063,6 +1177,7 @@
                     <connections>
                         <outlet property="tableView" destination="0f5-t0-Cw9" id="063-hj-oIx"/>
                         <segue destination="gPr-wX-9FK" kind="show" identifier="segueToAddFriend" id="W8E-yD-ljr"/>
+                        <segue destination="Wyl-dw-1EH" kind="show" identifier="segueToFriendProfile" id="Bgw-8d-CGA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mN8-T4-VwA" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1292,7 +1407,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Compartilhar review?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8FE-Sq-Y59">
                                 <rect key="frame" x="-42" y="-21" width="42" height="21"/>
                                 <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="15"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                                 <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
                                     <rect key="frame" x="30" y="294" width="143" height="18"/>
@@ -2383,9 +2498,6 @@
                                                     <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
-                                                    <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                                        <rect key="frame" x="18" y="13" width="204" height="18"/>
-                                                    </variation>
                                                 </label>
                                             </subviews>
                                             <constraints>
@@ -3677,7 +3789,7 @@
                                     </mask>
                                 </variation>
                                 <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="343" y="405" width="32" height="31"/>
+                                    <rect key="frame" x="343" y="404" width="32" height="31"/>
                                     <mask key="constraints">
                                         <exclude reference="4LN-vb-qqU"/>
                                         <include reference="Qhw-Xx-adc"/>
@@ -5585,7 +5697,7 @@
                     <connections>
                         <outlet property="tableView" destination="KBx-31-QlS" id="e23-ni-4f9"/>
                         <segue destination="2p9-dE-Eab" kind="show" identifier="segueInviteFacebook" id="lX6-pX-Yk1"/>
-                        <segue destination="yYe-9E-9fm" kind="show" identifier="segueToFriendProfile" id="1G7-09-BRb"/>
+                        <segue destination="Wyl-dw-1EH" kind="show" identifier="segueToFriendProfile" id="DPl-9F-OZh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2za-Xj-wWP" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -5685,73 +5797,10 @@
             </objects>
             <point key="canvasLocation" x="-1564.5" y="3863.25"/>
         </scene>
-        <!--Friend ProfileVC-->
-        <scene sceneID="1WI-8I-0mB">
-            <objects>
-                <viewController id="yYe-9E-9fm" customClass="FriendProfileVC" customModule="BeerLove" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="ADM-Re-aVc"/>
-                        <viewControllerLayoutGuide type="bottom" id="mPD-PO-NGW"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="FtV-Ax-YbQ">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yjr-yh-4hD">
-                                <rect key="frame" x="-42" y="-21" width="42" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="179" y="165" width="42" height="21"/>
-                                </variation>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DRB-AB-4q8">
-                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
-                                <state key="normal" title="Add"/>
-                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="115" y="224" width="30" height="30"/>
-                                </variation>
-                                <connections>
-                                    <action selector="addFriend:" destination="yYe-9E-9fm" eventType="touchUpInside" id="Aqu-MX-wKk"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xRe-bc-7KK">
-                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
-                                <state key="normal" title="recusar"/>
-                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="225" y="224" width="92" height="30"/>
-                                </variation>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <variation key="default">
-                            <mask key="subviews">
-                                <exclude reference="Yjr-yh-4hD"/>
-                                <exclude reference="DRB-AB-4q8"/>
-                                <exclude reference="xRe-bc-7KK"/>
-                            </mask>
-                        </variation>
-                        <variation key="heightClass=regular-widthClass=compact">
-                            <mask key="subviews">
-                                <include reference="Yjr-yh-4hD"/>
-                                <include reference="DRB-AB-4q8"/>
-                                <include reference="xRe-bc-7KK"/>
-                            </mask>
-                        </variation>
-                    </view>
-                    <connections>
-                        <outlet property="friendName" destination="Yjr-yh-4hD" id="a10-5w-mNQ"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="QMl-p6-vLj" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-2344.5" y="4551.75"/>
-        </scene>
-        <!--UserProfileVC-->
+        <!--FriendPrifileVC-->
         <scene sceneID="1lT-Ji-tPq">
             <objects>
-                <viewController id="Wyl-dw-1EH" userLabel="UserProfileVC" sceneMemberID="viewController">
+                <viewController id="Wyl-dw-1EH" userLabel="FriendPrifileVC" customClass="FriendProfileVC" customModule="BeerLove" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="gEc-XW-fwR"/>
                         <viewControllerLayoutGuide type="bottom" id="7yb-VF-MPp"/>
@@ -5843,7 +5892,7 @@
                                 <color key="textColor" red="0.84705882349999995" green="0.43529411759999997" blue="0.047058823530000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                                 <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="237" y="626" width="68" height="23"/>
+                                    <rect key="frame" x="237" y="625" width="68" height="24"/>
                                 </variation>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cervejas" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9do-jb-9w2" userLabel="Cerveja">
@@ -5852,7 +5901,7 @@
                                 <color key="textColor" red="0.84705882349999995" green="0.43529411759999997" blue="0.047058823530000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                                 <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="227" y="441" width="78" height="24"/>
+                                    <rect key="frame" x="226" y="441" width="78" height="24"/>
                                 </variation>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icone_amigos" translatesAutoresizingMaskIntoConstraints="NO" id="fy2-mE-Z29">
@@ -5917,7 +5966,7 @@
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                                 <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="254" y="350" width="36" height="37"/>
+                                    <rect key="frame" x="253" y="349" width="36" height="38"/>
                                 </variation>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QOK-Ld-gmU">
@@ -5933,6 +5982,9 @@
                                 <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
                                     <rect key="frame" x="265" y="247" width="46" height="30"/>
                                 </variation>
+                                <connections>
+                                    <action selector="addFriend:" destination="Wyl-dw-1EH" eventType="touchUpInside" id="3jg-Mx-icP"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -6057,23 +6109,19 @@
                             </mask>
                         </variation>
                     </view>
-                    <tabBarItem key="tabBarItem" title="" id="1r4-7d-mZB" userLabel="UserProfileVC"/>
-                    <navigationItem key="navigationItem" title="Perfil" id="arG-S2-70I"/>
                     <connections>
-                        <outlet property="backImage" destination="Jqy-A7-AYX" id="LpC-SO-1pj"/>
-                        <outlet property="beerLabel" destination="9do-jb-9w2" id="983-Kd-nDn"/>
-                        <outlet property="beerNumber" destination="v0s-8c-04j" id="e6f-Jy-rz9"/>
-                        <outlet property="displayName" destination="Zew-Wf-N5H" id="NHp-Fx-tPg"/>
-                        <outlet property="displayPicture" destination="pHo-Sg-hu1" id="9jb-Xt-7JJ"/>
-                        <outlet property="friendsLabel" destination="zO1-4l-IFZ" id="dYV-92-7L0"/>
-                        <outlet property="friendsNumber" destination="QOK-Ld-gmU" id="N8e-Xe-w7T"/>
-                        <outlet property="userBeerLink" destination="ZUb-b7-DGA" id="IzJ-GP-ARY"/>
-                        <outlet property="userFriendsLink" destination="fy2-mE-Z29" id="PtK-EE-anS"/>
+                        <outlet property="addButton" destination="Osj-dx-DQo" id="rGL-fF-KO8"/>
+                        <outlet property="beerIcone" destination="ZUb-b7-DGA" id="dkD-jA-YfZ"/>
+                        <outlet property="friendName" destination="Zew-Wf-N5H" id="aEe-n5-oOc"/>
+                        <outlet property="friendsIcone" destination="fy2-mE-Z29" id="IBH-Bc-DI2"/>
+                        <outlet property="numberOfBeers" destination="v0s-8c-04j" id="Rg2-hz-9Rf"/>
+                        <outlet property="numberOfFriends" destination="QOK-Ld-gmU" id="RLF-Tt-0qG"/>
+                        <outlet property="profileImage" destination="pHo-Sg-hu1" id="fmE-Xi-7Oc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UWT-SL-qex" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1362" y="3165"/>
+            <point key="canvasLocation" x="-390" y="3900.75"/>
         </scene>
     </scenes>
     <resources>
@@ -6101,8 +6149,9 @@
         <image name="user_ativo" width="37" height="37"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="cVS-cp-fur"/>
         <segue reference="i0O-fM-R0U"/>
+        <segue reference="cVS-cp-fur"/>
         <segue reference="CDH-Xp-Ux3"/>
+        <segue reference="Bgw-8d-CGA"/>
     </inferredMetricsTieBreakers>
 </document>
