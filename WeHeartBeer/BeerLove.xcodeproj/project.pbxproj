@@ -46,6 +46,8 @@
 		67E8776D1C567AA60065B8E8 /* ImageServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67E8776C1C567AA60065B8E8 /* ImageServices.swift */; };
 		67E8776F1C567ABA0065B8E8 /* ImageDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67E8776E1C567ABA0065B8E8 /* ImageDAO.swift */; };
 		67EBCCE11C4D1F0700073A08 /* HeaderSectionFriends.xib in Resources */ = {isa = PBXBuildFile; fileRef = 67EBCCE01C4D1F0700073A08 /* HeaderSectionFriends.xib */; };
+		67F48F181C6D40DA00B68C99 /* FriendsFromMyFriends.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67F48F171C6D40DA00B68C99 /* FriendsFromMyFriends.swift */; };
+		67F48F1A1C6D428900B68C99 /* FrinMyFrinCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67F48F191C6D428800B68C99 /* FrinMyFrinCell.swift */; };
 		67FB0C121C0F6C8700122314 /* SearchTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67FB0C111C0F6C8700122314 /* SearchTVCell.swift */; };
 		67FB0C141C11D31500122314 /* AddBreweryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67FB0C131C11D31500122314 /* AddBreweryVC.swift */; };
 		8502AE6A1BEA66CC00C54142 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8502AE631BEA66CB00C54142 /* Bolts.framework */; };
@@ -184,6 +186,8 @@
 		67E8776C1C567AA60065B8E8 /* ImageServices.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageServices.swift; sourceTree = "<group>"; };
 		67E8776E1C567ABA0065B8E8 /* ImageDAO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageDAO.swift; sourceTree = "<group>"; };
 		67EBCCE01C4D1F0700073A08 /* HeaderSectionFriends.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HeaderSectionFriends.xib; sourceTree = "<group>"; };
+		67F48F171C6D40DA00B68C99 /* FriendsFromMyFriends.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendsFromMyFriends.swift; sourceTree = "<group>"; };
+		67F48F191C6D428800B68C99 /* FrinMyFrinCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FrinMyFrinCell.swift; sourceTree = "<group>"; };
 		67FB0C111C0F6C8700122314 /* SearchTVCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchTVCell.swift; sourceTree = "<group>"; };
 		67FB0C131C11D31500122314 /* AddBreweryVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddBreweryVC.swift; sourceTree = "<group>"; };
 		8502AE631BEA66CB00C54142 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
@@ -380,6 +384,7 @@
 			isa = PBXGroup;
 			children = (
 				6746518B1C4D295E00C464F3 /* FriendProfileVC.swift */,
+				67F48F171C6D40DA00B68C99 /* FriendsFromMyFriends.swift */,
 			);
 			name = FriendProfile;
 			sourceTree = "<group>";
@@ -548,6 +553,7 @@
 				8518D1541BD7B7BD00499ACA /* LaunchScreen.storyboard */,
 				674127971C18A20700016D52 /* CountryCell.swift */,
 				67DF669E1C66531D001C6FAC /* ReviewFromBeerTableViewCell.swift */,
+				67F48F191C6D428800B68C99 /* FrinMyFrinCell.swift */,
 				67DF669A1C63C708001C6FAC /* HomeCollectionViewCell.swift */,
 				67FB0C111C0F6C8700122314 /* SearchTVCell.swift */,
 				8529E59A1C467DFD00433054 /* MoreVCCell.swift */,
@@ -660,7 +666,7 @@
 				TargetAttributes = {
 					8518D1441BD7B7BD00499ACA = {
 						CreatedOnToolsVersion = 7.0.1;
-						DevelopmentTeam = 2MSKV8WUR9;
+						DevelopmentTeam = 3C75JFLMG7;
 					};
 					8518D15B1BD7B7BD00499ACA = {
 						CreatedOnToolsVersion = 7.0.1;
@@ -796,6 +802,7 @@
 				D2D88DA11BFB95B6002C8EF5 /* UserFBUtil.swift in Sources */,
 				D2526D7B1BDA56C9003953F9 /* HomepageVC.swift in Sources */,
 				677924B01BF6B9F700B8092B /* SearchVCCellTableViewCell.swift in Sources */,
+				67F48F1A1C6D428900B68C99 /* FrinMyFrinCell.swift in Sources */,
 				6701DE0F1C46949600F25FC2 /* UserInviteCell.swift in Sources */,
 				6793D0091C5A3D65009D9CBD /* UIViewController+Actions.swift in Sources */,
 				854AAC8E1BEB8CCE002F405B /* SearchVC.swift in Sources */,
@@ -807,6 +814,7 @@
 				63D37B3E1C43CFC00040CC52 /* ReviewServices.swift in Sources */,
 				8518D1491BD7B7BD00499ACA /* AppDelegate.swift in Sources */,
 				672C62FB1BEAD2F700E667C8 /* BreweryVCCell.swift in Sources */,
+				67F48F181C6D40DA00B68C99 /* FriendsFromMyFriends.swift in Sources */,
 				858A7E231BFDF6190070E844 /* AddBeer.swift in Sources */,
 				676250771BF373AF00F3BB0D /* UserDAO.swift in Sources */,
 				854542EC1C105F1900AC2A0B /* ReviewVC.swift in Sources */,

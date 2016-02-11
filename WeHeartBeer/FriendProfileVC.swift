@@ -29,7 +29,7 @@ class FriendProfileVC: UIViewController {
     var currentRequest: PFObject?
     var currentFriend: String? = ""
     var choice:Int?
-   
+    var friends:[PFObject?] = [PFObject?]()
     
    
     @IBOutlet weak var tip: UILabel!
@@ -38,8 +38,18 @@ class FriendProfileVC: UIViewController {
        super.viewDidLoad()
         self.internetCheck()
         
-        // Do any additional setup after loading the view.
-    }
+        let tapGesture1 = UITapGestureRecognizer(target: self, action: Selector("beersTapped:"))
+        
+        let tapGesture2 = UITapGestureRecognizer(target: self, action: Selector("friendsTapped:"))
+        self.beerIcone.userInteractionEnabled = true
+        self.beerIcone.addGestureRecognizer(tapGesture1)
+        self.friendsIcone.userInteractionEnabled  = true
+        self.friendsIcone.addGestureRecognizer(tapGesture2)
+   
+}
+
+
+
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
@@ -66,8 +76,6 @@ class FriendProfileVC: UIViewController {
  //Request to server Frienduser data
             FriendsDAO.findUser(self.currentFriend!, ch: { (object, success) -> Void in
                 if success{
-                    
-                    
                     self.updateData(object!)
                     self.friend = object 
                     //chamar
@@ -96,6 +104,7 @@ class FriendProfileVC: UIViewController {
     
     @IBAction func addFriend(sender: AnyObject) {
         self.addOrAcceptFriend()
+        self.addButton.hidden = true
         
     }
     @IBAction func recuseFriend(sender: AnyObject) {
@@ -167,9 +176,23 @@ extension FriendProfileVC {
         FriendsDAO.friendsQuery(self.friend!) { (object, success) -> Void in
             if success{
                 if object != nil{
-                    self.numberOfFriends.text = "0"
+                for o in object! {
+                    
+                    let id = o.objectForKey("id1") as! String
+                    let us = User.currentUser()
+                    
+                    if id == us?.faceID{
+                       self.friends.append(o.objectForKey("user2") as! PFObject?)
+                    }else {
+                        self.friends.append(o.objectForKey("user1") as! PFObject?)
+
+                    }
+                    
+                    
+                }
+                   self.numberOfFriends.text = ("\(object!.count)")
                 }else{
-                    self.numberOfFriends.text = ("\(object!.count)")
+                    self.numberOfFriends.text = "0"
                 }
                 
             }else{
@@ -177,6 +200,31 @@ extension FriendProfileVC {
             }
         }
     }
+    
+    
+ //MARK:- Navegation
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if (segue.identifier == "friendToFriend") {
+            if let destination = segue.destinationViewController  as? FriendsFromMyFriends{
+                destination.currentFriends = self.friends
+            }
+        }
+    }
+
+        
+
+    
+    
+    
+    
+    func beersTapped(img:AnyObject){
+        self.performSegueWithIdentifier("segueUserBeers", sender: nil)
+    }
+    
+    func friendsTapped(img:AnyObject){
+        self.performSegueWithIdentifier("friendToFriend", sender: nil)
+    }
+
     
     func updateData(friend:PFObject){
         print(friend)

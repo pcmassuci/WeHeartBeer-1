@@ -74,11 +74,11 @@ class FriendsDAO {
             }
         }
     }
-//    
+//    print("a")
     static func friendsQuery(user:PFObject, ch:FindObjsCH){
         let query = PFQuery(className: "Friends")
         query.whereKey("user1", equalTo:user)
-        query.whereKey("accepted", equalTo:true)
+        //query.whereKey("accepted", equalTo:true)
         query.findObjectsInBackgroundWithBlock { (friend1, error) -> Void in
             if error != nil {
                 var friend = friend1
@@ -88,6 +88,7 @@ class FriendsDAO {
                             for obj in object!{
                                 friend?.append(obj)
                             }
+                            print("a")
                             ch(object: friend, success: true)
                         }
                    }else{
@@ -96,6 +97,7 @@ class FriendsDAO {
                 })
             }else{
                 self.friendsQuery2(user, ch: { (object, success) -> Void in
+                    print("aa")
                     ch(object: object, success: success)
                 })
             
@@ -105,13 +107,17 @@ class FriendsDAO {
   private  static func friendsQuery2(user:PFObject, ch:FindObjsCH){
         let query = PFQuery(className: "Friends")
         query.whereKey("user2", equalTo:user)
-        query.whereKey("accepted", equalTo:true)
+        //query.whereKey("accepted", equalTo:true)
         query.findObjectsInBackgroundWithBlock { (friend2, error) -> Void in
             if error != nil {
+                print(friend2)
                 ch(object: friend2, success: true)
+              
                 
             }else{
+                print(friend2)
                 ch(object: nil, success: false )
+              
             }
             
         }

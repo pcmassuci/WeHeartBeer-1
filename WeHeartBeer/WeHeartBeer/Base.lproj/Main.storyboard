@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="7Kz-mP-eSq">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="7Kz-mP-eSq">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -129,7 +129,7 @@
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                     <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                                        <rect key="frame" x="103" y="57" width="27" height="26.5"/>
+                                                        <rect key="frame" x="103" y="57" width="27" height="27.5"/>
                                                     </variation>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="752" text="brewery" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="6Ew-eq-bbJ">
@@ -3239,7 +3239,7 @@
                                                     <color key="textColor" red="0.38823529410000002" green="0.53333333329999999" blue="0.29411764709999999" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                     <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                                        <rect key="frame" x="117" y="53" width="0.0" height="0.0"/>
+                                                        <rect key="frame" x="116" y="53" width="0.0" height="0.0"/>
                                                     </variation>
                                                 </label>
                                             </subviews>
@@ -5509,7 +5509,7 @@
                                     </mask>
                                 </variation>
                                 <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="140" y="322" width="120" height="120"/>
+                                    <rect key="frame" x="140" y="305" width="120" height="120"/>
                                     <mask key="constraints">
                                         <include reference="Hpw-d6-aaT"/>
                                         <exclude reference="Igz-F9-F5I"/>
@@ -5528,7 +5528,7 @@
                                 <color key="textColor" red="0.84705882349999995" green="0.43529411759999997" blue="0.047058823530000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                                 <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="0.0" y="100" width="400" height="142.5"/>
+                                    <rect key="frame" x="0.0" y="100" width="400" height="126"/>
                                 </variation>
                             </label>
                         </subviews>
@@ -6422,25 +6422,27 @@
                         <outlet property="numberOfBeers" destination="v0s-8c-04j" id="Rg2-hz-9Rf"/>
                         <outlet property="numberOfFriends" destination="QOK-Ld-gmU" id="RLF-Tt-0qG"/>
                         <outlet property="profileImage" destination="pHo-Sg-hu1" id="fmE-Xi-7Oc"/>
-                        <segue destination="K6M-2y-EMJ" kind="show" id="ISC-Vd-bT6"/>
+                        <segue destination="K6M-2y-EMJ" kind="show" identifier="friendToFriend" id="ISC-Vd-bT6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UWT-SL-qex" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-175.5" y="3921.75"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Friends From My Friends-->
         <scene sceneID="xoZ-oZ-F2P">
             <objects>
-                <tableViewController id="K6M-2y-EMJ" sceneMemberID="viewController">
+                <tableViewController id="K6M-2y-EMJ" customClass="FriendsFromMyFriends" customModule="BeerLove" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="71" sectionHeaderHeight="28" sectionFooterHeight="28" id="ssk-uD-R3p">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="71" id="ed1-PM-1yf">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" rowHeight="71" id="ed1-PM-1yf" customClass="FrinMyFrinCell" customModule="BeerLove" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="92" width="600" height="71"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ed1-PM-1yf" id="1o1-d5-R1L">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="70.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qxw-bh-ZN2">
@@ -6484,12 +6486,12 @@
                                             <exclude reference="Og4-w3-KfW"/>
                                         </mask>
                                         <mask key="constraints">
-                                            <exclude reference="7gn-2G-dU3"/>
-                                            <exclude reference="Cdl-Ku-7Hd"/>
-                                            <exclude reference="Hwn-at-FoC"/>
                                             <exclude reference="9VN-Lt-gmX"/>
                                             <exclude reference="CI0-6w-gA6"/>
                                             <exclude reference="loX-oI-mfJ"/>
+                                            <exclude reference="7gn-2G-dU3"/>
+                                            <exclude reference="Cdl-Ku-7Hd"/>
+                                            <exclude reference="Hwn-at-FoC"/>
                                         </mask>
                                     </variation>
                                     <variation key="heightClass=regular-widthClass=compact">
@@ -6498,15 +6500,19 @@
                                             <include reference="Og4-w3-KfW"/>
                                         </mask>
                                         <mask key="constraints">
-                                            <include reference="7gn-2G-dU3"/>
-                                            <include reference="Cdl-Ku-7Hd"/>
-                                            <include reference="Hwn-at-FoC"/>
                                             <include reference="9VN-Lt-gmX"/>
                                             <include reference="CI0-6w-gA6"/>
                                             <include reference="loX-oI-mfJ"/>
+                                            <include reference="7gn-2G-dU3"/>
+                                            <include reference="Cdl-Ku-7Hd"/>
+                                            <include reference="Hwn-at-FoC"/>
                                         </mask>
                                     </variation>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="friendLabel" destination="qxw-bh-ZN2" id="MBe-SL-nr7"/>
+                                    <outlet property="imageLabel" destination="Og4-w3-KfW" id="qfk-UB-BeB"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
