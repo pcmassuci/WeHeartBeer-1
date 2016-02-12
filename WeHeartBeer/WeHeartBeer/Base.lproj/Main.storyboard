@@ -473,6 +473,24 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView autoresizesSubviews="NO" clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.29999999999999999" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="backImg3" translatesAutoresizingMaskIntoConstraints="NO" id="09t-hK-WQ8" userLabel="backgroundImg">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <color key="backgroundColor" red="0.84705882349999995" green="0.43529411759999997" blue="0.047058823530000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="09t-hK-WQ8" secondAttribute="height" multiplier="100:63" id="ZS9-Qf-h5Q"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="ZS9-Qf-h5Q"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="0.0" y="44" width="400" height="271"/>
+                                    <mask key="constraints">
+                                        <exclude reference="ZS9-Qf-h5Q"/>
+                                    </mask>
+                                </variation>
+                            </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="KVW-xv-NYP" userLabel="Display Picture">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
@@ -492,8 +510,7 @@
                                         <exclude reference="fUs-sR-xPw"/>
                                     </mask>
                                 </variation>
-                                <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="233" y="34" width="135" height="135"/>
+                                <variation key="heightClass=regular-widthClass=compact">
                                     <mask key="constraints">
                                         <exclude reference="PVW-x0-eLB"/>
                                         <exclude reference="WeQ-GH-dfR"/>
@@ -524,7 +541,7 @@
                                     </mask>
                                 </variation>
                                 <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="222" y="233" width="157" height="102"/>
+                                    <rect key="frame" x="96" y="345" width="209" height="136"/>
                                     <mask key="constraints">
                                         <include reference="E3Y-el-DI1"/>
                                         <exclude reference="gH6-Op-eOx"/>
@@ -541,7 +558,7 @@
                                 <color key="textColor" red="0.84705882349999995" green="0.43529411759999997" blue="0.047058823530000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                                 <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="311" y="490" width="68" height="24"/>
+                                    <rect key="frame" x="238" y="671" width="67" height="24"/>
                                 </variation>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cervejas" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cG9-ea-dj5" userLabel="Cerveja">
@@ -550,7 +567,7 @@
                                 <color key="textColor" red="0.84705882352941175" green="0.43529411764705883" blue="0.047058823529411764" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                                 <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="301" y="340" width="78" height="23"/>
+                                    <rect key="frame" x="228" y="486" width="77" height="24"/>
                                 </variation>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icone_amigos" translatesAutoresizingMaskIntoConstraints="NO" id="fYd-oY-xZI">
@@ -577,7 +594,7 @@
                                     </mask>
                                 </variation>
                                 <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="222" y="383" width="157" height="102"/>
+                                    <rect key="frame" x="96" y="530" width="209" height="136"/>
                                     <mask key="constraints">
                                         <exclude reference="1jw-Sm-KD4"/>
                                         <exclude reference="4ig-cd-mYa"/>
@@ -603,8 +620,7 @@
                                         <exclude reference="BRu-mf-ZzB"/>
                                     </mask>
                                 </variation>
-                                <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="0.0" y="159" width="600" height="33"/>
+                                <variation key="heightClass=regular-widthClass=compact">
                                     <mask key="constraints">
                                         <exclude reference="BRu-mf-ZzB"/>
                                     </mask>
@@ -615,9 +631,6 @@
                                 <fontDescription key="fontDescription" name="Lato-Heavy" family="Lato" pointSize="28"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
-                                <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="322" y="267" width="47" height="33"/>
-                                </variation>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Me-bK-kMW">
                                 <rect key="frame" x="-42" y="-21" width="42" height="21"/>
@@ -625,27 +638,9 @@
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                                 <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="369" y="434" width="0.0" height="0.0"/>
+                                    <rect key="frame" x="295" y="598" width="0.0" height="0.0"/>
                                 </variation>
                             </label>
-                            <imageView autoresizesSubviews="NO" clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.29999999999999999" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="backImg3" translatesAutoresizingMaskIntoConstraints="NO" id="09t-hK-WQ8" userLabel="backgroundImg">
-                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
-                                <color key="backgroundColor" red="0.84705882349999995" green="0.43529411759999997" blue="0.047058823530000002" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="09t-hK-WQ8" secondAttribute="height" multiplier="100:63" id="ZS9-Qf-h5Q"/>
-                                </constraints>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="ZS9-Qf-h5Q"/>
-                                    </mask>
-                                </variation>
-                                <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="203"/>
-                                    <mask key="constraints">
-                                        <exclude reference="ZS9-Qf-h5Q"/>
-                                    </mask>
-                                </variation>
-                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -694,6 +689,7 @@
                         </constraints>
                         <variation key="default">
                             <mask key="subviews">
+                                <exclude reference="09t-hK-WQ8"/>
                                 <exclude reference="KVW-xv-NYP"/>
                                 <exclude reference="W7e-Dk-X6d"/>
                                 <exclude reference="BVA-iu-k2W"/>
@@ -702,7 +698,6 @@
                                 <exclude reference="RQe-Yo-kqs"/>
                                 <exclude reference="2DO-qw-rEf"/>
                                 <exclude reference="7Me-bK-kMW"/>
-                                <exclude reference="09t-hK-WQ8"/>
                             </mask>
                             <mask key="constraints">
                                 <exclude reference="8b9-Ou-yzH"/>
@@ -733,6 +728,7 @@
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
                             <mask key="subviews">
+                                <include reference="09t-hK-WQ8"/>
                                 <include reference="KVW-xv-NYP"/>
                                 <include reference="W7e-Dk-X6d"/>
                                 <include reference="BVA-iu-k2W"/>
@@ -741,7 +737,6 @@
                                 <include reference="RQe-Yo-kqs"/>
                                 <include reference="2DO-qw-rEf"/>
                                 <include reference="7Me-bK-kMW"/>
-                                <include reference="09t-hK-WQ8"/>
                             </mask>
                             <mask key="constraints">
                                 <include reference="8b9-Ou-yzH"/>
