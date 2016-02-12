@@ -53,9 +53,6 @@ class BeerProfileVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("beerProfile")
-        print(self.currentObject)
-       //self.listOfBeers.delegate = self
         self.listOfBeers.dataSource = self
         
         let screenHeight = UIScreen.mainScreen().bounds.height
@@ -99,7 +96,7 @@ class BeerProfileVC: UIViewController {
         super.viewWillAppear(animated)
         if self.internetCheck() {
         }else{
-           self.alert("Atenção", message: "verifique sua conexão com a Internet", option: false, action: nil)
+           self.alert("Atenção", message: "Verifique sua conexão com a internet", option: false, action: nil)
         }
         self.navigationController?.setNavigationBarHidden(false, animated: true)
         self.navigationController?.navigationBar.hidden = false
@@ -110,14 +107,6 @@ class BeerProfileVC: UIViewController {
         
         self.getRantingAndReviews(self.currentObject!)
         self.updateData(self.currentObject)
-
-        
-        //change button image
-        if UserServices.loggedUser() {
-            //self.ratingButton.hidden = false
-        }else{
-            //self.ratingButton.hidden = true
-        }
         
            }
     
@@ -169,7 +158,7 @@ class BeerProfileVC: UIViewController {
                          self.photo.image = image
                         
                     }else{
-                        print("Nao tem imagem")
+                        print("Sem imagem")
                         // não tem imagem
                     }
                     
@@ -245,12 +234,8 @@ extension BeerProfileVC: UITableViewDataSource{
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         let cell = self.listOfBeers.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as! ReviewFromBeerTableViewCell
-        if self.rev == nil {
-            cell.commentReview.text = "Sem nota"
-            
-        }else{
-            
-            
+        
+
             if self.rev![indexPath.row].objectForKey("user") != nil{
                     
                 let user = rev![indexPath.row].objectForKey("user") as! PFUser
@@ -290,11 +275,23 @@ extension BeerProfileVC: UITableViewDataSource{
                         cell.rateReview.text =  String(format: "= %.2f", rate!)
                     }
                 
-            } else {
-                 
             }
-        }
+        
         return cell
+    }
+    
+    
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        
+        var userComment = self.rev![indexPath.row].objectForKey("comment") as? String
+        
+        if userComment == ""{
+            self.alert("Avaliação sem comentário", message: userComment!, option: false, action: nil)
+        }else{
+           self.alert("Comentário", message: userComment!, option: false, action: nil)
+        }
+        
     }
     
 }
