@@ -29,7 +29,7 @@ class FriendProfileVC: UIViewController {
     var currentRequest: PFObject?
     var currentFriend: String? = ""
     var choice:Int?
-    var friends:[PFObject?] = [PFObject?]()
+    var friends = [String:PFObject?]()
     
    
     @IBOutlet weak var tip: UILabel!
@@ -180,11 +180,13 @@ extension FriendProfileVC {
                     
                     let id = o.objectForKey("id1") as! String
                     let us = User.currentUser()
-                    
-                    if id == us?.faceID{
-                       self.friends.append(o.objectForKey("user2") as! PFObject?)
+                    let name1 = o.objectForKey("name1") as! String
+                    let name2 = o.objectForKey("name2") as! String
+                    if id == us!.faceID{
+                        self.friends[name1] = (o.objectForKey("user1") as! PFObject?)
+                      
                     }else {
-                        self.friends.append(o.objectForKey("user1") as! PFObject?)
+                        self.friends[name2] = (o.objectForKey("user2") as! PFObject?)
 
                     }
                     

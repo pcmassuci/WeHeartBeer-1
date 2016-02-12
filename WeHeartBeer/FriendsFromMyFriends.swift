@@ -10,10 +10,14 @@ import UIKit
 
 class FriendsFromMyFriends: UITableViewController {
 
-    var currentFriends:[PFObject?] = [PFObject]()
-    
+    var currentFriends = [String:PFObject?]()
+    var names = [String]()
+    var objs = [PFObject]()
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.tableView.dataSource = self
+        self.tableView.delegate = self
+        self.separeDict()
 
  
     }
@@ -34,9 +38,9 @@ class FriendsFromMyFriends: UITableViewController {
         // #warning Incomplete implementation, return the number of rows
         
         
-        if self.currentFriends.count != 0 {
+        if self.names.count != 0 {
             
-        return self.currentFriends.count
+        return self.names.count
         }
         return 1
     }
@@ -44,9 +48,10 @@ class FriendsFromMyFriends: UITableViewController {
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as! FrinMyFrinCell
-        if self.currentFriends.count != 0 {
+        print(self.names)
+        if self.names.count != 0 {
             cell.imageLabel.hidden = false
-            cell.friendLabel.text = "hey"
+            cell.friendLabel.text = self.names[indexPath.row]
         } else{
             cell.imageLabel.hidden = false
             cell.friendLabel.text = "Sem Amigos"
@@ -59,13 +64,7 @@ class FriendsFromMyFriends: UITableViewController {
     }
     
 
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
+ 
 
     /*
     // Override to support editing the table view.
@@ -103,5 +102,21 @@ class FriendsFromMyFriends: UITableViewController {
         // Pass the selected object to the new view controller.
     }
     */
-
 }
+    extension FriendsFromMyFriends {
+        private func separeDict(){
+            
+                for (key, value) in self.currentFriends{
+                    self.objs.append(value!)
+                    self.names.append(key)
+                    
+                }
+            print(self.names)
+            self.tableView.reloadData()
+                
+            }
+
+        }
+        
+
+

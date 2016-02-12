@@ -218,9 +218,7 @@ extension HomepageVC {
                 }
                 
                 
-//                
-//                
-//                self.challengeName.text = chTitle
+
 
 //
     }
