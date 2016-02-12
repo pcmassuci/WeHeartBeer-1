@@ -26,7 +26,6 @@ class UserProfileVC: UIViewController {
     @IBOutlet weak var friendsNumber: UILabel!
     
     
-    
     let layer:CGFloat = 7
     
     override func awakeFromNib() {
@@ -57,7 +56,9 @@ class UserProfileVC: UIViewController {
         
 
             if UserServices.loggedUser(){
+            self.checkBeers()
             self.checkFriends()
+                
             self.navigationItem.hidesBackButton =  true
             self.navigationController?.navigationBar.barTintColor = UIColor(red: 250.0/255.0, green: 170.0/255.0, blue: 0.0/255.0, alpha: 1.0)
             self.navigationController?.navigationBar.tintColor = UIColor.whiteColor()
@@ -137,29 +138,30 @@ class UserProfileVC: UIViewController {
 
 extension UserProfileVC{
     
+    
+    func checkBeers(){
+        
+        ReviewServices.findReviewfromUser(User.currentUser()!) { (reviews, success) -> Void in
+            self.beerNumber.text = String((reviews?.count)! as NSNumber)
+        }
+    }
+    
+    
     func checkFriends(){
         FriendsDAO.queryFriends { (requests, waitingFriends, myFriends, success) -> Void in
             if success{
                 
-              
-                
                 if myFriends != nil {
-                    
                     self.friendsNumber.text = "\(myFriends!.count)"
-
-                    
                 } else {
                     self.friendsNumber.text = "0"
                 }
             } else{
                 //naoDeuCerto
-                
             }
         }
-        
     }
-    
-    
+
 }
 
 
