@@ -264,7 +264,7 @@ extension BeerProfileVC: UITableViewDataSource{
                 
              
                 cell.userNameReview.text = user.objectForKey("name") as? String
-                cell.commentReview.text = self.rev![indexPath.row].objectForKey("comment") as? String
+                cell.commentReview.text = "Veja o comentário!"
                 
                 let rate = self.rev![indexPath.row].objectForKey("rating") as? Float
         
