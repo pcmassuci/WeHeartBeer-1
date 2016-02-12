@@ -190,7 +190,7 @@ class BeerProfileVC: UIViewController {
         if UserServices.loggedUser(){
         self.performSegueWithIdentifier("segueReview", sender: nil)
         }else{
-           self.alert("Atenção", message: "Você precisa estar logado para fazer isso", option: false, action: nil)
+           self.alert("Atenção", message: "Você precisa estar logado para fazer isso. Vá para página de perfil para fazer o login", option: false, action: nil)
             
         }
     }
@@ -264,8 +264,7 @@ extension BeerProfileVC: UITableViewDataSource{
                 
              
                 cell.userNameReview.text = user.objectForKey("name") as? String
-                cell.commentReview.text = "Veja o comentário!"
-                
+                cell.commentReview.text = "Veja o comentário"                
                 let rate = self.rev![indexPath.row].objectForKey("rating") as? Float
         
                     if user == User.currentUser() {
