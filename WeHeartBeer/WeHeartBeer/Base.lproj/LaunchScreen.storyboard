@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" initialViewController="01J-lp-oVM">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" initialViewController="01J-lp-oVM">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -15,7 +17,114 @@
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cheers" translatesAutoresizingMaskIntoConstraints="NO" id="v2W-nz-XAY">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                            </imageView>
+                            <visualEffectView opaque="NO" alpha="0.94999999999999996" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mme-gU-yRr">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="Ilf-CB-eHR">
+                                    <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo_cevada_preto" translatesAutoresizingMaskIntoConstraints="NO" id="YuZ-ja-2JD">
+                                            <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" secondItem="YuZ-ja-2JD" secondAttribute="height" multiplier="1:1" id="tRl-4f-v79"/>
+                                            </constraints>
+                                            <variation key="default">
+                                                <mask key="constraints">
+                                                    <exclude reference="tRl-4f-v79"/>
+                                                </mask>
+                                            </variation>
+                                            <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                                <rect key="frame" x="-200" y="240" width="800" height="320"/>
+                                                <mask key="constraints">
+                                                    <include reference="tRl-4f-v79"/>
+                                                </mask>
+                                            </variation>
+                                        </imageView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="YuZ-ja-2JD" firstAttribute="width" secondItem="Ilf-CB-eHR" secondAttribute="height" multiplier="1:1" id="9vs-L1-jH7"/>
+                                        <constraint firstItem="YuZ-ja-2JD" firstAttribute="centerX" secondItem="Ilf-CB-eHR" secondAttribute="centerX" id="Kee-Wo-0Xd"/>
+                                        <constraint firstItem="YuZ-ja-2JD" firstAttribute="height" secondItem="Ilf-CB-eHR" secondAttribute="height" multiplier="0.4" id="eKV-Bi-4vS"/>
+                                        <constraint firstItem="YuZ-ja-2JD" firstAttribute="centerY" secondItem="Ilf-CB-eHR" secondAttribute="centerY" id="mos-xT-ruJ"/>
+                                        <constraint firstItem="YuZ-ja-2JD" firstAttribute="height" secondItem="Ilf-CB-eHR" secondAttribute="height" multiplier="0.4" id="ury-FF-QPF">
+                                            <variation key="heightClass=regular-widthClass=compact" constant="0.0"/>
+                                        </constraint>
+                                    </constraints>
+                                    <variation key="default">
+                                        <mask key="subviews">
+                                            <exclude reference="YuZ-ja-2JD"/>
+                                        </mask>
+                                        <mask key="constraints">
+                                            <exclude reference="9vs-L1-jH7"/>
+                                            <exclude reference="Kee-Wo-0Xd"/>
+                                            <exclude reference="eKV-Bi-4vS"/>
+                                            <exclude reference="mos-xT-ruJ"/>
+                                            <exclude reference="ury-FF-QPF"/>
+                                        </mask>
+                                    </variation>
+                                    <variation key="heightClass=regular-widthClass=compact">
+                                        <mask key="subviews">
+                                            <include reference="YuZ-ja-2JD"/>
+                                        </mask>
+                                        <mask key="constraints">
+                                            <exclude reference="9vs-L1-jH7"/>
+                                            <include reference="Kee-Wo-0Xd"/>
+                                            <include reference="eKV-Bi-4vS"/>
+                                            <include reference="mos-xT-ruJ"/>
+                                            <exclude reference="ury-FF-QPF"/>
+                                        </mask>
+                                    </variation>
+                                </view>
+                                <blurEffect style="light"/>
+                            </visualEffectView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="v2W-nz-XAY" firstAttribute="width" secondItem="Ze5-6b-2t3" secondAttribute="width" id="GkX-zl-70I"/>
+                            <constraint firstItem="mme-gU-yRr" firstAttribute="centerX" secondItem="v2W-nz-XAY" secondAttribute="centerX" id="KHL-zT-zOi"/>
+                            <constraint firstItem="v2W-nz-XAY" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="PsW-hS-ooW"/>
+                            <constraint firstItem="mme-gU-yRr" firstAttribute="width" secondItem="v2W-nz-XAY" secondAttribute="width" id="a6W-cg-WGy"/>
+                            <constraint firstItem="v2W-nz-XAY" firstAttribute="height" secondItem="Ze5-6b-2t3" secondAttribute="height" id="akX-CV-023"/>
+                            <constraint firstItem="mme-gU-yRr" firstAttribute="centerY" secondItem="v2W-nz-XAY" secondAttribute="centerY" id="b67-wQ-a8t"/>
+                            <constraint firstItem="v2W-nz-XAY" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="bJ4-57-Pgy"/>
+                            <constraint firstItem="mme-gU-yRr" firstAttribute="height" secondItem="v2W-nz-XAY" secondAttribute="height" id="fbq-Oz-WqO"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="v2W-nz-XAY"/>
+                                <exclude reference="mme-gU-yRr"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="GkX-zl-70I"/>
+                                <exclude reference="PsW-hS-ooW"/>
+                                <exclude reference="akX-CV-023"/>
+                                <exclude reference="bJ4-57-Pgy"/>
+                                <exclude reference="KHL-zT-zOi"/>
+                                <exclude reference="a6W-cg-WGy"/>
+                                <exclude reference="b67-wQ-a8t"/>
+                                <exclude reference="fbq-Oz-WqO"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular-widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="v2W-nz-XAY"/>
+                                <include reference="mme-gU-yRr"/>
+                            </mask>
+                            <mask key="constraints">
+                                <include reference="GkX-zl-70I"/>
+                                <include reference="PsW-hS-ooW"/>
+                                <include reference="akX-CV-023"/>
+                                <include reference="bJ4-57-Pgy"/>
+                                <include reference="KHL-zT-zOi"/>
+                                <include reference="a6W-cg-WGy"/>
+                                <include reference="b67-wQ-a8t"/>
+                                <include reference="fbq-Oz-WqO"/>
+                            </mask>
+                        </variation>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -23,4 +132,8 @@
             <point key="canvasLocation" x="53" y="375"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="cheers" width="1536" height="1342"/>
+        <image name="logo_cevada_preto" width="509" height="400"/>
+    </resources>
 </document>
