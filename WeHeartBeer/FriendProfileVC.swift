@@ -131,9 +131,9 @@ extension FriendProfileVC {
             
             self.addButton.hidden = true
             self.delegate?.addIdFriend(self.currentFriend!)
-            print("pedido feito")
+        
         }else{
-            print("error")
+
         }
         
         }
@@ -154,7 +154,6 @@ extension FriendProfileVC {
         let user2 = self.friend
         FriendsDAO.friendQuery(user1!, user2: user2!, check: true, ch: { (object, success) -> Void in
             if success{
-                print("leia")
                 self.kindOfFriend = object
                 let user = user1?.faceID
                 let id = object?.objectForKey("id1") as! String?
@@ -163,7 +162,6 @@ extension FriendProfileVC {
                     self.addButton.hidden = true
                     
                 }else{
-                    print("solo")
                      self.addButton.setTitle("Aceitar", forState: .Normal)
                 
                 }
@@ -217,6 +215,15 @@ extension FriendProfileVC {
                 destination.currentFriends = self.friends
                 destination.delegate = self
             }
+            
+            
+        }
+        if (segue.identifier == "segueToFriendsBeers") {
+            if let destination = segue.destinationViewController  as? ReviewBeerFriendViewController{
+                print(self.friend)
+                destination.user  = self.friend
+            }
+            
         }
     }
 
@@ -227,7 +234,8 @@ extension FriendProfileVC {
     
     
     func beersTapped(img:AnyObject){
-        self.performSegueWithIdentifier("segueUserBeers", sender: nil)
+        print("to: \(self.friend)")
+        self.performSegueWithIdentifier("segueToFriendsBeers", sender: nil)
     }
     
     func friendsTapped(img:AnyObject){
@@ -236,7 +244,7 @@ extension FriendProfileVC {
 
     
     func updateData(friend:PFObject){
-        print(friend)
+        countBeers(friend)
         self.friendName.text = (friend.valueForKey("name") as! String)
         let pfImage = friend.objectForKey("photo") as? PFFile
         ImageDAO.getImageFromParse(pfImage) { (image, success) -> Void in
@@ -250,6 +258,14 @@ extension FriendProfileVC {
         }
     }
 
+    func countBeers(friend:PFObject?){
+            ReviewDAO.findReviewFromUser(friend!) { (reviews, success) -> Void in
+            self.numberOfBeers.text = String((reviews?.count)! as NSNumber)
+        }
+
+    }
+    
+    
 }
 
 extension FriendProfileVC: FriendListVCDelegate{

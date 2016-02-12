@@ -142,6 +142,7 @@ extension UserProfileVC{
     func checkBeers(){
         
         ReviewServices.findReviewfromUser(User.currentUser()!) { (reviews, success) -> Void in
+            
             self.beerNumber.text = String((reviews?.count)! as NSNumber)
         }
     }

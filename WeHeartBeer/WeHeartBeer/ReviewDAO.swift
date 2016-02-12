@@ -50,17 +50,10 @@ class ReviewDAO {
         
     }
     
-    static func findReviewFromUser(user:PFObject!, ch:FindObjsCompletionHandler){
+    static func findRevFromUser(user:PFObject?, ch:FindObjsCompletionHandler){
         let query = PFQuery(className: "Review")
-        query.whereKey("user", equalTo: user)
-        query.findObjectsInBackgroundWithBlock { (review, error) -> Void in
-            if review != nil {
-            ch(reviews: review , success: true)
-                
-            }else{
-                ch(reviews: nil, success: false)
-            }
-    }
+        query.whereKey("user", equalTo: user!.objectId!)
+            
     }
     
 
