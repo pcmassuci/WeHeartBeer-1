@@ -76,11 +76,13 @@ class FriendsDAO {
     }
 //    print("a")
     static func friendsQuery(user:PFObject, ch:FindObjsCH){
+        print("entrouuuu ")
+       
         let query = PFQuery(className: "Friends")
         query.whereKey("user1", equalTo:user)
         query.whereKey("accepted", equalTo:true)
         query.findObjectsInBackgroundWithBlock { (friend1, error) -> Void in
-            if error != nil {
+            if error == nil {
                 var friend = friend1
                 self.friendsQuery2(user, ch: { (object, success) -> Void in
                    if success{
@@ -91,8 +93,9 @@ class FriendsDAO {
                             print("friend")
                             print(friend)
                             ch(object: friend, success: true)
-                        }
+                    }
                    }else{
+                        print("tem coisa errada")
                         ch(object: friend, success: true)
                     }
                 })

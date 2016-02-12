@@ -21,9 +21,17 @@ class FriendsFromMyFriends: UITableViewController {
         super.viewDidLoad()
         self.tableView.dataSource = self
         self.tableView.delegate = self
-        self.separeDict()
+        
 
  
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        self.objs.removeAll()
+        self.names.removeAll()
+       // self.currentFriends.removeAll()
+        self.separeDict()
     }
 
     override func didReceiveMemoryWarning() {
@@ -66,13 +74,29 @@ class FriendsFromMyFriends: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        delegate?.newFriend(self.objs[indexPath.row])
-        if let navController = self.navigationController {
-            navController.popViewControllerAnimated(true)
-        }else{
-            print("optional value")
+        
+        if self.objs.count != 0 {
+        
+        let query = PFQuery(className:"_User")
+        query.whereKey("objectId", equalTo:self.objs[indexPath.row].objectId!)
+        query.getFirstObjectInBackgroundWithBlock { (object, error) -> Void in
+            if object != nil {
+                self.delegate?.newFriend(object!)
+                if let navController = self.navigationController {
+                    navController.popViewControllerAnimated(true)
+                }else{
+                    print("optional value")
+                }
+                
+            }else{
+                self.alert("Atenção", message: "Houve, um erro ao receber o dado do servidor!", option: false, action: nil)
+                
+            }
         }
-
+        } else{
+            
+        }
+        
     }
  
 
