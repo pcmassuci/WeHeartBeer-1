@@ -50,6 +50,7 @@
 		67F48F1A1C6D428900B68C99 /* FrinMyFrinCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67F48F191C6D428800B68C99 /* FrinMyFrinCell.swift */; };
 		67F48F1C1C6D720D00B68C99 /* ReviewBeerFriendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67F48F1B1C6D720D00B68C99 /* ReviewBeerFriendViewController.swift */; };
 		67F48F1E1C6D7CC400B68C99 /* ReviewFriendVCCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67F48F1D1C6D7CC400B68C99 /* ReviewFriendVCCell.swift */; };
+		67F48F221C6DF47800B68C99 /* UserAppFriends.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67F48F211C6DF47800B68C99 /* UserAppFriends.swift */; };
 		67FB0C121C0F6C8700122314 /* SearchTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67FB0C111C0F6C8700122314 /* SearchTVCell.swift */; };
 		67FB0C141C11D31500122314 /* AddBreweryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67FB0C131C11D31500122314 /* AddBreweryVC.swift */; };
 		8502AE6A1BEA66CC00C54142 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8502AE631BEA66CB00C54142 /* Bolts.framework */; };
@@ -192,6 +193,7 @@
 		67F48F191C6D428800B68C99 /* FrinMyFrinCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FrinMyFrinCell.swift; sourceTree = "<group>"; };
 		67F48F1B1C6D720D00B68C99 /* ReviewBeerFriendViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReviewBeerFriendViewController.swift; sourceTree = "<group>"; };
 		67F48F1D1C6D7CC400B68C99 /* ReviewFriendVCCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReviewFriendVCCell.swift; sourceTree = "<group>"; };
+		67F48F211C6DF47800B68C99 /* UserAppFriends.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserAppFriends.swift; sourceTree = "<group>"; };
 		67FB0C111C0F6C8700122314 /* SearchTVCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchTVCell.swift; sourceTree = "<group>"; };
 		67FB0C131C11D31500122314 /* AddBreweryVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddBreweryVC.swift; sourceTree = "<group>"; };
 		8502AE631BEA66CB00C54142 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
@@ -358,6 +360,7 @@
 			children = (
 				85FC93791C190B9400CF59C7 /* UserBeersVC.swift */,
 				85FC937D1C190BCE00CF59C7 /* UserTrophiesVC.swift */,
+				67F48F211C6DF47800B68C99 /* UserAppFriends.swift */,
 				6701DE0B1C46943400F25FC2 /* UserInviteFBFriendsVC.swift */,
 				85FC937B1C190BA500CF59C7 /* UserPlacesVC.swift */,
 				6701DE091C4686F600F25FC2 /* UserAddAppFriendsVC.swift */,
@@ -787,6 +790,7 @@
 				854AAF551BF0BEDF002F405B /* Brewery.swift in Sources */,
 				67E8776B1C532C100065B8E8 /* FacebookDAO.swift in Sources */,
 				63D37B441C43D1E00040CC52 /* Review.swift in Sources */,
+				67F48F221C6DF47800B68C99 /* UserAppFriends.swift in Sources */,
 				63D37B421C43D0E50040CC52 /* ReviewDAO.swift in Sources */,
 				6333567D1BED151000A71155 /* User.swift in Sources */,
 				85C9957C1C45230900EBEEBF /* MoreVC.swift in Sources */,
