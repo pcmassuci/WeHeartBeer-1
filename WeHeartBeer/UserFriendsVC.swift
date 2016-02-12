@@ -184,6 +184,14 @@ extension UserFriendsVC: UITableViewDataSource , UITableViewDelegate{
         }
     }
     
+     func tableView(tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+        let header: UITableViewHeaderFooterView = view as! UITableViewHeaderFooterView //recast your view as a UITableViewHeaderFooterView
+        header.contentView.backgroundColor = UIColor(red: 243/255, green: 153/255, blue: 18/255, alpha: 1.0) //make the background color light blue
+        header.textLabel!.textColor = UIColor.whiteColor() //make the text white
+    }
+    
+    
+
     
     
     
@@ -194,10 +202,14 @@ extension UserFriendsVC: UITableViewDataSource , UITableViewDelegate{
         switch section {
             case 0:
             header = "Solicitações"
+           
+
             case 1:
             header = "Pendente"
-            case 2:
+            
+        case 2:
             header = "Amigos"
+            
         default:
             break
         }
@@ -212,7 +224,11 @@ extension UserFriendsVC: UITableViewDataSource , UITableViewDelegate{
         switch indexPath.section {
         case 0:
              if indexPath.row == (self.requests.count){
-                        cell.name.text = "adicione um amigo"
+                        cell.name.text = "Ache amigos que já usam o app"
+                        cell.name.numberOfLines = 0
+                        cell.backgroundColor = UIColor(red: 220.0/255.0, green: 220.0/255.0, blue: 220.0/255.0, alpha: 0.8)
+                
+                
                     }else{
                         cell.name.text = (self.requests[indexPath.row]!.objectForKey("name1") as! String)
                 
@@ -220,7 +236,8 @@ extension UserFriendsVC: UITableViewDataSource , UITableViewDelegate{
              
         case 1:
             if 0 == (self.waitingFriends.count){
-                cell.name.text = "sem requisição"
+                cell.name.text = "Sem solicitações pendentes"
+                cell.backgroundColor = UIColor(red: 220.0/255.0, green: 220.0/255.0, blue: 220.0/255.0, alpha: 0.8)
             }else{
                 //print(self.waitingFriends[indexPath.row]?.objectForKey("name2"))
                 cell.name.text = (self.waitingFriends[indexPath.row]?.objectForKey("name2") as! String)
@@ -231,6 +248,7 @@ extension UserFriendsVC: UITableViewDataSource , UITableViewDelegate{
         case 2:
             if 0 == (self.myFriends.count){
                 cell.name.text = "sem amigos"
+               
             }else{
                 let id = self.myFriends[indexPath.row]!.objectForKey("id1") as? String
                 let user = User.currentUser()
@@ -266,12 +284,17 @@ extension UserFriendsVC: UITableViewDataSource , UITableViewDelegate{
             }
             break
         case 1:
+            if self.waitingFriends.count == 0 {
+                self.alert("Atenção!", message: "Você não tem nenhum pedido de amizade pendente, adicione mais amigos.", option: false, action: nil)
+                
+            }else{
              performSegueWithIdentifier("segueToFriendProfile", sender: nil)
+            }
             break
         case 2:
             
             if 0 == (self.myFriends.count){
-                //do nothing
+                self.alert("Atenção!", message: "Você não tem amigos.", option: false, action: nil)
             }else{
                 let id = self.myFriends[indexPath.row]!.objectForKey("id1") as? String
                 let user = User.currentUser()

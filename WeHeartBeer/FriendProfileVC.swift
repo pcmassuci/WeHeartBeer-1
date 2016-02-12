@@ -71,10 +71,10 @@ class FriendProfileVC: UIViewController {
 
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
+        self.friends.removeAll()
         if self.currentFriend != nil{
  //Request to server Frienduser data
-            
-            if self.friend == nil {
+        
             FriendsDAO.findUser(self.currentFriend!, ch: { (object, success) -> Void in
                 if success{
                     self.updateData(object!)
@@ -90,10 +90,7 @@ class FriendProfileVC: UIViewController {
             //erro de encontrar o usuario
         }
        
-        } else{
-            self.checkFriend()
-            self.countFriends()
-        }
+       
         
         
     }
@@ -180,23 +177,27 @@ extension FriendProfileVC {
         FriendsDAO.friendsQuery(self.friend!) { (object, success) -> Void in
             if success{
                 if object != nil{
+                    self.numberOfFriends.text = ("\(object!.count)")
                 for o in object! {
                     
                     let id = o.objectForKey("id1") as! String
-                    let us = User.currentUser()
+                    let us = self.friend?.objectForKey("faceID") as! String
                     let name1 = o.objectForKey("name1") as! String
                     let name2 = o.objectForKey("name2") as! String
-                    if id == us!.faceID{
-                        self.friends[name1] = (o.objectForKey("user1") as! PFObject?)
+                    print(id)
+                    print(us)
+
+                    if id == us{
+                        self.friends[name2] = (o.objectForKey("user2") as! PFObject?)
                       
                     }else {
-                        self.friends[name2] = (o.objectForKey("user2") as! PFObject?)
+                        self.friends[name1] = (o.objectForKey("user1") as! PFObject?)
 
                     }
                     
                     
                 }
-                   self.numberOfFriends.text = ("\(object!.count)")
+                   
                 }else{
                     self.numberOfFriends.text = "0"
                 }
@@ -270,8 +271,10 @@ extension FriendProfileVC {
 
 extension FriendProfileVC: FriendListVCDelegate{
     func newFriend(friendOb:PFObject) {
+        print(friendOb)
         self.friend = friendOb
         self.updateData(self.friend!)
+        self.currentFriend = (self.friend!.objectForKey("faceID") as! String)
     }
     
     
