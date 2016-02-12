@@ -15,6 +15,7 @@ class ContactVC: UIViewController {
     @IBOutlet weak var mailMe: UIButton!
     
     @IBOutlet weak var contactIntro: UIButton!
+    @IBOutlet weak var contactLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,6 +27,21 @@ class ContactVC: UIViewController {
         self.tintBarUp(self.view)
         
         self.animateButton()
+        
+        let screenHeight = UIScreen.mainScreen().bounds.height
+        
+        switch screenHeight {
+        case 480:
+            
+            self.contactLabel.text = "Oi! Por aqui você pode entrar em contato conosco. Reclamações ou Sugestões? É só falar!"
+            self.contactLabel.font = UIFont(name: "Lato", size: 16)
+            
+            
+            
+        default: // rest of screen sizes
+            break
+        }
+
         
         
     

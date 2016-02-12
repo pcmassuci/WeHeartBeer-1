@@ -3213,6 +3213,9 @@
                                                 </imageView>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstAttribute="bottomMargin" secondItem="q7y-9G-Uaf" secondAttribute="bottom" constant="-4.5" id="BGw-LQ-1Nl">
+                                                    <variation key="heightClass=regular-widthClass=compact" constant="5"/>
+                                                </constraint>
                                                 <constraint firstItem="ueL-1l-qyl" firstAttribute="top" secondItem="Fte-87-p9W" secondAttribute="top" id="BbE-qF-0iI"/>
                                                 <constraint firstItem="Wfa-D7-X6g" firstAttribute="centerY" secondItem="w7e-sc-2A9" secondAttribute="centerY" id="EPe-2f-MCd"/>
                                                 <constraint firstAttribute="topMargin" secondItem="Fte-87-p9W" secondAttribute="top" id="Fr2-HV-IMr"/>
@@ -3220,7 +3223,7 @@
                                                     <variation key="heightClass=regular-widthClass=compact" constant="5"/>
                                                 </constraint>
                                                 <constraint firstItem="w7e-sc-2A9" firstAttribute="top" secondItem="ueL-1l-qyl" secondAttribute="bottom" constant="-1" id="Kw1-bq-v72">
-                                                    <variation key="heightClass=regular-widthClass=compact" constant="0.0"/>
+                                                    <variation key="heightClass=regular-widthClass=compact" constant="10"/>
                                                 </constraint>
                                                 <constraint firstItem="Fte-87-p9W" firstAttribute="centerY" secondItem="GOb-FB-Tb5" secondAttribute="centerY" id="Msf-MC-Lwk"/>
                                                 <constraint firstItem="q7y-9G-Uaf" firstAttribute="top" secondItem="ueL-1l-qyl" secondAttribute="bottom" constant="-2" id="NkK-ZR-OKC">
@@ -3275,6 +3278,7 @@
                                                     <exclude reference="Kw1-bq-v72"/>
                                                     <exclude reference="QJv-NI-gVX"/>
                                                     <exclude reference="oYY-LD-dZy"/>
+                                                    <exclude reference="BGw-LQ-1Nl"/>
                                                     <exclude reference="NkK-ZR-OKC"/>
                                                     <exclude reference="RVK-Zd-ogo"/>
                                                     <exclude reference="Wu5-8D-uPn"/>
@@ -3306,10 +3310,11 @@
                                                     <include reference="Kw1-bq-v72"/>
                                                     <exclude reference="QJv-NI-gVX"/>
                                                     <include reference="oYY-LD-dZy"/>
+                                                    <include reference="BGw-LQ-1Nl"/>
                                                     <exclude reference="NkK-ZR-OKC"/>
                                                     <include reference="RVK-Zd-ogo"/>
                                                     <exclude reference="Wu5-8D-uPn"/>
-                                                    <include reference="Y53-Rm-zRC"/>
+                                                    <exclude reference="Y53-Rm-zRC"/>
                                                     <exclude reference="ZlQ-9X-ePX"/>
                                                     <exclude reference="pnB-KT-OfJ"/>
                                                     <include reference="shb-ov-mHN"/>
@@ -5628,7 +5633,7 @@
                                 <variation key="heightClass=regular-widthClass=compact" constant="80"/>
                             </constraint>
                             <constraint firstItem="AEi-rt-USt" firstAttribute="top" secondItem="E2W-1H-UON" secondAttribute="bottom" constant="30" id="rAZ-Fw-0q8">
-                                <variation key="heightClass=regular-widthClass=compact" constant="100"/>
+                                <variation key="heightClass=regular-widthClass=compact" constant="70"/>
                             </constraint>
                         </constraints>
                         <variation key="default">
@@ -5660,6 +5665,7 @@
                     </view>
                     <connections>
                         <outlet property="contactIntro" destination="KBb-7n-75S" id="Xc1-ok-oKl"/>
+                        <outlet property="contactLabel" destination="AEi-rt-USt" id="NGL-Rh-Nu8"/>
                         <outlet property="mailMe" destination="KBb-7n-75S" id="dXo-UT-bjG"/>
                     </connections>
                 </viewController>
