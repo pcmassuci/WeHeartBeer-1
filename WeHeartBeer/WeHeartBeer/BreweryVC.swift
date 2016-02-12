@@ -199,11 +199,58 @@ extension BreweryVC: UITableViewDataSource, UITableViewDelegate {
         self.cellControl = count
         
         if indexPath.row < count{
-            cell.beersFromBrew?.text = self.beers[indexPath.row].objectForKey("name") as? String
-            //        cell.resutLabel?.text = self.resultsList.objectAtIndex(indexPath.row).objectForKey("name") as? String
-        }else{
-            cell.beersFromBrew?.text = "Adicionar Nova Cerveja"
             
+            cell.beersFromBrew?.hidden = false
+            cell.beerStyle?.hidden = false
+            cell.addBeer?.hidden = true
+            cell.backgroundColor = UIColor.whiteColor()
+
+            let img = self.beers[indexPath.row].objectForKey("Photo") as? PFFile
+           
+            if img != nil {
+                ImageDAO.getImageFromParse(img, ch: { (image, success) -> Void in
+                    if success {
+                        cell.layoutIfNeeded()
+                        cell.beerImg.layer.borderWidth = 1
+                        cell.beerImg.layer.masksToBounds = false
+                        cell.beerImg.layer.borderColor = UIColor.blackColor().CGColor
+                        cell.beerImg.clipsToBounds = true
+                        cell.beerImg.layer.cornerRadius = cell.beerImg.frame.height/2
+                        cell.beerImg.image = image
+                    }
+                    else{
+                        cell.layoutIfNeeded()
+                        cell.beerImg.layer.borderWidth = 0
+                        cell.beerImg.layer.masksToBounds = false
+                        cell.beerImg.layer.borderColor = UIColor.blackColor().CGColor
+                        cell.beerImg.clipsToBounds = true
+                        cell.beerImg.layer.cornerRadius = 0
+                        cell.beerImg.image = UIImage(named:"DefaultBeer.png")
+                    }
+                })
+            
+            }
+            
+            else{
+                cell.layoutIfNeeded()
+                cell.beerImg.layer.borderWidth = 0
+                cell.beerImg.layer.masksToBounds = false
+                cell.beerImg.layer.borderColor = UIColor.blackColor().CGColor
+                cell.beerImg.clipsToBounds = true
+                cell.beerImg.layer.cornerRadius = 0
+                cell.beerImg.image = UIImage(named:"DefaultBeer.png")
+            }
+            
+            cell.beersFromBrew?.text = self.beers[indexPath.row].objectForKey("name") as? String
+            cell.beerStyle?.text = self.beers[indexPath.row].objectForKey("Style") as? String
+            
+        }else{
+            cell.layoutIfNeeded()
+            cell.backgroundColor = UIColor(red: 220.0/255.0, green: 220.0/255.0, blue: 220.0/255.0, alpha: 0.8)
+            cell.beerImg.image = UIImage(named:"cerva_add")
+            cell.beersFromBrew?.hidden = true
+            cell.beerStyle?.hidden = true
+            cell.addBeer?.hidden = false
         }
         
         

@@ -39,6 +39,19 @@ class MoreVC: UITableViewController {
        
         
     }
+  
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        switch indexPath.row{
+        case 0:
+            UserDAO.logout({ (success) -> Void in
+                self.alert("Atenção", message: "Você deslogou do Facebook", option: false, action: nil)
+            })
+            break
+        default:
+            break
+        }
+    }
+
 
     
   

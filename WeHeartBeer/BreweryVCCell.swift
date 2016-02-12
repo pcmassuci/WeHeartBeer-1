@@ -10,6 +10,9 @@ import UIKit
 
 class BreweryVCCell: UITableViewCell {
     
+    @IBOutlet weak var addBeer: UILabel!
+    @IBOutlet weak var beerStyle: UILabel!
+    @IBOutlet weak var beerImg: UIImageView!
     @IBOutlet weak var beersFromBrew: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
