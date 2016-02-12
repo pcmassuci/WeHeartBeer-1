@@ -284,12 +284,17 @@ extension UserFriendsVC: UITableViewDataSource , UITableViewDelegate{
             }
             break
         case 1:
+            if self.waitingFriends.count == 0 {
+                self.alert("Atenção!", message: "Você não tem nenhum pedido de amizade pendente, adicione mais amigos.", option: false, action: nil)
+                
+            }else{
              performSegueWithIdentifier("segueToFriendProfile", sender: nil)
+            }
             break
         case 2:
             
             if 0 == (self.myFriends.count){
-                //do nothing
+                self.alert("Atenção!", message: "Você não tem amigos.", option: false, action: nil)
             }else{
                 let id = self.myFriends[indexPath.row]!.objectForKey("id1") as? String
                 let user = User.currentUser()
