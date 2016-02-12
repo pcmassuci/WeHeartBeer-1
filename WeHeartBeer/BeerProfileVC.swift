@@ -201,7 +201,7 @@ class BeerProfileVC: UIViewController {
         if UserServices.loggedUser(){
         self.performSegueWithIdentifier("segueReview", sender: nil)
         }else{
-           self.alert("Atenção", message: "Você precisa estar logado para fazer isso", option: false, action: nil)
+           self.alert("Atenção", message: "Você precisa estar logado para fazer isso. Vá para página de perfil para fazer o login", option: false, action: nil)
             
         }
     }
