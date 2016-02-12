@@ -83,11 +83,14 @@ class BreweryVC: UIViewController, UIWebViewDelegate {
        self.brewery.objectForKey("contact") as? String
         
         if brewery.objectForKey("photo") != nil{
-            
+           let site = (brewery.objectForKey("contact") as? String)
+            if site == nil {
+                self.alert("Desculpe", message: "O site ainda não está cadastrado", option: false, action: nil)
+            } else {
         let url = SFSafariViewController(URL: NSURL(string: (brewery.objectForKey("contact") as? String)!)!, entersReaderIfAvailable: true)
         self.presentViewController(url, animated: true, completion: nil)
         
-        }}
+            }}}
     
 
     // update labels and button
