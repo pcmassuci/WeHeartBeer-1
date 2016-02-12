@@ -163,11 +163,23 @@ class ReviewVC: UIViewController {
                             
                             
                             let content:FBSDKShareLinkContent = FBSDKShareLinkContent()
+                            let title = self.currentObjectReview!.objectForKey("name") as! String
+                            let cervejaria = self.currentObjectReview!.objectForKey("brewName") as! String
+                            let user = User.currentUser()?.objectForKey("name") as! String
+                            let rate = String(self.reviewObject["rating"] as! Float)
+                           
                             
                             content.contentURL = NSURL(string: "http://www.beerlove.wix.com/commingsoon")
-                            content.contentTitle = self.currentObjectReview!.objectForKey("name") as? String
-                            content.contentDescription = self.currentObjectReview!.objectForKey("brewName") as? String
-                            content.imageURL = NSURL(string: "http://files.parsetfss.com/f0fa3f24-4ced-49ca-bfaf-47bfe806aa21/tfss-ae855a52-5476-4594-99e0-69a4f5bc20fe-beer_love_2_1301%20copy%202.png")
+                            content.contentTitle = "\(title)"
+                                
+                            content.contentDescription = "\(user) deu nota \(rate) para a cerveja \(title) da cervejaria \(cervejaria)"
+                                
+                                
+                                self.currentObjectReview!.objectForKey("brewName") as? String
+                            
+                            
+                            
+                            content.imageURL = NSURL(string: "http://files.parsetfss.com/f0fa3f24-4ced-49ca-bfaf-47bfe806aa21/tfss-c70052c9-f85d-4d8b-ae28-f0ee4d6ed5b8-beer_love_2_1301%20copy500.png")
                             
                             let shareDialog : FBSDKShareDialog = FBSDKShareDialog()
                             //shareDialog.mode = FBSDKShareDialogMode.Automatic

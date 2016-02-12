@@ -286,7 +286,9 @@ extension BeerProfileVC: UITableViewDataSource{
         
         var userComment = self.rev![indexPath.row].objectForKey("comment") as? String
         
-        if userComment == ""{
+        if userComment == ""
+        
+        {
             self.alert("Avaliação sem comentário", message: userComment!, option: false, action: nil)
         }else{
            self.alert("Comentário", message: userComment!, option: false, action: nil)
