@@ -233,7 +233,11 @@ extension BeerProfileVC: UITableViewDataSource{
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
+        
         let cell = self.listOfBeers.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as! ReviewFromBeerTableViewCell
+        
+        // TODO: Remover essa checagem escrota
+        if self.rev?.count == 0 { return cell }
         
 
             if self.rev![indexPath.row].objectForKey("user") != nil{

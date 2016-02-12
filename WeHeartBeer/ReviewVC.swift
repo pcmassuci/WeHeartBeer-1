@@ -182,7 +182,7 @@ class ReviewVC: UIViewController {
                             content.imageURL = NSURL(string: "http://files.parsetfss.com/f0fa3f24-4ced-49ca-bfaf-47bfe806aa21/tfss-c70052c9-f85d-4d8b-ae28-f0ee4d6ed5b8-beer_love_2_1301%20copy500.png")
                             
                             let shareDialog : FBSDKShareDialog = FBSDKShareDialog()
-                            //shareDialog.mode = FBSDKShareDialogMode.Automatic
+                            shareDialog.mode = FBSDKShareDialogMode.Automatic
                             shareDialog.shareContent = content
                             shareDialog.show()
                             
