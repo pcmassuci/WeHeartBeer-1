@@ -18,7 +18,7 @@ class BeerDAO {
     typealias RegisterBeerCH = (success:Bool)->Void
     typealias FindObj = (beer:PFObject?, success:Bool) -> Void
     //typealias CreateCompletionHaldler = (beer:Beer?,success:Bool) -> Void
-    
+    typealias FindDict = (dictBeer:[PFObject:UIImage?], success:Bool) -> Void
     
     static func createBeer(name:String, abv:String,style:String, ibu:String, brewery:Brewery ,completionHandler: RegisterBeerCH){
         print("irmão")
@@ -68,6 +68,32 @@ class BeerDAO {
         
     }
     
+    
+    
+    
+    
+    static func findDictBeerAndImage(beers:[PFObject],ch:FindDict){
+        var beerDict = [PFObject:UIImage?]()
+        let query = PFQuery(className: "Beer")
+        for b in beers{
+            query.whereKey("objectId", equalTo: b.objectId!)
+            query.getFirstObjectInBackgroundWithBlock({ (beer, error) -> Void in
+                if beer != nil {
+                    if beer?.objectForKey("Photo") != nil{
+                        let pfImage = beer?.objectForKey("Photo") as! PFFile
+                        ImageDAO.getImageFromParse(pfImage, ch: { (image, success) -> Void in
+                         
+                         beerDict[b] = image
+                            
+                            
+                        })
+                    }
+                    
+                }
+            })
+        }
+        ch(dictBeer: beerDict, success: true)
+    }
     
     // find beer from brewery,using CH, send a brewery name from parse return objects Beer
     static func findBeerfromBrewery(brewery:String,completionHandler:FindObjectsCompletionHandler){

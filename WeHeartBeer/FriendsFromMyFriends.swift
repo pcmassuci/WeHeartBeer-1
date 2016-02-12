@@ -8,8 +8,12 @@
 
 import UIKit
 
-class FriendsFromMyFriends: UITableViewController {
 
+protocol FriendListVCDelegate{
+    func newFriend(friendOb:PFObject)
+}
+class FriendsFromMyFriends: UITableViewController {
+    var delegate: FriendListVCDelegate?
     var currentFriends = [String:PFObject?]()
     var names = [String]()
     var objs = [PFObject]()
@@ -58,40 +62,26 @@ class FriendsFromMyFriends: UITableViewController {
         }
         
 
-        // Configure the cell...
-
         return cell
     }
     
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        delegate?.newFriend(self.objs[indexPath.row])
+        if let navController = self.navigationController {
+            navController.popViewControllerAnimated(true)
+        }else{
+            print("optional value")
+        }
 
+    }
  
 
-    /*
-    // Override to support editing the table view.
-    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-        if editingStyle == .Delete {
-            // Delete the row from the data source
-            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-        } else if editingStyle == .Insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
 
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(tableView: UITableView, moveRowAtIndexPath fromIndexPath: NSIndexPath, toIndexPath: NSIndexPath) {
 
-    }
-    */
+   
 
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
+  
+
 
     /*
     // MARK: - Navigation

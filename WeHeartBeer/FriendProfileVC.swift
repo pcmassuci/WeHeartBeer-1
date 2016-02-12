@@ -39,7 +39,6 @@ class FriendProfileVC: UIViewController {
         self.internetCheck()
         
         let tapGesture1 = UITapGestureRecognizer(target: self, action: Selector("beersTapped:"))
-        
         let tapGesture2 = UITapGestureRecognizer(target: self, action: Selector("friendsTapped:"))
         self.beerIcone.userInteractionEnabled = true
         self.beerIcone.addGestureRecognizer(tapGesture1)
@@ -74,6 +73,8 @@ class FriendProfileVC: UIViewController {
         super.viewWillAppear(animated)
         if self.currentFriend != nil{
  //Request to server Frienduser data
+            
+            if self.friend == nil {
             FriendsDAO.findUser(self.currentFriend!, ch: { (object, success) -> Void in
                 if success{
                     self.updateData(object!)
@@ -89,6 +90,11 @@ class FriendProfileVC: UIViewController {
             //erro de encontrar o usuario
         }
        
+        } else{
+            self.checkFriend()
+            self.countFriends()
+        }
+        
         
     }
 
@@ -209,6 +215,7 @@ extension FriendProfileVC {
         if (segue.identifier == "friendToFriend") {
             if let destination = segue.destinationViewController  as? FriendsFromMyFriends{
                 destination.currentFriends = self.friends
+                destination.delegate = self
             }
         }
     }
@@ -243,4 +250,13 @@ extension FriendProfileVC {
         }
     }
 
+}
+
+extension FriendProfileVC: FriendListVCDelegate{
+    func newFriend(friendOb:PFObject) {
+        self.friend = friendOb
+        self.updateData(self.friend!)
+    }
+    
+    
 }

@@ -17,6 +17,7 @@ class ReviewDAO {
     typealias RegisterReviewCH = (success:Bool)->Void
     typealias CreateCompletionHaldler = (beer:Beer?,success:Bool) -> Void
     typealias FindReviews = (beer:[PFObject]?, success:Bool) -> Void
+    typealias FindObjsCompletionHandler = (reviews:[PFObject]?,success:Bool) -> Void
     
     // find beer from user,using CH, send a user from parse return objects Beer
     static func findReviewFromUser(user:PFObject,completionHandler:FindObjectsCompletionHandler){
@@ -47,6 +48,19 @@ class ReviewDAO {
             
         }
         
+    }
+    
+    static func findReviewFromUser(user:PFObject!, ch:FindObjsCompletionHandler){
+        let query = PFQuery(className: "Review")
+        query.whereKey("user", equalTo: user)
+        query.findObjectsInBackgroundWithBlock { (review, error) -> Void in
+            if review != nil {
+            ch(reviews: review , success: true)
+                
+            }else{
+                ch(reviews: nil, success: false)
+            }
+    }
     }
     
 

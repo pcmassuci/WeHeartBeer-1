@@ -28,6 +28,13 @@ class FacebookCheckinVC: UIViewController {
         
     }
     
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        if UserServices.loggedUser() {
+            self.navigationController?.popToRootViewControllerAnimated(true)
+        }
+
+    }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
@@ -48,17 +55,6 @@ class FacebookCheckinVC: UIViewController {
         UserServices.loginFaceUser { (success) -> Void in
             
             if success {
-                let friendList = PFObject(className:"FriendList")
-                friendList["user"] = User.currentUser()
-                
-                friendList.saveInBackgroundWithBlock {
-                    (success: Bool, error: NSError?) -> Void in
-                    if (success) {
-                        // The object has been saved.
-                    } else {
-                        // There was a problem, check error.description
-                    }
-                }
                 self.navigationController?.popToRootViewControllerAnimated(true)
             }
         }
