@@ -134,7 +134,7 @@ class UserFriendsVC: UIViewController {
         }
 
         if (segue.identifier == "segueToAddFriend") {
-            if let destination = segue.destinationViewController  as? UserAddAppFriendsVC{
+            if let destination = segue.destinationViewController  as? UserAppFriends{
                 print(self.idsFace)
                         destination.fbIDCheck = self.idsFace
             }
@@ -220,7 +220,7 @@ extension UserFriendsVC: UITableViewDataSource , UITableViewDelegate{
              
         case 1:
             if 0 == (self.waitingFriends.count){
-                cell.name.text = "sem requisição \(self.waitingFriends.count)"
+                cell.name.text = "sem requisição"
             }else{
                 //print(self.waitingFriends[indexPath.row]?.objectForKey("name2"))
                 cell.name.text = (self.waitingFriends[indexPath.row]?.objectForKey("name2") as! String)
