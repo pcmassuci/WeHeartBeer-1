@@ -97,6 +97,8 @@ class FriendsFromMyFriends: UITableViewController {
             
         }
         
+             tableView.deselectRowAtIndexPath(indexPath, animated: true)
+        
     }
  
 

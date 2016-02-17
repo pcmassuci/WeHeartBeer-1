@@ -149,6 +149,7 @@ extension SearchBreweryVC:   UITableViewDelegate, UITableViewDataSource{
             else if indexPath.row == self.resultsList.count {
                 performSegueWithIdentifier("segueCreateBrew", sender: indexPath)
             }
+            tableView.deselectRowAtIndexPath(indexPath, animated: true)
         }
     
     

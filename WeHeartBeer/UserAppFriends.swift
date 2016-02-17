@@ -100,9 +100,8 @@ class UserAppFriends: UITableViewController {
         override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
             if self.countFriends != 0 {
                 performSegueWithIdentifier("segueToFriendProfile", sender: indexPath)
-               
-                
             }
+            tableView.deselectRowAtIndexPath(indexPath, animated: true)
         }
 }
 

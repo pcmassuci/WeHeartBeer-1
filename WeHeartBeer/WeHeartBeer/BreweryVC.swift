@@ -174,8 +174,6 @@ extension BreweryVC: UITableViewDataSource, UITableViewDelegate {
             var count = self.beers.count
             count += 1
             
-            
-            
             return count
             
         }
@@ -199,6 +197,8 @@ extension BreweryVC: UITableViewDataSource, UITableViewDelegate {
         self.cellControl = count
         
         if indexPath.row < count{
+            
+            
             
             cell.beersFromBrew?.hidden = false
             cell.beerStyle?.hidden = false
@@ -261,19 +261,23 @@ extension BreweryVC: UITableViewDataSource, UITableViewDelegate {
     
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        
+    
         if (indexPath.row == cellControl) {
+          
             self.performSegueWithIdentifier("segueToAddBeer", sender: self)
             
             
         }else{
             delegate?.newBeer(self.beers[indexPath.row])
             if let navController = self.navigationController {
+                tableView.deselectRowAtIndexPath(indexPath, animated: true)
                 navController.popViewControllerAnimated(true)
             }else{
                 print("optional value")
             }
         }
+        
+        tableView.deselectRowAtIndexPath(indexPath, animated: true)
 
     }
     
