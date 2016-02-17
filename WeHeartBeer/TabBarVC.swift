@@ -52,8 +52,20 @@ class TabBarVC: UITabBarController, UITabBarControllerDelegate {
         
         
     }
+
     
     func tabBarController(tabBarController: UITabBarController, didSelectViewController viewController: UIViewController) {
+        
+        let index = tabBarController.selectedIndex
+        if index == 2 {
+            if UserServices.loggedUser(){
+                print("logado")
+            }else{
+                print("nao logado")
+            }
+        }
+        
+      
         
         //direct cast - no issue with VC not connectec to navController
         let navController = viewController as! UINavigationController
