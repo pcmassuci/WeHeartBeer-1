@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" initialViewController="01J-lp-oVM">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" initialViewController="01J-lp-oVM">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
@@ -37,8 +37,7 @@
                                                     <exclude reference="tRl-4f-v79"/>
                                                 </mask>
                                             </variation>
-                                            <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                                <rect key="frame" x="-200" y="240" width="800" height="320"/>
+                                            <variation key="heightClass=regular-widthClass=compact">
                                                 <mask key="constraints">
                                                     <include reference="tRl-4f-v79"/>
                                                 </mask>
@@ -99,14 +98,14 @@
                                 <exclude reference="mme-gU-yRr"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="GkX-zl-70I"/>
-                                <exclude reference="PsW-hS-ooW"/>
-                                <exclude reference="akX-CV-023"/>
-                                <exclude reference="bJ4-57-Pgy"/>
                                 <exclude reference="KHL-zT-zOi"/>
                                 <exclude reference="a6W-cg-WGy"/>
                                 <exclude reference="b67-wQ-a8t"/>
                                 <exclude reference="fbq-Oz-WqO"/>
+                                <exclude reference="GkX-zl-70I"/>
+                                <exclude reference="PsW-hS-ooW"/>
+                                <exclude reference="akX-CV-023"/>
+                                <exclude reference="bJ4-57-Pgy"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
@@ -115,14 +114,14 @@
                                 <include reference="mme-gU-yRr"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="GkX-zl-70I"/>
-                                <include reference="PsW-hS-ooW"/>
-                                <include reference="akX-CV-023"/>
-                                <include reference="bJ4-57-Pgy"/>
                                 <include reference="KHL-zT-zOi"/>
                                 <include reference="a6W-cg-WGy"/>
                                 <include reference="b67-wQ-a8t"/>
                                 <include reference="fbq-Oz-WqO"/>
+                                <include reference="GkX-zl-70I"/>
+                                <include reference="PsW-hS-ooW"/>
+                                <include reference="akX-CV-023"/>
+                                <include reference="bJ4-57-Pgy"/>
                             </mask>
                         </variation>
                     </view>

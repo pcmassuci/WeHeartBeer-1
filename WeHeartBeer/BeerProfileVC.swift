@@ -241,15 +241,16 @@ extension BeerProfileVC: UITableViewDataSource{
         
 
             if self.rev![indexPath.row].objectForKey("user") != nil{
-                    
+                
+                cell.backgroundColor = UIColor.whiteColor()
+                
                 let user = rev![indexPath.row].objectForKey("user") as! PFUser
 
-                
-                
                 if user.objectForKey("photo") != nil{
                     let imageUser = user.objectForKey("photo") as! PFFile
                     ImageDAO.getImageFromParse(imageUser, ch: { (image, success) -> Void in
                         if success{
+                            
                            cell.userPhotoReview.image = image
                             
                             cell.layoutIfNeeded()
@@ -266,9 +267,9 @@ extension BeerProfileVC: UITableViewDataSource{
                     // imagem nula carregar imagem away
                 }
                 
-             
                 cell.userNameReview.text = user.objectForKey("name") as? String
                 cell.commentReview.text = "Veja o comentário"                
+                
                 let rate = self.rev![indexPath.row].objectForKey("rating") as? Float
         
                     if user == User.currentUser() {
@@ -287,6 +288,11 @@ extension BeerProfileVC: UITableViewDataSource{
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
+        
+
+            
+            
+        
         var userComment = self.rev![indexPath.row].objectForKey("comment") as? String
         
         if userComment == ""
@@ -297,6 +303,7 @@ extension BeerProfileVC: UITableViewDataSource{
            self.alert("Comentário", message: userComment!, option: false, action: nil)
         }
         
+        tableView.deselectRowAtIndexPath(indexPath, animated: true)
     }
     
 }

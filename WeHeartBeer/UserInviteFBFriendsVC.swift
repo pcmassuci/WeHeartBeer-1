@@ -77,12 +77,12 @@ extension UserInviteFBFriendsVC: UITableViewDataSource , UITableViewDelegate{
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         if indexPath.row == (self.countFriends){
-            print("nós que voa bruxão")
             //performSegueWithIdentifier("segueToAddFriend", sender: nil)
         }else{
             print(testeArray[indexPath.row])
             
         }
+        tableView.deselectRowAtIndexPath(indexPath, animated: true)
     }
     
     

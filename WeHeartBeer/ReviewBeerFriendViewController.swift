@@ -170,6 +170,8 @@ extension ReviewBeerFriendViewController: UITableViewDataSource, UITableViewDele
         if indexPath.row < self.beers.count {
             performSegueWithIdentifier("segueToBeeer", sender: indexPath)
         }
+        
+             tableView.deselectRowAtIndexPath(indexPath, animated: true)
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
