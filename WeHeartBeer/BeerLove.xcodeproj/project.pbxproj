@@ -119,6 +119,8 @@
 		85C9957C1C45230900EBEEBF /* MoreVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85C9957B1C45230900EBEEBF /* MoreVC.swift */; };
 		85C9957E1C45239400EBEEBF /* ConfigVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85C9957D1C45239400EBEEBF /* ConfigVC.swift */; };
 		85C995801C45241A00EBEEBF /* GuidesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85C9957F1C45241A00EBEEBF /* GuidesVC.swift */; };
+		85F0AFB71C753FCD004839E1 /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 85F0AFB51C753FCD004839E1 /* Fabric.framework */; };
+		85F0AFB81C753FCD004839E1 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 85F0AFB61C753FCD004839E1 /* Crashlytics.framework */; };
 		85FC937A1C190B9400CF59C7 /* UserBeersVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85FC93791C190B9400CF59C7 /* UserBeersVC.swift */; };
 		85FC937C1C190BA500CF59C7 /* UserPlacesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85FC937B1C190BA500CF59C7 /* UserPlacesVC.swift */; };
 		85FC937E1C190BCE00CF59C7 /* UserTrophiesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85FC937D1C190BCE00CF59C7 /* UserTrophiesVC.swift */; };
@@ -269,6 +271,8 @@
 		85C9957B1C45230900EBEEBF /* MoreVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoreVC.swift; sourceTree = "<group>"; };
 		85C9957D1C45239400EBEEBF /* ConfigVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigVC.swift; sourceTree = "<group>"; };
 		85C9957F1C45241A00EBEEBF /* GuidesVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GuidesVC.swift; sourceTree = "<group>"; };
+		85F0AFB51C753FCD004839E1 /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = SOURCE_ROOT; };
+		85F0AFB61C753FCD004839E1 /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = SOURCE_ROOT; };
 		85FC93791C190B9400CF59C7 /* UserBeersVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserBeersVC.swift; sourceTree = "<group>"; };
 		85FC937B1C190BA500CF59C7 /* UserPlacesVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserPlacesVC.swift; sourceTree = "<group>"; };
 		85FC937D1C190BCE00CF59C7 /* UserTrophiesVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserTrophiesVC.swift; sourceTree = "<group>"; };
@@ -290,6 +294,7 @@
 				8502AE861BEA676C00C54142 /* Accounts.framework in Frameworks */,
 				8502AE841BEA676400C54142 /* libsqlite3.tbd in Frameworks */,
 				8502AE821BEA675800C54142 /* libz.tbd in Frameworks */,
+				85F0AFB81C753FCD004839E1 /* Crashlytics.framework in Frameworks */,
 				8502AE801BEA674C00C54142 /* SystemConfiguration.framework in Frameworks */,
 				854AAF471BECEE18002F405B /* FBSDKCoreKit.framework in Frameworks */,
 				854AAF491BECEE18002F405B /* FBSDKShareKit.framework in Frameworks */,
@@ -307,6 +312,7 @@
 				8502AE6A1BEA66CC00C54142 /* Bolts.framework in Frameworks */,
 				8502AE6F1BEA66CC00C54142 /* ParseTwitterUtils.framework in Frameworks */,
 				8502AE6E1BEA66CC00C54142 /* ParseFacebookUtilsV4.framework in Frameworks */,
+				85F0AFB71C753FCD004839E1 /* Fabric.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -556,6 +562,8 @@
 		D286638A1BE07D3E002CE6F2 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				85F0AFB51C753FCD004839E1 /* Fabric.framework */,
+				85F0AFB61C753FCD004839E1 /* Crashlytics.framework */,
 				8518D14C1BD7B7BD00499ACA /* Main.storyboard */,
 				67EBCCE01C4D1F0700073A08 /* HeaderSectionFriends.xib */,
 				8518D1541BD7B7BD00499ACA /* LaunchScreen.storyboard */,
@@ -618,6 +626,7 @@
 				8518D1411BD7B7BD00499ACA /* Sources */,
 				8518D1421BD7B7BD00499ACA /* Frameworks */,
 				8518D1431BD7B7BD00499ACA /* Resources */,
+				85F0AFB41C753F93004839E1 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -751,6 +760,22 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		85F0AFB41C753F93004839E1 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "./Fabric.framework/run d6c80e5b0853e317d78b03802f45e8a106119d21 59c3f0a6899db4a5a54e906f2c6342d7077ac3eeca5e1b1b9974323ec6196c03";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		8518D1411BD7B7BD00499ACA /* Sources */ = {

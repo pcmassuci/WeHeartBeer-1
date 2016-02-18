@@ -37,8 +37,7 @@
                                                     <exclude reference="tRl-4f-v79"/>
                                                 </mask>
                                             </variation>
-                                            <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
-                                                <rect key="frame" x="-200" y="240" width="800" height="320"/>
+                                            <variation key="heightClass=regular-widthClass=compact">
                                                 <mask key="constraints">
                                                     <include reference="tRl-4f-v79"/>
                                                 </mask>
@@ -99,14 +98,14 @@
                                 <exclude reference="mme-gU-yRr"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="GkX-zl-70I"/>
-                                <exclude reference="PsW-hS-ooW"/>
-                                <exclude reference="akX-CV-023"/>
-                                <exclude reference="bJ4-57-Pgy"/>
                                 <exclude reference="KHL-zT-zOi"/>
                                 <exclude reference="a6W-cg-WGy"/>
                                 <exclude reference="b67-wQ-a8t"/>
                                 <exclude reference="fbq-Oz-WqO"/>
+                                <exclude reference="GkX-zl-70I"/>
+                                <exclude reference="PsW-hS-ooW"/>
+                                <exclude reference="akX-CV-023"/>
+                                <exclude reference="bJ4-57-Pgy"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
@@ -115,14 +114,14 @@
                                 <include reference="mme-gU-yRr"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="GkX-zl-70I"/>
-                                <include reference="PsW-hS-ooW"/>
-                                <include reference="akX-CV-023"/>
-                                <include reference="bJ4-57-Pgy"/>
                                 <include reference="KHL-zT-zOi"/>
                                 <include reference="a6W-cg-WGy"/>
                                 <include reference="b67-wQ-a8t"/>
                                 <include reference="fbq-Oz-WqO"/>
+                                <include reference="GkX-zl-70I"/>
+                                <include reference="PsW-hS-ooW"/>
+                                <include reference="akX-CV-023"/>
+                                <include reference="bJ4-57-Pgy"/>
                             </mask>
                         </variation>
                     </view>
