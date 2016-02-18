@@ -72,6 +72,7 @@ class FriendProfileVC: UIViewController {
 
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
+         self.addButton.hidden = true
         self.friends.removeAll()
         if self.currentFriend != nil{
  //Request to server Frienduser data
