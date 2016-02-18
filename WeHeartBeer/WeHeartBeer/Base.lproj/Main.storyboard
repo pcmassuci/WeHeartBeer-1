@@ -5642,6 +5642,9 @@
                             <outlet property="delegate" destination="O4q-ZA-tqj" id="2JT-bw-2gI"/>
                         </connections>
                     </tableView>
+                    <connections>
+                        <outlet property="log" destination="e3W-Qb-NMG" id="5rg-vD-OFs"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nUC-OZ-9cq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
