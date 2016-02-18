@@ -21,8 +21,10 @@ class LoginController: UINavigationController {
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         if UserServices.loggedUser(){
+            print("foi")
             performSegueWithIdentifier("loggedSegue", sender: nil)
         }else{
+            print("nao foi")
             performSegueWithIdentifier("noLoggedSegue", sender: nil)
         }
 
