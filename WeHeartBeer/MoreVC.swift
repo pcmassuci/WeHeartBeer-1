@@ -58,6 +58,7 @@ class MoreVC: UITableViewController {
                         self.alert("Atenção", message: "Você deslogou do Facebook", option: false, action: nil)
                         tableView.deselectRowAtIndexPath(indexPath, animated: true)
                         self.log.text = "Log in"
+
                     }
                     
                 })
