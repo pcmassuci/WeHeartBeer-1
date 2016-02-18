@@ -86,7 +86,6 @@ static func queryFeatured(ch:FindObjectsCompletionHandler){
                 for obj in objs!{
                     let be = obj.objectForKey("beer") as! PFObject
                     let id = be.objectId!
-                    //print(id)
                     BeerDAO.queryBeerFromObjectID(id, ch: { (beer, success) -> Void in
                         if success{
                             
@@ -101,7 +100,7 @@ static func queryFeatured(ch:FindObjectsCompletionHandler){
                                         dict[sbeer] = image
                                         j += 1
                                         if j == i {
-                                        // print(dict)
+
                                             dictFinal = self.controlDict(objs!, dict: dict)
                                             ch(dict: dictFinal, array: feat, success: true)
                                         }
@@ -140,9 +139,9 @@ static func controlDict(array:[PFObject],dict:[PFObject:UIImage]) -> [Int:[PFObj
             for a in array{
             for (key, value) in dict{
                 let controlA = key.objectId
-                print(controlA)
+                //print(controlA)
                 let controlB = (a.objectForKey("beer")?.objectId)! as String
-                print(controlB)
+                //print(controlB)
                 if controlA == controlB{
                     let x = a.objectForKey("order") as! Int
                     dictB[x] = [key:value]
@@ -152,7 +151,7 @@ static func controlDict(array:[PFObject],dict:[PFObject:UIImage]) -> [Int:[PFObj
     }
 
     
-    print("maldito dict: \(dictB)")
+    //print("maldito dict: \(dictB)")
     
     return dictB
     }

@@ -24,6 +24,7 @@
 		67155D461C46E60000A63B06 /* FBUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67155D451C46E60000A63B06 /* FBUser.swift */; };
 		672C62F91BEA5E7200E667C8 /* BreweryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 672C62F81BEA5E7200E667C8 /* BreweryVC.swift */; };
 		672C62FB1BEAD2F700E667C8 /* BreweryVCCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 672C62FA1BEAD2F700E667C8 /* BreweryVCCell.swift */; };
+		672C77911C74EAC900791668 /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 672C77901C74EAC900791668 /* LoginController.swift */; };
 		673504311C501E0500D7A8A6 /* FriendsDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 673504301C501E0500D7A8A6 /* FriendsDAO.swift */; };
 		673504331C501EF100D7A8A6 /* Friends.swift in Sources */ = {isa = PBXBuildFile; fileRef = 673504321C501EF100D7A8A6 /* Friends.swift */; };
 		673504351C502A9C00D7A8A6 /* FriendsServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 673504341C502A9C00D7A8A6 /* FriendsServices.swift */; };
@@ -168,6 +169,7 @@
 		67155D451C46E60000A63B06 /* FBUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FBUser.swift; sourceTree = "<group>"; };
 		672C62F81BEA5E7200E667C8 /* BreweryVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BreweryVC.swift; path = WeHeartBeer/BreweryVC.swift; sourceTree = "<group>"; };
 		672C62FA1BEAD2F700E667C8 /* BreweryVCCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BreweryVCCell.swift; path = ../BreweryVCCell.swift; sourceTree = "<group>"; };
+		672C77901C74EAC900791668 /* LoginController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
 		673504301C501E0500D7A8A6 /* FriendsDAO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendsDAO.swift; sourceTree = "<group>"; };
 		673504321C501EF100D7A8A6 /* Friends.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Friends.swift; sourceTree = "<group>"; };
 		673504341C502A9C00D7A8A6 /* FriendsServices.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendsServices.swift; sourceTree = "<group>"; };
@@ -420,6 +422,7 @@
 		8518D13C1BD7B7BC00499ACA = {
 			isa = PBXGroup;
 			children = (
+				672C77901C74EAC900791668 /* LoginController.swift */,
 				8518D1471BD7B7BD00499ACA /* WeHeartBeer */,
 				8518D15F1BD7B7BD00499ACA /* WeHeartBeerTests */,
 				8518D16A1BD7B7BD00499ACA /* WeHeartBeerUITests */,
@@ -837,6 +840,7 @@
 				679D99971C612FEB001163AD /* ChallengeDAO.swift in Sources */,
 				D2D88DA11BFB95B6002C8EF5 /* UserFBUtil.swift in Sources */,
 				D2526D7B1BDA56C9003953F9 /* HomepageVC.swift in Sources */,
+				672C77911C74EAC900791668 /* LoginController.swift in Sources */,
 				677924B01BF6B9F700B8092B /* SearchVCCellTableViewCell.swift in Sources */,
 				67F48F1A1C6D428900B68C99 /* FrinMyFrinCell.swift in Sources */,
 				6701DE0F1C46949600F25FC2 /* UserInviteCell.swift in Sources */,

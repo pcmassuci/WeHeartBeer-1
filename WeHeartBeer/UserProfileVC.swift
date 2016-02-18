@@ -31,9 +31,6 @@ class UserProfileVC: UIViewController {
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        if UserServices.loggedUser() == false{
-            performSegueWithIdentifier("segueFacebookCheckin", sender: nil)
-        }
     }
     
     override func viewDidLayoutSubviews() {

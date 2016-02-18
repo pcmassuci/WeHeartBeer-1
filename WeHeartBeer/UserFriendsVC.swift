@@ -267,12 +267,13 @@ extension UserFriendsVC: UITableViewDataSource , UITableViewDelegate{
 
         }
         
-        
-        return cell
+                return cell
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         print("section:\(indexPath.section) , row: \(indexPath.row)")
+        
+
         
         switch indexPath.section{
         case 0:
@@ -313,6 +314,8 @@ extension UserFriendsVC: UITableViewDataSource , UITableViewDelegate{
             break
             
         }
+        
+     
     }
     
         

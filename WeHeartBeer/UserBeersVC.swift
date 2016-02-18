@@ -166,6 +166,7 @@ extension UserBeersVC: UITableViewDataSource, UITableViewDelegate {
         if indexPath.row < self.beers.count {
             performSegueWithIdentifier("SegueBeerReviewToBeer", sender: indexPath)
         }
+        tableView.deselectRowAtIndexPath(indexPath, animated: true)
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {

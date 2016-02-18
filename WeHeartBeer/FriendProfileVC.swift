@@ -37,6 +37,7 @@ class FriendProfileVC: UIViewController {
     override func viewDidLoad() {
        super.viewDidLoad()
         self.internetCheck()
+        self.addButton.hidden = true
         
         let tapGesture1 = UITapGestureRecognizer(target: self, action: Selector("beersTapped:"))
         let tapGesture2 = UITapGestureRecognizer(target: self, action: Selector("friendsTapped:"))
@@ -160,7 +161,7 @@ extension FriendProfileVC {
                     
                 }else{
                      self.addButton.setTitle("Aceitar", forState: .Normal)
-                
+                      self.addButton.hidden = false
                 }
                 
                 

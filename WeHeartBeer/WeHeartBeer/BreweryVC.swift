@@ -50,7 +50,8 @@ class BreweryVC: UIViewController, UIWebViewDelegate {
         listOfProducts.tableFooterView = UIView(frame: CGRect.zero)
         self.navigationController?.navigationBar.barTintColor = UIColor(red: 250.0/255.0, green: 170.0/255.0, blue: 0.0/255.0, alpha: 1.0)
         self.navigationController?.navigationBar.tintColor = UIColor.whiteColor()
-
+        let backItem = UIBarButtonItem(title: "Voltar", style: UIBarButtonItemStyle.Done, target: nil, action: nil)
+                navigationItem.backBarButtonItem = backItem
     }
     
     
@@ -174,8 +175,6 @@ extension BreweryVC: UITableViewDataSource, UITableViewDelegate {
             var count = self.beers.count
             count += 1
             
-            
-            
             return count
             
         }
@@ -199,6 +198,8 @@ extension BreweryVC: UITableViewDataSource, UITableViewDelegate {
         self.cellControl = count
         
         if indexPath.row < count{
+            
+            
             
             cell.beersFromBrew?.hidden = false
             cell.beerStyle?.hidden = false
@@ -261,19 +262,23 @@ extension BreweryVC: UITableViewDataSource, UITableViewDelegate {
     
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        
+    
         if (indexPath.row == cellControl) {
+          
             self.performSegueWithIdentifier("segueToAddBeer", sender: self)
             
             
         }else{
             delegate?.newBeer(self.beers[indexPath.row])
             if let navController = self.navigationController {
+                tableView.deselectRowAtIndexPath(indexPath, animated: true)
                 navController.popViewControllerAnimated(true)
             }else{
                 print("optional value")
             }
         }
+        
+        tableView.deselectRowAtIndexPath(indexPath, animated: true)
 
     }
     

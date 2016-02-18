@@ -111,6 +111,8 @@ extension UserAddAppFriendsVC: UITableViewDataSource , UITableViewDelegate{
         //self.showAlertTapped(indexPath.row)
             
         }
+        
+        tableView.deselectRowAtIndexPath(indexPath, animated: true)
     }
     
 }

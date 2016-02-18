@@ -15,6 +15,9 @@ class MoreVC: UITableViewController {
     
     
     
+    @IBOutlet weak var log: UILabel!
+   
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -43,9 +46,30 @@ class MoreVC: UITableViewController {
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         switch indexPath.row{
         case 0:
-            UserDAO.logout({ (success) -> Void in
-                self.alert("Atenção", message: "Você deslogou do Facebook", option: false, action: nil)
-            })
+            
+            if UserServices.loggedUser(){
+                UserServices.logoutUser({ (success) -> Void in
+                    if success{
+                        self.alert("Atenção", message: "Você deslogou do Facebook", option: false, action: nil)
+                        tableView.deselectRowAtIndexPath(indexPath, animated: true)
+                        self.log.text = "Log in"
+                    }
+                    
+                })
+                
+            }else{
+                UserServices.loginFaceUser({ (success) -> Void in
+                    if success{
+                        self.alert("Atenção", message: "Você logou com o Facebook", option: false, action: nil)
+                        tableView.deselectRowAtIndexPath(indexPath, animated: true)
+                        self.log.text = "Log out"
+                        
+                    }
+                })
+                
+            }
+            
+          
             break
         default:
             break
