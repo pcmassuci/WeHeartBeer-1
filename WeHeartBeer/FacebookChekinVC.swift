@@ -30,9 +30,6 @@ class FacebookCheckinVC: UIViewController {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        if UserServices.loggedUser() {
-            self.navigationController?.popToRootViewControllerAnimated(true)
-        }
 
     }
     
@@ -40,11 +37,18 @@ class FacebookCheckinVC: UIViewController {
         super.viewWillAppear(animated)
         
         // Check if user is logged in
-        if UserServices.loggedUser() {
-             self.navigationController?.popToRootViewControllerAnimated(true)
-        }
+//        if UserServices.loggedUser() {
+//             self.navigationController?.popToRootViewControllerAnimated(true)
+//        }
     }
     
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+//        if UserServices.loggedUser() {
+//        self.navigationController?.popToRootViewControllerAnimated(true)
+//            
+//                   }
+    }
     
     
     @IBAction func loginButton(sender: AnyObject) {
@@ -55,7 +59,8 @@ class FacebookCheckinVC: UIViewController {
         UserServices.loginFaceUser { (success) -> Void in
             
             if success {
-                self.navigationController?.popToRootViewControllerAnimated(true)
+              self.performSegueWithIdentifier("successLog", sender: nil)
+              
             }
         }
     }

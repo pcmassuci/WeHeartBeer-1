@@ -20,11 +20,7 @@ class MoreVC: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        if UserServices.loggedUser(){
-            self.log.text = "Log out"
-        }else{
-           self.log.text = "Log in" 
-        }
+       
         
         let view2 = UIView(frame:
             CGRect(x: 4.0, y: 0.0, width: UIScreen.mainScreen().bounds.size.width, height: UIApplication.sharedApplication().statusBarFrame.size.height)
@@ -45,6 +41,15 @@ class MoreVC: UITableViewController {
         self.navigationController?.navigationBar.tintColor = UIColor.whiteColor()
 
        
+        
+    }
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        if UserServices.loggedUser(){
+            self.log.text = "Log out"
+        }else{
+            self.log.text = "Log in"
+        }
         
     }
   

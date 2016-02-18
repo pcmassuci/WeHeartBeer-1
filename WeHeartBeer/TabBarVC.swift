@@ -63,7 +63,7 @@ class TabBarVC: UITabBarController, UITabBarControllerDelegate {
             }else{
                 print("nao logado")
             }
-        }
+        } else{
         
       
         
@@ -73,6 +73,7 @@ class TabBarVC: UITabBarController, UITabBarControllerDelegate {
         //pop the view to root
         navController.popToRootViewControllerAnimated(true)
         
+    }
     }
     
     

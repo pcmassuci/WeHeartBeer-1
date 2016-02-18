@@ -36,7 +36,7 @@ class UserProfileVC: UIViewController {
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         if UserServices.loggedUser() == false{
-            performSegueWithIdentifier("segueFacebookCheckin", sender: nil)
+           // performSegueWithIdentifier("segueFacebookCheckin", sender: nil)
         }
         self.tintBarUp(self.view)
         displayPicture.layer.borderWidth = 1
@@ -96,7 +96,7 @@ class UserProfileVC: UIViewController {
             self.userFriendsLink.userInteractionEnabled  = true
             self.userFriendsLink.addGestureRecognizer(tapGesture2)
         }else{
-            performSegueWithIdentifier("segueFacebookCheckin", sender: nil)
+           // performSegueWithIdentifier("segueFacebookCheckin", sender: nil)
         }
     }
 
