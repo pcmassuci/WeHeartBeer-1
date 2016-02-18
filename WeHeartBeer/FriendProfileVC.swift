@@ -73,6 +73,7 @@ class FriendProfileVC: UIViewController {
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
          self.addButton.hidden = true
+        
         self.friends.removeAll()
         if self.currentFriend != nil{
  //Request to server Frienduser data
@@ -153,24 +154,42 @@ extension FriendProfileVC {
         let user2 = self.friend
         FriendsDAO.friendQuery(user1!, user2: user2!, check: true, ch: { (object, success) -> Void in
             if success{
+                
+                print("eita doidjo")
                 self.kindOfFriend = object
                 let user = user1?.faceID
                 let id = object?.objectForKey("id1") as! String?
-                if id == user{
+                let id2 = object?.objectForKey("id2") as! String?
+                let status = object?.objectForKey("accepted") as! Bool
+
+                print(object)
+                
+                if id == user && status == true{
+                    print("entra?")
                     self.addButton.setTitle("", forState: .Normal)
                     self.addButton.hidden = true
                     
-                }else{
-                     self.addButton.setTitle("Aceitar", forState: .Normal)
-                      self.addButton.hidden = false
+                    
+                }else if id2 == user && status == true{
+                    print("entra?")
+                    self.addButton.setTitle("", forState: .Normal)
+                    self.addButton.hidden = true
+                }
+                
+                else{
+                    print("vamo ver")
+                    self.addButton.hidden = false
+                    self.addButton.setTitle("Aceitar", forState: .Normal)
                 }
                 
                 
             }else{
               
+                print("vishh")
                 self.addButton.hidden = false
                 self.addButton.setTitle("Adicionar", forState: .Normal)
             }
+            
         })
 
     }
