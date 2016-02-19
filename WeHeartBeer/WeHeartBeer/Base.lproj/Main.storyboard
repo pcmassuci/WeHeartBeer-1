@@ -1348,7 +1348,7 @@
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="dUv-Vs-0xR" secondAttribute="height" multiplier="49:31" id="uj6-Xe-KNK"/>
                                 </constraints>
-                                <color key="onTintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="onTintColor" red="0.95294117649999999" green="0.59999999999999998" blue="0.070588235289999995" alpha="1" colorSpace="calibratedRGB"/>
                                 <variation key="default">
                                     <mask key="constraints">
                                         <exclude reference="uj6-Xe-KNK"/>
