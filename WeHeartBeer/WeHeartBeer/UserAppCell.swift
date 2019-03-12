@@ -11,6 +11,5 @@ import UIKit
 class UserAppCell: UITableViewCell {
 
     @IBOutlet weak var name: UILabel!
-    
 
 }

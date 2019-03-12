@@ -10,9 +10,7 @@ import Foundation
 import UIKit
 
 class ListHeaderCell: UITableViewCell{
-    
-    @IBOutlet weak var headerTitle: UILabel!
-    
-    
+
+    @IBOutlet weak var headerTitle: UILabel?
     
 }

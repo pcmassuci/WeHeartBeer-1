@@ -16,7 +16,7 @@ class HomeCollectionViewCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
     
-        let screenHeight = UIScreen.mainScreen().bounds.height
+        let screenHeight = UIScreen.main.bounds.height
         print(screenHeight)
     
         switch screenHeight {

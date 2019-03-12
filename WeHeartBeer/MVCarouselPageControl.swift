@@ -15,8 +15,8 @@ class MVCarouselPageControl: UIPageControl {
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        self.pageIndicatorTintColor = UIColor.grayColor()
-        self.currentPageIndicatorTintColor = UIColor.blackColor()
+        self.pageIndicatorTintColor = UIColor.gray
+        self.currentPageIndicatorTintColor = UIColor.black
         self.hidesForSinglePage = true
     }
 }

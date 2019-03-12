@@ -10,12 +10,12 @@ import UIKit
 
 class ReviewFromBeerTableViewCell: UITableViewCell {
     
-    @IBOutlet weak var userPhotoReview: UIImageView!
-    @IBOutlet weak var userNameReview: UILabel!
-    @IBOutlet weak var commentReview: UILabel!
-    @IBOutlet weak var rateReview: UILabel!
+    @IBOutlet weak var userPhotoReview: UIImageView?
+    @IBOutlet weak var userNameReview: UILabel?
+    @IBOutlet weak var commentReview: UILabel?
+    @IBOutlet weak var rateReview: UILabel?
     
-    @IBOutlet weak var countryLabel: UILabel!
+    @IBOutlet weak var countryLabel: UILabel?
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

@@ -12,7 +12,7 @@ extension UIViewController{
     
     func navigationCollor(){
         self.navigationController?.navigationBar.barTintColor = UIColor(red: 250.0/255.0, green: 170.0/255.0, blue: 0.0/255.0, alpha: 1.0)
-        self.navigationController?.navigationBar.hidden = false
+        self.navigationController?.navigationBar.isHidden = false
     }
     
     func changeColor(){
@@ -24,7 +24,7 @@ extension UIViewController{
     func tintBarUp (view: UIView) -> Void{
         
         let view2 = UIView(frame:
-            CGRect(x: 0.0, y: 0.0, width: UIScreen.mainScreen().bounds.size.width, height: UIApplication.sharedApplication().statusBarFrame.size.height)
+            CGRect(x: 0.0, y: 0.0, width: UIScreen.main.bounds.size.width, height: UIApplication.shared.statusBarFrame.size.height)
         )
         view2.backgroundColor = UIColor(red: 250.0/255.0, green: 170.0/255.0, blue: 4.0/255.0, alpha: 1.0)
         
@@ -40,7 +40,7 @@ extension UIViewController{
         } else {
             print("Internet connection FAILED")
             
-            self.alert("Sem Internet!!", message: "Verifique se seu aparelho possui uma conexão com a internet", option: false, action: nil)
+            self.alert(title: "Sem Internet!!", message: "Verifique se seu aparelho possui uma conexão com a internet", option: false, action: nil)
             return false
         }
         
@@ -48,31 +48,29 @@ extension UIViewController{
     
     func alert(title:String, message:String,option:Bool, action: AnyObject?){
         
-        let alertController = UIAlertController(title: title, message: message, preferredStyle: .Alert)
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
         
         
         if option{
-            let cancelAction = UIAlertAction(title: "Cancelar", style: .Cancel) { (action:UIAlertAction!) in
+            let cancelAction = UIAlertAction(title: "Cancelar", style: .cancel) { (action:UIAlertAction!) in
                 print("you have pressed the Cancel button");
             }
             alertController.addAction(cancelAction)
             
-            let OKAction = UIAlertAction(title: "OK", style: .Default) { (action:UIAlertAction!) in
+            let OKAction = UIAlertAction(title: "OK", style: .default) { (action:UIAlertAction!) in
                 print("you have pressed OK button");
             }
             alertController.addAction(OKAction)
             
-        }else{   let cancelAction = UIAlertAction(title: "Ok", style: .Cancel) { (action:UIAlertAction!) in
+        }else{   let cancelAction = UIAlertAction(title: "Ok", style: .cancel) { (action:UIAlertAction!) in
             print("you have pressed the Cancel button");
             }
             alertController.addAction(cancelAction)
             
         }
-        
-        
      
         
-        self.presentViewController(alertController, animated: true, completion:nil)
+        self.present(alertController, animated: true, completion:nil)
 
         
     }

@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 46;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -11,8 +11,6 @@
 		6333567D1BED151000A71155 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6333567C1BED151000A71155 /* User.swift */; };
 		6333567F1BED154C00A71155 /* UserProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6333567E1BED154C00A71155 /* UserProfileVC.swift */; };
 		63710E251C07D6F000E0794A /* FacebookChekinVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63710E241C07D6F000E0794A /* FacebookChekinVC.swift */; };
-		63D37B3E1C43CFC00040CC52 /* ReviewServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D37B3D1C43CFC00040CC52 /* ReviewServices.swift */; };
-		63D37B421C43D0E50040CC52 /* ReviewDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D37B411C43D0E50040CC52 /* ReviewDAO.swift */; };
 		63D37B441C43D1E00040CC52 /* Review.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D37B431C43D1E00040CC52 /* Review.swift */; };
 		63E504B51C45490200671168 /* ReviewVCCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63E504B41C45490200671168 /* ReviewVCCell.swift */; };
 		63F668AC1BD9165800172050 /* ChallengeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63F668AB1BD9165800172050 /* ChallengeVC.swift */; };
@@ -25,27 +23,18 @@
 		672C62F91BEA5E7200E667C8 /* BreweryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 672C62F81BEA5E7200E667C8 /* BreweryVC.swift */; };
 		672C62FB1BEAD2F700E667C8 /* BreweryVCCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 672C62FA1BEAD2F700E667C8 /* BreweryVCCell.swift */; };
 		672C77911C74EAC900791668 /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 672C77901C74EAC900791668 /* LoginController.swift */; };
-		673504311C501E0500D7A8A6 /* FriendsDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 673504301C501E0500D7A8A6 /* FriendsDAO.swift */; };
 		673504331C501EF100D7A8A6 /* Friends.swift in Sources */ = {isa = PBXBuildFile; fileRef = 673504321C501EF100D7A8A6 /* Friends.swift */; };
-		673504351C502A9C00D7A8A6 /* FriendsServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 673504341C502A9C00D7A8A6 /* FriendsServices.swift */; };
 		6739E6E71C591369009644B3 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6739E6E61C591369009644B3 /* Reachability.swift */; };
 		674127941C189F0200016D52 /* CountriesSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 674127931C189F0200016D52 /* CountriesSearch.swift */; };
 		674127981C18A20700016D52 /* CountryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 674127971C18A20700016D52 /* CountryCell.swift */; };
 		6746518A1C4D290500C464F3 /* UserFriendAddTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 674651891C4D290500C464F3 /* UserFriendAddTableViewController.swift */; };
 		6746518C1C4D295E00C464F3 /* FriendProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6746518B1C4D295E00C464F3 /* FriendProfileVC.swift */; };
-		676250741BF1759300F3BB0D /* BreweryDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 676250731BF1759300F3BB0D /* BreweryDAO.swift */; };
-		676250771BF373AF00F3BB0D /* UserDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 676250761BF373AF00F3BB0D /* UserDAO.swift */; };
-		676250791BF3757300F3BB0D /* UserValidation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 676250781BF3757300F3BB0D /* UserValidation.swift */; };
 		677924B01BF6B9F700B8092B /* SearchVCCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 677924AF1BF6B9F700B8092B /* SearchVCCellTableViewCell.swift */; };
 		677924B21BFA064600B8092B /* RegisterBeerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 677924B11BFA064600B8092B /* RegisterBeerVC.swift */; };
 		6793D0091C5A3D65009D9CBD /* UIViewController+Actions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6793D0081C5A3D65009D9CBD /* UIViewController+Actions.swift */; };
-		679D99971C612FEB001163AD /* ChallengeDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 679D99961C612FEB001163AD /* ChallengeDAO.swift */; };
 		67B50AB41C0F0D010032CCCD /* SearchBreweryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67B50AB31C0F0D010032CCCD /* SearchBreweryVC.swift */; };
 		67DF669B1C63C708001C6FAC /* HomeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67DF669A1C63C708001C6FAC /* HomeCollectionViewCell.swift */; };
 		67DF669F1C66531D001C6FAC /* ReviewFromBeerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67DF669E1C66531D001C6FAC /* ReviewFromBeerTableViewCell.swift */; };
-		67E8776B1C532C100065B8E8 /* FacebookDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67E8776A1C532C100065B8E8 /* FacebookDAO.swift */; };
-		67E8776D1C567AA60065B8E8 /* ImageServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67E8776C1C567AA60065B8E8 /* ImageServices.swift */; };
-		67E8776F1C567ABA0065B8E8 /* ImageDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67E8776E1C567ABA0065B8E8 /* ImageDAO.swift */; };
 		67EBCCE11C4D1F0700073A08 /* HeaderSectionFriends.xib in Resources */ = {isa = PBXBuildFile; fileRef = 67EBCCE01C4D1F0700073A08 /* HeaderSectionFriends.xib */; };
 		67F48F181C6D40DA00B68C99 /* FriendsFromMyFriends.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67F48F171C6D40DA00B68C99 /* FriendsFromMyFriends.swift */; };
 		67F48F1A1C6D428900B68C99 /* FrinMyFrinCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67F48F191C6D428800B68C99 /* FrinMyFrinCell.swift */; };
@@ -54,24 +43,6 @@
 		67F48F221C6DF47800B68C99 /* UserAppFriends.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67F48F211C6DF47800B68C99 /* UserAppFriends.swift */; };
 		67FB0C121C0F6C8700122314 /* SearchTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67FB0C111C0F6C8700122314 /* SearchTVCell.swift */; };
 		67FB0C141C11D31500122314 /* AddBreweryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67FB0C131C11D31500122314 /* AddBreweryVC.swift */; };
-		8502AE6A1BEA66CC00C54142 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8502AE631BEA66CB00C54142 /* Bolts.framework */; };
-		8502AE6B1BEA66CC00C54142 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8502AE641BEA66CC00C54142 /* Parse.framework */; };
-		8502AE6C1BEA66CC00C54142 /* ParseCrashReporting.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8502AE651BEA66CC00C54142 /* ParseCrashReporting.framework */; };
-		8502AE6E1BEA66CC00C54142 /* ParseFacebookUtilsV4.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8502AE671BEA66CC00C54142 /* ParseFacebookUtilsV4.framework */; };
-		8502AE6F1BEA66CC00C54142 /* ParseTwitterUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8502AE681BEA66CC00C54142 /* ParseTwitterUtils.framework */; };
-		8502AE701BEA66CC00C54142 /* ParseUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8502AE691BEA66CC00C54142 /* ParseUI.framework */; };
-		8502AE721BEA670200C54142 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8502AE711BEA670200C54142 /* AudioToolbox.framework */; };
-		8502AE741BEA670C00C54142 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8502AE731BEA670C00C54142 /* CFNetwork.framework */; };
-		8502AE761BEA671F00C54142 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8502AE751BEA671F00C54142 /* CoreGraphics.framework */; };
-		8502AE781BEA672700C54142 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8502AE771BEA672700C54142 /* CoreLocation.framework */; };
-		8502AE7A1BEA673000C54142 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8502AE791BEA673000C54142 /* QuartzCore.framework */; };
-		8502AE7C1BEA673700C54142 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8502AE7B1BEA673700C54142 /* Security.framework */; };
-		8502AE7E1BEA674300C54142 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8502AE7D1BEA674300C54142 /* StoreKit.framework */; };
-		8502AE801BEA674C00C54142 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8502AE7F1BEA674C00C54142 /* SystemConfiguration.framework */; };
-		8502AE821BEA675800C54142 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 8502AE811BEA675800C54142 /* libz.tbd */; };
-		8502AE841BEA676400C54142 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 8502AE831BEA676400C54142 /* libsqlite3.tbd */; };
-		8502AE861BEA676C00C54142 /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8502AE851BEA676C00C54142 /* Accounts.framework */; };
-		8502AE881BEA677800C54142 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8502AE871BEA677800C54142 /* Social.framework */; };
 		8518D1491BD7B7BD00499ACA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8518D1481BD7B7BD00499ACA /* AppDelegate.swift */; };
 		8518D14B1BD7B7BD00499ACA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8518D14A1BD7B7BD00499ACA /* ViewController.swift */; };
 		8518D14E1BD7B7BD00499ACA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8518D14C1BD7B7BD00499ACA /* Main.storyboard */; };
@@ -107,29 +78,25 @@
 		854542EC1C105F1900AC2A0B /* ReviewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 854542EB1C105F1900AC2A0B /* ReviewVC.swift */; };
 		854AAC8E1BEB8CCE002F405B /* SearchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 854AAC8D1BEB8CCE002F405B /* SearchVC.swift */; };
 		854AAC901BEB8FAA002F405B /* ResultsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 854AAC8F1BEB8FAA002F405B /* ResultsTableViewCell.swift */; };
-		854AAF471BECEE18002F405B /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 854AAF441BECEE18002F405B /* FBSDKCoreKit.framework */; };
-		854AAF481BECEE18002F405B /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 854AAF451BECEE18002F405B /* FBSDKLoginKit.framework */; };
-		854AAF491BECEE18002F405B /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 854AAF461BECEE18002F405B /* FBSDKShareKit.framework */; };
 		854AAF4B1BED1431002F405B /* Beer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 854AAF4A1BED1431002F405B /* Beer.swift */; };
-		854AAF4F1BF0BE8F002F405B /* BeerServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 854AAF4E1BF0BE8F002F405B /* BeerServices.swift */; };
-		854AAF511BF0BEAE002F405B /* BreweryServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 854AAF501BF0BEAE002F405B /* BreweryServices.swift */; };
-		854AAF531BF0BECE002F405B /* UserServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 854AAF521BF0BECE002F405B /* UserServices.swift */; };
 		854AAF551BF0BEDF002F405B /* Brewery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 854AAF541BF0BEDF002F405B /* Brewery.swift */; };
-		858A7E211BF4AD050070E844 /* BeerDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858A7E201BF4AD050070E844 /* BeerDAO.swift */; };
 		858A7E231BFDF6190070E844 /* AddBeer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858A7E221BFDF6190070E844 /* AddBeer.swift */; };
 		85C9957C1C45230900EBEEBF /* MoreVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85C9957B1C45230900EBEEBF /* MoreVC.swift */; };
 		85C9957E1C45239400EBEEBF /* ConfigVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85C9957D1C45239400EBEEBF /* ConfigVC.swift */; };
 		85C995801C45241A00EBEEBF /* GuidesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85C9957F1C45241A00EBEEBF /* GuidesVC.swift */; };
-		85F0AFB71C753FCD004839E1 /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 85F0AFB51C753FCD004839E1 /* Fabric.framework */; };
-		85F0AFB81C753FCD004839E1 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 85F0AFB61C753FCD004839E1 /* Crashlytics.framework */; };
 		85FC937A1C190B9400CF59C7 /* UserBeersVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85FC93791C190B9400CF59C7 /* UserBeersVC.swift */; };
 		85FC937C1C190BA500CF59C7 /* UserPlacesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85FC937B1C190BA500CF59C7 /* UserPlacesVC.swift */; };
 		85FC937E1C190BCE00CF59C7 /* UserTrophiesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85FC937D1C190BCE00CF59C7 /* UserTrophiesVC.swift */; };
 		85FC93801C190BE900CF59C7 /* UserFriendsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85FC937F1C190BE900CF59C7 /* UserFriendsVC.swift */; };
+		B9244D7F2237509100C14F54 /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9244D7E2237509100C14F54 /* UIColorExtension.swift */; };
+		B9244D8122375C7200C14F54 /* TabBar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B9244D8022375C7200C14F54 /* TabBar.storyboard */; };
+		B9244D8322375E3100C14F54 /* Homepage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B9244D8222375E3100C14F54 /* Homepage.storyboard */; };
+		B9244D8622375F2000C14F54 /* Search.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B9244D8522375F2000C14F54 /* Search.storyboard */; };
+		B9244D8822375F6000C14F54 /* User.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B9244D8722375F6000C14F54 /* User.storyboard */; };
+		B9244D8A22375F7B00C14F54 /* More.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B9244D8922375F7B00C14F54 /* More.storyboard */; };
 		D246342D1BEBAFBF00CF605D /* FloatRatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D246342C1BEBAFBF00CF605D /* FloatRatingView.swift */; };
 		D24634331BEBC93300CF605D /* BeerProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D24634321BEBC93300CF605D /* BeerProfileVC.swift */; };
 		D2526D7B1BDA56C9003953F9 /* HomepageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2526D7A1BDA56C9003953F9 /* HomepageVC.swift */; };
-		D27892811C5A5C87003620D0 /* FeaturedDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = D27892801C5A5C87003620D0 /* FeaturedDAO.swift */; };
 		D28691DE1C3D5DD300A1BCE4 /* MVCarouselPageControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28691DD1C3D5DD300A1BCE4 /* MVCarouselPageControl.swift */; };
 		D2D88DA11BFB95B6002C8EF5 /* UserFBUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2D88DA01BFB95B6002C8EF5 /* UserFBUtil.swift */; };
 /* End PBXBuildFile section */
@@ -156,8 +123,6 @@
 		6333567C1BED151000A71155 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		6333567E1BED154C00A71155 /* UserProfileVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserProfileVC.swift; sourceTree = "<group>"; };
 		63710E241C07D6F000E0794A /* FacebookChekinVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FacebookChekinVC.swift; sourceTree = "<group>"; };
-		63D37B3D1C43CFC00040CC52 /* ReviewServices.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReviewServices.swift; sourceTree = "<group>"; };
-		63D37B411C43D0E50040CC52 /* ReviewDAO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReviewDAO.swift; sourceTree = "<group>"; };
 		63D37B431C43D1E00040CC52 /* Review.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Review.swift; sourceTree = "<group>"; };
 		63E504B41C45490200671168 /* ReviewVCCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReviewVCCell.swift; sourceTree = "<group>"; };
 		63F668AB1BD9165800172050 /* ChallengeVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ChallengeVC.swift; path = WeHeartBeer/ChallengeVC.swift; sourceTree = "<group>"; };
@@ -170,28 +135,19 @@
 		672C62F81BEA5E7200E667C8 /* BreweryVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BreweryVC.swift; path = WeHeartBeer/BreweryVC.swift; sourceTree = "<group>"; };
 		672C62FA1BEAD2F700E667C8 /* BreweryVCCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BreweryVCCell.swift; path = ../BreweryVCCell.swift; sourceTree = "<group>"; };
 		672C77901C74EAC900791668 /* LoginController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
-		673504301C501E0500D7A8A6 /* FriendsDAO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendsDAO.swift; sourceTree = "<group>"; };
 		673504321C501EF100D7A8A6 /* Friends.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Friends.swift; sourceTree = "<group>"; };
-		673504341C502A9C00D7A8A6 /* FriendsServices.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendsServices.swift; sourceTree = "<group>"; };
 		6739E6E61C591369009644B3 /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
 		674127931C189F0200016D52 /* CountriesSearch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CountriesSearch.swift; path = WeHeartBeer/CountriesSearch.swift; sourceTree = "<group>"; };
 		674127971C18A20700016D52 /* CountryCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountryCell.swift; sourceTree = "<group>"; };
 		674651891C4D290500C464F3 /* UserFriendAddTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserFriendAddTableViewController.swift; path = WeHeartBeer/UserFriendAddTableViewController.swift; sourceTree = "<group>"; };
 		6746518B1C4D295E00C464F3 /* FriendProfileVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendProfileVC.swift; sourceTree = "<group>"; };
-		676250731BF1759300F3BB0D /* BreweryDAO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BreweryDAO.swift; sourceTree = "<group>"; };
-		676250761BF373AF00F3BB0D /* UserDAO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDAO.swift; sourceTree = "<group>"; };
-		676250781BF3757300F3BB0D /* UserValidation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserValidation.swift; sourceTree = "<group>"; };
 		6762507A1BF3775500F3BB0D /* Header-WeHeartBeer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Header-WeHeartBeer.h"; sourceTree = "<group>"; };
 		677924AF1BF6B9F700B8092B /* SearchVCCellTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SearchVCCellTableViewCell.swift; path = ../SearchVCCellTableViewCell.swift; sourceTree = "<group>"; };
 		677924B11BFA064600B8092B /* RegisterBeerVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterBeerVC.swift; sourceTree = "<group>"; };
 		6793D0081C5A3D65009D9CBD /* UIViewController+Actions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Actions.swift"; sourceTree = "<group>"; };
-		679D99961C612FEB001163AD /* ChallengeDAO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChallengeDAO.swift; sourceTree = "<group>"; };
 		67B50AB31C0F0D010032CCCD /* SearchBreweryVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchBreweryVC.swift; sourceTree = "<group>"; };
 		67DF669A1C63C708001C6FAC /* HomeCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeCollectionViewCell.swift; sourceTree = "<group>"; };
 		67DF669E1C66531D001C6FAC /* ReviewFromBeerTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReviewFromBeerTableViewCell.swift; sourceTree = "<group>"; };
-		67E8776A1C532C100065B8E8 /* FacebookDAO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FacebookDAO.swift; sourceTree = "<group>"; };
-		67E8776C1C567AA60065B8E8 /* ImageServices.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageServices.swift; sourceTree = "<group>"; };
-		67E8776E1C567ABA0065B8E8 /* ImageDAO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageDAO.swift; sourceTree = "<group>"; };
 		67EBCCE01C4D1F0700073A08 /* HeaderSectionFriends.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HeaderSectionFriends.xib; sourceTree = "<group>"; };
 		67F48F171C6D40DA00B68C99 /* FriendsFromMyFriends.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendsFromMyFriends.swift; sourceTree = "<group>"; };
 		67F48F191C6D428800B68C99 /* FrinMyFrinCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FrinMyFrinCell.swift; sourceTree = "<group>"; };
@@ -200,25 +156,6 @@
 		67F48F211C6DF47800B68C99 /* UserAppFriends.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserAppFriends.swift; sourceTree = "<group>"; };
 		67FB0C111C0F6C8700122314 /* SearchTVCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchTVCell.swift; sourceTree = "<group>"; };
 		67FB0C131C11D31500122314 /* AddBreweryVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddBreweryVC.swift; sourceTree = "<group>"; };
-		8502AE631BEA66CB00C54142 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
-		8502AE641BEA66CC00C54142 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
-		8502AE651BEA66CC00C54142 /* ParseCrashReporting.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseCrashReporting.framework; sourceTree = "<group>"; };
-		8502AE661BEA66CC00C54142 /* ParseFacebookUtils.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseFacebookUtils.framework; sourceTree = "<group>"; };
-		8502AE671BEA66CC00C54142 /* ParseFacebookUtilsV4.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseFacebookUtilsV4.framework; sourceTree = "<group>"; };
-		8502AE681BEA66CC00C54142 /* ParseTwitterUtils.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseTwitterUtils.framework; sourceTree = "<group>"; };
-		8502AE691BEA66CC00C54142 /* ParseUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseUI.framework; sourceTree = "<group>"; };
-		8502AE711BEA670200C54142 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
-		8502AE731BEA670C00C54142 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
-		8502AE751BEA671F00C54142 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		8502AE771BEA672700C54142 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
-		8502AE791BEA673000C54142 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
-		8502AE7B1BEA673700C54142 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
-		8502AE7D1BEA674300C54142 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
-		8502AE7F1BEA674C00C54142 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
-		8502AE811BEA675800C54142 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
-		8502AE831BEA676400C54142 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
-		8502AE851BEA676C00C54142 /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
-		8502AE871BEA677800C54142 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		8518D1451BD7B7BD00499ACA /* BeerLove.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BeerLove.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8518D1481BD7B7BD00499ACA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8518D14A1BD7B7BD00499ACA /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -260,29 +197,25 @@
 		854542EB1C105F1900AC2A0B /* ReviewVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReviewVC.swift; sourceTree = "<group>"; };
 		854AAC8D1BEB8CCE002F405B /* SearchVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchVC.swift; sourceTree = "<group>"; };
 		854AAC8F1BEB8FAA002F405B /* ResultsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultsTableViewCell.swift; sourceTree = "<group>"; };
-		854AAF441BECEE18002F405B /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
-		854AAF451BECEE18002F405B /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
-		854AAF461BECEE18002F405B /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKShareKit.framework; sourceTree = "<group>"; };
 		854AAF4A1BED1431002F405B /* Beer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Beer.swift; sourceTree = "<group>"; };
-		854AAF4E1BF0BE8F002F405B /* BeerServices.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeerServices.swift; sourceTree = "<group>"; };
-		854AAF501BF0BEAE002F405B /* BreweryServices.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BreweryServices.swift; sourceTree = "<group>"; };
-		854AAF521BF0BECE002F405B /* UserServices.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserServices.swift; sourceTree = "<group>"; };
 		854AAF541BF0BEDF002F405B /* Brewery.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Brewery.swift; sourceTree = "<group>"; };
-		858A7E201BF4AD050070E844 /* BeerDAO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeerDAO.swift; sourceTree = "<group>"; };
 		858A7E221BFDF6190070E844 /* AddBeer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddBeer.swift; sourceTree = "<group>"; };
 		85C9957B1C45230900EBEEBF /* MoreVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoreVC.swift; sourceTree = "<group>"; };
 		85C9957D1C45239400EBEEBF /* ConfigVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigVC.swift; sourceTree = "<group>"; };
 		85C9957F1C45241A00EBEEBF /* GuidesVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GuidesVC.swift; sourceTree = "<group>"; };
-		85F0AFB51C753FCD004839E1 /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = SOURCE_ROOT; };
-		85F0AFB61C753FCD004839E1 /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = SOURCE_ROOT; };
 		85FC93791C190B9400CF59C7 /* UserBeersVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserBeersVC.swift; sourceTree = "<group>"; };
 		85FC937B1C190BA500CF59C7 /* UserPlacesVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserPlacesVC.swift; sourceTree = "<group>"; };
 		85FC937D1C190BCE00CF59C7 /* UserTrophiesVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserTrophiesVC.swift; sourceTree = "<group>"; };
 		85FC937F1C190BE900CF59C7 /* UserFriendsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserFriendsVC.swift; sourceTree = "<group>"; };
+		B9244D7E2237509100C14F54 /* UIColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
+		B9244D8022375C7200C14F54 /* TabBar.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TabBar.storyboard; sourceTree = "<group>"; };
+		B9244D8222375E3100C14F54 /* Homepage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Homepage.storyboard; sourceTree = "<group>"; };
+		B9244D8522375F2000C14F54 /* Search.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Search.storyboard; sourceTree = "<group>"; };
+		B9244D8722375F6000C14F54 /* User.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = User.storyboard; sourceTree = "<group>"; };
+		B9244D8922375F7B00C14F54 /* More.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = More.storyboard; sourceTree = "<group>"; };
 		D246342C1BEBAFBF00CF605D /* FloatRatingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FloatRatingView.swift; sourceTree = "<group>"; };
 		D24634321BEBC93300CF605D /* BeerProfileVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeerProfileVC.swift; sourceTree = "<group>"; };
 		D2526D7A1BDA56C9003953F9 /* HomepageVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HomepageVC.swift; path = WeHeartBeer/HomepageVC.swift; sourceTree = "<group>"; };
-		D27892801C5A5C87003620D0 /* FeaturedDAO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeaturedDAO.swift; sourceTree = "<group>"; };
 		D28691DD1C3D5DD300A1BCE4 /* MVCarouselPageControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MVCarouselPageControl.swift; sourceTree = "<group>"; };
 		D2D88DA01BFB95B6002C8EF5 /* UserFBUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserFBUtil.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -292,29 +225,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8502AE881BEA677800C54142 /* Social.framework in Frameworks */,
-				8502AE861BEA676C00C54142 /* Accounts.framework in Frameworks */,
-				8502AE841BEA676400C54142 /* libsqlite3.tbd in Frameworks */,
-				8502AE821BEA675800C54142 /* libz.tbd in Frameworks */,
-				85F0AFB81C753FCD004839E1 /* Crashlytics.framework in Frameworks */,
-				8502AE801BEA674C00C54142 /* SystemConfiguration.framework in Frameworks */,
-				854AAF471BECEE18002F405B /* FBSDKCoreKit.framework in Frameworks */,
-				854AAF491BECEE18002F405B /* FBSDKShareKit.framework in Frameworks */,
-				8502AE7E1BEA674300C54142 /* StoreKit.framework in Frameworks */,
-				8502AE7C1BEA673700C54142 /* Security.framework in Frameworks */,
-				8502AE7A1BEA673000C54142 /* QuartzCore.framework in Frameworks */,
-				8502AE781BEA672700C54142 /* CoreLocation.framework in Frameworks */,
-				8502AE761BEA671F00C54142 /* CoreGraphics.framework in Frameworks */,
-				854AAF481BECEE18002F405B /* FBSDKLoginKit.framework in Frameworks */,
-				8502AE741BEA670C00C54142 /* CFNetwork.framework in Frameworks */,
-				8502AE721BEA670200C54142 /* AudioToolbox.framework in Frameworks */,
-				8502AE6B1BEA66CC00C54142 /* Parse.framework in Frameworks */,
-				8502AE6C1BEA66CC00C54142 /* ParseCrashReporting.framework in Frameworks */,
-				8502AE701BEA66CC00C54142 /* ParseUI.framework in Frameworks */,
-				8502AE6A1BEA66CC00C54142 /* Bolts.framework in Frameworks */,
-				8502AE6F1BEA66CC00C54142 /* ParseTwitterUtils.framework in Frameworks */,
-				8502AE6E1BEA66CC00C54142 /* ParseFacebookUtilsV4.framework in Frameworks */,
-				85F0AFB71C753FCD004839E1 /* Fabric.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -338,6 +248,7 @@
 		63F668AA1BD915F400172050 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				D2526D7A1BDA56C9003953F9 /* HomepageVC.swift */,
 				674651891C4D290500C464F3 /* UserFriendAddTableViewController.swift */,
 				674127931C189F0200016D52 /* CountriesSearch.swift */,
 				D28691DD1C3D5DD300A1BCE4 /* MVCarouselPageControl.swift */,
@@ -345,7 +256,6 @@
 				85C9957F1C45241A00EBEEBF /* GuidesVC.swift */,
 				854542EB1C105F1900AC2A0B /* ReviewVC.swift */,
 				6701DE081C4686AC00F25FC2 /* User */,
-				D2526D7A1BDA56C9003953F9 /* HomepageVC.swift */,
 				D24634321BEBC93300CF605D /* BeerProfileVC.swift */,
 				672C62F81BEA5E7200E667C8 /* BreweryVC.swift */,
 				85C9957D1C45239400EBEEBF /* ConfigVC.swift */,
@@ -379,22 +289,6 @@
 			name = User;
 			sourceTree = "<group>";
 		};
-		676250751BF3737E00F3BB0D /* DAO */ = {
-			isa = PBXGroup;
-			children = (
-				676250731BF1759300F3BB0D /* BreweryDAO.swift */,
-				676250761BF373AF00F3BB0D /* UserDAO.swift */,
-				858A7E201BF4AD050070E844 /* BeerDAO.swift */,
-				D27892801C5A5C87003620D0 /* FeaturedDAO.swift */,
-				63D37B411C43D0E50040CC52 /* ReviewDAO.swift */,
-				673504301C501E0500D7A8A6 /* FriendsDAO.swift */,
-				67E8776A1C532C100065B8E8 /* FacebookDAO.swift */,
-				67E8776E1C567ABA0065B8E8 /* ImageDAO.swift */,
-				679D99961C612FEB001163AD /* ChallengeDAO.swift */,
-			);
-			name = DAO;
-			sourceTree = "<group>";
-		};
 		67E877701C568E420065B8E8 /* FriendProfile */ = {
 			isa = PBXGroup;
 			children = (
@@ -403,20 +297,6 @@
 				67F48F171C6D40DA00B68C99 /* FriendsFromMyFriends.swift */,
 			);
 			name = FriendProfile;
-			sourceTree = "<group>";
-		};
-		8502AE621BEA66CB00C54142 /* parse-library-1.9.1 */ = {
-			isa = PBXGroup;
-			children = (
-				8502AE631BEA66CB00C54142 /* Bolts.framework */,
-				8502AE641BEA66CC00C54142 /* Parse.framework */,
-				8502AE651BEA66CC00C54142 /* ParseCrashReporting.framework */,
-				8502AE661BEA66CC00C54142 /* ParseFacebookUtils.framework */,
-				8502AE671BEA66CC00C54142 /* ParseFacebookUtilsV4.framework */,
-				8502AE681BEA66CC00C54142 /* ParseTwitterUtils.framework */,
-				8502AE691BEA66CC00C54142 /* ParseUI.framework */,
-			);
-			path = "parse-library-1.9.1";
 			sourceTree = "<group>";
 		};
 		8518D13C1BD7B7BC00499ACA = {
@@ -443,9 +323,9 @@
 		8518D1471BD7B7BD00499ACA /* WeHeartBeer */ = {
 			isa = PBXGroup;
 			children = (
+				B9244D8422375EA000C14F54 /* Storyboard */,
 				8520EAD51C57A3DD003CD9AD /* fonts */,
 				D2D88D9F1BFB95A0002C8EF5 /* Util */,
-				D286638B1BE07D9B002CE6F2 /* Frameworks */,
 				D28663891BE07D31002CE6F2 /* Model */,
 				D286638A1BE07D3E002CE6F2 /* View */,
 				63F668AA1BD915F400172050 /* Controllers */,
@@ -532,24 +412,23 @@
 			children = (
 				6739E6E61C591369009644B3 /* Reachability.swift */,
 				853771721C67BF9E0054B7FB /* tintBar.swift */,
-				676250751BF3737E00F3BB0D /* DAO */,
-				D25499C21BF1769300D38C88 /* Parse Services */,
 			);
 			name = Services;
 			sourceTree = "<group>";
 		};
-		D25499C21BF1769300D38C88 /* Parse Services */ = {
+		B9244D8422375EA000C14F54 /* Storyboard */ = {
 			isa = PBXGroup;
 			children = (
-				63D37B3D1C43CFC00040CC52 /* ReviewServices.swift */,
-				67E8776C1C567AA60065B8E8 /* ImageServices.swift */,
-				854AAF4E1BF0BE8F002F405B /* BeerServices.swift */,
-				854AAF501BF0BEAE002F405B /* BreweryServices.swift */,
-				673504341C502A9C00D7A8A6 /* FriendsServices.swift */,
-				854AAF521BF0BECE002F405B /* UserServices.swift */,
-				676250781BF3757300F3BB0D /* UserValidation.swift */,
+				8518D14C1BD7B7BD00499ACA /* Main.storyboard */,
+				B9244D8222375E3100C14F54 /* Homepage.storyboard */,
+				67EBCCE01C4D1F0700073A08 /* HeaderSectionFriends.xib */,
+				8518D1541BD7B7BD00499ACA /* LaunchScreen.storyboard */,
+				B9244D8022375C7200C14F54 /* TabBar.storyboard */,
+				B9244D8522375F2000C14F54 /* Search.storyboard */,
+				B9244D8722375F6000C14F54 /* User.storyboard */,
+				B9244D8922375F7B00C14F54 /* More.storyboard */,
 			);
-			name = "Parse Services";
+			name = Storyboard;
 			sourceTree = "<group>";
 		};
 		D28663891BE07D31002CE6F2 /* Model */ = {
@@ -565,11 +444,6 @@
 		D286638A1BE07D3E002CE6F2 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				85F0AFB51C753FCD004839E1 /* Fabric.framework */,
-				85F0AFB61C753FCD004839E1 /* Crashlytics.framework */,
-				8518D14C1BD7B7BD00499ACA /* Main.storyboard */,
-				67EBCCE01C4D1F0700073A08 /* HeaderSectionFriends.xib */,
-				8518D1541BD7B7BD00499ACA /* LaunchScreen.storyboard */,
 				674127971C18A20700016D52 /* CountryCell.swift */,
 				67DF669E1C66531D001C6FAC /* ReviewFromBeerTableViewCell.swift */,
 				67F48F191C6D428800B68C99 /* FrinMyFrinCell.swift */,
@@ -588,33 +462,11 @@
 			name = View;
 			sourceTree = "<group>";
 		};
-		D286638B1BE07D9B002CE6F2 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				854AAF441BECEE18002F405B /* FBSDKCoreKit.framework */,
-				854AAF451BECEE18002F405B /* FBSDKLoginKit.framework */,
-				854AAF461BECEE18002F405B /* FBSDKShareKit.framework */,
-				8502AE871BEA677800C54142 /* Social.framework */,
-				8502AE851BEA676C00C54142 /* Accounts.framework */,
-				8502AE831BEA676400C54142 /* libsqlite3.tbd */,
-				8502AE811BEA675800C54142 /* libz.tbd */,
-				8502AE7F1BEA674C00C54142 /* SystemConfiguration.framework */,
-				8502AE7D1BEA674300C54142 /* StoreKit.framework */,
-				8502AE7B1BEA673700C54142 /* Security.framework */,
-				8502AE791BEA673000C54142 /* QuartzCore.framework */,
-				8502AE771BEA672700C54142 /* CoreLocation.framework */,
-				8502AE751BEA671F00C54142 /* CoreGraphics.framework */,
-				8502AE731BEA670C00C54142 /* CFNetwork.framework */,
-				8502AE711BEA670200C54142 /* AudioToolbox.framework */,
-				8502AE621BEA66CB00C54142 /* parse-library-1.9.1 */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 		D2D88D9F1BFB95A0002C8EF5 /* Util */ = {
 			isa = PBXGroup;
 			children = (
 				D2D88DA01BFB95B6002C8EF5 /* UserFBUtil.swift */,
+				B9244D7E2237509100C14F54 /* UIColorExtension.swift */,
 			);
 			name = Util;
 			sourceTree = "<group>";
@@ -682,7 +534,7 @@
 		8518D13D1BD7B7BC00499ACA /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0700;
+				LastUpgradeCheck = 1010;
 				ORGANIZATIONNAME = "Fernando H M Bastos";
 				TargetAttributes = {
 					8518D1441BD7B7BD00499ACA = {
@@ -699,7 +551,7 @@
 				};
 			};
 			buildConfigurationList = 8518D1401BD7B7BC00499ACA /* Build configuration list for PBXProject "BeerLove" */;
-			compatibilityVersion = "Xcode 3.2";
+			compatibilityVersion = "Xcode 10.0";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -728,16 +580,21 @@
 				8520EAF01C57A43A003CD9AD /* Lato-Light.ttf in Resources */,
 				8518D1561BD7B7BD00499ACA /* LaunchScreen.storyboard in Resources */,
 				8520EAF91C57A71B003CD9AD /* Lato-Italic.ttf in Resources */,
+				B9244D8122375C7200C14F54 /* TabBar.storyboard in Resources */,
 				8520EAED1C57A431003CD9AD /* Lato-HairlineItalic.ttf in Resources */,
 				8518D1531BD7B7BD00499ACA /* Assets.xcassets in Resources */,
 				8520EAF31C57A444003CD9AD /* Lato-MediumItalic.ttf in Resources */,
 				8520EAF61C57A44C003CD9AD /* Lato-SemiboldItalic.ttf in Resources */,
 				8520EAEF1C57A437003CD9AD /* Lato-HeavyItalic.ttf in Resources */,
+				B9244D8822375F6000C14F54 /* User.storyboard in Resources */,
 				8520EAEB1C57A42A003CD9AD /* Lato-BoldItalic.ttf in Resources */,
 				8520EAE91C57A425003CD9AD /* Lato-BlackItalic.ttf in Resources */,
 				8520EAEC1C57A42E003CD9AD /* Lato-Hairline.ttf in Resources */,
+				B9244D8622375F2000C14F54 /* Search.storyboard in Resources */,
 				67EBCCE11C4D1F0700073A08 /* HeaderSectionFriends.xib in Resources */,
 				8520EAF51C57A449003CD9AD /* Lato-Semibold.ttf in Resources */,
+				B9244D8322375E3100C14F54 /* Homepage.storyboard in Resources */,
+				B9244D8A22375F7B00C14F54 /* More.storyboard in Resources */,
 				8520EAF21C57A441003CD9AD /* Lato-Medium.ttf in Resources */,
 				8520EAE81C57A421003CD9AD /* Lato-Black.ttf in Resources */,
 				8518D14E1BD7B7BD00499ACA /* Main.storyboard in Resources */,
@@ -776,7 +633,8 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "./Fabric.framework/run d6c80e5b0853e317d78b03802f45e8a106119d21 59c3f0a6899db4a5a54e906f2c6342d7077ac3eeca5e1b1b9974323ec6196c03";
+			shellScript = "
+";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -785,28 +643,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				67E8776F1C567ABA0065B8E8 /* ImageDAO.swift in Sources */,
 				85FC937A1C190B9400CF59C7 /* UserBeersVC.swift in Sources */,
-				676250791BF3757300F3BB0D /* UserValidation.swift in Sources */,
 				63F668AC1BD9165800172050 /* ChallengeVC.swift in Sources */,
-				D27892811C5A5C87003620D0 /* FeaturedDAO.swift in Sources */,
 				67F48F1C1C6D720D00B68C99 /* ReviewBeerFriendViewController.swift in Sources */,
 				85FC93801C190BE900CF59C7 /* UserFriendsVC.swift in Sources */,
 				6701DE0A1C4686F600F25FC2 /* UserAddAppFriendsVC.swift in Sources */,
-				858A7E211BF4AD050070E844 /* BeerDAO.swift in Sources */,
 				63710E251C07D6F000E0794A /* FacebookChekinVC.swift in Sources */,
 				674127981C18A20700016D52 /* CountryCell.swift in Sources */,
 				67FB0C141C11D31500122314 /* AddBreweryVC.swift in Sources */,
 				677924B21BFA064600B8092B /* RegisterBeerVC.swift in Sources */,
 				853771731C67BF9F0054B7FB /* tintBar.swift in Sources */,
 				67F48F1E1C6D7CC400B68C99 /* ReviewFriendVCCell.swift in Sources */,
-				854AAF4F1BF0BE8F002F405B /* BeerServices.swift in Sources */,
 				8518D1511BD7B7BD00499ACA /* WeHeartBeer.xcdatamodeld in Sources */,
 				6746518C1C4D295E00C464F3 /* FriendProfileVC.swift in Sources */,
 				853771751C6BC5C20054B7FB /* NavConfigVC.swift in Sources */,
 				672C62F91BEA5E7200E667C8 /* BreweryVC.swift in Sources */,
 				D28691DE1C3D5DD300A1BCE4 /* MVCarouselPageControl.swift in Sources */,
-				673504311C501E0500D7A8A6 /* FriendsDAO.swift in Sources */,
 				674127941C189F0200016D52 /* CountriesSearch.swift in Sources */,
 				854AAC901BEB8FAA002F405B /* ResultsTableViewCell.swift in Sources */,
 				854AAF4B1BED1431002F405B /* Beer.swift in Sources */,
@@ -816,10 +668,8 @@
 				63E504B51C45490200671168 /* ReviewVCCell.swift in Sources */,
 				8518D14B1BD7B7BD00499ACA /* ViewController.swift in Sources */,
 				854AAF551BF0BEDF002F405B /* Brewery.swift in Sources */,
-				67E8776B1C532C100065B8E8 /* FacebookDAO.swift in Sources */,
 				63D37B441C43D1E00040CC52 /* Review.swift in Sources */,
 				67F48F221C6DF47800B68C99 /* UserAppFriends.swift in Sources */,
-				63D37B421C43D0E50040CC52 /* ReviewDAO.swift in Sources */,
 				6333567D1BED151000A71155 /* User.swift in Sources */,
 				85C9957C1C45230900EBEEBF /* MoreVC.swift in Sources */,
 				D24634331BEBC93300CF605D /* BeerProfileVC.swift in Sources */,
@@ -837,32 +687,25 @@
 				D246342D1BEBAFBF00CF605D /* FloatRatingView.swift in Sources */,
 				6739E6E71C591369009644B3 /* Reachability.swift in Sources */,
 				67155D461C46E60000A63B06 /* FBUser.swift in Sources */,
-				679D99971C612FEB001163AD /* ChallengeDAO.swift in Sources */,
 				D2D88DA11BFB95B6002C8EF5 /* UserFBUtil.swift in Sources */,
 				D2526D7B1BDA56C9003953F9 /* HomepageVC.swift in Sources */,
 				672C77911C74EAC900791668 /* LoginController.swift in Sources */,
 				677924B01BF6B9F700B8092B /* SearchVCCellTableViewCell.swift in Sources */,
 				67F48F1A1C6D428900B68C99 /* FrinMyFrinCell.swift in Sources */,
 				6701DE0F1C46949600F25FC2 /* UserInviteCell.swift in Sources */,
+				B9244D7F2237509100C14F54 /* UIColorExtension.swift in Sources */,
 				6793D0091C5A3D65009D9CBD /* UIViewController+Actions.swift in Sources */,
 				854AAC8E1BEB8CCE002F405B /* SearchVC.swift in Sources */,
 				67FB0C121C0F6C8700122314 /* SearchTVCell.swift in Sources */,
 				85FC937C1C190BA500CF59C7 /* UserPlacesVC.swift in Sources */,
 				85FC937E1C190BCE00CF59C7 /* UserTrophiesVC.swift in Sources */,
-				854AAF511BF0BEAE002F405B /* BreweryServices.swift in Sources */,
 				63072E4F1C0C78DB00A96DCF /* TabBarVC.swift in Sources */,
-				63D37B3E1C43CFC00040CC52 /* ReviewServices.swift in Sources */,
 				8518D1491BD7B7BD00499ACA /* AppDelegate.swift in Sources */,
 				672C62FB1BEAD2F700E667C8 /* BreweryVCCell.swift in Sources */,
 				67F48F181C6D40DA00B68C99 /* FriendsFromMyFriends.swift in Sources */,
 				858A7E231BFDF6190070E844 /* AddBeer.swift in Sources */,
-				676250771BF373AF00F3BB0D /* UserDAO.swift in Sources */,
 				854542EC1C105F1900AC2A0B /* ReviewVC.swift in Sources */,
-				676250741BF1759300F3BB0D /* BreweryDAO.swift in Sources */,
-				854AAF531BF0BECE002F405B /* UserServices.swift in Sources */,
-				67E8776D1C567AA60065B8E8 /* ImageServices.swift in Sources */,
 				8529E59B1C467DFD00433054 /* MoreVCCell.swift in Sources */,
-				673504351C502A9C00D7A8A6 /* FriendsServices.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -925,13 +768,23 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -970,13 +823,23 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -996,6 +859,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -1013,11 +877,15 @@
 					"$(PROJECT_DIR)/WeHeartBeer",
 				);
 				INFOPLIST_FILE = WeHeartBeer/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = br.beerlove;
 				PRODUCT_NAME = BeerLove;
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "WeHeartBeer/Header-WeHeartBeer.h";
+				SWIFT_VERSION = 4.2;
 			};
 			name = Debug;
 		};
@@ -1034,11 +902,15 @@
 					"$(PROJECT_DIR)/WeHeartBeer",
 				);
 				INFOPLIST_FILE = WeHeartBeer/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = br.beerlove;
 				PRODUCT_NAME = BeerLove;
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "WeHeartBeer/Header-WeHeartBeer.h";
+				SWIFT_VERSION = 4.2;
 			};
 			name = Release;
 		};
@@ -1047,7 +919,11 @@
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = WeHeartBeerTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = bepid.WeHeartBeerTests;
 				PRODUCT_NAME = BeerLove;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BeerLove.app/BeerLove";
@@ -1059,7 +935,11 @@
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = WeHeartBeerTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = bepid.WeHeartBeerTests;
 				PRODUCT_NAME = BeerLove;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BeerLove.app/BeerLove";
@@ -1070,7 +950,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				INFOPLIST_FILE = WeHeartBeerUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = bepid.WeHeartBeerUITests;
 				PRODUCT_NAME = BeerLove;
 				TEST_TARGET_NAME = WeHeartBeer;
@@ -1082,7 +966,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				INFOPLIST_FILE = WeHeartBeerUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = bepid.WeHeartBeerUITests;
 				PRODUCT_NAME = BeerLove;
 				TEST_TARGET_NAME = WeHeartBeer;

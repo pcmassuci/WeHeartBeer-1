@@ -7,27 +7,16 @@
 //
 
 import Foundation
-import Parse
+import UIKit
 
-class User : PFUser {
-    
-    //My variables
-
-    @NSManaged var name: String
-    @NSManaged var birthDate: NSDate
-    @NSManaged var photo: PFFile
-    @NSManaged var mail: String
-    @NSManaged var faceID: String
-    @NSManaged var frieds: PFRelation!
-    
-    override class func initialize() {
-        var onceToken : dispatch_once_t = 0;
-        dispatch_once(&onceToken) {
-            self.registerSubclass()
-            
-        }
+struct User {
+     var name: String?
+     var birthDate: NSDate?
+     var photo: UIImage?
+     var mail: UIImage?
+     var faceID: String?
+    var friends:[User]?
     }
-    
-}
+
 
 

@@ -27,16 +27,14 @@ class ReviewVCCell: UITableViewCell {
         
         imageBeersFromUser.layer.borderWidth = 1
         imageBeersFromUser.layer.masksToBounds = false
-        imageBeersFromUser.layer.borderColor = UIColor.blackColor().CGColor
+        imageBeersFromUser.layer.borderColor = UIColor.black.cgColor
         imageBeersFromUser.clipsToBounds = true
         imageBeersFromUser.layer.cornerRadius = imageBeersFromUser.frame.height/2
 
         
     }
     
-    
-    
-    override func setSelected(selected: Bool, animated: Bool) {
+    func setSelected(selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
         
         // Configure the view for the selected state
